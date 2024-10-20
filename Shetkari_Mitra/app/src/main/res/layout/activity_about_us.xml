@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/gradient_background_list_detais"
+    android:layout_height="match_parent">
+
+    <!-- App Logo -->
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/app_logo" />
+
+    <!-- App Info -->
+    <TextView
+        android:id="@+id/app_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Snakebite Prevention App\nVersion 1.0\nDeveloped by: Your Name"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textColor="#000000"/>
+
+    <!-- Contact Us -->
+    <TextView
+        android:id="@+id/contact_us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_info"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Contact Us: your.email@example.com"
+        android:textSize="16sp"
+        android:textColor="#000000"/>
+
+</RelativeLayout>

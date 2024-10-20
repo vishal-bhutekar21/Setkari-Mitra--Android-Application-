@@ -1,0 +1,20 @@
+<resources>
+    <!-- Define a style for the navigation items -->
+    <style name="NavigationItemStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:background">@color/red</item>
+
+        <!-- Add more style attributes as needed -->
+    </style>
+    <style name="NavigationItemTextStyle">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <!-- Add more style attributes as needed -->
+    </style>
+    <style name="SectionTitleStyle">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:fontFamily">@font/medium_font</item>
+        <!-- Add more style attributes as needed -->
+    </style>
+</resources>

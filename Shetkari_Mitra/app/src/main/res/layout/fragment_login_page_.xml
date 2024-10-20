@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/red"
+            android:text="Log In page."/>
+
+
+        <EditText
+            android:id="@+id/TextEmailView"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/left_email_icon"
+            android:drawablePadding="@dimen/_8sdp"
+            android:background="@drawable/roundedtext"
+            android:padding="10dp"
+            android:inputType="textEmailAddress"
+            android:drawableTint="#775050"
+            android:hint="Enter Your Email"
+
+            />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:textStyle="bold"
+            android:id="@+id/passwordEditText"
+            android:inputType="text"
+            android:drawableStart="@drawable/left_pass_icon"
+            android:drawablePadding="@dimen/_8sdp"
+            android:drawableTint="#775050"
+            android:background="@drawable/roundedtext"
+            android:hint="Enter Password"
+            android:padding="10dp"
+            android:paddingLeft="@dimen/_20sdp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="16dp"
+        android:text="Sign In"/>
+
+</LinearLayout>

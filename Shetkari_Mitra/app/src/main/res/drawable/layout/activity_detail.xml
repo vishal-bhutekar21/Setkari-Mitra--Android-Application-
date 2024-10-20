@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/gradient_background_list_detais"
+
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/emergency_btn_scroll"
+        android:padding="@dimen/_16sdp"
+        android:clipToPadding="false"
+        android:clipChildren="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Snake Image -->
+            <ImageView
+                android:id="@+id/detailImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/p2"
+               />
+
+            <!-- Snake Title -->
+            <TextView
+                android:id="@+id/detailTitle"
+                android:fontFamily="@font/anton"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Snake Title"
+                android:textSize="@dimen/_24sdp"
+                android:textColor="#E81E63"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_12sdp"/>
+
+            <!-- About Snake Info -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="About the Snake"
+                android:fontFamily="@font/medium_font"
+                android:textStyle="bold"
+                android:textSize="@dimen/_18sdp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_8sdp"/>
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/detailDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description about the snake goes here."
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="@dimen/_16sdp"/>
+
+            <!-- Mainly Available Locations -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mainly Found in Locations"
+                android:textStyle="bold"
+                android:textSize="@dimen/_18sdp"
+                android:textColor="@color/black"                android:fontFamily="@font/medium_font"
+
+                android:layout_marginBottom="@dimen/_8sdp"/>
+
+            <!-- Locations Description -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description about the main locations where the snake is commonly found."
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="@dimen/_16sdp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/emergency_btn_scroll"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="EMERGENCY"
+        android:drawableStart="@drawable/call_logo"
+        android:drawablePadding="@dimen/_8sdp"
+        android:textColor="@color/white"
+        android:background="@color/red"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:textSize="@dimen/_18sdp"/>
+
+</RelativeLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/gradient_background_list_detais"
+    android:layout_height="match_parent">
+
+    <!-- Image for the page -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="@dimen/_300sdp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/snake_rescure"
+        android:layout_above="@+id/descriptionTextView"/>
+
+    <!-- Description for the page -->
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/medium_font"
+
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/_18sdp"
+        android:textColor="@android:color/background_dark"
+        android:text="Page Description"
+        android:gravity="center"
+        android:padding="@dimen/_20sdp"
+        />
+
+    <!-- Next, Prev, and Skip buttons -->
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_20sdp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/skipButton"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_height="wrap_content"
+            android:text="Skip"/>
+
+        <Button
+            android:id="@+id/prevButton"
+            android:layout_width="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_height="wrap_content"
+            android:text="Prev"/>
+
+        <Button
+            android:layout_marginRight="@dimen/_15sdp"
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_height="wrap_content"
+            android:text="Next"/>
+    </LinearLayout>
+
+</RelativeLayout>

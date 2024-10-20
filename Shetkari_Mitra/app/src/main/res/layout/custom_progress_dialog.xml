@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/backforprogressbar"
+
+    android:padding="16dp"
+    android:layout_gravity="center"
+    android:gravity="center">
+    <TextView
+        android:id="@+id/tvLoadingMessage"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_height="wrap_content"
+        android:text="LogIn Progress Please Wait.."
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_below="@id/tvLoadingMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="true"
+        android:paddingBottom="@dimen/_16sdp" />
+
+
+    <LinearLayout
+        android:layout_below="@id/progressBar"
+
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnretry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retry"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_button"
+            android:paddingStart="@dimen/_24sdp"
+            android:paddingEnd="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_8sdp"/>
+
+        <Button
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_button"
+            android:paddingStart="@dimen/_24sdp"
+            android:paddingEnd="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_8sdp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

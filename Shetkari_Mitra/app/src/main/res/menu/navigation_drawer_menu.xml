@@ -1,0 +1,49 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Section 1 -->
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_profile"
+            android:title="My Profile"
+           android:icon="@drawable/profile_icon"/>
+        <item
+            android:id="@+id/nav_contacts"
+            android:title="Contacts"
+            android:icon="@drawable/phone_call_icon" />
+        <item
+            android:id="@+id/nav_hos"
+            android:title="Hospitals on Map"
+            android:icon="@drawable/location_icon" />
+
+    </group>
+
+    <!-- Section 2 -->
+    <item android:title="Settings" >
+        <menu>
+            <item
+                android:id="@+id/nav_Admin"
+                android:title="Admin Login"
+                android:icon="@drawable/admin_logo"/>
+
+
+
+            <item
+                android:id="@+id/nav_logout"
+                android:title="LogOut"
+                android:icon="@drawable/logout_icon" />
+        </menu>
+    </item>
+
+    <!-- Section 3 -->
+    <item android:title="Share  ">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="share"
+                android:icon="@drawable/share_icon" />
+
+        </menu>
+    </item>
+
+</menu>

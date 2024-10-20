@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/gradient_background_list_detais"
+    android:layout_height="match_parent" >
+
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/red"
+            android:text="NEW ADMIN SIGNUP"/>
+
+
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="350dp"
+            android:textStyle="bold"
+            android:layout_height="40dp"
+            android:id="@+id/adminusernameEditText"
+            android:background="@drawable/roundedtext"
+            android:hint="Enter Name"
+            android:drawableStart="@drawable/left_user"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="10dp"
+            android:drawableTint="#775050"
+            android:textSize="19dp"
+            />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:textStyle="bold"
+            android:id="@+id/adminmobileNumberEditText"
+            android:inputType="phone"
+            android:background="@drawable/roundedtext"
+            android:hint="Enter Mobile Number"
+            android:drawableStart="@drawable/left_call_icon"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="10dp"
+            android:drawableTint="#775050"
+            />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:id="@+id/adminemailEditTextView"
+            android:background="@drawable/roundedtext"
+            android:hint="Enter Email"
+            android:inputType="textEmailAddress"
+            android:textStyle="bold"
+            android:drawableStart="@drawable/left_email_icon"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="10dp"
+            android:drawableTint="#775050"
+            />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:id="@+id/adminpasswordEditText"
+            android:background="@drawable/roundedtext"
+            android:hint="Enter Password."
+            android:textStyle="bold"
+            android:paddingLeft="@dimen/_20sdp"
+            android:drawableStart="@drawable/left_pass_icon"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="10dp"
+            android:drawableTint="#775050"
+            />
+
+
+        <Button
+            android:id="@+id/adminsignUpButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:background="@drawable/rounded_button"
+            android:text="Sign Up"/>
+
+
+    </LinearLayout>
+</ScrollView>

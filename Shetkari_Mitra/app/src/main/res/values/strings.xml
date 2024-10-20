@@ -1,0 +1,528 @@
+<resources>
+    <string name="app_name">Shetkari Mitra</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="marathi_text">शेतक-यांना समर्पित</string>
+    <string-array name="maharashtra_districts_array">
+        <item>Ahmednagar</item>
+        <item>Akola</item>
+        <item>Amravati</item>
+        <item>Chh Sambhajinagar</item>
+        <item>Beed</item>
+        <item>Bhandara</item>
+        <item>Buldhana</item>
+        <item>Chandrapur</item>
+        <item>Dhule</item>
+        <item>Gadchiroli</item>
+        <item>Gondia</item>
+        <item>Hingoli</item>
+        <item>Jalgaon</item>
+        <item>Jalna</item>
+        <item>Kolhapur</item>
+        <item>Latur</item>
+        <item>Mumbai City</item>
+        <item>Mumbai Suburban</item>
+        <item>Nagpur</item>
+        <item>Nanded</item>
+        <item>Nandurbar</item>
+        <item>Nashik</item>
+        <item>Osmanabad</item>
+        <item>Palghar</item>
+        <item>Parbhani</item>
+        <item>Pune</item>
+        <item>Raigad</item>
+        <item>Ratnagiri</item>
+        <item>Sangli</item>
+        <item>Satara</item>
+        <item>Sindhudurg</item>
+        <item>Solapur</item>
+        <item>Thane</item>
+        <item>Wardha</item>
+        <item>Washim</item>
+        <item>Yavatmal</item>
+    </string-array>
+
+    <string-array name="ahmednagar_talukas_array">
+        <item>Akole</item>
+        <item>Jamkhed</item>
+        <item>Karjat</item>
+        <item>Kopargaon</item>
+        <item>Nagar</item>
+        <item>Nevasa</item>
+        <item>Parner</item>
+        <item>Pathardi</item>
+        <item>Rahta</item>
+        <item>Rahuri</item>
+        <item>Sangamner</item>
+        <item>Shevgaon</item>
+        <item>Shrigonda</item>
+        <item>Shrirampur</item>
+    </string-array>
+    <string-array name="akola_talukas_array">
+        <item>Akola</item>
+        <item>Akot</item>
+        <item>Balapur</item>
+        <item>Barshitakli</item>
+        <item>Murtijapur</item>
+        <item>Patur</item>
+        <item>Telhara</item>
+    </string-array>
+
+    <string-array name="amravati_talukas_array">
+        <item>Achalpur</item>
+        <item>Amravati</item>
+        <item>Anjangaon Surji</item>
+        <item>Bhatkuli</item>
+        <item>Chandurbazar</item>
+        <item>Chandur Railway</item>
+        <item>Chikhaldara</item>
+        <item>Daryapur</item>
+        <item>Dhamangaon Railway</item>
+        <item>Dharni</item>
+        <item>Morshi</item>
+        <item>Nandgaon-Khandeshwar</item>
+        <item>Tiosa</item>
+        <item>Warud</item>
+    </string-array>
+    <string-array name="sambhajinagar_taluka_array">
+        <item>Aurangabad</item>
+        <item>Gangapur</item>
+        <item>Kannad</item>
+        <item>Khuldabad</item>
+        <item>Paithan</item>
+        <item>Phulambri</item>
+        <item>Sillod</item>
+        <item>Soegaon</item>
+        <item>Vaijapur</item>
+    </string-array>
+
+    <string-array name="beed_talukas_array">
+        <item>Ambejogai</item>
+        <item>Ashti</item>
+        <item>Beed</item>
+        <item>Dharur</item>
+        <item>Georai</item>
+        <item>Kaij</item>
+        <item>Majalgaon</item>
+        <item>Parli</item>
+        <item>Patoda</item>
+        <item>Shirur (Kasar)</item>
+        <item>Wadwani</item>
+    </string-array>
+
+
+    <string-array name="bhandara_talukas_array">
+        <item>Bhandara</item>
+        <item>Lakhandur</item>
+        <item>Lakhani</item>
+        <item>Mohadi</item>
+        <item>Pauni</item>
+        <item>Sakoli</item>
+        <item>Tumsar</item>
+    </string-array>
+    <string-array name="buldhana_talukas_array">
+        <item>Buldana</item>
+        <item>Chikhli</item>
+        <item>Deolgaon Raja</item>
+        <item>Jalgaon (Jamod)</item>
+        <item>Khamgaon</item>
+        <item>Lonar</item>
+        <item>Malkapur</item>
+        <item>Mehkar</item>
+        <item>Motala</item>
+        <item>Nandura</item>
+        <item>Sangrampur</item>
+        <item>Shegaon</item>
+        <item>Sindkhed Raja</item>
+    </string-array>
+
+    <string-array name="chandrapur_talukas_array">
+        <item>Ballarpur</item>
+        <item>Bhadravati</item>
+        <item>Brahmapuri</item>
+        <item>Chandrapur</item>
+        <item>Chimur</item>
+        <item>Gondpipri</item>
+        <item>Jiwati</item>
+        <item>Korpana</item>
+        <item>Mul</item>
+        <item>Nagbhid</item>
+        <item>Pombhurna</item>
+        <item>Rajura</item>
+        <item>Sawali</item>
+        <item>Sindewahi</item>
+        <item>Warora</item>
+    </string-array>
+
+    <string-array name="dhule_talukas_array">
+        <item>Dhule</item>
+        <item>Sakri</item>
+        <item>Shirpur</item>
+        <item>Sindkhede</item>
+    </string-array>
+
+    <string-array name="gadchiroli_talukas_array">
+        <item>Aheri</item>
+        <item>Armori</item>
+        <item>Bhamragad</item>
+        <item>Chamorshi</item>
+        <item>Desaiganj (Vadasa)</item>
+        <item>Dhanora</item>
+        <item>Etapalli</item>
+        <item>Gadchiroli</item>
+        <item>Korchi</item>
+        <item>Kurkheda</item>
+        <item>Mulchera</item>
+        <item>Sironcha</item>
+    </string-array>
+    <string-array name="gondiya_talukas_array">
+        <item>Amgaon</item>
+        <item>Arjuni Morgaon</item>
+        <item>Deori</item>
+        <item>Gondiya</item>
+        <item>Goregaon</item>
+        <item>Sadak-Arjuni</item>
+        <item>Salekasa</item>
+        <item>Tirora</item>
+    </string-array>
+
+    <string-array name="hingoli_talukas_array">
+        <item>Aundha (Nagnath)</item>
+        <item>Hingoli</item>
+        <item>Kalamnuri</item>
+        <item>Sengaon</item>
+        <item>Vasmath</item>
+    </string-array>
+    <string-array name="jalgaon_talukas_array">
+        <item>Amalner</item>
+        <item>Bhadgaon</item>
+        <item>Bhusawal</item>
+        <item>Bodvad</item>
+        <item>Chalisgaon</item>
+        <item>Chopda</item>
+        <item>Dharangaon</item>
+        <item>Erandol</item>
+        <item>Jalgaon</item>
+        <item>Jamner</item>
+        <item>Muktainagar (Edlabad)</item>
+        <item>Pachora</item>
+        <item>Parola</item>
+        <item>Raver</item>
+        <item>Yawal</item>
+    </string-array>
+
+
+    <string-array name="jalna_talukas_array">
+        <item>Ambad</item>
+        <item>Badnapur</item>
+        <item>Bhokardan</item>
+        <item>Ghansawangi</item>
+        <item>Jafrabad</item>
+        <item>Jalna</item>
+        <item>Mantha</item>
+        <item>Partur</item>
+    </string-array>
+
+    <string-array name="kolhapur_talukas_array">
+        <item>Ajra</item>
+        <item>Bhudargad</item>
+        <item>Chandgad</item>
+        <item>Gadhinglaj</item>
+        <item>Gaganbawada</item>
+        <item>Hatkanangle</item>
+        <item>Kagal</item>
+        <item>Karvir</item>
+        <item>Panhala</item>
+        <item>Radhanagari</item>
+        <item>Shahuwadi</item>
+        <item>Shirol</item>
+    </string-array>
+
+    <string-array name="latur_talukas_array">
+        <item>Ahmadpur</item>
+        <item>Ausa</item>
+        <item>Chakur</item>
+        <item>Deoni</item>
+        <item>Jalkot</item>
+        <item>Latur</item>
+        <item>Nilanga</item>
+        <item>Renapur</item>
+        <item>Shirur Anantpal</item>
+        <item>Udgir</item>
+    </string-array>
+    <string-array name="mumbai_talukas_array">
+        <item>Andheri</item>
+        <item>Borivali</item>
+        <item>Kurla</item>
+    </string-array>
+
+    <string-array name="nagpur_talukas_array">
+        <item>Bhiwapur</item>
+        <item>Hingna</item>
+        <item>Kalameshwar</item>
+        <item>Kamptee</item>
+        <item>Katol</item>
+        <item>Kuhi</item>
+        <item>Mauda</item>
+        <item>Nagpur (Rural)</item>
+        <item>Nagpur (Urban)</item>
+        <item>Narkhed</item>
+        <item>Parseoni</item>
+        <item>Ramtek</item>
+        <item>Savner</item>
+        <item>Umred</item>
+    </string-array>
+
+    <string-array name="nanded_talukas_array">
+        <item>Ardhapur</item>
+        <item>Bhokar</item>
+        <item>Biloli</item>
+        <item>Deglur</item>
+        <item>Dharmabad</item>
+        <item>Hadgaon</item>
+        <item>Himayatnagar</item>
+        <item>Kandhar</item>
+        <item>Kinwat</item>
+        <item>Loha</item>
+        <item>Mahur</item>
+        <item>Mudkhed</item>
+        <item>Mukhed</item>
+        <item>Naigaon (Khairgaon)</item>
+        <item>Nanded</item>
+        <item>Umri</item>
+    </string-array>
+    <string-array name="nandurbar_talukas_array">
+        <item>Akkalkuwa</item>
+        <item>Akrani</item>
+        <item>Nandurbar</item>
+        <item>Nawapur</item>
+        <item>Shahade</item>
+        <item>Talode</item>
+    </string-array>
+
+    <string-array name="nashik_talukas_array">
+        <item>Baglan</item>
+        <item>Chandvad</item>
+        <item>Deola</item>
+        <item>Dindori</item>
+        <item>Igatpuri</item>
+        <item>Kalwan</item>
+        <item>Malegaon</item>
+        <item>Nandgaon</item>
+        <item>Nashik</item>
+        <item>Niphad</item>
+        <item>Peth</item>
+        <item>Sinnar</item>
+        <item>Surgana</item>
+        <item>Trimbakeshwar</item>
+        <item>Yevla</item>
+    </string-array>
+    <string-array name="osmanabad_talukas_array">
+        <item>Bhum</item>
+        <item>Kalamb</item>
+        <item>Lohara</item>
+        <item>Omarga</item>
+        <item>Osmanabad</item>
+        <item>Paranda</item>
+        <item>Tuljapur</item>
+        <item>Washi</item>
+    </string-array>
+    <string-array name="palghar_talukas_array">
+        <item>Dahanu</item>
+        <item>Jawhar</item>
+        <item>Mokhada</item>
+        <item>Palghar</item>
+        <item>Talasari</item>
+        <item>Vasai</item>
+        <item>Vikramgad</item>
+        <item>Wada</item>
+    </string-array>
+
+    <string-array name="parbhani_talukas_array">
+        <item>Gangakhed</item>
+        <item>Jintur</item>
+        <item>Manwath</item>
+        <item>Palam</item>
+        <item>Parbhani</item>
+        <item>Pathri</item>
+        <item>Purna</item>
+        <item>Selu</item>
+        <item>Sonpeth</item>
+    </string-array>
+
+    <string-array name="pune_talukas_array">
+        <item>Ambegaon</item>
+        <item>Baramati</item>
+        <item>Bhor</item>
+        <item>Daund</item>
+        <item>Haveli</item>
+        <item>Indapur</item>
+        <item>Junnar</item>
+        <item>Khed</item>
+        <item>Mawal</item>
+        <item>Mulshi</item>
+        <item>Pune City</item>
+        <item>Purandhar</item>
+        <item>Shirur</item>
+        <item>Velhe</item>
+    </string-array>
+    <string-array name="raigad_talukas_array">
+        <item>Alibag</item>
+        <item>Karjat</item>
+        <item>Khalapur</item>
+        <item>Mahad</item>
+        <item>Mangaon</item>
+        <item>Mhasla</item>
+        <item>Murud</item>
+        <item>Panvel</item>
+        <item>Pen</item>
+        <item>Poladpur</item>
+        <item>Roha</item>
+        <item>Shrivardhan</item>
+        <item>Sudhagad</item>
+        <item>Tala</item>
+        <item>Uran</item>
+    </string-array>
+
+    <string-array name="ratnagiri_talukas_array">
+        <item>Chiplun</item>
+        <item>Dapoli</item>
+        <item>Guhagar</item>
+        <item>Khed</item>
+        <item>Lanja</item>
+        <item>Mandangad</item>
+        <item>Rajapur</item>
+        <item>Ratnagiri</item>
+        <item>Sangameshwar</item>
+    </string-array>
+    <string-array name="sangli_talukas_array">
+        <item>Atpadi</item>
+        <item>Jat</item>
+        <item>Kadegaon</item>
+        <item>Kavathemahankal</item>
+        <item>Khanapur</item>
+        <item>Miraj</item>
+        <item>Palus</item>
+        <item>Shirala</item>
+        <item>Tasgaon</item>
+        <item>Walwa</item>
+    </string-array>
+
+    <string-array name="satara_talukas_array">
+        <item>Jaoli</item>
+        <item>Karad</item>
+        <item>Khandala</item>
+        <item>Khatav</item>
+        <item>Koregaon</item>
+        <item>Mahabaleshwar</item>
+        <item>Man</item>
+        <item>Patan</item>
+        <item>Phaltan</item>
+        <item>Satara</item>
+        <item>Wai</item>
+    </string-array>
+    <string-array name="sindhudurg_talukas_array">
+        <item>Devgad</item>
+        <item>Dodamarg</item>
+        <item>Kankavli</item>
+        <item>Kudal</item>
+        <item>Malwan</item>
+        <item>Sawantwadi</item>
+        <item>Vaibhavvadi</item>
+        <item>Vengurla</item>
+    </string-array>
+
+    <string-array name="solapur_talukas_array">
+        <item>Akkalkot</item>
+        <item>Barshi</item>
+        <item>Karmala</item>
+        <item>Madha</item>
+        <item>Malshiras</item>
+        <item>Mangalvedhe</item>
+        <item>Mohol</item>
+        <item>Pandharpur</item>
+        <item>Sangole</item>
+        <item>Solapur North</item>
+        <item>Solapur South</item>
+    </string-array>
+    <string-array name="thane_talukas_array">
+        <item>Ambarnath</item>
+        <item>Bhiwandi</item>
+        <item>Kalyan</item>
+        <item>Murbad</item>
+        <item>Shahapur</item>
+        <item>Thane</item>
+        <item>Ulhasnagar</item>
+    </string-array>
+    <string-array name="wardha_talukas_array">
+        <item>Arvi</item>
+        <item>Ashti</item>
+        <item>Deoli</item>
+        <item>Hinganghat</item>
+        <item>Karanja</item>
+        <item>Samudrapur</item>
+        <item>Seloo</item>
+        <item>Wardha</item>
+    </string-array>
+    <string-array name="washim_talukas_array">
+        <item>Karanja</item>
+        <item>Malegaon</item>
+        <item>Mangrulpir</item>
+        <item>Manora</item>
+        <item>Risod</item>
+        <item>Washim</item>
+    </string-array>
+    <string-array name="yavatmal_talukas_array">
+        <item>Arni</item>
+        <item>Babulgaon</item>
+        <item>Darwha</item>
+        <item>Digras</item>
+        <item>Ghatanji</item>
+        <item>Kalamb</item>
+        <item>Kelapur</item>
+        <item>Mahagaon</item>
+        <item>Maregaon</item>
+        <item>Ner</item>
+        <item>Pusad</item>
+        <item>Ralegaon</item>
+        <item>Umarkhed</item>
+        <item>Wani</item>
+        <item>Yavatmal</item>
+        <item>Zari-Jamani</item>
+    </string-array>
+
+
+    <string name="date">A thin wrapper around a millisecond value that allows JDBC to identify this as an SQL DATE
+        value. A milliseconds value represents the number of milliseconds that have passed since January 1, 1970 00:00:00.000 GMT.
+        To conform with the definition of SQL DATE, the millisecond values wrapped by a java.sql.Date instance
+        must be normalized by setting the hours, minutes, seconds, and milliseconds to zero in the particular time zone with which the instance is associated.
+        </string>
+
+    <string name="rating">A RatingBar is an extension of SeekBar and ProgressBar that shows a rating in stars.
+        The user can touch/drag or use arrow keys to set the rating when using the default size RatingBar.
+        The smaller RatingBar style ( R.attr.ratingBarStyleSmall) and the larger indicator-only style
+        (R.attr.ratingBarStyleIndicator) do not support user interaction and should only be used as indicators.
+        When using a RatingBar that supports user interaction, placing widgets to the left or right of the
+        RatingBar is discouraged.</string>
+
+    <string name="edit">A TextView displays text to the user and optionally allows them to edit it.
+        A TextView is a complete text editor, however the basic class is configured to not allow editing.
+        </string>
+
+    <string name="camera">The Android framework includes support for various cameras and camera features
+        available on devices, allowing you to capture pictures and videos in your applications.
+        This document discusses a quick, simple approach to image and video capture and outlines an advanced
+        approach for creating custom camera experiences for your users.</string>
+
+    <string name="recyclerview">RecyclerView is the ViewGroup that contains the views corresponding to your data.
+        Its a view itself so you add RecyclerView into your layout the way you would add any other UI element.
+        Each individual element in the list is defined by a view holder object.
+        RecyclerView is a ViewGroup added to the android studio as a successor of the GridView and ListView.
+        It is an improvement on both of them and can be found in the latest v-7 support packages.
+        It has been created to make possible construction of any lists with XML layouts as an item
+        which can be customized vastly while improving on the efficiency of ListViews and GridViews.
+    </string>
+    <string name="title_activity_hospital_map">hospital_map</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

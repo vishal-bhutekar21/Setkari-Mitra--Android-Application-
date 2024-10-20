@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    android:background="@drawable/roundedtext"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/textViewHospitalName"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="@dimen/_2sdp"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+    <TextView
+        android:id="@+id/textViewContactPerson"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="@dimen/_2sdp"
+        android:fontFamily="@font/poppins_semibold"
+        />
+
+    <TextView
+        android:id="@+id/textViewHospitalNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:padding="@dimen/_2sdp"
+        android:fontFamily="@font/poppins_semibold"
+        />
+
+    <TextView
+        android:id="@+id/textViewDistrictTaluka"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+       android:padding="@dimen/_2sdp"
+        android:fontFamily="@font/poppins_semibold"
+
+        />
+
+
+    <Button
+        android:id="@+id/buttonCall"
+        android:layout_width="124dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/rounded_button"
+        android:text="Call" />
+
+
+
+</LinearLayout>

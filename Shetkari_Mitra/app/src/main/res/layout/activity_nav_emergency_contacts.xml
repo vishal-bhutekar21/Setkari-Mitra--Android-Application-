@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/gradient_background_list_detais"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_bold"
+        android:text="My Emergency Contacts"
+        android:gravity="center_horizontal"
+
+        
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/roundedtext"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:padding="@dimen/_5sdp"
+        android:id="@+id/text"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewEmergencyContacts"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/text"
+        android:layout_height="match_parent"
+        android:background="@drawable/card_border"
+        android:layout_margin="@dimen/_3sdp"
+       android:layout_marginTop="@dimen/_10sdp"
+        android:padding="10dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical" />
+
+
+</RelativeLayout>

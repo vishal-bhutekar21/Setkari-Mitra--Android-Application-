@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".First_Aid">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/first_aaid_toolbar"
+        android:background="@drawable/gradient_background_list_detais"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="?actionBarSize">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textSize="@dimen/_13sdp"
+            android:text="First Aid Manual And Prevantation Methods" />
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_background_list_detais"
+        android:contentDescription="@string/app_name"
+        app:tabIndicatorColor="@color/black"
+        app:tabSelectedTextColor="@color/tabTextColor" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+</LinearLayout>
