@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ===== SPACING SYSTEM ===== -->
+    <dimen name="space_2">2dp</dimen>
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_6">6dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_14">14dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="space_32">32dp</dimen>
+    <dimen name="space_40">40dp</dimen>
+    <dimen name="space_48">48dp</dimen>
+    <dimen name="space_64">64dp</dimen>
+    <dimen name="space_80">80dp</dimen>
+
+    <!-- ===== SCREEN HORIZONTAL MARGINS ===== -->
+    <dimen name="screen_margin_horizontal">16dp</dimen>
+    <dimen name="screen_margin_vertical">16dp</dimen>
+
+    <!-- ===== CORNER RADII ===== -->
+    <dimen name="radius_small">8dp</dimen>
+    <dimen name="radius_medium">12dp</dimen>
+    <dimen name="radius_large">16dp</dimen>
+    <dimen name="radius_xlarge">24dp</dimen>
+    <dimen name="radius_full">100dp</dimen>
+
+    <!-- ===== ELEVATION ===== -->
+    <dimen name="elevation_card">2dp</dimen>
+    <dimen name="elevation_dialog">8dp</dimen>
+    <dimen name="elevation_toolbar">4dp</dimen>
+
+    <!-- ===== TOUCH TARGETS ===== -->
+    <dimen name="touch_target_min">48dp</dimen>
+    <dimen name="icon_size_small">20dp</dimen>
+    <dimen name="icon_size_medium">24dp</dimen>
+    <dimen name="icon_size_large">32dp</dimen>
+    <dimen name="icon_size_xlarge">48dp</dimen>
+    <dimen name="icon_size_home">64dp</dimen>
+
+    <!-- ===== TYPOGRAPHY ===== -->
+    <dimen name="text_display">28sp</dimen>
+    <dimen name="text_headline">24sp</dimen>
+    <dimen name="text_title_large">20sp</dimen>
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="text_body_large">16sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="text_label">11sp</dimen>
+
+    <!-- ===== COMPONENT SPECIFIC ===== -->
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="card_home_height">120dp</dimen>
+    <dimen name="emergency_button_height">64dp</dimen>
+    <dimen name="home_grid_card_width">152dp</dimen>
+    <dimen name="image_slider_height">200dp</dimen>
+    <dimen name="nav_header_height">180dp</dimen>
+    <dimen name="list_item_height">72dp</dimen>
+
+    <!-- ===== DIVIDER ===== -->
+    <dimen name="divider_height">1dp</dimen>
+
+</resources>

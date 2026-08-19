@@ -1,140 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background_list_detais"
-    >
+    android:orientation="vertical"
+    android:background="@color/color_background">
 
+    <!-- Top Bar with Glass Back Button -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_primary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_16"
+        android:paddingVertical="@dimen/space_12">
 
-        android:orientation="vertical"
-        android:padding="16dp">
+        <!-- Frosted Glass Back Button -->
+        <ImageButton
+            android:id="@+id/btnGlassBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_glass_circle_btn"
+            android:contentDescription="Back"
+            android:src="@drawable/baseline_clear_24"
+            app:tint="@color/color_primary" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Hospital Registration Form"
-            android:textSize="@dimen/_15sdp"
-            android:textStyle="bold"
-            android:fontFamily="@font/medium_font"
-            android:textColor="@color/red"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            android:layout_marginBottom="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/hospital_registration_title"
+                android:textColor="@color/color_on_primary"
+                android:textSize="@dimen/text_title" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Administrator Directory Portal"
+                android:textColor="@color/color_primary_container"
+                android:textSize="@dimen/text_caption" />
 
-        <EditText
-            android:id="@+id/etHospital_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:drawableStart="@drawable/left_user"
-            android:drawablePadding="@dimen/_10sdp"
-            android:drawableTint="#775050"
-            android:textSize="19dp"
-            android:textColorHint="@color/simple_red"
-            android:background="@drawable/roundedtext"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:hint="Enter Hospital Name" />
-        <EditText
-            android:id="@+id/etHospital_contact_person"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:drawableStart="@drawable/left_user"
-            android:drawablePadding="@dimen/_10sdp"
-            android:drawableTint="#775050"
-            android:textSize="19dp"
-            android:textColorHint="@color/simple_red"
-            android:background="@drawable/roundedtext"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:hint="Enter Contact person" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/setHospital_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:fontFamily="@font/poppins_regular"
-            android:textColorHint="@color/simple_red"
-            android:padding="@dimen/_10sdp"
-            android:drawableStart="@drawable/left_call_icon"
-            android:drawablePadding="@dimen/_8sdp"
-            android:drawableTint="#775050"
-            android:textSize="19dp"
-            android:background="@drawable/roundedtext"
-            android:layout_marginBottom="@dimen/_1sdp"
-            android:hint="Hospital Contact Number" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/_5sdp"
-            android:layout_margin="@dimen/_10sdp">
+            android:orientation="vertical"
+            android:padding="@dimen/space_16"
+            android:paddingBottom="@dimen/space_40">
 
-            <Spinner
-                android:id="@+id/spinnerDistrict"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/roundedtext"
-                android:fontFamily="@font/poppins_regular"
-                android:padding="@dimen/_10sdp"
-                android:textColorHint="@color/simple_red"
-                android:hint="Select State" />
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ShetkariMitra.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/color_surface"
+                app:strokeColor="@color/color_border"
+                app:strokeWidth="1dp">
 
-            <Spinner
-                android:id="@+id/spinnerTaluka"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:padding="@dimen/_10sdp"
-                android:drawablePadding="@dimen/_8sdp"
-                android:drawableTint="#775050"
-                android:textSize="19dp"
-                android:fontFamily="@font/poppins_regular"
-                android:textColorHint="@color/simple_red"
-                android:background="@drawable/roundedtext"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:hint="Select District" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16">
+
+                    <TextView
+                        style="@style/TextAppearance.ShetkariMitra.SectionTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hospital Information"
+                        android:textColor="@color/color_primary"
+                        android:textSize="@dimen/text_title_large" />
+
+                    <!-- Hospital Name -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.ShetkariMitra.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:hint="Hospital / Clinic Name"
+                        app:startIconDrawable="@drawable/hospital_location_logo">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etHospital_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:maxLines="1"
+                            android:textColor="@color/color_text_primary" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Contact Person -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.ShetkariMitra.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:hint="Contact Person / Doctor Name"
+                        app:startIconDrawable="@drawable/left_user">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etHospital_contact_person"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:maxLines="1"
+                            android:textColor="@color/color_text_primary" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Phone -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.ShetkariMitra.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:hint="Emergency Contact Number"
+                        app:startIconDrawable="@drawable/left_call_icon">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/setHospital_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:maxLines="1"
+                            android:textColor="@color/color_text_primary" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- District Spinner -->
+                    <TextView
+                        style="@style/TextAppearance.ShetkariMitra.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:text="Select District" />
+
+                    <Spinner
+                        android:id="@+id/spinnerDistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="@dimen/space_4"
+                        android:background="@drawable/roundedtext" />
+
+                    <!-- Taluka Spinner -->
+                    <TextView
+                        style="@style/TextAppearance.ShetkariMitra.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:text="Select Taluka" />
+
+                    <Spinner
+                        android:id="@+id/spinnerTaluka"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="@dimen/space_4"
+                        android:background="@drawable/roundedtext" />
+
+                    <!-- Address -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.ShetkariMitra.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:hint="Hospital Address &amp; Landmarks"
+                        app:startIconDrawable="@drawable/left_location_icon">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etHospitalAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine"
+                            android:minLines="2"
+                            android:textColor="@color/color_text_primary" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Submit Button -->
+                    <Button
+                        android:id="@+id/btnSubmit"
+                        style="@style/Widget.ShetkariMitra.Button.Primary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_24"
+                        android:text="Register Hospital" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
 
+    </androidx.core.widget.NestedScrollView>
 
-        <EditText
-            android:id="@+id/etHospitalAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:fontFamily="@font/poppins_regular"
-            android:textColorHint="@color/simple_red"
-            android:drawableStart="@drawable/left_location_icon"
-            android:drawablePadding="@dimen/_8sdp"
-
-            android:drawableTint="#775050"
-            android:textSize="19dp"
-            android:background="@drawable/roundedtext"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:hint="Address" />
-
-
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:text="Submit"
-            android:background="@drawable/rounded_button"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"/>
-
-
-    </LinearLayout>
-
-
-</ScrollView>
+</LinearLayout>

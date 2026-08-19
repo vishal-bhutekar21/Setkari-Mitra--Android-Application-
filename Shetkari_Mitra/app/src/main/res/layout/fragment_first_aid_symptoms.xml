@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_16"
+        android:paddingBottom="@dimen/space_40">
+
+        <!-- Section 1: Local Symptoms -->
+        <TextView
+            style="@style/TextAppearance.ShetkariMitra.SectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Local Bite Signs (स्थानिक लक्षणे)"
+            android:textColor="@color/color_primary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="• Fang Marks (दोन दातांचे व्रण)"
+                android:textColor="@color/color_text_primary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="One or two puncture wounds with burning sensation and surrounding redness."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:fontFamily="@font/poppins_bold"
+                android:text="• Rapid Swelling &amp; Blistering (तीव्र सूज व फोड)"
+                android:textColor="@color/color_text_primary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Swelling progressing rapidly up the bitten limb within 15–30 minutes."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+        <!-- Section 2: Neurotoxic Symptoms (Cobra / Krait) -->
+        <TextView
+            style="@style/TextAppearance.ShetkariMitra.SectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:text="2. Neurotoxic Signs (नाग / मण्यार - मज्जासंस्था)"
+            android:textColor="@color/color_warning" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="• Ptosis (डोळ्यांची पापणी जड होणे / खाली पडणे)"
+                android:textColor="@color/color_text_primary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Inability to keep eyelids open; blurred or double vision."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:fontFamily="@font/poppins_bold"
+                android:text="• Slurred Speech &amp; Swallowing Difficulty (बोलणे व गिळणे कठीण)"
+                android:textColor="@color/color_text_primary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Difficulty speaking clearly, excessive salivation, and breathing heaviness."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+        <!-- Section 3: Hemotoxic Symptoms (Russell's / Saw-scaled Viper) -->
+        <TextView
+            style="@style/TextAppearance.ShetkariMitra.SectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:text="3. Hemotoxic Signs (घोणस / फुरसे - रक्त गोठणे)"
+            android:textColor="@color/color_emergency" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="• Continuous Bleeding (हिरड्या किंवा जखमेतून रक्तस्त्राव)"
+                android:textColor="@color/color_emergency"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Spontaneous bleeding from gums, nose, vomit, or dark/red urine."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:fontFamily="@font/poppins_bold"
+                android:text="• Severe Abdominal Pain &amp; Vomiting (पोटदुखी व उलटी)"
+                android:textColor="@color/color_emergency"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Severe crampy abdominal pain indicating internal bleeding."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

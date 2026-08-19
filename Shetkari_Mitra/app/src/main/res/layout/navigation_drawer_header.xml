@@ -1,55 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@drawable/gradient_background_list_detais">
+    android:padding="@dimen/space_24"
+    android:background="@color/color_primary">
 
-    <!-- Profile Section -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/profile_picture"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/user_circle"
+        android:contentDescription="@string/app_name"
+        app:tint="@color/color_on_primary" />
+
+    <!-- User Name -->
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:layout_marginTop="@dimen/space_12"
+        android:text="Shetkari Mitra"
+        android:textSize="@dimen/text_title"
+        android:textColor="@color/color_on_primary"
+        android:fontFamily="@font/poppins_bold" />
 
-        <!-- Profile Picture -->
-        <ImageView
-            android:id="@+id/profile_picture"
-            android:layout_width="@dimen/_96sdp"
-            android:layout_height="@dimen/_96sdp"
-            android:src="@drawable/user_pic"
-            android:scaleType="centerCrop"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/_16sdp"
-            android:background="@drawable/user_image_circle_background"
-            android:clipToOutline="true" />
-
-        <!-- User Name -->
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vishal Bhutekar"
-            android:textSize="@dimen/_18sdp"
-            android:textColor="@android:color/white"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/poppins_bold" />
-
-        <!-- User Email -->
-        <TextView
-            android:id="@+id/user_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="vishalbhutekar33772@gmail.com"
-            android:textSize="@dimen/_10sdp"
-            android:textColor="@android:color/white"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/poppins_regular"
-            android:layout_marginTop="8dp" />
-
-    </LinearLayout>
+    <!-- User Email -->
+    <TextView
+        android:id="@+id/user_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_4"
+        android:text="Farmer Companion"
+        android:textSize="@dimen/text_caption"
+        android:textColor="@color/color_primary_light"
+        android:fontFamily="@font/poppins_regular" />
 
 </LinearLayout>

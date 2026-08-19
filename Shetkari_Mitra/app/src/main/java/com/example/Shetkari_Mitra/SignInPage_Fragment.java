@@ -1,8 +1,10 @@
 package com.example.Shetkari_Mitra;
 
-import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,167 +16,137 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
+/**
+ * Sign-up fragment using local SharedPreferences storage.
+ * No Firebase dependency. User account is stored locally on device.
+ */
 public class SignInPage_Fragment extends Fragment {
 
-    private EditText usernameEditText, emailEditText, passwordEditText,mobile;
-    private EditText[] emergencyNameEditTexts = new EditText[3];
-    private EditText[] emergencyNumberEditTexts = new EditText[3];
-    private Button signUpButton;
-    private FirebaseAuth mAuth;
-    Dialog progressDialog;
-    private DatabaseReference mDatabase;
+    private static final String PREF_NAME = "shetkari_prefs";
+    private static final String KEY_LOGGED_IN = "is_logged_in";
+    private static final String KEY_SAVED_EMAIL = "saved_email";
+    private static final String KEY_SAVED_PASS_HASH = "saved_pass_hash";
+    private static final String KEY_SAVED_USERNAME = "saved_username";
+    private static final String KEY_SAVED_MOBILE = "saved_mobile";
 
-    public SignInPage_Fragment() {
-        // Required empty public constructor
-    }
+    private EditText usernameEditText;
+    private EditText emailEditText;
+    private EditText passwordEditText;
+    private EditText mobileEditText;
+    private EditText emergencyNameEditText1, emergencyNameEditText2, emergencyNameEditText3;
+    private EditText emergencyNumberEditText1, emergencyNumberEditText2, emergencyNumberEditText3;
+    private Button signUpButton;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sign_in_page_, container, false);
 
-
-        mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-
-        // Initialize views
         usernameEditText = view.findViewById(R.id.usernameEditText);
         emailEditText = view.findViewById(R.id.emailEditTextView);
         passwordEditText = view.findViewById(R.id.passwordEditText);
-        mobile = view.findViewById(R.id.mobileNumberEditText);
+        mobileEditText = view.findViewById(R.id.mobileNumberEditText);
 
+        emergencyNameEditText1 = view.findViewById(R.id.emergencyNameEditText1);
+        emergencyNameEditText2 = view.findViewById(R.id.emergencyNameEditText2);
+        emergencyNameEditText3 = view.findViewById(R.id.emergencyNameEditText3);
+        emergencyNumberEditText1 = view.findViewById(R.id.emergencyNumberEditText1);
+        emergencyNumberEditText2 = view.findViewById(R.id.emergencyNumberEditText2);
+        emergencyNumberEditText3 = view.findViewById(R.id.emergencyNumberEditText3);
 
-        emergencyNameEditTexts[0] = view.findViewById(R.id.emergencyNameEditText1);
-        emergencyNameEditTexts[1] = view.findViewById(R.id.emergencyNameEditText2);
-        emergencyNameEditTexts[2] = view.findViewById(R.id.emergencyNameEditText3);
-        emergencyNumberEditTexts[0] = view.findViewById(R.id.emergencyNumberEditText1);
-        emergencyNumberEditTexts[1] = view.findViewById(R.id.emergencyNumberEditText2);
-        emergencyNumberEditTexts[2] = view.findViewById(R.id.emergencyNumberEditText3);
         signUpButton = view.findViewById(R.id.signUpButton);
-
-        // Set onClickListener for sign up button
-        signUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signUp();
-            }
-        });
+        signUpButton.setOnClickListener(v -> attemptSignUp());
 
         return view;
     }
 
-    // Update the signUp() method to save data under a new node
-    private void signUp() {
-        // Get user input values
+    private void attemptSignUp() {
         String username = usernameEditText.getText().toString().trim();
         String email = emailEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
-        String mobile1 = mobile.getText().toString().trim();
-        String[] emergencyNames = new String[3];
-        String[] emergencyNumbers = new String[3];
+        String mobile = mobileEditText.getText().toString().trim();
 
-        // Get emergency contact details
-        for (int i = 0; i < 3; i++) {
-            emergencyNames[i] = emergencyNameEditTexts[i].getText().toString().trim();
-            emergencyNumbers[i] = emergencyNumberEditTexts[i].getText().toString().trim();
-        }
-
-        // Perform basic validation
-        if (username.isEmpty()) {
-            usernameEditText.setError("Please enter a username");
+        // Validate
+        if (TextUtils.isEmpty(username)) {
+            usernameEditText.setError("Please enter your name");
+            usernameEditText.requestFocus();
             return;
         }
 
-// Validate email
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if (TextUtils.isEmpty(email) || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailEditText.setError("Please enter a valid email address");
+            emailEditText.requestFocus();
             return;
         }
 
-// Validate password
-        if (password.isEmpty() || password.length() < 6) {
-            passwordEditText.setError("Password must be at least 6 characters long");
+        if (TextUtils.isEmpty(password) || password.length() < 6) {
+            passwordEditText.setError("Password must be at least 6 characters");
+            passwordEditText.requestFocus();
             return;
         }
 
-// Validate mobile number
-        if (mobile1.isEmpty() || mobile1.length() != 10) {
-            mobile.setError("Please enter a valid 10-digit mobile number");
+        if (TextUtils.isEmpty(mobile) || mobile.length() != 10) {
+            mobileEditText.setError("Please enter a valid 10-digit mobile number");
+            mobileEditText.requestFocus();
             return;
         }
 
+        // Save user info locally
+        SharedPreferences prefs = requireContext().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(KEY_SAVED_EMAIL, email);
+        editor.putString(KEY_SAVED_PASS_HASH, hashPassword(password));
+        editor.putString(KEY_SAVED_USERNAME, username);
+        editor.putString(KEY_SAVED_MOBILE, mobile);
+        editor.putBoolean(KEY_LOGGED_IN, true);
+        editor.apply();
 
-        // Create user in Firebase Authentication
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
-                    showProgressDialog();
-                    if (task.isSuccessful()) {
-                        hideProgressDialog();
-                        // Save user information to Firebase Database
-                        String userId = mAuth.getCurrentUser().getUid();
-                        User user = new User(username, email,mobile1,password);
+        // Save emergency contacts to Room DB
+        saveEmergencyContacts();
 
-                        // Reference to a new node "users" under your Firebase project
-                        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
-
-                        // Save user data under a new node with the user's ID
-                        usersRef.child(userId).child("userInfo").setValue(user);
-
-                        // Save emergency contact details under a new node with the user's ID
-                        for (int i = 0; i < 3; i++) {
-                            EmergencyContact contact = new EmergencyContact(emergencyNames[i], emergencyNumbers[i]);
-                            usersRef.child(userId).child("emergencyContacts").child("contact" + (i + 1)).setValue(contact);
-                        }
-
-                        Toast.makeText(getContext(), "Sign up successful", Toast.LENGTH_SHORT).show();
-                        usernameEditText.setText("");
-                        passwordEditText.setText("");
-                        emailEditText.setText("");
-                        mobile.setText("");
-                        for (int i = 0; i < 3; i++) {
-                           emergencyNameEditTexts[i].setText("");
-                           emergencyNumberEditTexts[i].setText("");}
-
-
-                        } else {
-                        Toast.makeText(getContext(), "Sign up failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+        Toast.makeText(getContext(), "Account created! Welcome, " + username + "!", Toast.LENGTH_SHORT).show();
+        navigateToHome();
     }
-    private void showProgressDialog() {
-        progressDialog= new Dialog(getContext());
-        progressDialog.setContentView(R.layout.signin_progress);
-        Button v=progressDialog.findViewById(R.id.btnClose);
-        Button b=progressDialog.findViewById(R.id.btnClose);
 
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(getContext(),HomeActivity.class);
-                startActivity(i);
+    private void saveEmergencyContacts() {
+        AppDatabase db = AppDatabase.getInstance(requireContext());
+
+        new Thread(() -> {
+            String[][] contacts = {
+                    {emergencyNameEditText1.getText().toString().trim(), emergencyNumberEditText1.getText().toString().trim()},
+                    {emergencyNameEditText2.getText().toString().trim(), emergencyNumberEditText2.getText().toString().trim()},
+                    {emergencyNameEditText3.getText().toString().trim(), emergencyNumberEditText3.getText().toString().trim()}
+            };
+            for (String[] contact : contacts) {
+                if (!TextUtils.isEmpty(contact[0]) && !TextUtils.isEmpty(contact[1])) {
+                    db.emergencyContactDao().insert(new EmergencyContactEntity(contact[0], contact[1]));
+                }
             }
-        });
-        progressDialog.setCancelable(true);
-        progressDialog.show();
-
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                progressDialog.dismiss();
-            }
-        });
+        }).start();
     }
 
-    // Method to hide progress bar
-    private void hideProgressDialog() {
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.dismiss();
+    private void navigateToHome() {
+        Intent intent = new Intent(getContext(), HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        requireActivity().finish();
+    }
+
+    private String hashPassword(String password) {
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(password.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (java.security.NoSuchAlgorithmException e) {
+            return password;
         }
     }
-
 }

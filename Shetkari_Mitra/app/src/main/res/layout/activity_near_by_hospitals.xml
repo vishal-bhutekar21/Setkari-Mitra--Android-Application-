@@ -1,24 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@drawable/gradient_background_list_detais"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_background">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_marginTop="@dimen/_10sdp"
+    <!-- Top Bar with Glass Back Button -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:background="@drawable/roundedtext"
         android:layout_height="wrap_content"
-        android:queryHint="Search Hospital Names , Address"
-        android:iconifiedByDefault="false"/>
+        android:background="@color/color_primary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_16"
+        android:paddingVertical="@dimen/space_12">
 
+        <!-- Frosted Glass Back Button -->
+        <ImageButton
+            android:id="@+id/btnGlassBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_glass_circle_btn"
+            android:contentDescription="Back"
+            android:src="@drawable/baseline_clear_24"
+            app:tint="@color/color_primary" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Hospitals in Jalna"
+                android:textColor="@color/color_on_primary"
+                android:textSize="@dimen/text_title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Anti-venom Care &amp; Medical Centers"
+                android:textColor="@color/color_primary_container"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/searchView"
-        android:layout_marginTop="8dp"/>
+        android:layout_height="0dp"
+        android:visibility="gone" />
 
-</RelativeLayout>
+    <!-- Search View Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
+        android:layout_marginVertical="@dimen/space_12"
+        android:background="@drawable/bg_glass_card"
+        android:padding="@dimen/space_4">
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search by Hospital Name, Taluka..." />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/space_24"
+            android:scrollbars="vertical" />
+
+        <TextView
+            android:id="@+id/emptyTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_regular"
+            android:text="No hospitals found matching search"
+            android:textColor="@color/color_text_secondary"
+            android:textSize="@dimen/text_body"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>

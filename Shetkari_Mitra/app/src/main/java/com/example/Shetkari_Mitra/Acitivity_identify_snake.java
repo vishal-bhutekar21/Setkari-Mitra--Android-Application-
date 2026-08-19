@@ -12,149 +12,132 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Acitivity_identify_snake extends AppCompatActivity {
 
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
-    private static final int REQUEST_IMAGE_PICK = 2;
-
-    private static final int REQUEST_CAMERA_PERMISSION = 101;
     private ImageView imageView;
     private Uri imageUri;
+
+    private final ActivityResultLauncher<String> cameraPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    launchCamera();
+                } else {
+                    Toast.makeText(this, R.string.camera_permission_required, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+    private final ActivityResultLauncher<Intent> takePictureLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    Bundle extras = result.getData().getExtras();
+                    if (extras != null) {
+                        Bitmap imageBitmap = (Bitmap) extras.get("data");
+                        if (imageBitmap != null) {
+                            imageView.setImageBitmap(imageBitmap);
+                            saveBitmapToCacheAndSetUri(imageBitmap);
+                        }
+                    }
+                }
+            });
+
+    private final ActivityResultLauncher<String> pickImageLauncher =
+            registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
+                if (uri != null) {
+                    imageUri = uri;
+                    imageView.setImageURI(uri);
+                }
+            });
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acitivity_identify_snake);
 
+        View btnGlassBack = findViewById(R.id.btnGlassBack);
+        if (btnGlassBack != null) {
+            btnGlassBack.setOnClickListener(v -> finish());
+        }
+
         imageView = findViewById(R.id.imageView);
         Button captureButton = findViewById(R.id.cameraBtn);
         Button pickButton = findViewById(R.id.galleryBtn);
-        Button sendonwhatsapp = findViewById(R.id.sendBtn);
+        Button sendOnWhatsApp = findViewById(R.id.sendBtn);
 
-        captureButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dispatchTakePictureIntent();
-            }
-        });
+        captureButton.setOnClickListener(v -> checkCameraPermissionAndLaunch());
+        pickButton.setOnClickListener(v -> pickImageLauncher.launch("image/*"));
+        sendOnWhatsApp.setOnClickListener(v -> sendImageOnWhatsApp());
+    }
 
-        pickButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openGallery();
-            }
-        });
+    private void checkCameraPermissionAndLaunch() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            launchCamera();
+        } else {
+            cameraPermissionLauncher.launch(Manifest.permission.CAMERA);
+        }
+    }
 
-        sendonwhatsapp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendImageOnWhatsApp();
-            }
-        });
+    private void launchCamera() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            takePictureLauncher.launch(takePictureIntent);
+        } else {
+            Toast.makeText(this, R.string.no_camera_app, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void saveBitmapToCacheAndSetUri(Bitmap bitmap) {
+        try {
+            File cachePath = new File(getCacheDir(), "images");
+            if (!cachePath.exists()) cachePath.mkdirs();
+            File imageFile = new File(cachePath, "captured_snake.jpg");
+            FileOutputStream stream = new FileOutputStream(imageFile);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream);
+            stream.close();
+            imageUri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", imageFile);
+        } catch (Exception e) {
+            // Fallback
+        }
     }
 
     private void sendImageOnWhatsApp() {
-        if (imageUri != null) {
+        if (imageUri == null) {
+            Toast.makeText(this, R.string.select_image_first, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // WhatsApp rescuer contact for Jalna / Maharashtra region
+        String phoneNumber = "918806136681";
+        String message = "Emergency Snake Identification: Hello, I have encountered this snake. Please help identify if it is venomous.";
+
+        try {
             Intent sendIntent = new Intent(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
             sendIntent.setType("image/*");
-
-            // Specify the fixed WhatsApp number
-            String phoneNumber = "8806136681"; // Replace with the desired WhatsApp number
-
-            // Set the WhatsApp number with country code
-            String whatsappNumber = "91" + phoneNumber; // Add the country code if required
-
-            // Set the WhatsApp chat URL with the specified number
-            sendIntent.putExtra("jid", whatsappNumber + "@s.whatsapp.net");
-
-            // Set the package to WhatsApp
+            sendIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, message);
+            sendIntent.putExtra("jid", phoneNumber + "@s.whatsapp.net");
             sendIntent.setPackage("com.whatsapp");
-
-            // Start the specific activity
+            sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             startActivity(sendIntent);
-
+        } catch (Exception e) {
+            // If WhatsApp package direct target fails, open general image share chooser
+            Intent chooserIntent = new Intent(Intent.ACTION_SEND);
+            chooserIntent.setType("image/*");
+            chooserIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+            chooserIntent.putExtra(Intent.EXTRA_TEXT, message);
+            chooserIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            startActivity(Intent.createChooser(chooserIntent, getString(R.string.send_to_expert)));
         }
-        else {
-            Toast.makeText(this,"Select Image first",Toast.LENGTH_SHORT).show();
-
-        }
-    }
-
-    private void dispatchTakePictureIntent() {
-        // Check if the Camera permission has been granted
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted. Check if we should show an explanation.
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
-                // You can use a dialog or a snackbar to show this explanation according to your design
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
-            } else {
-                // No explanation needed; request the permission
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
-            }
-        } else {
-            // Permission has already been granted, proceed with the camera
-            startCamera();
-        }
-    }
-
-
-    private void startCamera() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
-    }
-
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CAMERA_PERMISSION) {
-            // If request is cancelled, the result arrays are empty.
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // permission was granted, yay! Do the
-                // camera-related task you need to do.
-                startCamera();
-            } else {
-                // permission denied, boo! Disable the
-                // functionality that depends on this permission.
-                // You can also alert the user that the feature is unavailable because the permission is not granted.
-            }
-        }}
-
-
-    private void openGallery() {
-        Intent pickPhotoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(pickPhotoIntent, REQUEST_IMAGE_PICK);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK) {
-            if (requestCode == REQUEST_IMAGE_CAPTURE) {
-                Bundle extras = data.getExtras();
-                Bitmap imageBitmap = (Bitmap) extras.get("data");
-                imageView.setImageBitmap(imageBitmap);
-                // Save the captured image to a file
-                imageUri = getImageUri(imageBitmap);
-            } else if (requestCode == REQUEST_IMAGE_PICK) {
-                imageUri = data.getData();
-                imageView.setImageURI(imageUri);
-            }
-        }
-    }
-
-    private Uri getImageUri(Bitmap bitmap) {
-        String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "Image", null);
-        return Uri.parse(path);
     }
 }

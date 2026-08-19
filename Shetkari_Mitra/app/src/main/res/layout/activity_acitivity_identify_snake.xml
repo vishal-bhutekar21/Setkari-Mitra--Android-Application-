@@ -1,72 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/gradient_background_list_detais"
+    android:background="@color/color_background"
     tools:context=".Acitivity_identify_snake">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:background="@drawable/card_border"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_300sdp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"/>
-
-    <TextView
-        android:id="@+id/info"
-       android:background="@drawable/card_border"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:fontFamily="@font/poppins_bold"
-        android:padding="@dimen/_5sdp"
-        android:text="This picture will be sent to the Snake Identifier They will reply Quickly as Possible..."
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"/>
-
+    <!-- Top Bar with Glass Back Button -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/color_primary"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:layout_marginStart="@dimen/_40sdp">
+        android:paddingHorizontal="@dimen/space_16"
+        android:paddingVertical="@dimen/space_12">
 
-        <Button
-            android:id="@+id/cameraBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="@dimen/_5sdp"
-            android:background="@drawable/rounded_button"
-            android:text="Take Photo"/>
+        <!-- Frosted Glass Back Button -->
+        <ImageButton
+            android:id="@+id/btnGlassBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_glass_circle_btn"
+            android:contentDescription="Back"
+            android:src="@drawable/baseline_clear_24"
+            app:tint="@color/color_primary" />
 
-        <Button
-            android:id="@+id/galleryBtn"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:background="@drawable/rounded_button"
-            android:gravity="center"
-            android:padding="@dimen/_5sdp"
-            android:text="Choose from Gallery"/>
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/identify_snake_title"
+                android:textColor="@color/color_on_primary"
+                android:textSize="@dimen/text_title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Expert Visual Identification"
+                android:textColor="@color/color_primary_container"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/sendBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_90sdp"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:background="@drawable/rounded_button"
-        android:gravity="center"
-        android:padding="@dimen/_5sdp"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone" />
 
-        android:text="Send on WhatsApp" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/space_16"
+            android:paddingBottom="@dimen/space_40">
+
+            <!-- Glass Photo Preview Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:background="@drawable/bg_glass_card"
+                android:gravity="center"
+                android:padding="@dimen/space_12">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/camera_logo" />
+
+            </LinearLayout>
+
+            <!-- Info Glass Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:background="@drawable/bg_glass_card"
+                android:orientation="vertical"
+                android:padding="@dimen/space_16">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="How it works:"
+                    android:textColor="@color/color_primary"
+                    android:textSize="@dimen/text_body_large" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:fontFamily="@font/poppins_regular"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="Capture or select a photo of the snake. We will route it to certified herpetologists / Sarpa Mitra who will respond promptly with venom status and handling advice."
+                    android:textColor="@color/color_text_secondary"
+                    android:textSize="@dimen/text_body" />
+
+            </LinearLayout>
+
+            <!-- Action Buttons Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/cameraBtn"
+                    style="@style/Widget.ShetkariMitra.Button.Primary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/space_8"
+                    android:text="📷 Take Photo" />
+
+                <Button
+                    android:id="@+id/galleryBtn"
+                    style="@style/Widget.ShetkariMitra.Button.Outlined"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🖼️ Gallery" />
+
+            </LinearLayout>
+
+            <!-- WhatsApp Direct Dispatch Button -->
+            <Button
+                android:id="@+id/sendBtn"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/space_16"
+                android:background="@drawable/bg_glass_button"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Send to Expert via WhatsApp 💬"
+                android:textColor="@color/color_on_primary"
+                android:textSize="@dimen/text_body_large" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

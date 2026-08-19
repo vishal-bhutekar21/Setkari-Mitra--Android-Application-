@@ -1,34 +1,55 @@
 package com.example.Shetkari_Mitra;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    List<DataClass> dataList;
-    MyAdapter adapter;
-    DataClass androidData;
-    SearchView searchView;
+    private RecyclerView recyclerView;
+    private List<DataClass> dataList;
+    private MyAdapter adapter;
+    private SearchView searchView;
+    private TextView emptyTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view_layout);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.snake_library);
+        }
+        View btnGlassBack = findViewById(R.id.btnGlassBack);
+        if (btnGlassBack != null) {
+            btnGlassBack.setOnClickListener(v -> finish());
+        }
+
         recyclerView = findViewById(R.id.recyclerView);
         searchView = findViewById(R.id.search);
+        emptyTextView = findViewById(R.id.emptyTextView);
 
-        searchView.clearFocus();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        dataList = new ArrayList<>();
+
+        populateSnakeData();
+
+        adapter = new MyAdapter(MainActivity.this, dataList);
+        recyclerView.setAdapter(adapter);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -41,84 +62,121 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity.this, 1);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        dataList = new ArrayList<>();
+    private void populateSnakeData() {
+        dataList.add(new DataClass("Indian Cobra (नाग)",
+                "The Indian cobra (Naja naja), also known as the spectacled cobra, is a highly venomous snake species native to the Indian subcontinent. It is one of the 'Big Four' venomous snakes.",
+                "Poisonous (Venomous)",
+                "Grasslands, agricultural fields, dense forests, and rural areas across Maharashtra and Jalna.",
+                R.drawable.p2));
 
-        androidData = new DataClass("Indian Cobra", "The Indian cobra (Naja naja), also known as the spectacled cobra or the Asian cobra, is a highly venomous snake species native to the Indian subcontinent", "Poisonous", " They inhabit diverse habitats within these areas, such as grasslands, agricultural fields, dense forests, and urban environments. Additionally, they are known to thrive in both rural and urban settings, making them adaptable to a wide range of habitats within the Indian subcontinent.\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n", R.drawable.p2);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Common Krait (मण्यार)",
+                "The Common Krait (Bungarus caeruleus) is one of the most venomous snakes in India. Nocturnal and dangerous. Member of the 'Big Four'.",
+                "Poisonous (Venomous)",
+                "Inhabits villages, fields, stone piles, termite mounds, and human settlements.",
+                R.drawable.common_krait));
 
-        androidData = new DataClass("Black Krait", "The \"black krait\" is a common name for Bungarus niger, a species of venomous snake ", "Poisonous", " It can be found in a variety of habitats, including mangrove swamps, inhabited villages, montane forests, and tea gardens. \n", R.drawable.common_krait);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Russell's Viper (घोणस)",
+                "Russell's viper (Daboia russelii) is a highly venomous viper responsible for the majority of snakebite incidents in India. Member of the 'Big Four'.",
+                "Poisonous (Venomous)",
+                "Agricultural areas, near water sources, farmlands, scrublands, and rocky terrain across Maharashtra.",
+                R.drawable.viper));
 
-        androidData = new DataClass("Russial Viper", "\n" +
-                "The Russell's viper (Daboia russelii) is a highly venomous snake", "Poisonous", " They may inhabit areas near water sources, such as rivers, streams, and rice paddies, where prey availability is higher. Additionally, their camouflage and nocturnal behavior make them well-suited to hiding in vegetation or rocky terrain, making them challenging to spot in the wild.", R.drawable.viper);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Saw-Scaled Viper (फुरसे)",
+                "The Saw-Scaled Viper (Echis carinatus) is small but highly aggressive and venomous. Member of the 'Big Four'. Rubs scales to create a raspy warning sound.",
+                "Poisonous (Venomous)",
+                "Dry rocky terrain, scrublands, arid agricultural fields of Maharashtra.",
+                R.drawable.saw_scaled_viper));
 
-        androidData = new DataClass("Bamboo Pit Viper", "The Indian Green Pit Viper knew as Bamboo Pit Viper is a toxic species endemic to the Western ghats of Maharashtra.", "Poisonous", "The Bamboo Pit Viper can be spotted on treks such as Harishchandragad, Kalsubai, Naneghat, Ajoba, Tung fort, Jivdhan fort, Ratangad fort, Bhairavgad, and Alang-Madan-Kulang Forts.",R.drawable.bamboo_pit_viper);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Bamboo Pit Viper (चाबूक)",
+                "The Bamboo Pit Viper (Craspedocephalus gramineus) is a green venomous arboreal viper endemic to peninsular India.",
+                "Poisonous (Venomous)",
+                "Bamboo groves, Western Ghats forests, stream banks, and dense vegetation.",
+                R.drawable.bamboo_pit_viper));
 
-        androidData = new DataClass("Saw Scaled Viper", "The Indian Saw-Scaled Viper is a little viper among the eight types of small Viper poisonous snakes family. It is also the smallest member of the Big Four snakes in India. It is a coarse scaled snake with big eyes, a broader head than neck, and a thickset body. They are found in sandy and rocky regions as well as soft soil and shrublands. ", "Poisonous", "Found in rocky terrains, scrublands, and agricultural areas of Maharashtra.", R.drawable.saw_scaled_viper);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Rat Snake (धामण)",
+                "Rat snakes (Ptyas mucosa) are non-venomous, fast-moving, large snakes. Highly beneficial to farmers as they control the rodent population.",
+                "Non-poisonous (Harmless)",
+                "Agricultural fields, crop storage, wetlands, rural and urban areas throughout Maharashtra.",
+                R.drawable.ratsnake));
 
-        androidData = new DataClass("Rat Snake", "Rat snakes are non-venomous constrictor snakes belonging to the family Colubridae", "Non-poisonous", "They are well-adapted to various terrestrial habitats such as forests, grasslands, agricultural areas, and urban environments. While they are not typically associated with aquatic environments, some species of rat snakes are known to swim and may occasionally enter water bodies such as rivers, streams, or ponds, especially when hunting for prey or seeking refuge. However, compared to truly aquatic or semi-aquatic species, rat snakes are not specialized for swimming or spending extended periods in water. Their primary habitat and behavior revolve around terrestrial ecosystems.", R.drawable.ratsnake);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Indian Rock Python (अजगर)",
+                "The Rock Python (Python molurus) is a heavy non-venomous constrictor snake protected under Wildlife Protection Act.",
+                "Non-poisonous (Harmless)",
+                "Riverbanks, rocky crevices, agricultural borders, and forest edges.",
+                R.drawable.indian_rock_python));
 
-        androidData = new DataClass("Indian Rock Python", " The Rock Python is a non-venomous snake with yellow and black colour, which differs depending on its territory. The rock python is one of the heaviest and longest snakes of India. ", "non-poisonous", "Found in agricultural lands, forests, and rural areas of Maharashtra.", R.drawable.indian_rock_python);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Checkered Keelback (दिवड)",
+                "A semi-aquatic non-venomous snake that feeds primarily on frogs and fish. Very common in irrigation channels.",
+                "Non-poisonous (Harmless)",
+                "Wells, farm ponds, paddy fields, irrigation canals, and rivers in Jalna.",
+                R.drawable.checkered_snake));
 
-        androidData = new DataClass("Checkered keelback", " A non-venomous snake that lives in ditches along roads, streams, stagnant water in paddy fields, and holes and bushes near permanent sources of water. ", "non-poisonous", "Found in agricultural lands,wells,rivers, water, and permenent water areas of Maharashtra.", R.drawable.checkered_snake);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Common Trinket Snake (तस्कर)",
+                "A slender, non-venomous snake with distinct black stripes behind the eyes and bands along the body.",
+                "Non-poisonous (Harmless)",
+                "Gardens, agricultural lands, and open forests throughout India.",
+                R.drawable.common_trinket_snake));
 
-        androidData = new DataClass("Common Trinket Snake","Slender bodied,scales of hind body and tail sometimes keeled.Mostly tan or olive and chocolate brown wih two black stripes on neck,light bands and checks on forebody","non-poisonous","Found throughout India,Srilanka,Nepal,Pakistan",R.drawable.common_trinket_snake);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Montane Trinket Snake",
+                "Slender-bodied non-venomous snake with tan-olive color and dark lateral stripes on the body.",
+                "Non-poisonous (Harmless)",
+                "Western Ghats and peninsular plateau of Maharashtra.",
+                R.drawable.montain_trinket_snake));
 
-        androidData = new DataClass("Montane Trinket Snake","Slender bodied.scales of hind body and tail sometimes keeled.Tan olive and chocolate brown with a banded forebody.The bands consist of several rows of large pale yellow oval or round spots encircled with black.Hind body has lateral stripes","non-poisonous","Western Ghats(Tamil Nadu,Kerala,Karnataka)",R.drawable.montain_trinket_snake);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Banded Racer",
+                "Smooth-scaled non-venomous racer snake with tapered snout. Fast moving and harmless to humans.",
+                "Non-poisonous (Harmless)",
+                "Plains and dry scrub of central Maharashtra.",
+                R.drawable.banded_racer));
 
-        androidData = new DataClass("Banded Racer","Scales smooth ,light or dark brown,snout tapered.Young with brilliant white head markings and bright white cross bands.Adults usually without bands,belly white or yellowish white","non-poisonous","Found throughout India,from Baroda to Gwalior",R.drawable.banded_racer);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Slender Racer",
+                "Small, slender, non-venomous snake with large eyes. Completely harmless to humans.",
+                "Non-poisonous (Harmless)",
+                "Grasslands and agricultural boundaries.",
+                R.drawable.slender_racer));
 
-        androidData = new DataClass("Slender Racer","Small ,slender,smooth scaled.head broader than neck,large eye with round pupil.Tail long and thin.Narrow white,black edged cross bars on the back,which widen on the sides to connect with adjacent bands","non-poisonous","Recorded only from Maharashtra and Madhya Pradesh",R.drawable.slender_racer);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Russell's Kukri Snake (कुखरी)",
+                "Non-venomous snake with smooth scales and distinctive chevron marks on head and neck.",
+                "Non-poisonous (Harmless)",
+                "Dry deciduous forests, fields, and rocky outcrops.",
+                R.drawable.russells_kukri_snake));
 
-        androidData = new DataClass("Russell's Kukri Snake","Scales smooth,head slightly or not broader than neck.Eye has round pupil,tail has pointed tip.Markings on head and back extremely variable. “^” shaped marks closely followed by a broad band or blotch on neck","non-poisonous","Found in hills and plains of peninsular and northern india.western Himalayas",R.drawable.russells_kukri_snake);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Common Kukri Snake",
+                "Small non-venomous snake, active mainly at night. Harmless to humans and livestock.",
+                "Non-poisonous (Harmless)",
+                "Found in household surroundings, brick piles, and gardens.",
+                R.drawable.common_kukri_snake));
 
-        androidData = new DataClass("Common Kukri Snake","Scales smooth ,head slightly or not broader than neck,with typical ^ shaped marks seen on most kukri snakes,eye has round pupil.Short tail has pointed tip,single scale at tip of snout extends well onto upper surface of head.10 – 20 distinct black or dark brown bands adn three ^ shaped marks of same color on head","non-poisonous","Found throughout India, except Northeast,Pakistan,Nepal,Bangladesh,Srilanka",R.drawable.common_kukri_snake);
-        dataList.add(androidData);
+        dataList.add(new DataClass("Common Bronzeback Tree Snake",
+                "Long, slender tree snake with bronze-brown coloring and dark stripe along body.",
+                "Non-poisonous (Harmless)",
+                "Trees, shrubs, orchards, and farmlands.",
+                R.drawable.common_bronzeback_tree_snake));
 
-        androidData = new DataClass("Common Bronzeback Tree Snake","Long,slender,smooth scaled,head distinctly broader than neck,snout bluntly rounded.Large eye has round pupil.Tail very long,thin and wire like .Bronze brown or purplish brown back with a dark brown or black stripe on either side of body","non-poisonous","Found in downward parts of India,northeast india to Darjeeling",R.drawable.common_bronzeback_tree_snake);
-        dataList.add(androidData);
-
-        androidData = new DataClass("Yellow Spotted Wolf Snake","Slender bodied,smooth scaled,flattened head slightly broader than neck,snout broad,projects beyond lower jaw. Eye entirely black,series of small bright yellow spots along the midback. Lips scales and underside white","non-poisonous","Only recorded from a few places in and around Western Ghats of Maharashtra",R.drawable.yellow_spotted_wolf_snake);
-        dataList.add(androidData);
-        
-        adapter = new MyAdapter(MainActivity.this, dataList);
-        recyclerView.setAdapter(adapter);
-
-
+        dataList.add(new DataClass("Yellow-Spotted Wolf Snake (कवड्या)",
+                "Small non-venomous snake with yellow spots. Often mistaken for Common Krait, but has distinct round pupil and yellow spots.",
+                "Non-poisonous (Harmless)",
+                "Found around old walls, rock crevices, and farm sheds.",
+                R.drawable.yellow_spotted_wolf_snake));
     }
 
     private void searchList(String text) {
         List<DataClass> dataSearchList = new ArrayList<>();
         for (DataClass data : dataList) {
-            if (data.getDataTitle().toLowerCase().contains(text.toLowerCase())) {
+            if (data.getDataTitle().toLowerCase().contains(text.toLowerCase()) ||
+                    data.getDataLang().toLowerCase().contains(text.toLowerCase()) ||
+                    data.getDataLocation().toLowerCase().contains(text.toLowerCase())) {
                 dataSearchList.add(data);
             }
         }
         if (dataSearchList.isEmpty()) {
-            Toast.makeText(this, "Not Found", Toast.LENGTH_SHORT).show();
+            if (emptyTextView != null) emptyTextView.setVisibility(View.VISIBLE);
+            adapter.setSearchList(new ArrayList<>());
         } else {
+            if (emptyTextView != null) emptyTextView.setVisibility(View.GONE);
             adapter.setSearchList(dataSearchList);
         }
     }
-
-
 }

@@ -1,204 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center">
-        <TextView
+        android:padding="@dimen/space_16"
+        android:paddingBottom="@dimen/space_40">
+
+        <!-- User Information Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.ShetkariMitra.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:fontFamily="@font/poppins_bold"
-            android:textColor="@color/red"
-            android:text="Sign In page."/>
+            app:cardBackgroundColor="@color/color_surface"
+            app:strokeColor="@color/color_border"
+            app:strokeWidth="1dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_16">
 
+                <TextView
+                    style="@style/TextAppearance.ShetkariMitra.SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Create Account"
+                    android:textColor="@color/color_primary"
+                    android:textSize="@dimen/text_title_large" />
 
-        <EditText
-            android:layout_marginTop="10dp"
-            android:layout_width="350dp"
-            android:textStyle="bold"
-            android:layout_height="40dp"
-            android:id="@+id/usernameEditText"
-            android:background="@drawable/roundedtext"
-            android:hint="Enter Your Name"
-            android:drawableStart="@drawable/left_user"
-            android:drawablePadding="@dimen/_8sdp"
-            android:padding="10dp"
-            android:drawableTint="#775050"
-            android:textSize="19dp"
-            />
+                <!-- Name Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:hint="Full Name"
+                    app:startIconDrawable="@drawable/left_user">
 
-        <EditText
-            android:layout_marginTop="10dp"
-            android:layout_width="350dp"
-            android:layout_height="40dp"
-            android:textStyle="bold"
-            android:id="@+id/mobileNumberEditText"
-            android:inputType="phone"
-            android:background="@drawable/roundedtext"
-            android:hint="Enter Mobile Number"
-            android:drawableStart="@drawable/left_call_icon"
-            android:drawablePadding="@dimen/_8sdp"
-            android:padding="10dp"
-            android:drawableTint="#775050"
-            />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/usernameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:textColor="@color/color_text_primary" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_marginTop="10dp"
-            android:layout_width="350dp"
-            android:layout_height="40dp"
-            android:id="@+id/emailEditTextView"
-            android:background="@drawable/roundedtext"
-            android:hint="Enter Email"
-            android:inputType="textEmailAddress"
-            android:textStyle="bold"
-            android:drawableStart="@drawable/left_email_icon"
-            android:drawablePadding="@dimen/_8sdp"
-            android:padding="10dp"
-            android:drawableTint="#775050"
-            />
+                <!-- Mobile Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:hint="10-Digit Mobile Number"
+                    app:startIconDrawable="@drawable/left_call_icon">
 
-        <EditText
-            android:layout_marginTop="10dp"
-            android:layout_width="350dp"
-            android:layout_height="40dp"
-            android:id="@+id/passwordEditText"
-            android:background="@drawable/roundedtext"
-            android:hint="Enter Password."
-            android:textStyle="bold"
-            android:paddingLeft="@dimen/_20sdp"
-            android:drawableStart="@drawable/left_pass_icon"
-            android:drawablePadding="@dimen/_8sdp"
-            android:padding="10dp"
-            android:drawableTint="#775050"
-            />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/mobileNumberEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:textColor="@color/color_text_primary" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="200dp"
+                <!-- Email Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:hint="Email Address"
+                    app:startIconDrawable="@drawable/left_email_icon">
 
-            android:layout_height="40dp"
-            android:text="Emergency Contacts"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="18dp"
-            android:padding="2dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:textStyle="bold"
-            android:textColor="#FF1744"
-            android:background="@drawable/roundedtext"
-            android:layout_marginTop="16dp"/>
-        <LinearLayout
-            android:layout_width="350dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical"
-            android:background="@drawable/roundedtext"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailEditTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:textColor="@color/color_text_primary" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Password Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:hint="Password (min. 6 characters)"
+                    app:passwordToggleEnabled="true"
+                    app:startIconDrawable="@drawable/left_pass_icon">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/passwordEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textColor="@color/color_text_primary" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Emergency Contacts Section Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.ShetkariMitra.Card"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp">
+            android:layout_marginTop="@dimen/space_16"
+            app:cardBackgroundColor="@color/color_surface"
+            app:strokeColor="@color/color_border"
+            app:strokeWidth="1dp">
 
-            <EditText
-                android:layout_width="300dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:id="@+id/emergencyNameEditText1"
-                android:inputType="text"
-                android:hint="Contact 1 Name :"
-                />
-            <EditText
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:drawableStart="@drawable/left_call_icon"
-                android:drawablePadding="@dimen/_8sdp"
-                android:padding="10dp"
-                android:drawableTint="#775050"
-                android:fontFamily="@font/poppins_semibold"
-                android:id="@+id/emergencyNumberEditText1"
-                android:hint="Number"
-                />
+                android:orientation="vertical"
+                android:padding="@dimen/space_16">
 
+                <TextView
+                    style="@style/TextAppearance.ShetkariMitra.SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Emergency Contacts (Optional)"
+                    android:textColor="@color/color_primary" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="350dp"
-            android:orientation="vertical"
-            android:background="@drawable/roundedtext"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp">
+                <TextView
+                    style="@style/TextAppearance.ShetkariMitra.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_2"
+                    android:text="People to notify in case of snakebite emergency" />
 
-            <EditText
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:id="@+id/emergencyNameEditText2"
-                android:hint="Contact 2 Name :"
-                />
-            <EditText
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:drawableStart="@drawable/left_call_icon"
-                android:drawablePadding="@dimen/_8sdp"
-                android:padding="10dp"
-                android:drawableTint="#775050"
-                android:fontFamily="@font/poppins_semibold"
-                android:id="@+id/emergencyNumberEditText2"
-                android:hint="Number"
-                />
+                <!-- Contact 1 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:hint="Contact 1 Name">
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emergencyNameEditText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="350dp"
-            android:orientation="vertical"
-            android:background="@drawable/roundedtext"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:hint="Contact 1 Number">
 
-            <EditText
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:inputType="text"
-                android:id="@+id/emergencyNameEditText3"
-                android:hint="Contact 3 Name :"
-                />
-            <EditText
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:drawableStart="@drawable/left_call_icon"
-                android:drawablePadding="@dimen/_8sdp"
-                android:padding="10dp"
-                android:drawableTint="#775050"
-                android:fontFamily="@font/poppins_semibold"
-                android:id="@+id/emergencyNumberEditText3"
-                android:hint="Number"
-                />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emergencyNumberEditText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:maxLength="10" />
+                </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Contact 2 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:hint="Contact 2 Name">
 
-        </LinearLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emergencyNameEditText2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName" />
+                </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:hint="Contact 2 Number">
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emergencyNumberEditText2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:maxLength="10" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Contact 3 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:hint="Contact 3 Name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emergencyNameEditText3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:hint="Contact 3 Number">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emergencyNumberEditText3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:maxLength="10" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Submit Button -->
         <Button
             android:id="@+id/signUpButton"
-            android:layout_width="wrap_content"
+            style="@style/Widget.ShetkariMitra.Button.Primary"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_button"
-            android:text="Sign Up"/>
-
+            android:layout_marginTop="@dimen/space_20"
+            android:text="Create Account" />
 
     </LinearLayout>
-</ScrollView>
+
+</androidx.core.widget.NestedScrollView>

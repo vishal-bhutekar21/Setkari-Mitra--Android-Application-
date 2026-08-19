@@ -1,20 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Define a style for the navigation items -->
-    <style name="NavigationItemStyle">
-        <item name="android:textColor">@color/black</item>
-        <item name="android:fontFamily">@font/poppins_bold</item>
-        <item name="android:background">@color/red</item>
 
-        <!-- Add more style attributes as needed -->
+    <!-- ===== COMPONENT STYLES ===== -->
+
+    <!-- Primary Button -->
+    <style name="Widget.ShetkariMitra.Button.Primary" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/color_primary</item>
+        <item name="android:textColor">@color/color_on_primary</item>
+        <item name="android:minHeight">@dimen/touch_target_min</item>
+        <item name="cornerRadius">@dimen/radius_medium</item>
     </style>
+
+    <!-- Emergency Button -->
+    <style name="Widget.ShetkariMitra.Button.Emergency" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/color_emergency</item>
+        <item name="android:textColor">@color/color_on_emergency</item>
+        <item name="android:minHeight">@dimen/emergency_button_height</item>
+        <item name="cornerRadius">@dimen/radius_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Outlined Button -->
+    <style name="Widget.ShetkariMitra.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/color_primary</item>
+        <item name="android:textColor">@color/color_primary</item>
+        <item name="android:minHeight">@dimen/touch_target_min</item>
+        <item name="cornerRadius">@dimen/radius_medium</item>
+    </style>
+
+    <!-- Text Button -->
+    <style name="Widget.ShetkariMitra.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/color_primary</item>
+    </style>
+
+    <!-- Standard Card -->
+    <style name="Widget.ShetkariMitra.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardElevation">@dimen/elevation_card</item>
+        <item name="cardCornerRadius">@dimen/radius_medium</item>
+        <item name="contentPadding">@dimen/space_16</item>
+    </style>
+
+    <!-- Home Feature Card -->
+    <style name="Widget.ShetkariMitra.Card.Feature" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardElevation">@dimen/elevation_card</item>
+        <item name="cardCornerRadius">@dimen/radius_large</item>
+        <item name="contentPadding">@dimen/space_12</item>
+    </style>
+
+    <!-- Text Input -->
+    <style name="Widget.ShetkariMitra.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/color_primary</item>
+        <item name="hintTextColor">@color/color_primary</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/radius_small</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/radius_small</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/radius_small</item>
+        <item name="boxCornerRadiusTopStart">@dimen/radius_small</item>
+    </style>
+
+    <!-- Toolbar -->
+    <style name="Widget.ShetkariMitra.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/color_primary</item>
+        <item name="android:minHeight">@dimen/toolbar_height</item>
+        <item name="android:theme">@style/ThemeOverlay.ShetkariMitra.Toolbar</item>
+        <item name="titleTextColor">@color/color_on_primary</item>
+        <item name="subtitleTextColor">@color/color_primary_light</item>
+    </style>
+
+    <!-- Base Text Appearance -->
+    <style name="TextAppearance.ShetkariMitra" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/color_text_primary</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <!-- Section Header Text -->
+    <style name="TextAppearance.ShetkariMitra.SectionTitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textColor">@color/color_text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <!-- Body Text -->
+    <style name="TextAppearance.ShetkariMitra.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/color_text_secondary</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:lineSpacingMultiplier">1.4</item>
+    </style>
+
+    <!-- Caption Text -->
+    <style name="TextAppearance.ShetkariMitra.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:textColor">@color/color_text_hint</item>
+    </style>
+
+    <!-- Navigation Drawer Items -->
     <style name="NavigationItemTextStyle">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
-        <item name="android:fontFamily">@font/poppins_semibold</item>
-        <!-- Add more style attributes as needed -->
+        <item name="android:textAppearance">@style/TextAppearance.ShetkariMitra.Body</item>
     </style>
-    <style name="SectionTitleStyle">
-        <item name="android:textColor">@color/red</item>
-        <item name="android:fontFamily">@font/medium_font</item>
-        <!-- Add more style attributes as needed -->
-    </style>
+
 </resources>

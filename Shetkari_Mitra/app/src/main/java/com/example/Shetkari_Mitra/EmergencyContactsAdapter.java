@@ -1,73 +1,93 @@
 package com.example.Shetkari_Mitra;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
-public class EmergencyContactsAdapter extends RecyclerView.Adapter<EmergencyContactsAdapter.EmergencyContactViewHolder> {
+public class EmergencyContactsAdapter extends RecyclerView.Adapter<EmergencyContactsAdapter.ViewHolder> {
 
-    private Context context;
-    private List<EmergencyContact> emergencyContactsList;
-    private int selectedPosition = RecyclerView.NO_POSITION;
+    public interface OnContactActionListener {
+        void onEdit(EmergencyContact contact);
+        void onDelete(EmergencyContact contact);
+    }
 
-    public EmergencyContactsAdapter(Context context, List<EmergencyContact> emergencyContactsList) {
+    private final Context context;
+    private final List<EmergencyContact> contactList;
+    private final OnContactActionListener listener;
+
+    public EmergencyContactsAdapter(Context context, List<EmergencyContact> contactList, OnContactActionListener listener) {
         this.context = context;
-        this.emergencyContactsList = emergencyContactsList;
+        this.contactList = contactList;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
-    public EmergencyContactViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_emergency_contacts, parent, false);
-        return new EmergencyContactViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EmergencyContactViewHolder holder, int position) {
-        EmergencyContact emergencyContact = emergencyContactsList.get(position);
-        holder.bind(emergencyContact);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        EmergencyContact contact = contactList.get(position);
+        holder.textViewName.setText(contact.getName());
+        holder.textViewNumber.setText(contact.getNumber());
 
-        // Highlight selected item
-        holder.itemView.setSelected(selectedPosition == position);
+        holder.btnCall.setOnClickListener(v -> {
+            String phoneNumber = contact.getNumber();
+            if (phoneNumber != null && !phoneNumber.trim().isEmpty()) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + phoneNumber.trim()));
+                context.startActivity(intent);
+            } else {
+                Toast.makeText(context, R.string.phone_not_available, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        if (holder.btnEdit != null) {
+            holder.btnEdit.setOnClickListener(v -> {
+                if (listener != null) listener.onEdit(contact);
+            });
+        }
+
+        if (holder.btnDelete != null) {
+            holder.btnDelete.setOnClickListener(v -> {
+                if (listener != null) listener.onDelete(contact);
+            });
+        }
     }
 
     @Override
     public int getItemCount() {
-        return emergencyContactsList.size();
+        return contactList != null ? contactList.size() : 0;
     }
 
-    public class EmergencyContactViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView textViewName;
+        TextView textViewNumber;
+        ImageButton btnCall;
+        ImageButton btnEdit;
+        ImageButton btnDelete;
 
-        private TextView nameTextView, numberTextView;
-
-        public EmergencyContactViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.nameTextView);
-            numberTextView = itemView.findViewById(R.id.numberTextView);
-            itemView.setOnClickListener(this);
+            textViewName = itemView.findViewById(R.id.textViewEmergencyContactName);
+            textViewNumber = itemView.findViewById(R.id.textViewEmergencyContactNumber);
+            btnCall = itemView.findViewById(R.id.btnCallContact);
+            btnEdit = itemView.findViewById(R.id.btnEditContact);
+            btnDelete = itemView.findViewById(R.id.btnDeleteContact);
         }
-
-        public void bind(EmergencyContact emergencyContact) {
-            nameTextView.setText(emergencyContact.getName());
-            numberTextView.setText(emergencyContact.getNumber());
-        }
-
-        @Override
-        public void onClick(View v) {
-            selectedPosition = getAdapterPosition();
-            notifyDataSetChanged(); // Update the view to reflect the change
-
-            // You can also pass the selected position to your activity or fragment
-            // through an interface listener if needed
-        }
-    }
-
-    public int getSelectedPosition() {
-        return selectedPosition;
     }
 }

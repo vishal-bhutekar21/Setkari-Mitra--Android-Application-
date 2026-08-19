@@ -1,59 +1,42 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/lay"
-    android:layout_gravity="center"
+    android:background="@color/color_primary"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@drawable/gradient_background_list_detais">
+    android:padding="@dimen/space_24">
 
+    <!-- App Logo -->
     <ImageView
-        android:layout_marginTop="@dimen/_90sdp"
-
-        android:layout_width="200dp"
         android:id="@+id/applogo"
-        android:layout_height="200dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/app_logo"
-        android:background="@drawable/card_border"
-        android:visibility="visible"
-        android:layout_centerHorizontal="true"
-        tools:ignore="MissingConstraints,NotSibling"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/app_logo" />
 
-       />
-
+    <!-- App Name -->
     <TextView
-        android:layout_marginTop="20dp"
         android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-      android:layout_below="@+id/applogo"
-        android:layout_centerHorizontal="true"
-        android:text="@string/app_name"
+        android:layout_marginTop="@dimen/space_20"
         android:fontFamily="@font/poppins_bold"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:visibility="invisible"
+        android:text="@string/app_name"
+        android:textColor="@color/color_on_primary"
+        android:textSize="@dimen/text_display" />
 
-        android:padding="2dp"
-        tools:ignore="MissingConstraints" />
-
+    <!-- Marathi Tagline -->
     <TextView
         android:id="@+id/marathiText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_bold"
-        android:padding="2dp"
-        android:layout_marginTop="@dimen/_180sdp"
-       android:layout_below="@id/appName"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/space_8"
+        android:fontFamily="@font/poppins_semibold"
         android:text="@string/marathi_text"
-        android:textColor="@color/red"
-        android:textSize="16sp"
-        android:visibility="invisible"
+        android:textColor="@color/color_primary_container"
+        android:textSize="@dimen/text_body_large" />
 
-        />
-
-</RelativeLayout>
+</LinearLayout>

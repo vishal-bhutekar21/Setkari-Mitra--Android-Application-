@@ -1,7 +1,6 @@
 package com.example.Shetkari_Mitra;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,357 +8,316 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.denzcoskun.imageslider.ImageSlider;
-import com.denzcoskun.imageslider.constants.ScaleTypes;
-import com.denzcoskun.imageslider.models.SlideModel;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.Priority;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String PREF_NAME = "shetkari_prefs";
+    private static final String KEY_LOGGED_IN = "is_logged_in";
+    private static final String KEY_SAVED_USERNAME = "saved_username";
+    private static final String KEY_SAVED_EMAIL = "saved_email";
 
-    private static final String PREF_NAME = "MyPrefs";
-    private static final String KEY_LOGGED_IN = "isLoggedIn";
-
-    DrawerLayout drawerLayout;
-    Toolbar toolbar;
-
-    NavigationView navigationView;
-
-    private LocationManager locationManager;
-    private LocationListener locationListener;
-    private static final int PERMISSION_REQUEST_CODE = 1001;
-
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private BottomNavigationView bottomNavigationView;
+    private TextView locationTextView;
     private TextView userNameTextView;
     private TextView userEmailTextView;
-    TextView locationTextView;
+    private TextView tvGreeting;
 
+    private View cardSnakeLib, cardFirstAid, cardNearHospital;
+    private View cardIdentifySnake, cardResRegistration, cardSnakeRescuers;
+    private View cardEmergencyBtn, cardAboutUsBtn, cardMythsFacts;
+    private ImageButton btnMenuDrawer, btnQuickEmergency;
 
-    CardView snake_lib, first_aid, near_hospital, identify_snake, snake_res_regis, snake_rescuiers;
-    CardView emergency_Btn, about_us_btn;
+    private FusedLocationProviderClient fusedLocationClient;
+    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private final Handler mainHandler = new Handler(Looper.getMainLooper());
 
-    @SuppressLint("WrongViewCast")
+    private final ActivityResultLauncher<String[]> locationPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+                Boolean fineGranted = result.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false);
+                Boolean coarseGranted = result.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false);
+                if ((fineGranted != null && fineGranted) || (coarseGranted != null && coarseGranted)) {
+                    fetchCurrentLocation();
+                } else {
+                    locationTextView.setText(R.string.location_permission_denied);
+                }
+            });
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        snake_lib = findViewById(R.id.Snake_Lib);
-        first_aid = findViewById(R.id.first_Aid);
-        emergency_Btn = findViewById(R.id.emergency_btn);
-        about_us_btn = findViewById(R.id.about_btn);
-        snake_rescuiers = findViewById(R.id.snake_rescuer);
-        snake_res_regis = findViewById(R.id.res_registration);
-        near_hospital = findViewById(R.id.nearhospital);
-        locationTextView = findViewById(R.id.locationTextView);
-        identify_snake = findViewById(R.id.Snake_identify);
 
+        initViews();
+        setupNavigationHeader();
+        setupCardClickListeners();
+        setupBottomNavigation();
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        checkAndRequestLocation();
+    }
+
+    private void initViews() {
         drawerLayout = findViewById(R.id.drawer_layout);
-        toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigation_view);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        locationTextView = findViewById(R.id.locationTextView);
+        tvGreeting = findViewById(R.id.tvGreeting);
+
+        btnMenuDrawer = findViewById(R.id.btnMenuDrawer);
+        btnQuickEmergency = findViewById(R.id.btnQuickEmergency);
+
+        cardSnakeLib = findViewById(R.id.Snake_Lib);
+        cardFirstAid = findViewById(R.id.first_Aid);
+        cardNearHospital = findViewById(R.id.nearhospital);
+        cardIdentifySnake = findViewById(R.id.Snake_identify);
+        cardResRegistration = findViewById(R.id.res_registration);
+        cardSnakeRescuers = findViewById(R.id.snake_rescuer);
+        cardEmergencyBtn = findViewById(R.id.emergency_btn);
+        cardAboutUsBtn = findViewById(R.id.about_btn);
+        cardMythsFacts = findViewById(R.id.cardMythsFacts);
+
+        if (btnMenuDrawer != null) {
+            btnMenuDrawer.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
+        }
+
+        if (btnQuickEmergency != null) {
+            btnQuickEmergency.setOnClickListener(v -> showEmergencyCallDialog());
+        }
+
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void setupNavigationHeader() {
         View headerView = navigationView.getHeaderView(0);
         userNameTextView = headerView.findViewById(R.id.user_name);
         userEmailTextView = headerView.findViewById(R.id.user_email);
 
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            String userEmail = currentUser.getEmail();
-            if (userEmail != null && !userEmail.isEmpty()) {
-                userEmailTextView.setText(userEmail);
+        SharedPreferences prefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        String username = prefs.getString(KEY_SAVED_USERNAME, "Shetkari Mitra");
+        String email = prefs.getString(KEY_SAVED_EMAIL, "Farmer Companion");
 
+        if (userNameTextView != null) userNameTextView.setText(username);
+        if (userEmailTextView != null) userEmailTextView.setText(email);
+        if (tvGreeting != null) tvGreeting.setText("Namaste, " + username + " 🙏");
+    }
 
-                int atIndex = userEmail.indexOf('@');
-                if (atIndex != -1) {
-                    String userName = userEmail.substring(0, atIndex);
-                    userNameTextView.setText(userName);
-                } else {
+    private void setupCardClickListeners() {
+        if (cardFirstAid != null) cardFirstAid.setOnClickListener(v -> startActivity(new Intent(this, First_Aid.class)));
+        if (cardSnakeLib != null) cardSnakeLib.setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
+        if (cardNearHospital != null) cardNearHospital.setOnClickListener(v -> startActivity(new Intent(this, Near_By_Hospitals.class)));
+        if (cardIdentifySnake != null) cardIdentifySnake.setOnClickListener(v -> startActivity(new Intent(this, Acitivity_identify_snake.class)));
+        if (cardResRegistration != null) cardResRegistration.setOnClickListener(v -> startActivity(new Intent(this, Registration_example.class)));
+        if (cardSnakeRescuers != null) cardSnakeRescuers.setOnClickListener(v -> startActivity(new Intent(this, RescuerDatabaseActivity.class)));
+        if (cardAboutUsBtn != null) cardAboutUsBtn.setOnClickListener(v -> startActivity(new Intent(this, Activity_About_Us.class)));
+        if (cardMythsFacts != null) cardMythsFacts.setOnClickListener(v -> startActivity(new Intent(this, Activity_Myths_Facts.class)));
+        if (cardEmergencyBtn != null) cardEmergencyBtn.setOnClickListener(v -> showEmergencyCallDialog());
+    }
 
-                    userNameTextView.setText("User");
-                }
-            } else {
-                userEmailTextView.setText("User");
-                userNameTextView.setText("User");
+    private void setupBottomNavigation() {
+        if (bottomNavigationView == null) return;
+        bottomNavigationView.setSelectedItemId(R.id.bottom_nav_home);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.bottom_nav_home) {
+                return true;
+            } else if (id == R.id.bottom_nav_guide) {
+                startActivity(new Intent(HomeActivity.this, MainActivity.class));
+                return true;
+            } else if (id == R.id.bottom_nav_hospitals) {
+                startActivity(new Intent(HomeActivity.this, Near_By_Hospitals.class));
+                return true;
+            } else if (id == R.id.bottom_nav_rescuers) {
+                startActivity(new Intent(HomeActivity.this, RescuerDatabaseActivity.class));
+                return true;
+            } else if (id == R.id.bottom_nav_sos) {
+                showEmergencyCallDialog();
+                return true;
             }
-        } else {
-            userEmailTextView.setText("Not logged in");
-            userNameTextView.setText("Not logged in");
+            return false;
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (bottomNavigationView != null) {
+            bottomNavigationView.setSelectedItemId(R.id.bottom_nav_home);
         }
+    }
 
+    private void showEmergencyCallDialog() {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.emergency_call_title)
+                .setMessage(R.string.emergency_call_confirm_msg)
+                .setIcon(R.drawable.call_logo)
+                .setPositiveButton(R.string.call_112, (dialog, which) -> {
+                    Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+                    dialIntent.setData(Uri.parse("tel:112"));
+                    startActivity(dialIntent);
+                })
+                .setNeutralButton(R.string.call_rescuer, (dialog, which) -> {
+                    startActivity(new Intent(HomeActivity.this, RescuerDatabaseActivity.class));
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+    }
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                HomeActivity.this, drawerLayout, toolbar,
-                R.string.navigation_drawer_close,
-                R.string.navigation_drawer_open
-        );
-        drawerLayout.addDrawerListener(toggle);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+    private void checkAndRequestLocation() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            fetchCurrentLocation();
+        } else {
+            locationPermissionLauncher.launch(new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+            });
+        }
+    }
 
-                 if (menuItem.getItemId() == R.id.nav_profile) {
-                    Toast.makeText(HomeActivity.this, "This is Profile ", Toast.LENGTH_SHORT).show();
-                    drawerLayout.close();
-                } else if (menuItem.getItemId() == R.id.nav_contacts) {
-                    Intent i = new Intent(HomeActivity.this, nav_Emergency_Contacts.class);
-                    startActivity(i);
-                    Toast.makeText(HomeActivity.this, "This is Contacts ", Toast.LENGTH_SHORT).show();
-                    drawerLayout.close();
-                } else if (menuItem.getItemId() == R.id.nav_logout) {
-                    // Sign out the user from Firebase Authentication
-                    FirebaseAuth.getInstance().signOut();
-
-                    // Clear the login state from SharedPreferences
-                    SharedPreferences sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean(KEY_LOGGED_IN, false);
-                    editor.apply();
-
-                    // Redirect to the login page
-                    Intent intent = new Intent(HomeActivity.this, Start_Activity.class);
-                    startActivity(intent);
-                    finish(); // Close the current activity
-                    drawerLayout.close();
-                } else if (menuItem.getItemId() == R.id.nav_share) {
-                    String appDescription = "ShetkariMitra App - Prevents Snake Bites\n" +
-                            "\n" +"ShetkariMitra is your ultimate companion in staying safe from snake bites. Our app provides essential information, tips, and tools to help you minimize the risk of encountering snakes and handle snake encounters effectively. Whether you're a farmer, outdoor enthusiast, or simply concerned about snake safety, ShetkariMitra is here to support you.\n";
-                    String appLink = "https://play.google.com/store/apps/details?id=com.example.snakebiteprevention";
-
-                    Intent sendIntent = new Intent();
-                    sendIntent.setAction(Intent.ACTION_SEND);
-                    sendIntent.putExtra(Intent.EXTRA_SUBJECT, "ShetkariMitra App - Prevents Snake Bites");
-                    sendIntent.putExtra(Intent.EXTRA_TEXT, appDescription + "\nDownload the app:\n" + appLink);
-                    sendIntent.setType("text/plain");
-
-                    startActivity(Intent.createChooser(sendIntent, "Share ShetkariMitra App via"));
-                    drawerLayout.close();
-
-
-                } else if (menuItem.getItemId() == R.id.nav_Admin) {
-                    Intent i=new Intent(HomeActivity.this, Admin_Activity.class);
-                    startActivity(i);
-                    drawerLayout.close();
-                } else if (menuItem.getItemId()==R.id.nav_hos){
-                     Intent i=new Intent(HomeActivity.this, MapsActivity.class);
-                     startActivity(i);
-                     drawerLayout.close();
-
-                }
-
-                return false;
-            }
-        });
-
-
-        ArrayList<SlideModel> imageList = new ArrayList<>();
-
-        imageList.add(new SlideModel(R.drawable.slider1, ScaleTypes.CENTER_CROP));
-        imageList.add(new SlideModel(R.drawable.slider2, ScaleTypes.CENTER_CROP));
-        imageList.add(new SlideModel(R.drawable.slider4, ScaleTypes.CENTER_CROP));
-        imageList.add(new SlideModel(R.drawable.slider5, ScaleTypes.CENTER_CROP));
-        imageList.add(new SlideModel(R.drawable.slider6, ScaleTypes.CENTER_CROP));
-        imageList.add(new SlideModel(R.drawable.slider7, ScaleTypes.CENTER_CROP));
-
-        ImageSlider imageSlider = findViewById(R.id.image_slider);
-        imageSlider.setImageList(imageList);
-
-        first_aid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, First_Aid.class);
-                startActivity(i);
-            }
-        });
-
-        snake_lib.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, MainActivity.class);
-                startActivity(i);
-            }
-        });
-        near_hospital.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, Near_By_Hospitals.class);
-                startActivity(i);
-            }
-        });
-        identify_snake.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, Acitivity_identify_snake.class);
-                startActivity(i);
-            }
-        });
-        snake_res_regis.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, Registration_example.class);
-                startActivity(i);
-            }
-        });
-        snake_rescuiers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, RescuerDatabaseActivity.class);
-                startActivity(i);
-            }
-        });
-        about_us_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, Activity_About_Us.class);
-                startActivity(i);
-
-            }
-        });
-
-        emergency_Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent embtn1 = new Intent(Intent.ACTION_DIAL);
-                embtn1.setData(Uri.parse("tel:112"));
-                startActivity(embtn1);
-            }
-        });
-
-
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Permission not granted, request permissions
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
-                    PERMISSION_REQUEST_CODE);
+    private void fetchCurrentLocation() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
 
-        getLocation();
+        locationTextView.setText(R.string.fetching_location);
 
+        fusedLocationClient.getCurrentLocation(Priority.PRIORITY_BALANCED_POWER_ACCURACY, null)
+                .addOnSuccessListener(this, location -> {
+                    if (location != null) {
+                        reverseGeocode(location);
+                    } else {
+                        fusedLocationClient.getLastLocation().addOnSuccessListener(this, lastLoc -> {
+                            if (lastLoc != null) {
+                                reverseGeocode(lastLoc);
+                            } else {
+                                locationTextView.setText(R.string.location_jalna_default);
+                            }
+                        });
+                    }
+                })
+                .addOnFailureListener(e -> locationTextView.setText(R.string.location_jalna_default));
     }
 
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
-                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, get location
-                getLocation();
-            } else {
-                // Permission denied, show a message or handle accordingly
-                Toast.makeText(this, "Location permission denied", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-    private void getLocation() {
-        if (locationManager != null) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                    locationListener = new LocationListener() {
-                        @Override
-                        public void onLocationChanged(@NonNull Location location) {
-                            updateLocation(location);
-                        }
-
-                        @Override
-                        public void onProviderEnabled(@NonNull String provider) {
-                        }
-
-                        @Override
-                        public void onProviderDisabled(@NonNull String provider) {
-                            // If the GPS provider is disabled, prompt the user to enable it
-                            showEnableLocationDialog();
-                        }
-                    };
-
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, locationListener);
-                } else {
-                    // Prompt the user to enable GPS
-                    showEnableLocationDialog();
-                }
-            } else {
-                // Request location permission
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_CODE);
-            }
-        }
-    }
-
-    // Replace your existing showEnableLocationDialog() method with this:
-    private void showEnableLocationDialog() {
-        EnableLocationDialogFragment dialogFragment = new EnableLocationDialogFragment();
-        dialogFragment.show(getSupportFragmentManager(), "EnableLocationDialogFragment");
-    }
-
-
-
-    private void updateLocation(Location location) {
-        if (location != null) {
-            double latitude = location.getLatitude();
-            double longitude = location.getLongitude();
-
-            // Convert latitude and longitude into address using Geocoder
-            Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+    private void reverseGeocode(Location location) {
+        executorService.execute(() -> {
+            Geocoder geocoder = new Geocoder(HomeActivity.this, Locale.getDefault());
+            String addressText = String.format(Locale.getDefault(), "Lat: %.4f, Long: %.4f", location.getLatitude(), location.getLongitude());
             try {
-                List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
-                if (!addresses.isEmpty()) {
-                    Address address = addresses.get(0);
-                    String addressText = String.format("%s, %s, %s",
-                            address.getAddressLine(0),
-                            address.getLocality(),
-                            address.getCountryName());
-                    locationTextView.setText(addressText);
-                } else {
-                    locationTextView.setText("Address not found");
+                List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                if (addresses != null && !addresses.isEmpty()) {
+                    Address addr = addresses.get(0);
+                    StringBuilder sb = new StringBuilder();
+                    if (addr.getLocality() != null) sb.append(addr.getLocality()).append(", ");
+                    if (addr.getSubAdminArea() != null) sb.append(addr.getSubAdminArea()).append(", ");
+                    if (addr.getAdminArea() != null) sb.append(addr.getAdminArea());
+                    if (sb.length() > 0) {
+                        addressText = sb.toString();
+                    } else if (addr.getAddressLine(0) != null) {
+                        addressText = addr.getAddressLine(0);
+                    }
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-                locationTextView.setText("Error retrieving location");
-            }
-        } else {
-            locationTextView.setText("Location is null");
-        }
+            } catch (IOException ignored) {}
 
-        // Stop listening for location updates once location is obtained
-        if (locationManager != null && locationListener != null) {
-            locationManager.removeUpdates(locationListener);
+            final String displayText = addressText;
+            mainHandler.post(() -> locationTextView.setText(displayText));
+        });
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.nav_contacts) {
+            startActivity(new Intent(this, nav_Emergency_Contacts.class));
+        } else if (id == R.id.nav_hos) {
+            startActivity(new Intent(this, MapsActivity.class));
+        } else if (id == R.id.nav_myths) {
+            startActivity(new Intent(this, Activity_Myths_Facts.class));
+        } else if (id == R.id.nav_Admin) {
+            startActivity(new Intent(this, Admin_Activity.class));
+        } else if (id == R.id.nav_share) {
+            shareApp();
+        } else if (id == R.id.nav_about) {
+            startActivity(new Intent(this, Activity_About_Us.class));
+        } else if (id == R.id.nav_logout) {
+            performLogout();
         }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    private void shareApp() {
+        Intent sendIntent = new Intent(Intent.ACTION_SEND);
+        sendIntent.setType("text/plain");
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+        sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_app_description));
+        startActivity(Intent.createChooser(sendIntent, getString(R.string.share_via)));
+    }
+
+    private void performLogout() {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.logout)
+                .setMessage(R.string.logout_confirm_msg)
+                .setPositiveButton(R.string.logout, (dialog, which) -> {
+                    SharedPreferences prefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+                    prefs.edit().putBoolean(KEY_LOGGED_IN, false).apply();
+
+                    Intent intent = new Intent(HomeActivity.this, Start_Activity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        executorService.shutdown();
     }
 }
-
-
-
-
-
-
-
-
-
-
-

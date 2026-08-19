@@ -5,43 +5,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/color_background"
     tools:context=".First_Aid">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/first_aaid_toolbar"
-        android:background="@drawable/gradient_background_list_detais"
+    <!-- Top Bar with Glass Back Button -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="?actionBarSize">
+        android:layout_height="wrap_content"
+        android:background="@color/color_primary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_16"
+        android:paddingVertical="@dimen/space_12">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+        <!-- Frosted Glass Back Button -->
+        <ImageButton
+            android:id="@+id/btnGlassBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_glass_circle_btn"
+            android:contentDescription="Back"
+            android:src="@drawable/baseline_clear_24"
+            app:tint="@color/color_primary" />
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/space_12"
             android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="@dimen/_13sdp"
-            android:text="First Aid Manual And Prevantation Methods" />
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/first_aid_title"
+                android:textColor="@color/color_on_primary"
+                android:textSize="@dimen/text_title" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Emergency Response Manual"
+                android:textColor="@color/color_primary_container"
+                android:textSize="@dimen/text_caption" />
 
-    </androidx.appcompat.widget.Toolbar>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_background_list_detais"
-        android:contentDescription="@string/app_name"
-        app:tabIndicatorColor="@color/black"
-        app:tabSelectedTextColor="@color/tabTextColor" />
+        android:background="@color/color_surface"
+        app:tabIndicatorColor="@color/color_primary"
+        app:tabSelectedTextColor="@color/color_primary"
+        app:tabTextColor="@color/color_text_secondary"
+        app:tabMode="fixed" />
 
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
+        android:layout_height="match_parent" />
 
 </LinearLayout>

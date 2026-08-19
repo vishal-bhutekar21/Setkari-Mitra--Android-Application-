@@ -1,75 +1,74 @@
 package com.example.Shetkari_Mitra;
 
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
-import android.os.Bundle;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class First_Aid extends AppCompatActivity {
 
-
-    private final String[] Pages_title= new String[]
-            {
-                    "Do's And Don't",
-                    "Preventation methods",
-                    "Symptoms"
-
-            };
-
-    private final Fragment[] Pages=new Fragment[]
-            {
-                    new fragmentset1(),
-                    new fragmentset2(),
-                    new fragmentset3()
-            };
-
-    private ViewPager mViewPager;
+    private final String[] tabTitles = new String[]{
+            "🚨 Steps (पायऱ्या)",
+            "⚠️ DOs & DON'Ts",
+            "🔍 Symptoms (लक्षणे)",
+            "📞 Helplines (हेल्पलाईन)"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_aid);
 
+        View btnGlassBack = findViewById(R.id.btnGlassBack);
+        if (btnGlassBack != null) {
+            btnGlassBack.setOnClickListener(v -> finish());
+        }
 
-        mViewPager=findViewById(R.id.viewpager);
-        mViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        ViewPager2 viewPager = findViewById(R.id.viewpager);
+        TabLayout tabLayout = findViewById(R.id.tablayout);
 
-        TabLayout tabLayout=findViewById(R.id.tablayout);
-        tabLayout.setupWithViewPager(mViewPager);
+        viewPager.setAdapter(new FirstAidPagerAdapter(this));
 
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
+            if (position < tabTitles.length) {
+                tab.setText(tabTitles[position]);
+            }
+        }).attach();
     }
 
+    private static class FirstAidPagerAdapter extends FragmentStateAdapter {
 
-
-    public class MyPagerAdapter extends FragmentPagerAdapter
-    {
-
-        public MyPagerAdapter(@NonNull FragmentManager fm) {
-            super(fm);
+        public FirstAidPagerAdapter(@NonNull AppCompatActivity activity) {
+            super(activity);
         }
 
         @NonNull
         @Override
-        public Fragment getItem(int position) {
-            return Pages[position];
+        public Fragment createFragment(int position) {
+            switch (position) {
+                case 0:
+                    return new FragmentFirstAidSteps();
+                case 1:
+                    return new FragmentFirstAidDoDonts();
+                case 2:
+                    return new FragmentFirstAidSymptoms();
+                case 3:
+                    return new FragmentFirstAidHelplines();
+                default:
+                    return new FragmentFirstAidSteps();
+            }
         }
 
         @Override
-        public int getCount() {
-            return Pages.length;
-        }
-
-        @Nullable
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return Pages_title[position];
+        public int getItemCount() {
+            return 4;
         }
     }
 }

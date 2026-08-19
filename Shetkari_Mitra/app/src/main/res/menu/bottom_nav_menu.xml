@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_nav_home"
+        android:icon="@drawable/app_logo"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/bottom_nav_guide"
+        android:icon="@drawable/snake_lib_logo"
+        android:title="Snakes" />
+
+    <item
+        android:id="@+id/bottom_nav_hospitals"
+        android:icon="@drawable/hospital_location_logo"
+        android:title="Hospitals" />
+
+    <item
+        android:id="@+id/bottom_nav_rescuers"
+        android:icon="@drawable/snake_rescure"
+        android:title="Rescuers" />
+
+    <item
+        android:id="@+id/bottom_nav_sos"
+        android:icon="@drawable/emergency_call_logo"
+        android:title="SOS / Call" />
+
+</menu>

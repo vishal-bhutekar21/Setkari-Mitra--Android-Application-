@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_16"
+        android:paddingBottom="@dimen/space_40">
+
+        <!-- DO's SECTION HEADER -->
+        <TextView
+            style="@style/TextAppearance.ShetkariMitra.SectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✅ WHAT TO DO (काय करावे)"
+            android:textColor="@color/color_success" />
+
+        <!-- DO 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="✔️ Keep Limb Below Heart Level"
+                android:textColor="@color/color_text_primary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Keep the bitten area at or slightly below the level of the heart to slow venom circulation."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+        <!-- DO 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="✔️ Wash Gently with Soap &amp; Water"
+                android:textColor="@color/color_text_primary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Gently clean the surface dirt around the bite wound without scrubbing vigorously."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+        <!-- DO 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="✔️ Note Snake Appearance from Safe Distance"
+                android:textColor="@color/color_text_primary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="If safe, note the color, markings, or shape of the snake head. Do NOT try to capture or kill it."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+        <!-- DON'Ts SECTION HEADER -->
+        <TextView
+            style="@style/TextAppearance.ShetkariMitra.SectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_20"
+            android:text="❌ WHAT NOT TO DO (काय करू नये — धोकादायक)"
+            android:textColor="@color/color_emergency" />
+
+        <!-- DONT 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="❌ NO Tourniquets or Tight Tying (दोरीने बांधू नका)"
+                android:textColor="@color/color_emergency"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Tying tight ropes or cloths cuts off arterial blood supply, causing gangrene and permanent limb loss/amputation."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+        <!-- DONT 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="❌ NO Blade Cuts or Bleeding (ब्लेडने कापू नका)"
+                android:textColor="@color/color_emergency"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Cutting the wound damages underlying blood vessels and tendons, introducing severe bacterial infection."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+        <!-- DONT 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="❌ NO Sucking Venom by Mouth (तोंडातून विष चोखू नका)"
+                android:textColor="@color/color_emergency"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Venom rapidly absorbs into the victim's lymphatic tissue. Sucking introduces oral bacteria and endangers the rescuer."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+        <!-- DONT 4 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="❌ NO Tantriks, Ojhas or Herbs (मांत्रिकांकडे नेऊ नका)"
+                android:textColor="@color/color_emergency"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Herbal pastes, cow dung, or tantrik rituals waste critical Golden Hour treatment time. ASV is the only antidote."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

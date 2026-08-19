@@ -1,36 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/gradient_background_list_detais"
+    android:background="@color/color_background"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.SearchView
+    <!-- Top Bar with Glass Back Button -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:layout_marginEnd="@dimen/_12sdp"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:id="@+id/search"
-        app:iconifiedByDefault="false"
-        app:searchHintIcon="@null"
-        app:queryHint="Search..."
-        android:focusable="false"
-        app:closeIcon="@drawable/baseline_clear_24"
-        app:searchIcon="@drawable/baseline_search_24"
-        android:background="@drawable/search_bkg"/>
+        android:background="@color/color_primary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_16"
+        android:paddingVertical="@dimen/space_12">
 
+        <!-- Frosted Glass Back Button -->
+        <ImageButton
+            android:id="@+id/btnGlassBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_glass_circle_btn"
+            android:contentDescription="Back"
+            android:src="@drawable/baseline_clear_24"
+            app:tint="@color/color_primary" />
 
-    <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/snake_library"
+                android:textColor="@color/color_on_primary"
+                android:textSize="@dimen/text_title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="16 Species in Maharashtra"
+                android:textColor="@color/color_primary_container"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Hidden dummy toolbar for compatibility -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerView"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:scrollbars="vertical"
-        android:layout_below="@id/search"/>
+        android:layout_height="0dp"
+        android:visibility="gone" />
 
-</RelativeLayout>
+    <!-- Search View with Glass Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
+        android:layout_marginVertical="@dimen/space_12"
+        android:background="@drawable/bg_glass_card"
+        android:padding="@dimen/space_4">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            app:closeIcon="@drawable/baseline_clear_24"
+            app:iconifiedByDefault="false"
+            app:queryHint="Search species by Marathi/English name…"
+            app:searchIcon="@drawable/baseline_search_24" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/space_24"
+            android:scrollbars="vertical" />
+
+        <TextView
+            android:id="@+id/emptyTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_regular"
+            android:text="No snakes found matching search"
+            android:textColor="@color/color_text_secondary"
+            android:textSize="@dimen/text_body"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>

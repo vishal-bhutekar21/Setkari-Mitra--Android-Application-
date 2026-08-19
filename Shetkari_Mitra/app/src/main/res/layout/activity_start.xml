@@ -1,38 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background_list_detais"
+    android:orientation="vertical"
+    android:background="@color/color_background"
     tools:context=".Start_Activity">
 
+    <!-- Brand Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_primary"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/space_24">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/app_logo"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/app_name"
+            android:textColor="@color/color_on_primary"
+            android:textSize="@dimen/text_headline" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Farmer Safety &amp; Rescuer Network"
+            android:textColor="@color/color_primary_container"
+            android:textSize="@dimen/text_caption" />
+
+    </LinearLayout>
+
+    <!-- Tab Layout -->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:tabIndicatorAnimationMode="elastic"
-        app:tabTextColor="@color/black"
-        app:tabIndicatorHeight="2dp"
-        app:tabSelectedTextColor="@color/white"
-        app:tabIndicatorColor="@color/purple_200"
-        android:background="#C9FF1744"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_height="wrap_content"
+        android:background="@color/color_surface"
+        app:tabIndicatorColor="@color/color_primary"
+        app:tabSelectedTextColor="@color/color_primary"
+        app:tabTextColor="@color/color_text_secondary"
+        app:tabMode="fixed" />
 
+    <!-- ViewPager2 for Login / Sign Up -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent" />
 
-        android:layout_marginBottom="10dp"
-        app:layout_constraintTop_toBottomOf="@id/tab_layout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

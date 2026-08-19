@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_16"
+        android:paddingBottom="@dimen/space_40">
+
+        <!-- Header Notice Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_glass_emergency"
+            android:orientation="vertical"
+            android:padding="@dimen/space_16">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="🚨 GOLDEN HOUR PROTOCOL"
+                android:textColor="@color/color_on_emergency"
+                android:textSize="@dimen/text_title" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_regular"
+                android:lineSpacingMultiplier="1.3"
+                android:text="70% of snake bites in Maharashtra are non-venomous or dry bites. Following these 4 immediate steps saves lives."
+                android:textColor="@color/color_emergency_container"
+                android:textSize="@dimen/text_body" />
+
+        </LinearLayout>
+
+        <!-- Step 1: Reassure & Calm -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_16">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/dot_active"
+                    android:backgroundTint="@color/color_primary"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/color_on_primary"
+                    android:textSize="@dimen/text_body_large" />
+
+                <TextView
+                    style="@style/TextAppearance.ShetkariMitra.SectionTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_12"
+                    android:layout_weight="1"
+                    android:text="Reassure the Victim (शांत राहा)" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:fontFamily="@font/poppins_regular"
+                android:lineSpacingMultiplier="1.4"
+                android:text="Keep the patient sitting down and calm. Panic increases heart rate and speeds up the spread of venom through the bloodstream."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="मराठी: रुग्णाला धीर द्या आणि शांत बसवा. घाबरल्यामुळे हृदयाचे ठोके वाढून विष शरीरात वेगाने पसरते."
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+        <!-- Step 2: Immobilize the Limb -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_16">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/dot_active"
+                    android:backgroundTint="@color/color_primary"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="@color/color_on_primary"
+                    android:textSize="@dimen/text_body_large" />
+
+                <TextView
+                    style="@style/TextAppearance.ShetkariMitra.SectionTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_12"
+                    android:layout_weight="1"
+                    android:text="Immobilize the Limb (हात/पाय स्थिर ठेवा)" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:fontFamily="@font/poppins_regular"
+                android:lineSpacingMultiplier="1.4"
+                android:text="Splint the bitten arm or leg using a rigid stick or rolled cloth, just like a fracture. Do NOT let the patient walk or move the bitten part."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="मराठी: ज्या हातावर किंवा पायावर चावला असेल, त्याला काठी बांधून स्थिर करा (जसे हाड मोडल्यावर करतात). रुग्णाला चालू देऊ नका."
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+        <!-- Step 3: Remove Constrictions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_16">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/dot_active"
+                    android:backgroundTint="@color/color_primary"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="@color/color_on_primary"
+                    android:textSize="@dimen/text_body_large" />
+
+                <TextView
+                    style="@style/TextAppearance.ShetkariMitra.SectionTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_12"
+                    android:layout_weight="1"
+                    android:text="Remove Tight Items (दागिने/घड्याळ काढा)" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:fontFamily="@font/poppins_regular"
+                android:lineSpacingMultiplier="1.4"
+                android:text="Quickly remove rings, watches, tight bangles, or anklets before swelling sets in. Once swelling occurs, tight objects can cut off blood flow."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="मराठी: सूज येण्यापूर्वी हातातील अंगठ्या, घड्याळ, बांगड्या किंवा घट्ट कपडे ताबडतोब काढून टाका."
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+        <!-- Step 4: Rush to Hospital with ASV -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_16">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/dot_active"
+                    android:backgroundTint="@color/color_emergency"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textColor="@color/color_on_emergency"
+                    android:textSize="@dimen/text_body_large" />
+
+                <TextView
+                    style="@style/TextAppearance.ShetkariMitra.SectionTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_12"
+                    android:layout_weight="1"
+                    android:text="Rush to ASV Hospital (रुग्णालयात न्या)" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:fontFamily="@font/poppins_regular"
+                android:lineSpacingMultiplier="1.4"
+                android:text="Transport the patient lying down to the nearest government civil hospital or primary health centre equipped with Anti-Snake Venom (ASV)."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="मराठी: रुग्णाला झोपवून तात्काळ जवळच्या सरकारी रुग्णालयात किंवा ग्रामीण रुग्णालयात न्या जेथे सर्पदंशावरील औषध (ASV) उपलब्ध आहे."
+                android:textColor="@color/color_emergency"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -522,7 +522,60 @@
         It has been created to make possible construction of any lists with XML layouts as an item
         which can be customized vastly while improving on the efficiency of ListViews and GridViews.
     </string>
-    <string name="title_activity_hospital_map">hospital_map</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_hospital_map">Hospital Map</string>
+
+    <!-- General UI & Safety Actions -->
+    <string name="snake_library">Snake Species Guide</string>
+    <string name="first_aid_title">First Aid &amp; Treatment</string>
+    <string name="nearby_hospitals_title">Nearby Hospitals (Jalna &amp; Maharashtra)</string>
+    <string name="identify_snake_title">Identify Snake</string>
+    <string name="rescuer_registration_title">Register as Snake Rescuer</string>
+    <string name="snake_rescuers_title">Snake Rescuers</string>
+    <string name="emergency_call_title">Emergency Assistance</string>
+    <string name="emergency_call_confirm_msg">Do you need immediate medical emergency help (Call 112) or to contact a snake rescuer?</string>
+    <string name="call_112">Call 112 (National Emergency)</string>
+    <string name="call_rescuer">Find Rescuer</string>
+    <string name="about_us_title">About Shetkari Mitra</string>
+    <string name="admin_panel_title">Admin Panel</string>
+    <string name="hospital_registration_title">Register Hospital</string>
+    <string name="hospital_map_title">Hospital Locations (OpenStreetMap)</string>
+    <string name="emergency_contacts_title">Personal Emergency Contacts</string>
+    <string name="add_emergency_contact">Add Emergency Contact</string>
+    <string name="edit_contact">Edit Emergency Contact</string>
+    <string name="delete_contact">Delete Contact</string>
+    <string name="delete_contact_confirm">Are you sure you want to remove %s from your emergency contacts?</string>
+    <string name="save">Save</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="logout">Logout</string>
+    <string name="logout_confirm_msg">Are you sure you want to logout from this device?</string>
+    <string name="share_via">Share Shetkari Mitra via</string>
+    <string name="share_app_description">Shetkari Mitra (शेतकरी मित्र) - Snakebite Prevention, Rescuer Network &amp; Hospital Locator for Farmers in Maharashtra.\n\nDownload the app to stay safe!</string>
+
+    <!-- Location & Status -->
+    <string name="fetching_location">Fetching current location…</string>
+    <string name="location_permission_denied">Location permission required for nearby hospitals</string>
+    <string name="location_jalna_default">Jalna District, Maharashtra</string>
+    <string name="phone_not_available">Phone number not available</string>
+    <string name="cannot_send_sms">Unable to open SMS application</string>
+    <string name="camera_permission_required">Camera permission is required to capture snake photos</string>
+    <string name="no_camera_app">No camera app found on device</string>
+    <string name="select_image_first">Please capture or select an image first</string>
+    <string name="send_to_expert">Send Snake Photo to Expert</string>
+
+    <!-- Form Validation & Messages -->
+    <string name="fill_all_fields">Please fill in all required fields</string>
+    <string name="error_enter_name">Please enter your name</string>
+    <string name="error_valid_mobile">Please enter a valid 10-digit mobile number</string>
+    <string name="error_enter_address">Please enter address</string>
+    <string name="registration_success_title">Registration Submitted!</string>
+    <string name="registration_success_message">Thank you, %1$s! Your registration as a Snake Rescuer in %2$s has been saved.</string>
+    <string name="hospital_registered_success">Hospital Added!</string>
+    <string name="hospital_registered_message">%1$s in %2$s has been registered and is now visible in the hospital directory.</string>
+
+    <!-- About Us Content -->
+    <string name="about_us_info_text">Shetkari Mitra (शेतकरी मित्र)\n\nVersion 2.0 (Modernized)\n\nDedicated to farmer safety, snakebite prevention, emergency response, and wildlife conservation across Maharashtra.\n\nDeveloped with ❤️ for farmers.</string>
+    <string name="contact_us_emails">Contact &amp; Feedback:\nvishalbhutekar1@gmail.com\nsapkalgaurav98@gmail.com</string>
 </resources>

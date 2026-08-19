@@ -1,176 +1,124 @@
 package com.example.Shetkari_Mitra;
 
 import android.content.Context;
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
+/**
+ * Login fragment using local SharedPreferences-based authentication.
+ * No Firebase dependency.
+ *
+ * The app uses a simple local account system:
+ *   - On signup, username + password stored in SharedPreferences (hashed)
+ *   - On login, the stored credentials are verified locally
+ */
 public class LoginPage_Fragment extends Fragment {
 
-    private EditText passwordEditText, TextEmailView;
+    private static final String PREF_NAME = "shetkari_prefs";
+    private static final String KEY_LOGGED_IN = "is_logged_in";
+    private static final String KEY_SAVED_EMAIL = "saved_email";
+    private static final String KEY_SAVED_PASS_HASH = "saved_pass_hash";
+
+    private EditText emailEditText;
+    private EditText passwordEditText;
     private Button signInButton;
-    private FirebaseAuth mAuth;
-    private static final String PREF_NAME = "MyPrefs";
-    private static final String KEY_LOGGED_IN = "isLoggedIn";
-
-    private Dialog progressDialog;
-    private DatabaseReference usersRef;
-
-
-    public LoginPage_Fragment() {
-        // Required empty public constructor
-    }
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login_page_, container, false);
 
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-        // Initialize Firebase Database
-        usersRef = FirebaseDatabase.getInstance().getReference().child("users");
-
-        // Initialize views
-        TextEmailView = view.findViewById(R.id.TextEmailView);
+        emailEditText = view.findViewById(R.id.TextEmailView);
         passwordEditText = view.findViewById(R.id.passwordEditText);
         signInButton = view.findViewById(R.id.signInButton);
 
-        // Set onClickListener for Sign In button
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signIn();
-            }
-        });
+        signInButton.setOnClickListener(v -> attemptLogin());
 
         return view;
     }
 
-    // Method to sign in with mobile number and password
-    private void signIn() {
-        String Email = TextEmailView.getText().toString().trim();
+    private void attemptLogin() {
+        String email = emailEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
 
-        if (Email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
-            // Highlight email field and display error message
-            TextEmailView.setError("Please enter a valid email address");
+        // Validate inputs
+        if (TextUtils.isEmpty(email) || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailEditText.setError("Please enter a valid email address");
+            emailEditText.requestFocus();
             return;
         }
 
-        if (password.isEmpty() || password.length() < 6) {
-            // Highlight password field and display error message
-            passwordEditText.setError("Password must be at least 6 characters long");
+        if (TextUtils.isEmpty(password) || password.length() < 6) {
+            passwordEditText.setError("Password must be at least 6 characters");
+            passwordEditText.requestFocus();
             return;
         }
 
-// If both email and password are valid, proceed with further actions
+        // Check local credentials
+        SharedPreferences prefs = requireContext().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        String savedEmail = prefs.getString(KEY_SAVED_EMAIL, null);
+        String savedHashedPassword = prefs.getString(KEY_SAVED_PASS_HASH, null);
 
+        if (savedEmail == null || savedHashedPassword == null) {
+            Toast.makeText(getContext(), "No account found. Please sign up first.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        if (!savedEmail.equalsIgnoreCase(email)) {
+            emailEditText.setError("Email not registered");
+            return;
+        }
 
-        Query query = usersRef.orderByChild("userInfo/email").equalTo(Email);
+        if (!hashPassword(password).equals(savedHashedPassword)) {
+            passwordEditText.setError("Incorrect password");
+            return;
+        }
 
-
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-
-                        String dbPassword = userSnapshot.child("userInfo/pass").getValue(String.class);
-
-                        if (password.equals(dbPassword)) {
-                            signInWithMobileAndPassword(Email, password);
-                            return;
-                        }
-                    }
-
-                    Toast.makeText(getContext(), "Incorrect password", Toast.LENGTH_SHORT).show();
-                } else {
-
-                    Toast.makeText(getContext(), "Email not registered", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-
-            }
-        });
+        // Login successful
+        prefs.edit().putBoolean(KEY_LOGGED_IN, true).apply();
+        Toast.makeText(getContext(), "Welcome back!", Toast.LENGTH_SHORT).show();
+        navigateToHome();
     }
 
-
-    private void signInWithMobileAndPassword(String email, String password) {
-
-        showProgressDialog();
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
-                    hideProgressDialog();
-                    if (task.isSuccessful()) {
-
-                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                        if (user != null) {
-                            Toast.makeText(getContext(), "Sign in successful", Toast.LENGTH_SHORT).show();
-                            saveLoginState(true);
-                            goToHomeActivity();
-                        }
-
-                    } else {
-
-                        Toast.makeText(getContext(), "Authentication failed", Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
-
-
-    // Method to navigate to HomeActivity
-    private void goToHomeActivity() {
+    private void navigateToHome() {
         Intent intent = new Intent(getContext(), HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         requireActivity().finish();
     }
-    private void showProgressDialog() {
-        progressDialog = new Dialog(getContext());
-        progressDialog.setContentView(R.layout.custom_progress_dialog);
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-    }
 
-    // Method to hide progress bar
-    private void hideProgressDialog() {
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.dismiss();
+    /**
+     * Simple SHA-256 based password hash.
+     * Not production-grade (no salt) but removes the egregious plaintext password storage.
+     */
+    private String hashPassword(String password) {
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(password.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (java.security.NoSuchAlgorithmException e) {
+            // SHA-256 is always available on Android
+            return password;
         }
-    }
-    private void saveLoginState(boolean isLoggedIn) {
-        SharedPreferences sharedPreferences = requireContext().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(KEY_LOGGED_IN, isLoggedIn);
-        editor.apply();
     }
 }

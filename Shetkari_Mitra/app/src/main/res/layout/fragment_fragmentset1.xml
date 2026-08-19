@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background_list_detais"
+    android:orientation="vertical"
+    android:background="@color/color_background"
     tools:context=".fragmentset1">
 
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ExpandableListView
+        android:id="@+id/expandableListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <ExpandableListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/expandableListView"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="4dp"/>
+        android:layout_height="wrap_content"
+        android:divider="@color/color_divider"
+        android:dividerHeight="1dp"
+        android:padding="@dimen/space_8" />
 
-        <ExpandableListView
-            android:layout_below="@+id/expandableListView"
-            android:id="@+id/expandableListView2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="4dp"/>
+    <ExpandableListView
+        android:id="@+id/expandableListView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/color_divider"
+        android:dividerHeight="1dp"
+        android:padding="@dimen/space_8" />
 
-    </RelativeLayout>
-
-
-
-</FrameLayout>
+</LinearLayout>
