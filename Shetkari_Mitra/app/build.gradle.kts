@@ -37,6 +37,7 @@ android {
 
 dependencies {
     // AndroidX Core
+    implementation("androidx.core:core:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
@@ -49,9 +50,13 @@ dependencies {
     // Material Design 3
     implementation("com.google.android.material:material:1.12.0")
 
-    // Lifecycle (ViewModel + LiveData)
+    // Lifecycle (Full Suite matching 2.8.3)
+    implementation("androidx.lifecycle:lifecycle-runtime:2.8.3")
+    implementation("androidx.lifecycle:lifecycle-process:2.8.3")
     implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.3")
     implementation("androidx.lifecycle:lifecycle-livedata:2.8.3")
+    implementation("androidx.lifecycle:lifecycle-common:2.8.3")
+    implementation("androidx.startup:startup-runtime:1.1.1")
 
     // Room (local database)
     implementation("androidx.room:room-runtime:2.6.1")
