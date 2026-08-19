@@ -35,14 +35,28 @@ android {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        force("androidx.lifecycle:lifecycle-runtime:2.6.2")
+        force("androidx.lifecycle:lifecycle-process:2.6.2")
+        force("androidx.lifecycle:lifecycle-viewmodel:2.6.2")
+        force("androidx.lifecycle:lifecycle-livedata:2.6.2")
+        force("androidx.lifecycle:lifecycle-common:2.6.2")
+        force("androidx.lifecycle:lifecycle-common-java8:2.6.2")
+        force("androidx.fragment:fragment:1.6.2")
+        force("androidx.activity:activity:1.8.2")
+        force("androidx.core:core:1.12.0")
+    }
+}
+
 dependencies {
-    // AndroidX Core
-    implementation("androidx.core:core:1.13.1")
-    implementation("androidx.appcompat:appcompat:1.7.0")
+    // AndroidX Core & UI
+    implementation("androidx.core:core:1.12.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
-    implementation("androidx.activity:activity:1.9.0")
-    implementation("androidx.fragment:fragment:1.8.1")
+    implementation("androidx.activity:activity:1.8.2")
+    implementation("androidx.fragment:fragment:1.6.2")
     implementation("androidx.viewpager2:viewpager2:1.1.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("androidx.preference:preference:1.2.1")
@@ -50,12 +64,12 @@ dependencies {
     // Material Design 3
     implementation("com.google.android.material:material:1.12.0")
 
-    // Lifecycle (Full Suite matching 2.8.3)
-    implementation("androidx.lifecycle:lifecycle-runtime:2.8.3")
-    implementation("androidx.lifecycle:lifecycle-process:2.8.3")
-    implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.3")
-    implementation("androidx.lifecycle:lifecycle-livedata:2.8.3")
-    implementation("androidx.lifecycle:lifecycle-common:2.8.3")
+    // Lifecycle (2.6.2 - guarantees ReportFragment$ActivityInitializationListener exists)
+    implementation("androidx.lifecycle:lifecycle-runtime:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-process:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.6.2")
     implementation("androidx.startup:startup-runtime:1.1.1")
 
     // Room (local database)
