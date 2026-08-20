@@ -23,7 +23,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.Priority;
 
 import org.osmdroid.config.Configuration;
-import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.tileprovider.tilesource.OnlineTileSourceBase;
+import org.osmdroid.tileprovider.tilesource.XYTileSource;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.CustomZoomButtonsController;
 import org.osmdroid.views.MapView;
@@ -32,10 +33,24 @@ import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MapsActivity extends AppCompatActivity {
+
+    // High-performance, unrestricted OpenStreetMap tile provider (CARTO Voyager)
+    public static final OnlineTileSourceBase CARTO_VOYAGER = new XYTileSource(
+            "CartoVoyager",
+            0, 20, 256, ".png",
+            new String[] {
+                    "https://a.basemaps.cartocdn.com/rastertiles/voyager/",
+                    "https://b.basemaps.cartocdn.com/rastertiles/voyager/",
+                    "https://c.basemaps.cartocdn.com/rastertiles/voyager/",
+                    "https://d.basemaps.cartocdn.com/rastertiles/voyager/"
+            },
+            "© OpenStreetMap contributors, © CARTO"
+    );
 
     private MapView mapView;
     private MyLocationNewOverlay locationOverlay;
@@ -65,15 +80,15 @@ public class MapsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // OSMDroid configuration conforming strictly to OpenStreetMap Tile Usage Policy
+        // OSMDroid configuration
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
         String userAgent = "ShetkariMitraSafetyApp/3.0.0 (Android; Maharashtra Farmer Rescue Network; vishal.bhutekar21@gmail.com)";
         Configuration.getInstance().setUserAgentValue(userAgent);
         
-        java.io.File osmBase = new java.io.File(ctx.getCacheDir(), "osmdroid_v2");
+        File osmBase = new File(ctx.getCacheDir(), "osmdroid_v3");
         if (!osmBase.exists()) osmBase.mkdirs();
-        java.io.File osmTiles = new java.io.File(osmBase, "tiles");
+        File osmTiles = new File(osmBase, "tiles");
         if (!osmTiles.exists()) osmTiles.mkdirs();
 
         Configuration.getInstance().setOsmdroidBasePath(osmBase);
@@ -88,7 +103,7 @@ public class MapsActivity extends AppCompatActivity {
         }
 
         mapView = findViewById(R.id.map);
-        mapView.setTileSource(TileSourceFactory.MAPNIK);
+        mapView.setTileSource(CARTO_VOYAGER);
         mapView.getZoomController().setVisibility(CustomZoomButtonsController.Visibility.ALWAYS);
         mapView.setMultiTouchControls(true);
 

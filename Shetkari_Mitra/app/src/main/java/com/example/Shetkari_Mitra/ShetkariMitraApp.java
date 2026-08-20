@@ -42,7 +42,7 @@ public class ShetkariMitraApp extends Application {
             Configuration.getInstance().setUserAgentValue(userAgent);
 
             // Configure dedicated tile cache directory and clear any stale 403 error files
-            File osmBase = new File(ctx.getCacheDir(), "osmdroid_v2");
+            File osmBase = new File(ctx.getCacheDir(), "osmdroid_v3");
             if (!osmBase.exists()) {
                 osmBase.mkdirs();
             }
