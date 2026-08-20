@@ -80,6 +80,6 @@ public class GovtCompensationActivity extends AppCompatActivity {
             });
         }
 
-        BottomNavigationHelper.setupBottomNavigation(this, findViewById(R.id.bottom_navigation), R.id.bottom_nav_schemes);
+        BottomNavigationHelper.setupBottomNavigation(this, findViewById(R.id.bottom_navigation), R.id.bottom_nav_hospitals);
     }
 }

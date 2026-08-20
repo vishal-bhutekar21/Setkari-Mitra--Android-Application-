@@ -35,9 +35,9 @@ public class BottomNavigationHelper {
                     }
                 }
                 return true;
-            } else if (id == R.id.bottom_nav_schemes) {
-                if (!(activity instanceof GovtCompensationActivity)) {
-                    Intent intent = new Intent(activity, GovtCompensationActivity.class);
+            } else if (id == R.id.bottom_nav_hospitals) {
+                if (!(activity instanceof Near_By_Hospitals)) {
+                    Intent intent = new Intent(activity, Near_By_Hospitals.class);
                     activity.startActivity(intent);
                     activity.overridePendingTransition(0, 0);
                     if (!(activity instanceof HomeActivity)) {

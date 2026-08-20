@@ -22,7 +22,7 @@
             android:layout_height="40dp"
             android:background="@drawable/bg_glass_circle_btn"
             android:contentDescription="Back"
-            android:src="@drawable/baseline_clear_24"
+            android:src="@drawable/ic_arrow_back_24"
             app:tint="@color/color_white" />
 
         <LinearLayout

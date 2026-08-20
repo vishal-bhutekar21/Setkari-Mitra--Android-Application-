@@ -144,7 +144,7 @@
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/screen_margin_horizontal">
 
-                    <!-- Top Status Card (सुरक्षा कवच सक्रिय) -->
+                    <!-- Top Status Card (सुरक्षा कवच सक्रिय) with Click Indicator -->
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cardStatusProtection"
                         android:layout_width="match_parent"
@@ -210,10 +210,17 @@
                                     android:textSize="11sp" />
                             </LinearLayout>
 
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="@dimen/space_6"
+                                android:src="@drawable/ic_arrow_forward"
+                                app:tint="@color/color_primary" />
+
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Emergency SOS Banner (Red Card) -->
+                    <!-- Emergency SOS Banner (Small, Calm Less-Saturated Crimson Card) -->
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/emergency_btn"
                         android:layout_width="match_parent"
@@ -221,8 +228,8 @@
                         android:layout_marginTop="@dimen/space_10"
                         android:clickable="true"
                         android:focusable="true"
-                        app:cardBackgroundColor="@color/color_emergency"
-                        app:cardCornerRadius="16dp"
+                        app:cardBackgroundColor="#991B1B"
+                        app:cardCornerRadius="14dp"
                         app:cardElevation="0dp"
                         app:strokeWidth="0dp">
 
@@ -231,18 +238,18 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:paddingHorizontal="@dimen/space_16"
-                            android:paddingVertical="@dimen/space_14">
+                            android:paddingHorizontal="@dimen/space_14"
+                            android:paddingVertical="@dimen/space_10">
 
                             <!-- Call Icon Circle -->
                             <FrameLayout
-                                android:layout_width="38dp"
-                                android:layout_height="38dp"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
                                 android:background="@drawable/bg_glass_circle_btn">
 
                                 <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
                                     android:layout_gravity="center"
                                     android:src="@drawable/ic_phone_24"
                                     app:tint="@color/color_white" />
@@ -251,7 +258,7 @@
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/space_12"
+                                android:layout_marginStart="@dimen/space_10"
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 
@@ -261,7 +268,7 @@
                                     android:fontFamily="@font/poppins_bold"
                                     android:text="EMERGENCY SOS: CALL 112"
                                     android:textColor="@color/color_white"
-                                    android:textSize="14sp" />
+                                    android:textSize="13sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -269,12 +276,12 @@
                                     android:fontFamily="@font/poppins_regular"
                                     android:text="Tap for immediate ambulance &amp; rescuer dispatch"
                                     android:textColor="#FEE2E2"
-                                    android:textSize="11sp" />
+                                    android:textSize="10.5sp" />
                             </LinearLayout>
 
                             <ImageView
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
                                 android:src="@drawable/ic_phone_24"
                                 app:tint="@color/color_white" />
 
