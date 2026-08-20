@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">शेतकरी मित्र</string>
+    <string name="marathi_text">किसानों को समर्पित</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">होम</string>
+    <string name="nav_identify">सांप पहचानें</string>
+    <string name="nav_emergency">आपातकालीन</string>
+    <string name="nav_safety">सुरक्षा केंद्र</string>
+    <string name="nav_profile">प्रोफ़ाइल</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">सांपों से सुरक्षित रहें</string>
+    <string name="onboarding_subtitle_1">सावधानी एवं बचाव</string>
+    <string name="onboarding_desc_1">खेतों में काम करते समय टॉर्च का उपयोग, गमबूट पहनना और सांपों के आमने-सामने से बचने के उपाय।</string>
+    <string name="onboarding_badge_1">बचाव</string>
+
+    <string name="onboarding_title_2">आपातकालीन कार्ययोजना</string>
+    <string name="onboarding_subtitle_2">तत्काल प्राथमिक उपचार</string>
+    <string name="onboarding_desc_2">सर्पदंश होने पर तुरंत क्या करें और जानलेवा अंधविश्वासों व घरेलू नुस्खों से कैसे बचें।</string>
+    <string name="onboarding_badge_2">तुरंत प्रतिक्रिया</string>
+
+    <string name="onboarding_title_3">निकटतम अस्पताल व सर्पमित्र</string>
+    <string name="onboarding_subtitle_3">आपातकालीन सहायता</string>
+    <string name="onboarding_desc_3">एंटी-वेनम उपलब्ध अस्पतालों और प्रमाणित सर्पमित्रों से सीधे संपर्क करें।</string>
+    <string name="onboarding_badge_3">सहायता प्राप्त करें</string>
+
+    <string name="onboarding_title_4">अपनी भाषा चुनें</string>
+    <string name="onboarding_subtitle_4">भाषा चयन</string>
+    <string name="onboarding_desc_4">अपनी पसंदीदा भाषा चुनें। आप इसे ऐप सेटिंग्स से कभी भी बदल सकते हैं।</string>
+    <string name="onboarding_badge_4">भाषा</string>
+
+    <string name="next">आगे</string>
+    <string name="get_started">शुरू करें</string>
+    <string name="skip">छोड़ें</string>
+
+    <!-- Home Screen -->
+    <string name="home_greeting_namaste">नमस्ते</string>
+    <string name="home_emergency_card_title">सर्पदंश आपातकालीन मदद</string>
+    <string name="home_emergency_card_subtitle">तुरंत जीवनरक्षक निर्देश और सहायता प्राप्त करें।</string>
+    <string name="home_emergency_card_cta">आपातकालीन मदद शुरू करें</string>
+    <string name="home_grid_identify">सांप पहचानें</string>
+    <string name="home_grid_hospital">निकटतम अस्पताल</string>
+    <string name="home_grid_rescuer">सर्पमित्र खोजें</string>
+    <string name="home_grid_first_aid">प्राथमिक उपचार</string>
+    <string name="home_safety_tip_title">आज का सुरक्षा सुझाव</string>
+    <string name="home_safety_tip_text">रात में खेतों में चलते समय हमेशा तेज टॉर्च साथ रखें। जमीन पर लाठी पटकते हुए चलें ताकि कंपन से सांप रास्ता छोड़ दे।</string>
+    <string name="home_safety_alerts_title">क्षेत्रीय सुरक्षा अलर्ट</string>
+    <string name="home_safety_alert_monsoon">मानसून अलर्ट: खेतों की मेड़ों, कुओं और लकड़ियों के ढेर के पास सांपों की सक्रियता अधिक है। गमबूट पहनें।</string>
+    <string name="home_learn_prevent_title">सीखें और सुरक्षित रहें</string>
+    <string name="home_learn_prevent_desc">सांपों की प्रजातियां, हानिकारक कीट, कृषि सुरक्षा और मिथक बनाम तथ्य।</string>
+
+    <!-- Emergency Mode -->
+    <string name="emergency_mode_title">क्या सर्पदंश हुआ है?</string>
+    <string name="emergency_mode_subtitle">शांत रहें और तुरंत इन जीवनरक्षक चरणों का पालन करें।</string>
+    <string name="emergency_step1_title">चरण १: सांप से दूर हटें</string>
+    <string name="emergency_step1_desc">सांप से सुरक्षित दूरी बना लें। सांप को पकड़ने या मारने का प्रयास बिल्कुल न करें।</string>
+    <string name="emergency_step2_title">चरण २: शांत रहें, हिलना-डुलना बंद करें</string>
+    <string name="emergency_step2_desc">पीड़ित को शांत रखें। दंश वाले अंग को दिल के स्तर से नीचे रखकर पूरी तरह स्थिर रखें।</string>
+    <string name="emergency_step3_title">चरण ३: कसी हुई चीजें तुरंत उतारें</string>
+    <string name="emergency_step3_desc">सूजन आने से पहले अंगूठी, चूड़ी, घड़ी या तंग कपड़े तुरंत उतार दें।</string>
+    <string name="emergency_step4_title">चरण ४: तुरंत अस्पताल पहुंचें</string>
+    <string name="emergency_step4_desc">पीड़ित को तुरंत वाहन द्वारा एंटी-वेनम वाले अस्पताल ले जाएं। चलने न दें।</string>
+    <string name="emergency_do_not_title">ये जानलेवा गलतियां कभी न करें</string>
+    <string name="emergency_dont_1">घाव पर चीरा या ब्लेड न लगाएं।</string>
+    <string name="emergency_dont_2">मुंह या किसी उपकरण से जहर चूसने की कोशिश न करें।</string>
+    <string name="emergency_dont_3">टाइट रस्सी या पट्टी न बांधें (रक्तसंचार रुक जाता है)।</string>
+    <string name="emergency_dont_4">झाड़-फूंक या घरेलू नुस्खों में समय बर्बाद न करें।</string>
+    <string name="emergency_dont_5">अस्पताल जाने में एक मिनट की भी देरी न करें।</string>
+    <string name="emergency_btn_call_ambulance">एम्बुलेंस बुलाएं (१०८ / ११२)</string>
+    <string name="emergency_btn_find_help">निकटतम अस्पताल खोजें</string>
+    <string name="emergency_btn_share_location">मेरी लोकेशन भेजें (SOS)</string>
+
+    <!-- Snake Identification -->
+    <string name="identify_safety_warning">⚠️ सुरक्षित दूरी बनाए रखें। फोटो खींचने के लिए सांप के करीब कभी न जाएं।</string>
+    <string name="identify_take_photo">कैमरे से फोटो लें</string>
+    <string name="identify_upload_photo">गैलरी से फोटो चुनें</string>
+    <string name="identify_possible_match">संभावित प्रजाति</string>
+    <string name="identify_confidence">सटीकता</string>
+    <string name="identify_uncertainty_disclaimer">⚠️ अस्वीकरण: फोटो द्वारा पहचान केवल संकेतात्मक है। यह चिकित्सीय निदान नहीं है। परिणाम के आधार पर सांप को कभी न छुएं।</string>
+    <string name="identify_action_what_to_do">अब क्या करें?</string>
+    <string name="identify_action_find_rescuer">सर्पमित्र बुलाएं</string>
+    <string name="identify_action_learn_more">अधिक जानें</string>
+</resources>

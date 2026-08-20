@@ -34,6 +34,7 @@
         android:required="false" />
 
     <application
+        android:name=".ShetkariMitraApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -72,6 +73,11 @@
             android:exported="false"
             android:windowSoftInputMode="stateHidden" />
 
+        <!-- Dedicated Emergency Mode -->
+        <activity
+            android:name=".EmergencyActivity"
+            android:exported="false" />
+
         <!-- Snake Guide -->
         <activity
             android:name=".MainActivity"
@@ -101,6 +107,33 @@
         <activity
             android:name=".Near_By_Hospitals"
             android:exported="false" />
+
+        <!-- Safety Center & Checklists -->
+        <activity
+            android:name=".SafetyCenterActivity"
+            android:exported="false" />
+
+        <!-- Rescuer Request Workflow -->
+        <activity
+            android:name=".RescuerRequestActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Government & District Portals -->
+        <activity
+            android:name=".GovtPortalsActivity"
+            android:exported="false" />
+
+        <!-- Safety Learning & Video Academy -->
+        <activity
+            android:name=".SafetyLearningActivity"
+            android:exported="false" />
+
+        <!-- Community Snake Sightings -->
+        <activity
+            android:name=".CommunitySightingsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
 
         <!-- Emergency Contacts -->
         <activity

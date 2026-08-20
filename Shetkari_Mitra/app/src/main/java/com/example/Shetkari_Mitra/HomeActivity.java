@@ -21,9 +21,7 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -58,8 +56,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private View cardSnakeLib, cardFirstAid, cardNearHospital;
     private View cardIdentifySnake, cardResRegistration, cardSnakeRescuers;
-    private View cardEmergencyBtn, cardAboutUsBtn, cardMythsFacts;
-    private ImageButton btnMenuDrawer, btnQuickEmergency;
+    private View cardEmergencyBtn, cardAboutUsBtn, cardMythsFacts, cardInsectsCreatures;
+    private View btnStartEmergencyHelp;
+    private ImageButton btnMenuDrawer, btnQuickEmergency, btnVoiceAssistant;
+
+    private final ActivityResultLauncher<Intent> speechRecognitionLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    java.util.ArrayList<String> matches = result.getData().getStringArrayListExtra(android.speech.RecognizerIntent.EXTRA_RESULTS);
+                    if (matches != null && !matches.isEmpty()) {
+                        String spokenText = matches.get(0);
+                        Toast.makeText(this, "Voice: \"" + spokenText + "\"", Toast.LENGTH_SHORT).show();
+                        VoiceAssistantHelper.VoiceIntent voiceIntent = VoiceAssistantHelper.parseSpokenQuery(spokenText);
+                        VoiceAssistantHelper.executeVoiceIntent(this, voiceIntent);
+                    }
+                }
+            });
 
     private FusedLocationProviderClient fusedLocationClient;
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -75,6 +87,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     locationTextView.setText(R.string.location_permission_denied);
                 }
             });
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,30 +116,34 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         btnMenuDrawer = findViewById(R.id.btnMenuDrawer);
         btnQuickEmergency = findViewById(R.id.btnQuickEmergency);
+        btnVoiceAssistant = findViewById(R.id.btnVoiceAssistant);
+
+        cardEmergencyBtn = findViewById(R.id.emergency_btn);
+        btnStartEmergencyHelp = findViewById(R.id.btnStartEmergencyHelp);
+        cardIdentifySnake = findViewById(R.id.Snake_identify);
+        cardNearHospital = findViewById(R.id.nearhospital);
+        cardSnakeRescuers = findViewById(R.id.snake_rescuer);
+        cardFirstAid = findViewById(R.id.first_Aid);
 
         cardSnakeLib = findViewById(R.id.Snake_Lib);
-        cardFirstAid = findViewById(R.id.first_Aid);
-        cardNearHospital = findViewById(R.id.nearhospital);
-        cardIdentifySnake = findViewById(R.id.Snake_identify);
-        cardResRegistration = findViewById(R.id.res_registration);
-        cardSnakeRescuers = findViewById(R.id.snake_rescuer);
-        cardEmergencyBtn = findViewById(R.id.emergency_btn);
-        cardAboutUsBtn = findViewById(R.id.about_btn);
         cardMythsFacts = findViewById(R.id.cardMythsFacts);
         cardInsectsCreatures = findViewById(R.id.cardInsectsCreatures);
+        cardResRegistration = findViewById(R.id.res_registration);
 
         if (btnMenuDrawer != null) {
             btnMenuDrawer.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
         }
 
         if (btnQuickEmergency != null) {
-            btnQuickEmergency.setOnClickListener(v -> showEmergencyCallDialog());
+            btnQuickEmergency.setOnClickListener(v -> openEmergencyMode());
+        }
+
+        if (btnVoiceAssistant != null) {
+            btnVoiceAssistant.setOnClickListener(v -> launchVoiceAssistant());
         }
 
         navigationView.setNavigationItemSelectedListener(this);
     }
-
-    private View cardInsectsCreatures;
 
     private void setupNavigationHeader() {
         View headerView = navigationView.getHeaderView(0);
@@ -135,20 +156,39 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         if (userNameTextView != null) userNameTextView.setText(username);
         if (userEmailTextView != null) userEmailTextView.setText(email);
-        if (tvGreeting != null) tvGreeting.setText("Namaste, " + username);
+        if (tvGreeting != null) tvGreeting.setText(getString(R.string.home_greeting_namaste) + ", " + username);
     }
 
     private void setupCardClickListeners() {
-        if (cardFirstAid != null) cardFirstAid.setOnClickListener(v -> startActivity(new Intent(this, First_Aid.class)));
-        if (cardSnakeLib != null) cardSnakeLib.setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
-        if (cardNearHospital != null) cardNearHospital.setOnClickListener(v -> startActivity(new Intent(this, Near_By_Hospitals.class)));
+        if (cardEmergencyBtn != null) cardEmergencyBtn.setOnClickListener(v -> openEmergencyMode());
+        if (btnStartEmergencyHelp != null) btnStartEmergencyHelp.setOnClickListener(v -> openEmergencyMode());
+
         if (cardIdentifySnake != null) cardIdentifySnake.setOnClickListener(v -> startActivity(new Intent(this, Acitivity_identify_snake.class)));
-        if (cardResRegistration != null) cardResRegistration.setOnClickListener(v -> startActivity(new Intent(this, Registration_example.class)));
+        if (cardNearHospital != null) cardNearHospital.setOnClickListener(v -> startActivity(new Intent(this, Near_By_Hospitals.class)));
         if (cardSnakeRescuers != null) cardSnakeRescuers.setOnClickListener(v -> startActivity(new Intent(this, RescuerDatabaseActivity.class)));
-        if (cardAboutUsBtn != null) cardAboutUsBtn.setOnClickListener(v -> startActivity(new Intent(this, Activity_About_Us.class)));
+        if (cardFirstAid != null) cardFirstAid.setOnClickListener(v -> startActivity(new Intent(this, First_Aid.class)));
+
+        if (cardSnakeLib != null) cardSnakeLib.setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
         if (cardMythsFacts != null) cardMythsFacts.setOnClickListener(v -> startActivity(new Intent(this, Activity_Myths_Facts.class)));
         if (cardInsectsCreatures != null) cardInsectsCreatures.setOnClickListener(v -> startActivity(new Intent(this, HarmfulCreaturesActivity.class)));
-        if (cardEmergencyBtn != null) cardEmergencyBtn.setOnClickListener(v -> showEmergencyCallDialog());
+        if (cardResRegistration != null) cardResRegistration.setOnClickListener(v -> startActivity(new Intent(this, Registration_example.class)));
+    }
+
+    private void openEmergencyMode() {
+        Intent intent = new Intent(this, EmergencyActivity.class);
+        startActivity(intent);
+    }
+
+    private void launchVoiceAssistant() {
+        Intent voiceIntent = new Intent(android.speech.RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        voiceIntent.putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE_MODEL, android.speech.RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        voiceIntent.putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        voiceIntent.putExtra(android.speech.RecognizerIntent.EXTRA_PROMPT, "Speak command (e.g., 'Hospital', 'Identify snake', 'Emergency')");
+        try {
+            speechRecognitionLauncher.launch(voiceIntent);
+        } catch (Exception e) {
+            Toast.makeText(this, "Voice recognition not supported on this device", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void setupBottomNavigation() {
@@ -159,14 +199,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             int id = item.getItemId();
             if (id == R.id.bottom_nav_home) {
                 return true;
-            } else if (id == R.id.bottom_nav_guide) {
-                startActivity(new Intent(HomeActivity.this, MainActivity.class));
+            } else if (id == R.id.bottom_nav_identify) {
+                startActivity(new Intent(HomeActivity.this, Acitivity_identify_snake.class));
                 return true;
-            } else if (id == R.id.bottom_nav_hospitals) {
-                startActivity(new Intent(HomeActivity.this, Near_By_Hospitals.class));
+            } else if (id == R.id.bottom_nav_emergency) {
+                openEmergencyMode();
                 return true;
-            } else if (id == R.id.bottom_nav_rescuers) {
-                startActivity(new Intent(HomeActivity.this, RescuerDatabaseActivity.class));
+            } else if (id == R.id.bottom_nav_safety) {
+                startActivity(new Intent(HomeActivity.this, SafetyCenterActivity.class));
+                return true;
+            } else if (id == R.id.bottom_nav_profile) {
+                startActivity(new Intent(HomeActivity.this, nav_Emergency_Contacts.class));
                 return true;
             }
             return false;
@@ -181,32 +224,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    private void showEmergencyCallDialog() {
-        new MaterialAlertDialogBuilder(this)
-                .setTitle(R.string.emergency_call_title)
-                .setMessage(R.string.emergency_call_confirm_msg)
-                .setIcon(R.drawable.call_logo)
-                .setPositiveButton(R.string.call_112, (dialog, which) -> {
-                    Intent dialIntent = new Intent(Intent.ACTION_DIAL);
-                    dialIntent.setData(Uri.parse("tel:112"));
-                    startActivity(dialIntent);
-                })
-                .setNeutralButton(R.string.call_rescuer, (dialog, which) -> {
-                    startActivity(new Intent(HomeActivity.this, RescuerDatabaseActivity.class));
-                })
-                .setNegativeButton(R.string.cancel, null)
-                .show();
-    }
-
     private void checkAndRequestLocation() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             fetchCurrentLocation();
         } else {
-            locationPermissionLauncher.launch(new String[]{
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-            });
+            // Show educational dialog before launching system prompt
+            PermissionEducationDialog.newInstance(PermissionEducationDialog.PermissionType.LOCATION, () -> {
+                locationPermissionLauncher.launch(new String[]{
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION
+                });
+            }).show(getSupportFragmentManager(), "perm_location");
         }
     }
 
@@ -249,20 +278,24 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     if (addr.getAdminArea() != null) sb.append(addr.getAdminArea());
                     if (sb.length() > 0) {
                         addressText = sb.toString();
-                    } else if (addr.getAddressLine(0) != null) {
-                        addressText = addr.getAddressLine(0);
                     }
                 }
-            } catch (IOException ignored) {}
+            } catch (IOException ignored) {
+            }
 
-            final String displayText = addressText;
-            mainHandler.post(() -> locationTextView.setText(displayText));
+            final String result = addressText;
+            mainHandler.post(() -> {
+                if (!isFinishing() && locationTextView != null) {
+                    locationTextView.setText(result);
+                }
+            });
         });
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+
         if (id == R.id.nav_guide) {
             startActivity(new Intent(this, MainActivity.class));
         } else if (id == R.id.nav_identify) {
@@ -273,45 +306,63 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(this, HarmfulCreaturesActivity.class));
         } else if (id == R.id.nav_myths) {
             startActivity(new Intent(this, Activity_Myths_Facts.class));
+        } else if (id == R.id.nav_safety_academy) {
+            startActivity(new Intent(this, SafetyLearningActivity.class));
+        } else if (id == R.id.nav_govt_portals) {
+            startActivity(new Intent(this, GovtPortalsActivity.class));
         } else if (id == R.id.nav_hos) {
-            startActivity(new Intent(this, MapsActivity.class));
+            startActivity(new Intent(this, Near_By_Hospitals.class));
         } else if (id == R.id.nav_rescuers) {
             startActivity(new Intent(this, RescuerDatabaseActivity.class));
         } else if (id == R.id.nav_contacts) {
             startActivity(new Intent(this, nav_Emergency_Contacts.class));
         } else if (id == R.id.nav_register_sarpmitra) {
             startActivity(new Intent(this, Registration_example.class));
+        } else if (id == R.id.nav_language) {
+            showLanguageDialog();
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(this, Activity_About_Us.class));
-        } else if (id == R.id.nav_privacy_policy) {
-            showPrivacyPolicyDialog();
         } else if (id == R.id.nav_share) {
             shareApp();
         } else if (id == R.id.nav_logout) {
-            performLogout();
+            showLogoutDialog();
         }
+
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    private void showPrivacyPolicyDialog() {
+    private void showLanguageDialog() {
+        String[] languages = {"English", "मराठी (Marathi)", "हिंदी (Hindi)"};
+        String currentLang = LocaleHelper.getLanguage(this);
+        int checkedItem = 0;
+        if (LocaleHelper.LANGUAGE_MARATHI.equals(currentLang)) checkedItem = 1;
+        else if (LocaleHelper.LANGUAGE_HINDI.equals(currentLang)) checkedItem = 2;
+
         new MaterialAlertDialogBuilder(this)
-                .setTitle(R.string.privacy_policy_title)
-                .setMessage(R.string.privacy_policy_content)
-                .setIcon(R.drawable.ic_drawer_privacy)
-                .setPositiveButton(R.string.btn_agree, null)
+                .setTitle("Select Language / भाषा निवडा")
+                .setSingleChoiceItems(languages, checkedItem, (dialog, which) -> {
+                    String selectedLang = LocaleHelper.LANGUAGE_ENGLISH;
+                    if (which == 1) selectedLang = LocaleHelper.LANGUAGE_MARATHI;
+                    else if (which == 2) selectedLang = LocaleHelper.LANGUAGE_HINDI;
+
+                    LocaleHelper.setLocale(HomeActivity.this, selectedLang);
+                    dialog.dismiss();
+                    recreate();
+                })
+                .setNegativeButton(R.string.cancel, null)
                 .show();
     }
 
     private void shareApp() {
-        Intent sendIntent = new Intent(Intent.ACTION_SEND);
-        sendIntent.setType("text/plain");
-        sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-        sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_app_description));
-        startActivity(Intent.createChooser(sendIntent, getString(R.string.share_via)));
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+        shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_app_description));
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_via)));
     }
 
-    private void performLogout() {
+    private void showLogoutDialog() {
         new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.logout)
                 .setMessage(R.string.logout_confirm_msg)
@@ -326,20 +377,5 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 })
                 .setNegativeButton(R.string.cancel, null)
                 .show();
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        executorService.shutdown();
     }
 }

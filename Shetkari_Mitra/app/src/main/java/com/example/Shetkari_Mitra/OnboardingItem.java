@@ -6,13 +6,19 @@ public class OnboardingItem {
     private final String description;
     private final String badge;
     private final int imageRes;
+    private final boolean isLanguageSelector;
 
     public OnboardingItem(String title, String marathiTitle, String description, String badge, int imageRes) {
+        this(title, marathiTitle, description, badge, imageRes, false);
+    }
+
+    public OnboardingItem(String title, String marathiTitle, String description, String badge, int imageRes, boolean isLanguageSelector) {
         this.title = title;
         this.marathiTitle = marathiTitle;
         this.description = description;
         this.badge = badge;
         this.imageRes = imageRes;
+        this.isLanguageSelector = isLanguageSelector;
     }
 
     public String getTitle() { return title; }
@@ -20,4 +26,5 @@ public class OnboardingItem {
     public String getDescription() { return description; }
     public String getBadge() { return badge; }
     public int getImageRes() { return imageRes; }
+    public boolean isLanguageSelector() { return isLanguageSelector; }
 }

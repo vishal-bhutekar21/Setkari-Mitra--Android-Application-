@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/bottom_nav_home"
         android:icon="@drawable/ic_nav_home"
-        android:title="Home" />
+        android:title="@string/nav_home" />
 
     <item
-        android:id="@+id/bottom_nav_guide"
-        android:icon="@drawable/ic_nav_snakes"
-        android:title="Snakes" />
+        android:id="@+id/bottom_nav_identify"
+        android:icon="@drawable/ic_nav_identify"
+        android:title="@string/nav_identify" />
 
     <item
-        android:id="@+id/bottom_nav_hospitals"
-        android:icon="@drawable/ic_nav_hospitals"
-        android:title="Hospitals" />
+        android:id="@+id/bottom_nav_emergency"
+        android:icon="@drawable/ic_nav_emergency_alert"
+        android:title="@string/nav_emergency" />
 
     <item
-        android:id="@+id/bottom_nav_rescuers"
-        android:icon="@drawable/ic_nav_rescuers"
-        android:title="Rescuers" />
+        android:id="@+id/bottom_nav_safety"
+        android:icon="@drawable/ic_nav_safety_shield"
+        android:title="@string/nav_safety" />
+
+    <item
+        android:id="@+id/bottom_nav_profile"
+        android:icon="@drawable/ic_nav_profile"
+        android:title="@string/nav_profile" />
 
 </menu>

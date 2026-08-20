@@ -1,5 +1,6 @@
 package com.example.Shetkari_Mitra;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,10 +25,18 @@ public class OnboardingActivity extends AppCompatActivity {
     private LinearLayout layoutDots;
     private Button btnNext, btnSkip;
     private List<OnboardingItem> onboardingItems;
+    private OnboardingAdapter adapter;
+    private String currentLanguage = LocaleHelper.LANGUAGE_ENGLISH;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        currentLanguage = LocaleHelper.getLanguage(this);
         setContentView(R.layout.activity_onboarding);
 
         viewPager = findViewById(R.id.viewPagerOnboarding);
@@ -37,7 +46,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
         setupOnboardingItems();
 
-        OnboardingAdapter adapter = new OnboardingAdapter(onboardingItems);
+        adapter = new OnboardingAdapter(onboardingItems, currentLanguage, this::onLanguageChanged);
         viewPager.setAdapter(adapter);
 
         setupIndicators();
@@ -49,9 +58,9 @@ public class OnboardingActivity extends AppCompatActivity {
                 super.onPageSelected(position);
                 setCurrentIndicator(position);
                 if (position == onboardingItems.size() - 1) {
-                    btnNext.setText("Get Started");
+                    btnNext.setText(R.string.get_started);
                 } else {
-                    btnNext.setText("Next");
+                    btnNext.setText(R.string.next);
                 }
             }
         });
@@ -67,35 +76,56 @@ public class OnboardingActivity extends AppCompatActivity {
         btnSkip.setOnClickListener(v -> finishOnboarding());
     }
 
+    private void onLanguageChanged(String langCode) {
+        currentLanguage = langCode;
+        LocaleHelper.setLocale(this, langCode);
+        adapter.updateSelectedLanguage(langCode);
+        recreate();
+    }
+
     private void setupOnboardingItems() {
         onboardingItems = new ArrayList<>();
 
+        // Screen 1: Stay Safe Around Snakes
         onboardingItems.add(new OnboardingItem(
-                "Identify & Learn",
-                "सर्पांची अचूक ओळख व माहिती",
-                "Comprehensive guide to 16 native snake species across Maharashtra. Learn to instantly distinguish between venomous and harmless snakes.",
-                "IDENTIFY & LEARN",
+                getString(R.string.onboarding_title_1),
+                getString(R.string.onboarding_subtitle_1),
+                getString(R.string.onboarding_desc_1),
+                getString(R.string.onboarding_badge_1),
                 R.drawable.p2
         ));
 
+        // Screen 2: Know What To Do in an Emergency
         onboardingItems.add(new OnboardingItem(
-                "Instant Emergency Care",
-                "तात्काळ प्रथमोपचार व मदत",
-                "One-tap emergency assistance (112), step-by-step first aid manual, and instant direct connection to certified local snake rescuers.",
-                "EMERGENCY & FIRST AID",
+                getString(R.string.onboarding_title_2),
+                getString(R.string.onboarding_subtitle_2),
+                getString(R.string.onboarding_desc_2),
+                getString(R.string.onboarding_badge_2),
                 R.drawable.first_aid_logo
         ));
 
+        // Screen 3: Find Hospitals and Snake Rescuers Near You
         onboardingItems.add(new OnboardingItem(
-                "Anti-Venom Hospitals",
-                "जवळचे सर्पदंश उपचार केंद्र",
-                "Live OpenStreetMap GPS navigation to 25+ government and private hospitals equipped with anti-venom across Jalna district.",
-                "GPS & HOSPITALS",
+                getString(R.string.onboarding_title_3),
+                getString(R.string.onboarding_subtitle_3),
+                getString(R.string.onboarding_desc_3),
+                getString(R.string.onboarding_badge_3),
                 R.drawable.hospital_location_logo
+        ));
+
+        // Screen 4: Choose Language
+        onboardingItems.add(new OnboardingItem(
+                getString(R.string.onboarding_title_4),
+                getString(R.string.onboarding_subtitle_4),
+                getString(R.string.onboarding_desc_4),
+                getString(R.string.onboarding_badge_4),
+                R.drawable.theme_palete,
+                true
         ));
     }
 
     private void setupIndicators() {
+        layoutDots.removeAllViews();
         ImageView[] indicators = new ImageView[onboardingItems.size()];
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT

@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/color_background"
+    android:orientation="vertical"
     tools:context=".Acitivity_identify_snake">
 
-    <!-- Top Bar with Glass Back Button -->
+    <!-- Top Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +18,6 @@
         android:paddingHorizontal="@dimen/space_16"
         android:paddingVertical="@dimen/space_12">
 
-        <!-- Frosted Glass Back Button -->
         <ImageButton
             android:id="@+id/btnGlassBack"
             android:layout_width="40dp"
@@ -47,23 +46,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Expert Visual Identification"
+                android:text="Camera &amp; AI Species Assistance"
                 android:textColor="@color/color_primary_container"
                 android:textSize="@dimen/text_caption" />
-
         </LinearLayout>
-
     </LinearLayout>
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:visibility="gone" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,92 +64,283 @@
             android:padding="@dimen/space_16"
             android:paddingBottom="@dimen/space_40">
 
-            <!-- Glass Photo Preview Card -->
-            <LinearLayout
+            <!-- Prominent Safety Distance Warning Banner -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
-                android:background="@drawable/bg_glass_card"
-                android:gravity="center"
-                android:padding="@dimen/space_12">
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/color_warning_container"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/color_warning"
+                app:strokeWidth="1.5dp">
 
-                <ImageView
-                    android:id="@+id/imageView"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/camera_logo" />
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_12">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:lineSpacingMultiplier="1.2"
+                        android:text="@string/identify_safety_warning"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <!-- Info Glass Card -->
+            <!-- Image Viewport Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="@dimen/space_12"
+                app:cardBackgroundColor="@color/color_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:strokeColor="@color/color_border"
+                app:strokeWidth="1dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/camera_logo" />
+
+                    <TextView
+                        android:id="@+id/tvTapToCaptureHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/dot_active"
+                        android:backgroundTint="#80000000"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:paddingHorizontal="@dimen/space_12"
+                        android:paddingVertical="@dimen/space_4"
+                        android:text="Tap Camera or Gallery below"
+                        android:textColor="@color/color_white"
+                        android:textSize="12sp" />
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Action Buttons: Take Photo & Upload Photo -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_16"
-                android:background="@drawable/bg_glass_card"
-                android:orientation="vertical"
-                android:padding="@dimen/space_16">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="How it works:"
-                    android:textColor="@color/color_primary"
-                    android:textSize="@dimen/text_body_large" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_4"
-                    android:fontFamily="@font/poppins_regular"
-                    android:lineSpacingMultiplier="1.3"
-                    android:text="Capture or select a photo of the snake. We will route it to certified herpetologists / Sarpa Mitra who will respond promptly with venom status and handling advice."
-                    android:textColor="@color/color_text_secondary"
-                    android:textSize="@dimen/text_body" />
-
-            </LinearLayout>
-
-            <!-- Action Buttons Row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_20"
+                android:layout_marginTop="@dimen/space_12"
                 android:orientation="horizontal">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/cameraBtn"
-                    style="@style/Widget.ShetkariMitra.Button.Primary"
+                    style="@style/Widget.Material3.Button"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="@dimen/space_4"
                     android:layout_weight="1"
-                    android:layout_marginEnd="@dimen/space_8"
-                    android:text="Take Photo" />
+                    android:backgroundTint="@color/color_primary"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/identify_take_photo"
+                    android:textColor="@color/color_on_primary"
+                    android:textSize="13sp"
+                    app:cornerRadius="10dp"
+                    app:icon="@drawable/camera_logo"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/color_white" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/galleryBtn"
-                    style="@style/Widget.ShetkariMitra.Button.Outlined"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="@dimen/space_4"
                     android:layout_weight="1"
-                    android:text="Choose from Gallery" />
-
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/identify_upload_photo"
+                    android:textColor="@color/color_text_primary"
+                    android:textSize="13sp"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/color_primary" />
             </LinearLayout>
 
-            <!-- WhatsApp Direct Dispatch Button -->
-            <Button
-                android:id="@+id/sendBtn"
+            <!-- Uncertainty-Aware Result Card (Visible once photo is analyzed) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardIdentificationResult"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_16"
-                android:background="@drawable/bg_glass_button"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/color_surface"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/color_border"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16">
+
+                    <!-- Possible Match Header & Confidence -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvMatchHeader"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="@string/identify_possible_match"
+                            android:textColor="@color/color_primary"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvConfidenceScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/dot_active"
+                            android:backgroundTint="@color/color_primary_container"
+                            android:fontFamily="@font/poppins_bold"
+                            android:paddingHorizontal="@dimen/space_8"
+                            android:paddingVertical="@dimen/space_2"
+                            android:text="Confidence: 84%"
+                            android:textColor="@color/color_on_primary_container"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <!-- Common & Scientific Name -->
+                    <TextView
+                        android:id="@+id/tvResultCommonName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Indian Rat Snake (धामण)"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tvResultScientificName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Ptyas mucosa • Non-Venomous"
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:background="@color/color_divider" />
+
+                    <!-- Key Traits & Habitat -->
+                    <TextView
+                        android:id="@+id/tvResultTraits"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingMultiplier="1.25"
+                        android:text="Key features: Slender body, large eyes, black lip lines. Highly active in agricultural fields. Non-venomous and beneficial to farmers by eating rodents."
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="12sp" />
+
+                    <!-- Visible Uncertainty Disclaimer -->
+                    <TextView
+                        android:id="@+id/tvResultDisclaimer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_10"
+                        android:background="@drawable/bg_venom_badge_non_venomous"
+                        android:fontFamily="@font/poppins_regular"
+                        android:padding="@dimen/space_8"
+                        android:text="@string/identify_uncertainty_disclaimer"
+                        android:textColor="@color/color_venomous"
+                        android:textSize="11sp" />
+
+                    <!-- Result Action Buttons: What Should I Do?, Find Rescuer, Learn More -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnWhatShouldIDo"
+                            style="@style/Widget.Material3.Button"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:backgroundTint="@color/color_primary"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="@string/identify_action_what_to_do"
+                            android:textColor="@color/color_on_primary"
+                            android:textSize="12sp"
+                            app:cornerRadius="8dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_6"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnFindRescuerActionResult"
+                                style="@style/Widget.Material3.Button.TonalButton"
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="@dimen/space_4"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="@string/identify_action_find_rescuer"
+                                android:textColor="@color/color_text_primary"
+                                android:textSize="11sp"
+                                app:cornerRadius="8dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnLearnMoreActionResult"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="@dimen/space_4"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="@string/identify_action_learn_more"
+                                android:textColor="@color/color_text_primary"
+                                android:textSize="11sp"
+                                app:cornerRadius="8dp"
+                                app:strokeColor="@color/color_border" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Send to Expert via WhatsApp -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sendBtn"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="@dimen/space_16"
+                android:backgroundTint="#25D366"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Send to Expert via WhatsApp"
-                android:textColor="@color/color_on_primary"
-                android:textSize="@dimen/text_body_large" />
+                android:text="Send Photo to Rescuer on WhatsApp"
+                android:textColor="@color/color_white"
+                android:textSize="14sp"
+                app:cornerRadius="10dp" />
 
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

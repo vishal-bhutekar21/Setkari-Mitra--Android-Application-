@@ -1,9 +1,10 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
+    android:width="26dp"
+    android:height="26dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
+    <!-- Bold filled home with doorway and chimney -->
     <path
         android:fillColor="#FF000000"
-        android:pathData="M10,20v-6h4v6h5v-8h3L12,3 2,12h3v8z" />
+        android:pathData="M12,2.5 L1,12 L4,12 L4,21 C4,21.55 4.45,22 5,22 L10,22 L10,15 C10,14.45 10.45,14 11,14 L13,14 C13.55,14 14,14.45 14,15 L14,22 L19,22 C19.55,22 20,21.55 20,21 L20,12 L23,12 L12,2.5 Z" />
 </vector>

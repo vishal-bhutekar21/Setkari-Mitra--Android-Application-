@@ -54,6 +54,12 @@ public class RescuerAdapter extends RecyclerView.Adapter<RescuerAdapter.RescuerV
             }
         });
 
+        holder.btnRequestRescue.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), RescuerRequestActivity.class);
+            intent.putExtra("RESCUER_NAME", rescuer.getName() + " (" + rescuer.getTaluka() + ")");
+            v.getContext().startActivity(intent);
+        });
+
         holder.btnSms.setOnClickListener(v -> {
             String phoneNumber = rescuer.getMobile();
             if (phoneNumber != null && !phoneNumber.trim().isEmpty()) {
@@ -79,7 +85,7 @@ public class RescuerAdapter extends RecyclerView.Adapter<RescuerAdapter.RescuerV
 
     static class RescuerViewHolder extends RecyclerView.ViewHolder {
         TextView textViewRescuerName, address, textViewMobile, textTalukaDistrict;
-        Button btnCallRescuer, btnSms;
+        Button btnCallRescuer, btnRequestRescue, btnSms;
 
         public RescuerViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,6 +94,7 @@ public class RescuerAdapter extends RecyclerView.Adapter<RescuerAdapter.RescuerV
             textViewMobile = itemView.findViewById(R.id.testviewformobile);
             textTalukaDistrict = itemView.findViewById(R.id.talukaanddistrict);
             btnCallRescuer = itemView.findViewById(R.id.btnCallRescuer);
+            btnRequestRescue = itemView.findViewById(R.id.btnRequestRescue);
             btnSms = itemView.findViewById(R.id.btnSms);
         }
     }

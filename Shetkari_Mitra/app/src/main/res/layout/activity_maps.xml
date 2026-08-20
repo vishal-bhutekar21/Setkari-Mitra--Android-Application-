@@ -108,13 +108,27 @@
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="34dp"
+                android:layout_marginEnd="@dimen/space_4"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Rescuers"
                 android:textColor="@color/color_primary"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 app:cornerRadius="@dimen/radius_full"
                 app:strokeColor="@color/color_primary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipSightings"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Sightings"
+                android:textColor="@color/color_warning"
+                android:textSize="10sp"
+                app:cornerRadius="@dimen/radius_full"
+                app:strokeColor="@color/color_warning" />
 
         </LinearLayout>
 

@@ -2,6 +2,8 @@ package com.example.Shetkari_Mitra;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -20,106 +22,136 @@ public class SplashScreenActivity extends AppCompatActivity {
     private static final String PREF_NAME = "shetkari_prefs";
     private static final String KEY_LOGGED_IN = "is_logged_in";
     private static final String KEY_ONBOARDING_DONE = "is_onboarding_completed";
-    private static final long TOTAL_SPLASH_TIME = 2800;
+    private static final long TOTAL_SPLASH_TIME = 2600;
 
-    private ImageView ivSplashSnake;
-    private ImageView ivSplashShield;
-    private View viewTorchBeam;
-    private TextView tvStorySubtitle;
-    private View brandContainer;
+    private View viewGlowOuter, viewGlowInner;
+    private View logoWrapper;
+    private ImageView ivShieldLogo, ivAppIconOverlay, ivInfographics;
+    private TextView tvAppName, tvAppMarathiName, tvTagline, tvInfographicLabel, tvTrustBadge;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        ivSplashSnake = findViewById(R.id.ivSplashSnake);
-        ivSplashShield = findViewById(R.id.ivSplashShield);
-        viewTorchBeam = findViewById(R.id.viewTorchBeam);
-        tvStorySubtitle = findViewById(R.id.tvStorySubtitle);
-        brandContainer = findViewById(R.id.brandContainer);
-
-        startNarrativeAnimation();
+        initViews();
+        startInfographicAnimation();
 
         new Handler(Looper.getMainLooper()).postDelayed(this::navigateNext, TOTAL_SPLASH_TIME);
     }
 
-    private void startNarrativeAnimation() {
-        if (ivSplashSnake == null || ivSplashShield == null || viewTorchBeam == null) return;
+    private void initViews() {
+        viewGlowOuter = findViewById(R.id.viewGlowOuter);
+        viewGlowInner = findViewById(R.id.viewGlowInner);
+        logoWrapper = findViewById(R.id.logoWrapper);
+        ivShieldLogo = findViewById(R.id.ivShieldLogo);
+        ivAppIconOverlay = findViewById(R.id.ivAppIconOverlay);
+        ivInfographics = findViewById(R.id.ivInfographics);
+        tvAppName = findViewById(R.id.tvAppName);
+        tvAppMarathiName = findViewById(R.id.tvAppMarathiName);
+        tvTagline = findViewById(R.id.tvTagline);
+        tvInfographicLabel = findViewById(R.id.tvInfographicLabel);
+        tvTrustBadge = findViewById(R.id.tvTrustBadge);
+    }
 
-        // Initial setup
-        ivSplashSnake.setTranslationX(-300f);
-        ivSplashSnake.setAlpha(0f);
-        ivSplashSnake.setScaleX(0.7f);
-        ivSplashSnake.setScaleY(0.7f);
+    private void startInfographicAnimation() {
+        if (logoWrapper == null) return;
 
-        if (brandContainer != null) {
-            brandContainer.setAlpha(0f);
-            brandContainer.setTranslationY(40f);
+        // Initial setup for entrance
+        logoWrapper.setScaleX(0.2f);
+        logoWrapper.setScaleY(0.2f);
+        logoWrapper.setAlpha(0f);
+
+        if (tvAppName != null) {
+            tvAppName.setAlpha(0f);
+            tvAppName.setTranslationY(30f);
+        }
+        if (tvAppMarathiName != null) {
+            tvAppMarathiName.setAlpha(0f);
+            tvAppMarathiName.setTranslationY(20f);
+        }
+        if (tvTagline != null) {
+            tvTagline.setAlpha(0f);
+            tvTagline.setTranslationY(20f);
+        }
+        if (ivInfographics != null) {
+            ivInfographics.setAlpha(0f);
+            ivInfographics.setScaleX(0.6f);
+            ivInfographics.setScaleY(0.6f);
+        }
+        if (tvInfographicLabel != null) {
+            tvInfographicLabel.setAlpha(0f);
+        }
+        if (tvTrustBadge != null) {
+            tvTrustBadge.setAlpha(0f);
         }
 
-        // Phase 1: Snake slithers into encounter area (0ms - 700ms)
-        ObjectAnimator snakeInX = ObjectAnimator.ofFloat(ivSplashSnake, "translationX", -300f, 0f);
-        ObjectAnimator snakeInAlpha = ObjectAnimator.ofFloat(ivSplashSnake, "alpha", 0f, 1f);
-        ObjectAnimator snakeInScaleX = ObjectAnimator.ofFloat(ivSplashSnake, "scaleX", 0.7f, 1f);
-        ObjectAnimator snakeInScaleY = ObjectAnimator.ofFloat(ivSplashSnake, "scaleY", 0.7f, 1f);
+        // 1. Logo Pop & Shield Reveal (0 - 700ms)
+        PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat("scaleX", 0.2f, 1.08f, 1.0f);
+        PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat("scaleY", 0.2f, 1.08f, 1.0f);
+        PropertyValuesHolder alpha = PropertyValuesHolder.ofFloat("alpha", 0f, 1.0f);
+        ObjectAnimator logoAnim = ObjectAnimator.ofPropertyValuesHolder(logoWrapper, scaleX, scaleY, alpha);
+        logoAnim.setDuration(750);
+        logoAnim.setInterpolator(new OvershootInterpolator(1.2f));
 
-        AnimatorSet phase1 = new AnimatorSet();
-        phase1.playTogether(snakeInX, snakeInAlpha, snakeInScaleX, snakeInScaleY);
-        phase1.setDuration(700);
-        phase1.setInterpolator(new AccelerateDecelerateInterpolator());
+        // 2. Pulse Glow Background Rings
+        ObjectAnimator glowAnim = ObjectAnimator.ofPropertyValuesHolder(viewGlowInner,
+                PropertyValuesHolder.ofFloat("scaleX", 0.6f, 1.25f, 1.0f),
+                PropertyValuesHolder.ofFloat("scaleY", 0.6f, 1.25f, 1.0f),
+                PropertyValuesHolder.ofFloat("alpha", 0.1f, 0.45f, 0.25f)
+        );
+        glowAnim.setDuration(900);
+        glowAnim.setInterpolator(new AccelerateDecelerateInterpolator());
 
-        // Phase 2: Farmer Torch Beam shines & Identification takes place (700ms - 1300ms)
-        ObjectAnimator torchAlpha = ObjectAnimator.ofFloat(viewTorchBeam, "alpha", 0f, 0.9f, 0.4f);
-        ObjectAnimator torchScaleX = ObjectAnimator.ofFloat(viewTorchBeam, "scaleX", 0.3f, 1.2f, 1.0f);
-        ObjectAnimator torchScaleY = ObjectAnimator.ofFloat(viewTorchBeam, "scaleY", 0.3f, 1.2f, 1.0f);
+        // 3. Title & Marathi Name Fade Up (400ms - 900ms)
+        ObjectAnimator titleAnim = ObjectAnimator.ofPropertyValuesHolder(tvAppName,
+                PropertyValuesHolder.ofFloat("alpha", 0f, 1f),
+                PropertyValuesHolder.ofFloat("translationY", 30f, 0f)
+        );
+        titleAnim.setDuration(500);
+        titleAnim.setStartDelay(350);
 
-        AnimatorSet phase2 = new AnimatorSet();
-        phase2.playTogether(torchAlpha, torchScaleX, torchScaleY);
-        phase2.setDuration(600);
-        phase2.setStartDelay(650);
+        ObjectAnimator marathiAnim = ObjectAnimator.ofPropertyValuesHolder(tvAppMarathiName,
+                PropertyValuesHolder.ofFloat("alpha", 0f, 1f),
+                PropertyValuesHolder.ofFloat("translationY", 20f, 0f)
+        );
+        marathiAnim.setDuration(450);
+        marathiAnim.setStartDelay(450);
 
-        // Phase 3: Farmer gives safe passage — Snake safely slithers away into nature (1300ms - 1900ms)
-        ObjectAnimator snakeOutX = ObjectAnimator.ofFloat(ivSplashSnake, "translationX", 0f, 350f);
-        ObjectAnimator snakeOutAlpha = ObjectAnimator.ofFloat(ivSplashSnake, "alpha", 1f, 0f);
-        ObjectAnimator snakeOutRot = ObjectAnimator.ofFloat(ivSplashSnake, "rotation", 0f, -15f, 15f);
+        // 4. Tagline Reveal (600ms - 1100ms)
+        ObjectAnimator taglineAnim = ObjectAnimator.ofPropertyValuesHolder(tvTagline,
+                PropertyValuesHolder.ofFloat("alpha", 0f, 1f),
+                PropertyValuesHolder.ofFloat("translationY", 20f, 0f)
+        );
+        taglineAnim.setDuration(500);
+        taglineAnim.setStartDelay(650);
 
-        AnimatorSet phase3 = new AnimatorSet();
-        phase3.playTogether(snakeOutX, snakeOutAlpha, snakeOutRot);
-        phase3.setDuration(650);
-        phase3.setStartDelay(1300);
+        // 5. Infographic Trio (Identify -> Respond -> Get Help) (900ms - 1500ms)
+        ObjectAnimator infoAnim = ObjectAnimator.ofPropertyValuesHolder(ivInfographics,
+                PropertyValuesHolder.ofFloat("alpha", 0f, 1f),
+                PropertyValuesHolder.ofFloat("scaleX", 0.6f, 1.05f, 1.0f),
+                PropertyValuesHolder.ofFloat("scaleY", 0.6f, 1.05f, 1.0f)
+        );
+        infoAnim.setDuration(600);
+        infoAnim.setStartDelay(950);
+        infoAnim.setInterpolator(new OvershootInterpolator(1.1f));
 
-        // Phase 4: Shetkari Mitra Safety Shield Illuminates & Brand reveals (1800ms - 2600ms)
-        ObjectAnimator shieldAlpha = ObjectAnimator.ofFloat(ivSplashShield, "alpha", 0f, 1f);
-        ObjectAnimator shieldScaleX = ObjectAnimator.ofFloat(ivSplashShield, "scaleX", 0.3f, 1.15f, 1.0f);
-        ObjectAnimator shieldScaleY = ObjectAnimator.ofFloat(ivSplashShield, "scaleY", 0.3f, 1.15f, 1.0f);
+        ObjectAnimator infoLabelAnim = ObjectAnimator.ofFloat(tvInfographicLabel, "alpha", 0f, 1f);
+        infoLabelAnim.setDuration(400);
+        infoLabelAnim.setStartDelay(1150);
 
-        ObjectAnimator brandAlpha = ObjectAnimator.ofFloat(brandContainer, "alpha", 0f, 1f);
-        ObjectAnimator brandTransY = ObjectAnimator.ofFloat(brandContainer, "translationY", 40f, 0f);
+        ObjectAnimator trustAnim = ObjectAnimator.ofFloat(tvTrustBadge, "alpha", 0f, 1f);
+        trustAnim.setDuration(400);
+        trustAnim.setStartDelay(1300);
 
-        AnimatorSet phase4 = new AnimatorSet();
-        phase4.playTogether(shieldAlpha, shieldScaleX, shieldScaleY, brandAlpha, brandTransY);
-        phase4.setDuration(750);
-        phase4.setInterpolator(new OvershootInterpolator());
-        phase4.setStartDelay(1800);
-
-        // Execute coordinated animation sequence
-        AnimatorSet storyAnimation = new AnimatorSet();
-        storyAnimation.playTogether(phase1, phase2, phase3, phase4);
-        storyAnimation.start();
-
-        // Subtitle dynamic text updates for storytelling
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            if (!isFinishing() && tvStorySubtitle != null) {
-                tvStorySubtitle.setText("साप ओळखला • सुरक्षित मार्ग दिला");
-            }
-        }, 1100);
-
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            if (!isFinishing() && tvStorySubtitle != null) {
-                tvStorySubtitle.setText("साप ओळखा • सुरक्षित राहा • जीवन वाचवा");
-            }
-        }, 2000);
+        AnimatorSet mainSet = new AnimatorSet();
+        mainSet.playTogether(logoAnim, glowAnim, titleAnim, marathiAnim, taglineAnim, infoAnim, infoLabelAnim, trustAnim);
+        mainSet.start();
     }
 
     private void navigateNext() {

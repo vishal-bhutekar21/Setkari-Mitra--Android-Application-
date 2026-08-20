@@ -7,18 +7,19 @@
     android:orientation="vertical"
     android:padding="@dimen/space_24">
 
-    <!-- Glass Illustration Container -->
+    <!-- Top Illustration Stage -->
     <LinearLayout
-        android:layout_width="220dp"
-        android:layout_height="220dp"
+        android:id="@+id/containerIllustration"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:background="@drawable/bg_glass_circle_btn"
         android:gravity="center"
-        android:padding="@dimen/space_24">
+        android:padding="@dimen/space_20">
 
         <ImageView
             android:id="@+id/ivSlideIllustration"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:scaleType="fitCenter"
             android:src="@drawable/app_logo" />
 
@@ -28,7 +29,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_32"
+        android:layout_marginTop="@dimen/space_24"
         android:background="@drawable/bg_glass_card"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -55,19 +56,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_12"
             android:fontFamily="@font/poppins_bold"
-            android:text="Instant Snake Guide"
+            android:text="Stay Safe Around Snakes"
             android:textAlignment="center"
             android:textColor="@color/color_text_primary"
-            android:textSize="@dimen/text_headline" />
+            android:textSize="20sp" />
 
-        <!-- Marathi Title -->
+        <!-- Subtitle / Local Title -->
         <TextView
             android:id="@+id/tvSlideMarathi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_4"
             android:fontFamily="@font/poppins_semibold"
-            android:text="सर्पांची अचूक ओळख व माहिती"
+            android:text="सर्पांपासून सुरक्षित राहा"
             android:textAlignment="center"
             android:textColor="@color/color_primary"
             android:textSize="@dimen/text_body" />
@@ -80,10 +81,52 @@
             android:layout_marginTop="@dimen/space_12"
             android:fontFamily="@font/poppins_regular"
             android:lineSpacingMultiplier="1.3"
-            android:text="Identify venomous vs harmless snakes with high-definition visual guides and photo assistance."
+            android:text="Understand snake behaviors, prevention tips for farmlands, and how to maintain safety in daily routines."
             android:textAlignment="center"
             android:textColor="@color/color_text_secondary"
             android:textSize="@dimen/text_body" />
+
+        <!-- Language Selector Section (Only shown on Screen 4) -->
+        <LinearLayout
+            android:id="@+id/layoutLanguagePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLangEnglish"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="English"
+                android:textColor="@color/color_text_primary"
+                app:strokeColor="@color/color_primary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLangMarathi"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="मराठी (Marathi)"
+                android:textColor="@color/color_text_primary"
+                app:strokeColor="@color/color_primary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLangHindi"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="हिंदी (Hindi)"
+                android:textColor="@color/color_text_primary"
+                app:strokeColor="@color/color_primary" />
+        </LinearLayout>
 
     </LinearLayout>
 

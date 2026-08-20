@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header: Hospital Name -->
+        <!-- Header: Hospital Name & Status -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,15 +27,35 @@
                 android:layout_height="@dimen/icon_size_medium"
                 android:src="@drawable/hospital_location_logo" />
 
-            <TextView
-                android:id="@+id/hospitalNameTextView"
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_8"
                 android:layout_weight="1"
-                android:fontFamily="@font/poppins_bold"
-                android:textColor="@color/color_text_primary"
-                android:textSize="@dimen/text_body_large" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/hospitalNameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/color_text_primary"
+                    android:textSize="@dimen/text_body_large" />
+
+                <TextView
+                    android:id="@+id/tvHospitalStatusBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/dot_active"
+                    android:backgroundTint="@color/color_success_container"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingHorizontal="@dimen/space_8"
+                    android:paddingVertical="@dimen/space_2"
+                    android:text="✓ ASV Verified • Call Before Travelling"
+                    android:textColor="@color/color_success"
+                    android:textSize="10sp" />
+            </LinearLayout>
         </LinearLayout>
 
         <!-- Location / Taluka -->

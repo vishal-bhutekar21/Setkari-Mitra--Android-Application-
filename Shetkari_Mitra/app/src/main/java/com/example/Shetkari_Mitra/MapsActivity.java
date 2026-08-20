@@ -56,6 +56,11 @@ public class MapsActivity extends AppCompatActivity {
             });
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -90,6 +95,7 @@ public class MapsActivity extends AppCompatActivity {
         chipAllLayers = findViewById(R.id.chipAllLayers);
         chipHospitals = findViewById(R.id.chipHospitals);
         chipRescuers = findViewById(R.id.chipRescuers);
+        chipSightings = findViewById(R.id.chipSightings);
 
         setupRadiusButtons();
         setupCategoryChips();
@@ -102,43 +108,57 @@ public class MapsActivity extends AppCompatActivity {
         }
     }
 
-    private com.google.android.material.button.MaterialButton chipAllLayers, chipHospitals, chipRescuers;
+    private com.google.android.material.button.MaterialButton chipAllLayers, chipHospitals, chipRescuers, chipSightings;
     private final List<Marker> hospitalMarkers = new ArrayList<>();
     private final List<Marker> rescuerMarkers = new ArrayList<>();
+    private final List<Marker> sightingMarkers = new ArrayList<>();
 
     private void setupCategoryChips() {
-        if (chipAllLayers == null || chipHospitals == null || chipRescuers == null) return;
+        if (chipAllLayers == null || chipHospitals == null || chipRescuers == null || chipSightings == null) return;
 
         chipAllLayers.setOnClickListener(v -> {
-            setCategoryChipStyles(chipAllLayers, chipHospitals, chipRescuers);
-            showMarkers(true, true);
+            resetChipStyles();
+            setActiveChipStyle(chipAllLayers);
+            showMarkers(true, true, true);
         });
 
         chipHospitals.setOnClickListener(v -> {
-            setCategoryChipStyles(chipHospitals, chipAllLayers, chipRescuers);
-            showMarkers(true, false);
+            resetChipStyles();
+            setActiveChipStyle(chipHospitals);
+            showMarkers(true, false, false);
         });
 
         chipRescuers.setOnClickListener(v -> {
-            setCategoryChipStyles(chipRescuers, chipAllLayers, chipHospitals);
-            showMarkers(false, true);
+            resetChipStyles();
+            setActiveChipStyle(chipRescuers);
+            showMarkers(false, true, false);
+        });
+
+        chipSightings.setOnClickListener(v -> {
+            resetChipStyles();
+            setActiveChipStyle(chipSightings);
+            showMarkers(false, false, true);
         });
     }
 
-    private void setCategoryChipStyles(com.google.android.material.button.MaterialButton active,
-                                        com.google.android.material.button.MaterialButton in1,
-                                        com.google.android.material.button.MaterialButton in2) {
-        active.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.color_primary));
-        active.setTextColor(ContextCompat.getColor(this, R.color.color_on_primary));
-
-        in1.setBackgroundTintList(ContextCompat.getColorStateList(this, android.R.color.transparent));
-        in1.setTextColor(ContextCompat.getColor(this, R.color.color_text_primary));
-
-        in2.setBackgroundTintList(ContextCompat.getColorStateList(this, android.R.color.transparent));
-        in2.setTextColor(ContextCompat.getColor(this, R.color.color_text_primary));
+    private void resetChipStyles() {
+        com.google.android.material.button.MaterialButton[] chips = {chipAllLayers, chipHospitals, chipRescuers, chipSightings};
+        for (com.google.android.material.button.MaterialButton chip : chips) {
+            if (chip != null) {
+                chip.setBackgroundTintList(ContextCompat.getColorStateList(this, android.R.color.transparent));
+                chip.setTextColor(ContextCompat.getColor(this, R.color.color_text_primary));
+            }
+        }
     }
 
-    private void showMarkers(boolean showHospitals, boolean showRescuers) {
+    private void setActiveChipStyle(com.google.android.material.button.MaterialButton active) {
+        if (active != null) {
+            active.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.color_primary));
+            active.setTextColor(ContextCompat.getColor(this, R.color.color_on_primary));
+        }
+    }
+
+    private void showMarkers(boolean showHospitals, boolean showRescuers, boolean showSightings) {
         for (Marker m : hospitalMarkers) {
             if (showHospitals) {
                 if (!mapView.getOverlays().contains(m)) mapView.getOverlays().add(m);
@@ -149,6 +169,14 @@ public class MapsActivity extends AppCompatActivity {
 
         for (Marker m : rescuerMarkers) {
             if (showRescuers) {
+                if (!mapView.getOverlays().contains(m)) mapView.getOverlays().add(m);
+            } else {
+                mapView.getOverlays().remove(m);
+            }
+        }
+
+        for (Marker m : sightingMarkers) {
+            if (showSightings) {
                 if (!mapView.getOverlays().contains(m)) mapView.getOverlays().add(m);
             } else {
                 mapView.getOverlays().remove(m);
@@ -193,10 +221,12 @@ public class MapsActivity extends AppCompatActivity {
                 ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             enableLiveLocation();
         } else {
-            locationPermissionLauncher.launch(new String[]{
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-            });
+            PermissionEducationDialog.newInstance(PermissionEducationDialog.PermissionType.LOCATION, () -> {
+                locationPermissionLauncher.launch(new String[]{
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION
+                });
+            }).show(getSupportFragmentManager(), "perm_location_map");
         }
     }
 
@@ -280,7 +310,35 @@ public class MapsActivity extends AppCompatActivity {
             mapView.getOverlays().add(m);
         }
 
+        // Community Sightings (Generalized Coordinates for wildlife protection)
+        List<SightingLocation> sightings = new ArrayList<>();
+        sightings.add(new SightingLocation("Indian Rat Snake (धामण)", "Farmland Bund • Verified", 19.8520, 75.8690));
+        sightings.add(new SightingLocation("Russell's Viper (घोणस)", "Cattle Shed Area • Rescued", 19.6150, 75.7920));
+        sightings.add(new SightingLocation("Spectacled Cobra (नाग)", "Well vicinity • High Caution", 19.8720, 75.7190));
+
+        for (SightingLocation sl : sightings) {
+            Marker m = new Marker(mapView);
+            m.setPosition(new GeoPoint(sl.lat, sl.lng));
+            m.setTitle("⚠️ " + sl.species);
+            m.setSnippet(sl.details + "\nApproximate vicinity (Wildlife Protected)");
+            m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+            sightingMarkers.add(m);
+            mapView.getOverlays().add(m);
+        }
+
         mapView.invalidate();
+    }
+
+    private static class SightingLocation {
+        String species, details;
+        double lat, lng;
+
+        SightingLocation(String species, String details, double lat, double lng) {
+            this.species = species;
+            this.details = details;
+            this.lat = lat;
+            this.lng = lng;
+        }
     }
 
     private void showContactPrompt(String title, String phone) {

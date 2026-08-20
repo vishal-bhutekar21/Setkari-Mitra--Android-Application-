@@ -35,6 +35,16 @@
     <item android:title="तातडीची मदत व वैद्यकीय सेवा (Emergency Assistance)">
         <menu>
             <item
+                android:id="@+id/nav_safety_academy"
+                android:title="Safety Video Academy (व्हिडिओ प्रशिक्षण)"
+                android:icon="@drawable/baseline_search_24" />
+
+            <item
+                android:id="@+id/nav_govt_portals"
+                android:title="Govt &amp; District Portals (शासकीय दालन)"
+                android:icon="@drawable/hospital_location_logo" />
+
+            <item
                 android:id="@+id/nav_hos"
                 android:title="Nearby ASV Hospitals (जवळचे रुग्णालय)"
                 android:icon="@drawable/ic_drawer_hospitals" />
@@ -64,6 +74,11 @@
     <!-- Section 4: Application & Developer -->
     <item android:title="ॲप व विकासक (App &amp; Developer)">
         <menu>
+            <item
+                android:id="@+id/nav_language"
+                android:title="Change Language / भाषा बदला"
+                android:icon="@drawable/theme_palete" />
+
             <item
                 android:id="@+id/nav_about"
                 android:title="Developer Profile (Vishal Bhutekar)"

@@ -1,0 +1,53 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="180dp"
+    android:height="60dp"
+    android:viewportWidth="180"
+    android:viewportHeight="60">
+
+    <!-- Pillar 1: Prevent / Identify (Search & Eye) -->
+    <path
+        android:fillColor="#30FFFFFF"
+        android:pathData="M30,30m-24,0a24,24 0,1 1,48 0a24,24 0,1 1,-48 0" />
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M22,30 C22,26 26,22 30,22 C34,22 38,26 38,30 C38,34 34,38 30,38 C26,38 22,34 22,30 Z" />
+    <path
+        android:fillColor="#78C9A2"
+        android:pathData="M30,27 A3,3 0 1,0 30,33 A3,3 0 1,0 30,27 Z" />
+
+    <!-- Connector Line 1-2 -->
+    <path
+        android:strokeColor="#60FFFFFF"
+        android:strokeWidth="2"
+        android:pathData="M56,30 L64,30" />
+
+    <!-- Pillar 2: Safety Shield / Respond -->
+    <path
+        android:fillColor="#40FFFFFF"
+        android:pathData="M90,30m-24,0a24,24 0,1 1,48 0a24,24 0,1 1,-48 0" />
+    <path
+        android:fillColor="#78C9A2"
+        android:pathData="M90,18 L102,23 C102,36 90,44 90,44 C90,44 78,36 78,23 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M88,25 L92,25 L92,28 L95,28 L95,32 L92,32 L92,35 L88,35 L88,32 L85,32 L85,28 L88,28 Z" />
+
+    <!-- Connector Line 2-3 -->
+    <path
+        android:strokeColor="#60FFFFFF"
+        android:strokeWidth="2"
+        android:pathData="M116,30 L124,30" />
+
+    <!-- Pillar 3: Get Help / Hospital Location -->
+    <path
+        android:fillColor="#30FFFFFF"
+        android:pathData="M150,30m-24,0a24,24 0,1 1,48 0a24,24 0,1 1,-48 0" />
+    <path
+        android:fillColor="#78C9A2"
+        android:pathData="M150,18 C144.5,18 140,22.5 140,28 C140,35.5 150,44 150,44 C150,44 160,35.5 160,28 C160,22.5 155.5,18 150,18 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M150,25m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+</vector>
