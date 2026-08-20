@@ -18,6 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/color_surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
             app:strokeColor="@color/color_border"
             app:strokeWidth="1dp">
 
@@ -25,29 +27,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/space_16">
+                android:padding="@dimen/space_20">
 
                 <TextView
-                    style="@style/TextAppearance.ShetkariMitra.SectionTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
                     android:text="Create Account"
                     android:textColor="@color/color_primary"
-                    android:textSize="@dimen/text_title_large" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="झटपट खाते तयार करा व सुरक्षित रहा"
+                    android:textColor="@color/color_text_secondary"
+                    android:textSize="12sp" />
 
                 <!-- Name Input -->
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_16"
-                    android:hint="Full Name"
-                    app:startIconDrawable="@drawable/left_user">
+                    app:boxStrokeColor="@color/color_primary"
+                    app:startIconDrawable="@drawable/left_user"
+                    app:startIconTint="@color/color_primary">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/usernameEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="Full Name (पूर्ण नाव)"
                         android:inputType="textPersonName"
                         android:maxLines="1"
                         android:textColor="@color/color_text_primary" />
@@ -55,56 +69,65 @@
 
                 <!-- Mobile Input -->
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_12"
-                    android:hint="10-Digit Mobile Number"
-                    app:startIconDrawable="@drawable/left_call_icon">
+                    app:boxStrokeColor="@color/color_primary"
+                    app:startIconDrawable="@drawable/left_call_icon"
+                    app:startIconTint="@color/color_primary">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/mobileNumberEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="10-Digit Mobile (मोबाईल नंबर)"
                         android:inputType="phone"
                         android:maxLength="10"
                         android:maxLines="1"
                         android:textColor="@color/color_text_primary" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Email Input -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.ShetkariMitra.TextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_12"
-                    android:hint="Email Address"
-                    app:startIconDrawable="@drawable/left_email_icon">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/emailEditTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
-                        android:maxLines="1"
-                        android:textColor="@color/color_text_primary" />
-                </com.google.android.material.textfield.TextInputLayout>
-
                 <!-- Password Input -->
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.ShetkariMitra.TextInputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_12"
-                    android:hint="Password (min. 6 characters)"
+                    app:boxStrokeColor="@color/color_primary"
                     app:passwordToggleEnabled="true"
-                    app:startIconDrawable="@drawable/left_pass_icon">
+                    app:startIconDrawable="@drawable/left_pass_icon"
+                    app:startIconTint="@color/color_primary">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/passwordEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="Password (पासवर्ड - किमान ६ अक्षरे)"
                         android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textColor="@color/color_text_primary" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Optional Email Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    app:boxStrokeColor="@color/color_primary"
+                    app:startIconDrawable="@drawable/left_email_icon"
+                    app:startIconTint="@color/color_primary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailEditTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="Email (पर्यायी / Optional)"
+                        android:inputType="textEmailAddress"
                         android:maxLines="1"
                         android:textColor="@color/color_text_primary" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -113,138 +136,151 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Emergency Contacts Section Card -->
+        <!-- Optional Extra Details Checkbox -->
         <com.google.android.material.card.MaterialCardView
-            style="@style/Widget.ShetkariMitra.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_16"
-            app:cardBackgroundColor="@color/color_surface"
-            app:strokeColor="@color/color_border"
-            app:strokeWidth="1dp">
+            android:layout_marginTop="@dimen/space_12"
+            app:cardBackgroundColor="@color/color_surface_variant"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
 
-            <LinearLayout
+            <CheckBox
+                android:id="@+id/cbAddExtraDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/space_16">
-
-                <TextView
-                    style="@style/TextAppearance.ShetkariMitra.SectionTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Emergency Contacts (Optional)"
-                    android:textColor="@color/color_primary" />
-
-                <TextView
-                    style="@style/TextAppearance.ShetkariMitra.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_2"
-                    android:text="People to notify in case of snakebite emergency" />
-
-                <!-- Contact 1 -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.ShetkariMitra.TextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_12"
-                    android:hint="Contact 1 Name">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/emergencyNameEditText1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.ShetkariMitra.TextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_8"
-                    android:hint="Contact 1 Number">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/emergencyNumberEditText1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="phone"
-                        android:maxLength="10" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Contact 2 -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.ShetkariMitra.TextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_12"
-                    android:hint="Contact 2 Name">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/emergencyNameEditText2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.ShetkariMitra.TextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_8"
-                    android:hint="Contact 2 Number">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/emergencyNumberEditText2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="phone"
-                        android:maxLength="10" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Contact 3 -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.ShetkariMitra.TextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_12"
-                    android:hint="Contact 3 Name">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/emergencyNameEditText3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.ShetkariMitra.TextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_8"
-                    android:hint="Contact 3 Number">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/emergencyNumberEditText3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="phone"
-                        android:maxLength="10" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
+                android:checked="false"
+                android:fontFamily="@font/poppins_semibold"
+                android:padding="@dimen/space_12"
+                android:text="➕ Add Trusted Emergency Contacts Now (पर्यायी माहिती जोडा)"
+                android:textColor="@color/color_text_primary"
+                android:textSize="13sp" />
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Submit Button -->
-        <Button
-            android:id="@+id/signUpButton"
-            style="@style/Widget.ShetkariMitra.Button.Primary"
+        <!-- Expandable Emergency Contacts Section (Hidden by Default) -->
+        <LinearLayout
+            android:id="@+id/layoutExtraDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ShetkariMitra.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/color_surface"
+                app:cardCornerRadius="16dp"
+                app:strokeColor="@color/color_border"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Emergency Contacts"
+                        android:textColor="@color/color_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Saved securely on your device for 1-tap SOS alerts"
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="11sp" />
+
+                    <!-- Contact 1 -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/emergencyNameEditText1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Contact 1 Name (e.g. Doctor / Family)"
+                            android:inputType="textPersonName" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/emergencyNumberEditText1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Contact 1 Phone Number"
+                            android:inputType="phone"
+                            android:maxLength="10" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Contact 2 -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/emergencyNameEditText2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Contact 2 Name (Optional)"
+                            android:inputType="textPersonName" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/emergencyNumberEditText2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Contact 2 Phone Number"
+                            android:inputType="phone"
+                            android:maxLength="10" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- Submit Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signUpButton"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
             android:layout_marginTop="@dimen/space_20"
-            android:text="Create Account" />
+            android:backgroundTint="@color/color_primary"
+            android:fontFamily="@font/poppins_bold"
+            android:text="CREATE ACCOUNT &amp; CONTINUE"
+            android:textColor="@color/color_on_primary"
+            android:textSize="14sp"
+            app:cornerRadius="12dp" />
 
     </LinearLayout>
 

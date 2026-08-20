@@ -102,9 +102,29 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setupNavigationHeader();
         setupCardClickListeners();
         setupBottomNavigation();
+        playDashboardAnimations();
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         checkAndRequestLocation();
+    }
+
+    private void playDashboardAnimations() {
+        android.view.animation.Animation slideAnim = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.slide_up_fade_in);
+        if (cardEmergencyBtn != null) {
+            cardEmergencyBtn.startAnimation(slideAnim);
+        }
+        if (cardIdentifySnake != null) {
+            cardIdentifySnake.startAnimation(slideAnim);
+        }
+        if (cardNearHospital != null) {
+            cardNearHospital.startAnimation(slideAnim);
+        }
+        if (cardSnakeRescuers != null) {
+            cardSnakeRescuers.startAnimation(slideAnim);
+        }
+        if (cardFirstAid != null) {
+            cardFirstAid.startAnimation(slideAnim);
+        }
     }
 
     private void initViews() {

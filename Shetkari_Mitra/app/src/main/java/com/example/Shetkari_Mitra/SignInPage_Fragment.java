@@ -33,8 +33,10 @@ public class SignInPage_Fragment extends Fragment {
     private EditText emailEditText;
     private EditText passwordEditText;
     private EditText mobileEditText;
-    private EditText emergencyNameEditText1, emergencyNameEditText2, emergencyNameEditText3;
-    private EditText emergencyNumberEditText1, emergencyNumberEditText2, emergencyNumberEditText3;
+    private android.widget.CheckBox cbAddExtraDetails;
+    private View layoutExtraDetails;
+    private EditText emergencyNameEditText1, emergencyNameEditText2;
+    private EditText emergencyNumberEditText1, emergencyNumberEditText2;
     private Button signUpButton;
 
     @Nullable
@@ -49,12 +51,19 @@ public class SignInPage_Fragment extends Fragment {
         passwordEditText = view.findViewById(R.id.passwordEditText);
         mobileEditText = view.findViewById(R.id.mobileNumberEditText);
 
+        cbAddExtraDetails = view.findViewById(R.id.cbAddExtraDetails);
+        layoutExtraDetails = view.findViewById(R.id.layoutExtraDetails);
+
         emergencyNameEditText1 = view.findViewById(R.id.emergencyNameEditText1);
         emergencyNameEditText2 = view.findViewById(R.id.emergencyNameEditText2);
-        emergencyNameEditText3 = view.findViewById(R.id.emergencyNameEditText3);
         emergencyNumberEditText1 = view.findViewById(R.id.emergencyNumberEditText1);
         emergencyNumberEditText2 = view.findViewById(R.id.emergencyNumberEditText2);
-        emergencyNumberEditText3 = view.findViewById(R.id.emergencyNumberEditText3);
+
+        if (cbAddExtraDetails != null && layoutExtraDetails != null) {
+            cbAddExtraDetails.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                layoutExtraDetails.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+            });
+        }
 
         signUpButton = view.findViewById(R.id.signUpButton);
         signUpButton.setOnClickListener(v -> attemptSignUp());
@@ -64,7 +73,7 @@ public class SignInPage_Fragment extends Fragment {
 
     private void attemptSignUp() {
         String username = usernameEditText.getText().toString().trim();
-        String email = emailEditText.getText().toString().trim();
+        String email = emailEditText != null && emailEditText.getText() != null ? emailEditText.getText().toString().trim() : "";
         String password = passwordEditText.getText().toString().trim();
         String mobile = mobileEditText.getText().toString().trim();
 
@@ -75,9 +84,9 @@ public class SignInPage_Fragment extends Fragment {
             return;
         }
 
-        if (TextUtils.isEmpty(email) || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            emailEditText.setError("Please enter a valid email address");
-            emailEditText.requestFocus();
+        if (TextUtils.isEmpty(mobile) || mobile.length() != 10) {
+            mobileEditText.setError("Please enter a valid 10-digit mobile number");
+            mobileEditText.requestFocus();
             return;
         }
 
@@ -87,9 +96,9 @@ public class SignInPage_Fragment extends Fragment {
             return;
         }
 
-        if (TextUtils.isEmpty(mobile) || mobile.length() != 10) {
-            mobileEditText.setError("Please enter a valid 10-digit mobile number");
-            mobileEditText.requestFocus();
+        if (!TextUtils.isEmpty(email) && !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailEditText.setError("Please enter a valid email address");
+            emailEditText.requestFocus();
             return;
         }
 
@@ -115,9 +124,8 @@ public class SignInPage_Fragment extends Fragment {
 
         new Thread(() -> {
             String[][] contacts = {
-                    {emergencyNameEditText1.getText().toString().trim(), emergencyNumberEditText1.getText().toString().trim()},
-                    {emergencyNameEditText2.getText().toString().trim(), emergencyNumberEditText2.getText().toString().trim()},
-                    {emergencyNameEditText3.getText().toString().trim(), emergencyNumberEditText3.getText().toString().trim()}
+                    {emergencyNameEditText1 != null ? emergencyNameEditText1.getText().toString().trim() : "", emergencyNumberEditText1 != null ? emergencyNumberEditText1.getText().toString().trim() : ""},
+                    {emergencyNameEditText2 != null ? emergencyNameEditText2.getText().toString().trim() : "", emergencyNumberEditText2 != null ? emergencyNumberEditText2.getText().toString().trim() : ""}
             };
             for (String[] contact : contacts) {
                 if (!TextUtils.isEmpty(contact[0]) && !TextUtils.isEmpty(contact[1])) {
