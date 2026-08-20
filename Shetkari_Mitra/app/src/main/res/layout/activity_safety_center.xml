@@ -7,7 +7,7 @@
     android:background="@color/color_background"
     android:orientation="vertical">
 
-    <!-- Top Bar -->
+    <!-- Top Bar with Frosted Glass Back Button -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,14 +17,15 @@
         android:paddingHorizontal="@dimen/space_16"
         android:paddingVertical="@dimen/space_12">
 
+        <!-- Frosted Glass Back Button -->
         <ImageButton
             android:id="@+id/btnBack"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/bg_glass_circle_btn"
             android:contentDescription="Back"
-            android:src="@drawable/baseline_clear_24"
-            app:tint="@color/color_primary" />
+            android:src="@drawable/ic_arrow_back_24"
+            app:tint="@color/color_white" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -37,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Safety Center &amp; Checklists"
+                android:text="Safety Center &amp; Checklist"
                 android:textColor="@color/color_on_primary"
                 android:textSize="@dimen/text_title" />
 
@@ -45,13 +46,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
-                android:text="सुरक्षा केंद्र व चेकलिस्ट"
+                android:text="शेतकरी सुरक्षा केंद्र व दैनंदिन दक्षता यादी"
                 android:textColor="@color/color_primary_container"
                 android:textSize="@dimen/text_caption" />
         </LinearLayout>
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -64,14 +66,15 @@
             android:padding="@dimen/space_16"
             android:paddingBottom="@dimen/space_40">
 
-            <!-- Progress Header Card -->
+            <!-- Dynamic Animated Progress Header Card -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardProgressHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="1dp"
-                app:strokeColor="@color/color_border"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E2E8F0"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -86,14 +89,30 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:fontFamily="@font/poppins_bold"
-                            android:text="Home &amp; Farm Safety Checklist"
-                            android:textColor="@color/color_text_primary"
-                            android:textSize="14sp" />
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Daily Farm Safety Checklist"
+                                android:textColor="@color/color_text_primary"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tvChecklistSubtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="Tap tasks to complete &amp; protect your farm"
+                                android:textColor="@color/color_text_secondary"
+                                android:textSize="11.5sp" />
+                        </LinearLayout>
 
                         <TextView
                             android:id="@+id/tvChecklistScore"
@@ -102,80 +121,341 @@
                             android:background="@drawable/dot_active"
                             android:backgroundTint="@color/color_primary_container"
                             android:fontFamily="@font/poppins_bold"
-                            android:paddingHorizontal="@dimen/space_8"
-                            android:paddingVertical="@dimen/space_2"
-                            android:text="4 / 5 Done"
-                            android:textColor="@color/color_on_primary_container"
+                            android:paddingHorizontal="@dimen/space_10"
+                            android:paddingVertical="@dimen/space_4"
+                            android:text="0% Complete"
+                            android:textColor="@color/color_primary"
                             android:textSize="12sp" />
                     </LinearLayout>
 
-                    <!-- Interactive Checklist Items -->
-                    <CheckBox
-                        android:id="@+id/cbItem1"
+                    <!-- Animated Progress Bar -->
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressSafety"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_8"
-                        android:checked="true"
-                        android:fontFamily="@font/poppins_regular"
-                        android:text="Keep high-beam torch by bedroom &amp; farm doorway"
-                        android:textSize="13sp" />
+                        android:layout_height="8dp"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:max="100"
+                        android:progress="0"
+                        app:indicatorColor="@color/color_primary"
+                        app:trackColor="#E2E8F0"
+                        app:trackCornerRadius="4dp"
+                        app:trackThickness="8dp" />
 
-                    <CheckBox
-                        android:id="@+id/cbItem2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:fontFamily="@font/poppins_regular"
-                        android:text="Inspect boots and footwear before wearing"
-                        android:textSize="13sp" />
-
-                    <CheckBox
-                        android:id="@+id/cbItem3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:fontFamily="@font/poppins_regular"
-                        android:text="Keep farm boundary grass trimmed &amp; firewood elevated"
-                        android:textSize="13sp" />
-
-                    <CheckBox
-                        android:id="@+id/cbItem4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:fontFamily="@font/poppins_regular"
-                        android:text="Seal wall holes &amp; door gaps where rodents enter"
-                        android:textSize="13sp" />
-
-                    <CheckBox
-                        android:id="@+id/cbItem5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
-                        android:text="Save local ASV hospital &amp; sarpmitra emergency numbers"
-                        android:textSize="13sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Visual Safety Categories Section -->
+            <!-- SECTION: Checklist Tasks (One-by-One Animated Interactive Cards) -->
             <TextView
+                android:id="@+id/tvSectionTasks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:fontFamily="@font/poppins_bold"
+                android:text="FARM SAFETY PROTOCOLS"
+                android:textColor="@color/color_text_primary"
+                android:textSize="13sp" />
+
+            <!-- Item 1 Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTask1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_surface"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E2E8F0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_14">
+
+                    <ImageView
+                        android:id="@+id/ivCheck1"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_circle_outline_24"
+                        app:tint="@color/color_primary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_12"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvTitleTask1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="High-Beam Flashlight Ready"
+                            android:textColor="@color/color_text_primary"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Keep a charged torch by bedroom &amp; farm doorway for night rounds."
+                            android:textColor="@color/color_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Item 2 Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTask2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_surface"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E2E8F0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_14">
+
+                    <ImageView
+                        android:id="@+id/ivCheck2"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_circle_outline_24"
+                        app:tint="@color/color_primary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_12"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvTitleTask2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Footwear &amp; Gumboots Inspection"
+                            android:textColor="@color/color_text_primary"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Always shake boots and farm shoes before putting your feet inside."
+                            android:textColor="@color/color_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Item 3 Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTask3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_surface"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E2E8F0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_14">
+
+                    <ImageView
+                        android:id="@+id/ivCheck3"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_circle_outline_24"
+                        app:tint="@color/color_primary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_12"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvTitleTask3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Trim Farm Bunds &amp; Elevate Firewood"
+                            android:textColor="@color/color_text_primary"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Keep grass short around walkways and store timber on raised racks."
+                            android:textColor="@color/color_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Item 4 Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTask4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_surface"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E2E8F0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_14">
+
+                    <ImageView
+                        android:id="@+id/ivCheck4"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_circle_outline_24"
+                        app:tint="@color/color_primary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_12"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvTitleTask4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Seal Wall Gaps &amp; Rodent Holes"
+                            android:textColor="@color/color_text_primary"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Block crevices in cattle sheds and house walls where mice hide."
+                            android:textColor="@color/color_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Item 5 Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTask5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_surface"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E2E8F0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_14">
+
+                    <ImageView
+                        android:id="@+id/ivCheck5"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_circle_outline_24"
+                        app:tint="@color/color_primary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_12"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvTitleTask5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Save ASV Hospital &amp; Rescuer Contacts"
+                            android:textColor="@color/color_text_primary"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Keep closest ASV hospital &amp; taluka sarpmitra in speed dial."
+                            android:textColor="@color/color_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- SECTION: Safety Guidance Categories -->
+            <TextView
+                android:id="@+id/tvSectionCategories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_20"
                 android:fontFamily="@font/poppins_bold"
-                android:text="SAFETY CATEGORIES"
+                android:text="SAFETY GUIDELINES"
                 android:textColor="@color/color_text_primary"
                 android:textSize="13sp" />
 
             <!-- Category 1: Home Safety -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCat1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="1dp"
-                app:strokeColor="@color/color_border"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E2E8F0"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -197,7 +477,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="Never sleep on the bare ground during monsoon; use elevated cots or mosquito nets."
+                        android:text="Never sleep on the bare ground during monsoon; always use elevated cots and tuck in mosquito nets."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -205,13 +485,14 @@
 
             <!-- Category 2: Farm Safety -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCat2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/color_border"
+                app:strokeColor="#E2E8F0"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -233,7 +514,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="Wear tall rubber gumboots while irrigating crops or clearing bunds at night."
+                        android:text="Wear tall rubber gumboots while irrigating crops at night. Rustle bushes with a walking stick first."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -241,13 +522,14 @@
 
             <!-- Category 3: Monsoon Safety -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCat3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/color_border"
+                app:strokeColor="#E2E8F0"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -277,13 +559,14 @@
 
             <!-- Category 4: Children Safety -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCat4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/color_border"
+                app:strokeColor="#E2E8F0"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -305,7 +588,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="Teach children never to put their hands into dark holes, tree cavities, or under rocks."
+                        android:text="Teach children never to put their hands into dark holes, tree cavities, or under rocks in the field."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
