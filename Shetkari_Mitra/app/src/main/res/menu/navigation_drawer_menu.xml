@@ -1,50 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Section 1: Wildlife & Field Knowledge -->
-    <item android:title="Safety &amp; Wildlife">
-        <menu>
-            <item
-                android:id="@+id/nav_guide"
-                android:title="Snake Species Guide" />
-
-            <item
-                android:id="@+id/nav_identify"
-                android:title="Visual Snake Identifier" />
-
-            <item
-                android:id="@+id/nav_creatures"
-                android:title="Insects &amp; Scorpions Guide" />
-
-            <item
-                android:id="@+id/nav_safety_academy"
-                android:title="Safety Video Academy" />
-        </menu>
-    </item>
-
-    <!-- Section 2: Emergency & Schemes -->
-    <item android:title="Medical &amp; Government">
-        <menu>
-            <item
-                android:id="@+id/nav_hos"
-                android:title="Nearby ASV Hospitals" />
-
-            <item
-                android:id="@+id/nav_rescuers"
-                android:title="Certified Rescuer Directory" />
-
-            <item
-                android:id="@+id/nav_govt_compensation"
-                android:title="₹2 Lakh Farmer Insurance Scheme" />
-
-            <item
-                android:id="@+id/nav_govt_portals"
-                android:title="Official District Portals" />
-        </menu>
-    </item>
-
-    <!-- Section 3: App & Support -->
-    <item android:title="Preferences">
+    <!-- Section: App & Preferences -->
+    <item android:title="Preferences &amp; Support">
         <menu>
             <item
                 android:id="@+id/nav_language"

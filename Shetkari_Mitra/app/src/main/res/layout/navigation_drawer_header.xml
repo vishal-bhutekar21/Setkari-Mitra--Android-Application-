@@ -8,7 +8,7 @@
     android:padding="@dimen/space_20"
     android:paddingTop="@dimen/space_32">
 
-    <!-- Avatar + Verified Shield Row -->
+    <!-- Avatar + Status Row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,23 +16,23 @@
         android:orientation="horizontal">
 
         <FrameLayout
-            android:layout_width="60dp"
-            android:layout_height="60dp">
+            android:layout_width="54dp"
+            android:layout_height="54dp">
 
             <ImageView
                 android:id="@+id/profile_picture"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_feature_icon_circle"
-                android:backgroundTint="@color/color_primary_light"
+                android:background="@drawable/bg_glass_circle_btn"
+                android:backgroundTint="#26FFFFFF"
                 android:contentDescription="@string/app_name"
-                android:padding="10dp"
-                android:src="@drawable/user_circle"
-                app:tint="@color/color_on_primary" />
+                android:padding="12dp"
+                android:src="@drawable/ic_person_outline_24"
+                app:tint="@color/color_white" />
 
             <View
-                android:layout_width="14dp"
-                android:layout_height="14dp"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
                 android:layout_gravity="bottom|end"
                 android:background="@drawable/dot_active"
                 android:backgroundTint="@color/color_success" />
@@ -41,19 +41,19 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_12"
+            android:layout_marginStart="@dimen/space_14"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/dot_active"
-                android:backgroundTint="@color/color_primary_light"
-                android:fontFamily="@font/poppins_bold"
+                android:background="@drawable/bg_glass_circle_btn"
+                android:backgroundTint="#26FFFFFF"
+                android:fontFamily="@font/poppins_semibold"
                 android:paddingHorizontal="@dimen/space_8"
                 android:paddingVertical="@dimen/space_2"
-                android:text="🛡️ Safety Shield Active"
-                android:textColor="@color/color_on_primary"
+                android:text="Safety Active"
+                android:textColor="@color/color_white"
                 android:textSize="11sp" />
 
             <TextView
@@ -61,29 +61,29 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Offline Mode Ready"
+                android:text="Offline Ready"
                 android:textColor="@color/color_primary_container"
                 android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>
 
-    <!-- User Name -->
+    <!-- User / App Title -->
     <TextView
         android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_12"
+        android:layout_marginTop="@dimen/space_14"
         android:fontFamily="@font/poppins_bold"
-        android:text="शेतकरी मित्र (Shetkari Mitra)"
-        android:textColor="@color/color_on_primary"
-        android:textSize="17sp" />
+        android:text="@string/app_name"
+        android:textColor="@color/color_white"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/user_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_regular"
-        android:text="Rural Snake Safety &amp; Emergency Network"
+        android:text="Rural Snake Safety Network"
         android:textColor="@color/color_primary_container"
         android:textSize="12sp" />
 

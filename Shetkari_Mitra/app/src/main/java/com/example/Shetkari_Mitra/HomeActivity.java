@@ -143,12 +143,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         cardIdentifySnake = findViewById(R.id.Snake_identify);
         cardNearHospital = findViewById(R.id.nearhospital);
         cardSnakeRescuers = findViewById(R.id.snake_rescuer);
-        cardFirstAid = findViewById(R.id.first_Aid);
 
-        cardSnakeLib = findViewById(R.id.Snake_Lib);
-        cardMythsFacts = findViewById(R.id.cardMythsFacts);
-        cardInsectsCreatures = findViewById(R.id.cardInsectsCreatures);
-        cardResRegistration = findViewById(R.id.res_registration);
+        cardSnakeLib = findViewById(R.id.snake_library);
+        cardMythsFacts = findViewById(R.id.myths_fact);
+        cardInsectsCreatures = findViewById(R.id.cardHarmfulCreatures);
+        cardResRegistration = findViewById(R.id.cardResRegistration);
+        View cardGovtCompensation = findViewById(R.id.cardGovtCompensation);
+        View cardGovtPortals = findViewById(R.id.cardGovtPortals);
+        View cardSafetyLearning = findViewById(R.id.cardSafetyLearning);
 
         if (btnMenuDrawer != null) {
             btnMenuDrawer.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
@@ -163,6 +165,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        if (cardGovtCompensation != null) cardGovtCompensation.setOnClickListener(v -> startActivity(new Intent(this, GovtCompensationActivity.class)));
+        if (cardGovtPortals != null) cardGovtPortals.setOnClickListener(v -> startActivity(new Intent(this, GovtPortalsActivity.class)));
+        if (cardSafetyLearning != null) cardSafetyLearning.setOnClickListener(v -> startActivity(new Intent(this, SafetyLearningActivity.class)));
     }
 
     private void setupNavigationHeader() {
@@ -186,7 +192,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         if (cardIdentifySnake != null) cardIdentifySnake.setOnClickListener(v -> startActivity(new Intent(this, Acitivity_identify_snake.class)));
         if (cardNearHospital != null) cardNearHospital.setOnClickListener(v -> startActivity(new Intent(this, Near_By_Hospitals.class)));
         if (cardSnakeRescuers != null) cardSnakeRescuers.setOnClickListener(v -> startActivity(new Intent(this, RescuerDatabaseActivity.class)));
-        if (cardFirstAid != null) cardFirstAid.setOnClickListener(v -> startActivity(new Intent(this, First_Aid.class)));
 
         if (cardSnakeLib != null) cardSnakeLib.setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
         if (cardMythsFacts != null) cardMythsFacts.setOnClickListener(v -> startActivity(new Intent(this, Activity_Myths_Facts.class)));
@@ -316,23 +321,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.nav_guide) {
-            startActivity(new Intent(this, MainActivity.class));
-        } else if (id == R.id.nav_identify) {
-            startActivity(new Intent(this, Acitivity_identify_snake.class));
-        } else if (id == R.id.nav_creatures) {
-            startActivity(new Intent(this, HarmfulCreaturesActivity.class));
-        } else if (id == R.id.nav_safety_academy) {
-            startActivity(new Intent(this, SafetyLearningActivity.class));
-        } else if (id == R.id.nav_hos) {
-            startActivity(new Intent(this, Near_By_Hospitals.class));
-        } else if (id == R.id.nav_rescuers) {
-            startActivity(new Intent(this, RescuerDatabaseActivity.class));
-        } else if (id == R.id.nav_govt_compensation) {
-            startActivity(new Intent(this, GovtCompensationActivity.class));
-        } else if (id == R.id.nav_govt_portals) {
-            startActivity(new Intent(this, GovtPortalsActivity.class));
-        } else if (id == R.id.nav_language) {
+        if (id == R.id.nav_language) {
             showLanguageDialog();
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(this, Activity_About_Us.class));

@@ -12,7 +12,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_primary"
+        android:background="@color/color_surface"
+        android:elevation="1dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/space_16"
@@ -38,17 +39,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="@string/identify_snake_title"
-                android:textColor="@color/color_on_primary"
-                android:textSize="@dimen/text_title" />
+                android:text="Snake Visual Identifier"
+                android:textColor="@color/color_text_primary"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Camera &amp; AI Species Assistance"
-                android:textColor="@color/color_primary_container"
-                android:textSize="@dimen/text_caption" />
+                android:text="Safe Distance Photography &amp; AI Aid"
+                android:textColor="@color/color_text_secondary"
+                android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -65,31 +66,39 @@
             android:padding="@dimen/space_16"
             android:paddingBottom="@dimen/space_40">
 
-            <!-- Prominent Safety Distance Warning Banner -->
+            <!-- Safety Distance Warning Banner -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/color_warning_container"
+                app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/color_warning"
-                app:strokeWidth="1.5dp">
+                app:strokeColor="@color/color_border"
+                app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:padding="@dimen/space_12">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:lineSpacingMultiplier="1.2"
-                        android:text="@string/identify_safety_warning"
-                        android:textColor="@color/color_text_primary"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Safety First"
+                        android:textColor="@color/color_emergency"
                         android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingMultiplier="1.2"
+                        android:text="Maintain at least 3 meters (10 feet) safe distance. Never corner or attempt to capture the snake."
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="11sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -97,18 +106,18 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
-                android:layout_marginTop="@dimen/space_12"
+                android:layout_marginTop="@dimen/space_14"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="16dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
-                app:strokeWidth="1.5dp">
+                app:strokeWidth="1dp">
 
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <!-- Captured Photo (Hidden until selected) -->
+                    <!-- Captured Photo -->
                     <ImageView
                         android:id="@+id/imageView"
                         android:layout_width="match_parent"
@@ -116,7 +125,7 @@
                         android:scaleType="centerCrop"
                         android:visibility="gone" />
 
-                    <!-- Clean Empty State View -->
+                    <!-- Empty State Placeholder -->
                     <LinearLayout
                         android:id="@+id/layoutEmptyPlaceholder"
                         android:layout_width="match_parent"
@@ -128,10 +137,10 @@
                         <ImageView
                             android:layout_width="48dp"
                             android:layout_height="48dp"
-                            android:background="@drawable/bg_feature_icon_circle"
+                            android:background="@drawable/bg_glass_circle_btn"
                             android:backgroundTint="@color/color_surface_variant"
                             android:padding="12dp"
-                            android:src="@drawable/camera_logo"
+                            android:src="@drawable/ic_camera_24"
                             app:tint="@color/color_primary" />
 
                         <TextView
@@ -140,7 +149,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_10"
                             android:fontFamily="@font/poppins_semibold"
-                            android:text="Safe Distance Photography"
+                            android:text="No Photo Selected"
                             android:textColor="@color/color_text_primary"
                             android:textSize="14sp" />
 
@@ -150,20 +159,20 @@
                             android:layout_marginTop="2dp"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="center"
-                            android:text="Stand at least 3 meters away from the snake\nTap below to capture or pick from gallery"
+                            android:text="Capture or pick from gallery from safe distance"
                             android:textColor="@color/color_text_secondary"
-                            android:textSize="12sp" />
+                            android:textSize="11sp" />
 
                     </LinearLayout>
 
                 </FrameLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Action Buttons: Take Photo & Upload Photo -->
+            <!-- Action Buttons: Take Photo & Pick Gallery -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_12"
+                android:layout_marginTop="@dimen/space_14"
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
@@ -174,12 +183,12 @@
                     android:layout_marginEnd="@dimen/space_4"
                     android:layout_weight="1"
                     android:backgroundTint="@color/color_primary"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="@string/identify_take_photo"
-                    android:textColor="@color/color_on_primary"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Camera"
+                    android:textColor="@color/color_white"
                     android:textSize="13sp"
                     app:cornerRadius="10dp"
-                    app:icon="@drawable/camera_logo"
+                    app:icon="@drawable/ic_camera_24"
                     app:iconGravity="textStart"
                     app:iconTint="@color/color_white" />
 
@@ -191,14 +200,17 @@
                     android:layout_marginStart="@dimen/space_4"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_semibold"
-                    android:text="@string/identify_upload_photo"
+                    android:text="Gallery"
                     android:textColor="@color/color_text_primary"
                     android:textSize="13sp"
                     app:cornerRadius="10dp"
-                    app:strokeColor="@color/color_primary" />
+                    app:icon="@drawable/ic_gallery_24"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/color_primary"
+                    app:strokeColor="@color/color_border" />
             </LinearLayout>
 
-            <!-- Uncertainty-Aware Result Card (Visible once photo is analyzed) -->
+            <!-- Uncertainty-Aware Result Card -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardIdentificationResult"
                 android:layout_width="match_parent"
@@ -207,7 +219,7 @@
                 android:visibility="gone"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="14dp"
-                app:cardElevation="2dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
                 app:strokeWidth="1dp">
 
@@ -230,7 +242,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="@font/poppins_bold"
-                            android:text="@string/identify_possible_match"
+                            android:text="Possible Identification Match"
                             android:textColor="@color/color_primary"
                             android:textSize="14sp" />
 
@@ -255,9 +267,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_8"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Indian Rat Snake (धामण)"
+                        android:text="Indian Rat Snake"
                         android:textColor="@color/color_text_primary"
-                        android:textSize="18sp" />
+                        android:textSize="17sp" />
 
                     <TextView
                         android:id="@+id/tvResultScientificName"
@@ -266,7 +278,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:text="Ptyas mucosa • Non-Venomous"
                         android:textColor="@color/color_text_secondary"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -282,7 +294,7 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:fontFamily="@font/poppins_regular"
                         android:lineSpacingMultiplier="1.25"
-                        android:text="Key features: Slender body, large eyes, black lip lines. Highly active in agricultural fields. Non-venomous and beneficial to farmers by eating rodents."
+                        android:text="Key features: Slender body, large eyes, black lip lines. Highly active in agricultural fields. Non-venomous and beneficial to farmers."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
 
@@ -295,11 +307,11 @@
                         android:background="@drawable/bg_venom_badge_non_venomous"
                         android:fontFamily="@font/poppins_regular"
                         android:padding="@dimen/space_8"
-                        android:text="@string/identify_uncertainty_disclaimer"
+                        android:text="AI results are for guidance only. Treat every snake with caution and keep a safe distance."
                         android:textColor="@color/color_venomous"
                         android:textSize="11sp" />
 
-                    <!-- Result Action Buttons: What Should I Do?, Find Rescuer, Learn More -->
+                    <!-- Result Action Buttons -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -313,8 +325,8 @@
                             android:layout_height="44dp"
                             android:backgroundTint="@color/color_primary"
                             android:fontFamily="@font/poppins_bold"
-                            android:text="@string/identify_action_what_to_do"
-                            android:textColor="@color/color_on_primary"
+                            android:text="What Should I Do?"
+                            android:textColor="@color/color_white"
                             android:textSize="12sp"
                             app:cornerRadius="8dp" />
 
@@ -332,7 +344,7 @@
                                 android:layout_marginEnd="@dimen/space_4"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/poppins_semibold"
-                                android:text="@string/identify_action_find_rescuer"
+                                android:text="Find Rescuer"
                                 android:textColor="@color/color_text_primary"
                                 android:textSize="11sp"
                                 app:cornerRadius="8dp" />
@@ -345,7 +357,7 @@
                                 android:layout_marginStart="@dimen/space_4"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/poppins_semibold"
-                                android:text="@string/identify_action_learn_more"
+                                android:text="Learn More"
                                 android:textColor="@color/color_text_primary"
                                 android:textSize="11sp"
                                 app:cornerRadius="8dp"
@@ -360,13 +372,13 @@
                 android:id="@+id/sendBtn"
                 style="@style/Widget.Material3.Button"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="@dimen/space_16"
                 android:backgroundTint="#25D366"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Send Photo to Rescuer on WhatsApp"
+                android:text="Share Photo with Rescuer"
                 android:textColor="@color/color_white"
-                android:textSize="14sp"
+                android:textSize="13sp"
                 app:cornerRadius="10dp" />
 
         </LinearLayout>

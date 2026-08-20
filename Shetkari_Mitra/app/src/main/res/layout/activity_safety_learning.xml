@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_primary"
+        android:background="@color/color_surface"
+        android:elevation="1dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/space_16"
@@ -38,16 +39,16 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Safety Academy &amp; Videos"
-                android:textColor="@color/color_on_primary"
-                android:textSize="@dimen/text_title" />
+                android:textColor="@color/color_text_primary"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
-                android:text="व्हिडिओ प्रशिक्षण व शेतकरी प्रश्नमंजुषा"
-                android:textColor="@color/color_primary_container"
-                android:textSize="@dimen/text_caption" />
+                android:text="Video Guides &amp; Interactive Safety Quiz"
+                android:textColor="@color/color_text_secondary"
+                android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -63,12 +64,12 @@
             android:padding="@dimen/space_16"
             android:paddingBottom="@dimen/space_40">
 
-            <!-- Section 1: Video Masterclasses -->
+            <!-- Section 1: Video Guides -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="1. VIDEO MASTERCLASSES (मार्गदर्शन व्हिडिओ)"
+                android:text="1. VIDEO GUIDES"
                 android:textColor="@color/color_text_primary"
                 android:textSize="13sp" />
 
@@ -80,7 +81,7 @@
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="14dp"
-                app:cardElevation="1.5dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
                 app:strokeWidth="1dp">
 
@@ -88,66 +89,44 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/space_14">
+                    android:padding="@dimen/space_16">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="The Big 4 Venomous Snakes of India"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="14sp" />
 
-                        <ImageView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:background="@drawable/dot_active"
-                            android:backgroundTint="@color/color_emergency_container"
-                            android:padding="8dp"
-                            android:src="@drawable/baseline_search_24"
-                            app:tint="@color/color_emergency" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/space_12"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="The 'Big 4' Venomous Snakes of India"
-                                android:textColor="@color/color_text_primary"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins_regular"
-                                android:text="भारतातील ४ प्रमुख विषारी साप: नाग, मण्यार, घोणस, फुरसे"
-                                android:textColor="@color/color_primary"
-                                android:textSize="11sp" />
-                        </LinearLayout>
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Indian Cobra, Common Krait, Russell's Viper, Saw-Scaled Viper"
+                        android:textColor="@color/color_primary"
+                        android:textSize="11sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_8"
                         android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingMultiplier="1.25"
                         android:text="Learn how to visually differentiate venomous species from non-venomous rat snakes and keelbacks in Maharashtra farmlands."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnWatchBig4"
-                        style="@style/Widget.ShetkariMitra.Button.Primary"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="match_parent"
                         android:layout_height="44dp"
-                        android:layout_marginTop="@dimen/space_8"
+                        android:layout_marginTop="@dimen/space_12"
                         android:backgroundTint="@color/color_emergency"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="▶ WATCH ON YOUTUBE"
+                        android:text="Watch Video Guide"
                         android:textColor="@color/color_white"
                         android:textSize="12sp"
                         app:cornerRadius="8dp" />
@@ -162,7 +141,7 @@
                 android:layout_marginTop="@dimen/space_12"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="14dp"
-                app:cardElevation="1.5dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
                 app:strokeWidth="1dp">
 
@@ -170,65 +149,45 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/space_14">
+                    android:padding="@dimen/space_16">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Golden Hour First Aid Protocol"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="14sp" />
 
-                        <ImageView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:background="@drawable/dot_active"
-                            android:backgroundTint="@color/color_primary_container"
-                            android:padding="8dp"
-                            android:src="@drawable/ic_feature_first_aid"
-                            app:tint="@color/color_primary" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/space_12"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="Golden Hour First Aid Protocol"
-                                android:textColor="@color/color_text_primary"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins_regular"
-                                android:text="योग्य प्रथमोपचार पद्धत व काय करू नये"
-                                android:textColor="@color/color_primary"
-                                android:textSize="11sp" />
-                        </LinearLayout>
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Scientific First Aid Steps &amp; Hospital Transport"
+                        android:textColor="@color/color_primary"
+                        android:textSize="11sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_8"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="Doctor-demonstrated guide on limb immobilization and immediate transport to anti-venom (ASV) equipped hospitals."
+                        android:lineSpacingMultiplier="1.25"
+                        android:text="Doctor-demonstrated guide on limb immobilization and immediate transport to anti-venom equipped hospitals."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnWatchFirstAid"
-                        style="@style/Widget.ShetkariMitra.Button.Primary"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="match_parent"
                         android:layout_height="44dp"
-                        android:layout_marginTop="@dimen/space_8"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:backgroundTint="@color/color_primary"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="▶ WATCH DOCTOR GUIDELINES"
+                        android:text="Watch Doctor Guidelines"
+                        android:textColor="@color/color_white"
                         android:textSize="12sp"
                         app:cornerRadius="8dp" />
                 </LinearLayout>
@@ -240,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_24"
                 android:fontFamily="@font/poppins_bold"
-                android:text="2. FARMER SAFETY KNOWLEDGE QUIZ (प्रश्नमंजुषा)"
+                android:text="2. FARMER SAFETY KNOWLEDGE QUIZ"
                 android:textColor="@color/color_text_primary"
                 android:textSize="13sp" />
 
@@ -251,7 +210,7 @@
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="14dp"
-                app:cardElevation="1dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
                 app:strokeWidth="1dp">
 
@@ -265,7 +224,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Q1: Should you tie a tight rope/cloth (tourniquet) above a snakebite?"
+                        android:text="Q1: Should you tie a tight rope or wire (tourniquet) above a snakebite?"
                         android:textColor="@color/color_text_primary"
                         android:textSize="13sp" />
 
@@ -277,22 +236,24 @@
 
                         <Button
                             android:id="@+id/btnQ1True"
-                            style="@style/Widget.ShetkariMitra.Button.Outlined"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:layout_marginEnd="@dimen/space_4"
                             android:layout_weight="1"
-                            android:text="YES (होय)"
+                            android:text="YES"
                             android:textSize="12sp" />
 
                         <Button
                             android:id="@+id/btnQ1False"
-                            style="@style/Widget.ShetkariMitra.Button.Primary"
+                            style="@style/Widget.Material3.Button"
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:layout_marginStart="@dimen/space_4"
                             android:layout_weight="1"
-                            android:text="NO (नाही)"
+                            android:backgroundTint="@color/color_primary"
+                            android:text="NO"
+                            android:textColor="@color/color_white"
                             android:textSize="12sp" />
                     </LinearLayout>
 
@@ -315,7 +276,7 @@
                 android:layout_marginTop="@dimen/space_12"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="14dp"
-                app:cardElevation="1dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
                 app:strokeWidth="1dp">
 
@@ -329,7 +290,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Q2: Can herbal stones or traditional mantras cure venomous snake bites?"
+                        android:text="Q2: Can herbal remedies or traditional stones cure venomous snake bites?"
                         android:textColor="@color/color_text_primary"
                         android:textSize="13sp" />
 
@@ -341,22 +302,24 @@
 
                         <Button
                             android:id="@+id/btnQ2True"
-                            style="@style/Widget.ShetkariMitra.Button.Outlined"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:layout_marginEnd="@dimen/space_4"
                             android:layout_weight="1"
-                            android:text="YES (होय)"
+                            android:text="YES"
                             android:textSize="12sp" />
 
                         <Button
                             android:id="@+id/btnQ2False"
-                            style="@style/Widget.ShetkariMitra.Button.Primary"
+                            style="@style/Widget.Material3.Button"
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:layout_marginStart="@dimen/space_4"
                             android:layout_weight="1"
-                            android:text="NO (नाही)"
+                            android:backgroundTint="@color/color_primary"
+                            android:text="NO"
+                            android:textColor="@color/color_white"
                             android:textSize="12sp" />
                     </LinearLayout>
 
