@@ -189,7 +189,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_bold"
-                                    android:text="• सुरक्षा कवच सक्रिय (Active)"
+                                    android:text="@string/home_status_active"
                                     android:textColor="@color/color_primary"
                                     android:textSize="11sp" />
 
@@ -197,7 +197,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_bold"
-                                    android:text="25+ Hospitals in Jalna District"
+                                    android:text="@string/home_status_hospitals_title"
                                     android:textColor="@color/color_text_primary"
                                     android:textSize="14sp" />
 
@@ -205,7 +205,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
-                                    android:text="Anti-venom serum stock &amp; rescuers available"
+                                    android:text="@string/home_status_hospitals_subtitle"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -226,7 +226,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_16"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Safety &amp; Rescue Services"
+                        android:text="@string/home_section_safety_services"
                         android:textColor="@color/color_text_primary"
                         android:textSize="14sp" />
 
@@ -279,7 +279,7 @@
                                     android:layout_marginTop="@dimen/space_8"
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
-                                    android:text="Snake Guide"
+                                    android:text="@string/home_grid_snake_guide_title"
                                     android:textColor="@color/color_text_primary"
                                     android:textSize="13sp" />
 
@@ -289,7 +289,7 @@
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="20 Species Catalog"
+                                    android:text="@string/home_grid_snake_guide_sub"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -327,7 +327,7 @@
                                         android:layout_gravity="center"
                                         android:src="@drawable/ic_feature_first_aid"
                                         app:tint="@color/color_primary" />
-                                </FrameLayout>
+                                 </FrameLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -335,7 +335,7 @@
                                     android:layout_marginTop="@dimen/space_8"
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
-                                    android:text="First Aid"
+                                    android:text="@string/home_grid_first_aid_title"
                                     android:textColor="@color/color_text_primary"
                                     android:textSize="13sp" />
 
@@ -345,7 +345,7 @@
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="Do's, Don'ts &amp; Care"
+                                    android:text="@string/home_grid_first_aid_sub"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -391,7 +391,7 @@
                                     android:layout_marginTop="@dimen/space_8"
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
-                                    android:text="Hospitals"
+                                    android:text="@string/home_grid_hospitals_title"
                                     android:textColor="@color/color_text_primary"
                                     android:textSize="13sp" />
 
@@ -401,7 +401,7 @@
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="Jalna &amp; Map Search"
+                                    android:text="@string/home_grid_hospitals_sub"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -447,7 +447,7 @@
                                     android:layout_marginTop="@dimen/space_8"
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
-                                    android:text="Helplines"
+                                    android:text="@string/home_grid_helplines_title"
                                     android:textColor="@color/color_text_primary"
                                     android:textSize="13sp" />
 
@@ -457,7 +457,7 @@
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="24/7 NDMA &amp; Safety"
+                                    android:text="@string/home_grid_helplines_sub"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -503,7 +503,7 @@
                                     android:layout_marginTop="@dimen/space_8"
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
-                                    android:text="Snake Rescuers"
+                                    android:text="@string/home_grid_rescuers_title"
                                     android:textColor="@color/color_text_primary"
                                     android:textSize="13sp" />
 
@@ -513,7 +513,7 @@
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="Sarpa Mitra Directory"
+                                    android:text="@string/home_grid_rescuers_sub"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -559,7 +559,7 @@
                                     android:layout_marginTop="@dimen/space_8"
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
-                                    android:text="Join Rescuers"
+                                    android:text="@string/home_grid_join_rescuer_title"
                                     android:textColor="@color/color_text_primary"
                                     android:textSize="13sp" />
 
@@ -569,7 +569,7 @@
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="Register as Sarpamitra"
+                                    android:text="@string/home_grid_join_rescuer_sub"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -658,7 +658,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_bold"
-                                    android:text="₹2 Lakh Farmer Insurance Schemes"
+                                    android:text="@string/home_scheme_card_title"
                                     android:textColor="@color/color_text_primary"
                                     android:textSize="13sp" />
 
@@ -666,7 +666,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
-                                    android:text="Gopinath Munde, PMJJBY &amp; MJPJAY claims"
+                                    android:text="@string/home_scheme_card_desc"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -725,7 +725,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_bold"
-                                    android:text="Myths vs Facts (गैरसमज व वास्तव)"
+                                    android:text="@string/home_myths_card_title"
                                     android:textColor="@color/color_text_primary"
                                     android:textSize="13sp" />
 
@@ -733,7 +733,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
-                                    android:text="Scientific snakebite facts &amp; awareness"
+                                    android:text="@string/home_myths_card_desc"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -792,7 +792,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_bold"
-                                    android:text="Insects &amp; Scorpions (विंचू व कीटक)"
+                                    android:text="@string/home_insects_card_title"
                                     android:textColor="@color/color_text_primary"
                                     android:textSize="13sp" />
 
@@ -800,7 +800,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
-                                    android:text="Scorpion stings, blister beetles &amp; farm first aid"
+                                    android:text="@string/home_insects_card_desc"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -859,7 +859,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_bold"
-                                    android:text="Official Maharashtra State Portals"
+                                    android:text="@string/home_portals_card_title"
                                     android:textColor="@color/color_text_primary"
                                     android:textSize="13sp" />
 
@@ -867,7 +867,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
-                                    android:text="MahaForest, Arogya Vibhag, MahaDBT &amp; SDMA"
+                                    android:text="@string/home_portals_card_desc"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>

@@ -684,4 +684,43 @@
     <string name="identify_action_what_to_do">WHAT SHOULD I DO?</string>
     <string name="identify_action_find_rescuer">FIND A RESCUER</string>
     <string name="identify_action_learn_more">LEARN MORE</string>
+
+    <!-- Additional Home Dashboard & Services Strings -->
+    <string name="home_status_active">• Protection Shield Active</string>
+    <string name="home_status_hospitals_title">25+ Hospitals in Jalna District</string>
+    <string name="home_status_hospitals_subtitle">Anti-venom serum stock &amp; rescuers available</string>
+    <string name="home_section_safety_services">Safety &amp; Rescue Services</string>
+    <string name="home_grid_snake_guide_title">Snake Guide</string>
+    <string name="home_grid_snake_guide_sub">20 Species Catalog</string>
+    <string name="home_grid_first_aid_title">First Aid &amp; Protocols</string>
+    <string name="home_grid_first_aid_sub">Emergency Do\'s &amp; Don\'ts</string>
+    <string name="home_grid_hospitals_title">24/7 ASV Hospitals</string>
+    <string name="home_grid_hospitals_sub">Nearby Anti-Venom</string>
+    <string name="home_grid_helplines_title">Emergency Helplines</string>
+    <string name="home_grid_helplines_sub">108, 112 &amp; Speed Dial</string>
+    <string name="home_grid_rescuers_title">Snake Rescuers</string>
+    <string name="home_grid_rescuers_sub">Taluka Sarpamitra List</string>
+    <string name="home_grid_join_rescuer_title">Join as Rescuer</string>
+    <string name="home_grid_join_rescuer_sub">Register Sarpamitra</string>
+
+    <string name="home_section_schemes_knowledge">Government Schemes &amp; Knowledge</string>
+    <string name="home_scheme_card_title">Govt Insurance &amp; Relief Schemes</string>
+    <string name="home_scheme_card_badge">₹2 LAKH AID</string>
+    <string name="home_scheme_card_desc">Gopinath Munde Shetkari Suraksha, Forest Dept Relief, PM-KMY and State Ex-Gratia application processes.</string>
+    <string name="home_myths_card_title">Snake Myths vs Facts</string>
+    <string name="home_myths_card_badge">SCIENCE</string>
+    <string name="home_myths_card_desc">Debunking venom stones, milk rituals, mantras, and dangerous quack remedies scientifically.</string>
+    <string name="home_insects_card_title">Harmful Insects &amp; Scorpions</string>
+    <string name="home_insects_card_badge">FARM SAFETY</string>
+    <string name="home_insects_card_desc">Field identification, sting first aid, and precautions for wasps, centipedes, and scorpions.</string>
+    <string name="home_portals_card_title">Official Agriculture &amp; Help Portals</string>
+    <string name="home_portals_card_badge">PORTALS</string>
+    <string name="home_portals_card_desc">Direct links to MahaDBT, Aaple Sarkar, PM-Kisan, and 108 Emergency Medical Services.</string>
+
+    <!-- Authentication & Dialog Strings -->
+    <string name="guest_login_btn">Continue as Guest (अतिथी प्रवेश)</string>
+    <string name="login_title">Welcome Back</string>
+    <string name="login_subtitle">Login to access emergency features &amp; contacts</string>
+    <string name="login_btn">LOGIN</string>
+    <string name="signup_btn">SIGN UP</string>
 </resources>

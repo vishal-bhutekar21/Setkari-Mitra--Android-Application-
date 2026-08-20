@@ -1,7 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">शेतकरी मित्र</string>
-    <string name="marathi_text">शेतक-यांना समर्पित</string>
+    <string name="navigation_drawer_open">नेव्हिगेशन उघडा</string>
+    <string name="navigation_drawer_close">नेव्हिगेशन बंद करा</string>
+    <string name="marathi_text">शेतकऱ्यांसाठी समर्पित सुरक्षा प्रणाली</string>
+    <string name="title_activity_hospital_map">रुग्णालय नकाशा</string>
+
+    <!-- General UI & Safety Actions -->
+    <string name="snake_library">सर्प माहिती व प्रजाती</string>
+    <string name="first_aid_title">प्रथमोपचार व उपचार</string>
+    <string name="nearby_hospitals_title">जवळची रुग्णालये (जालना व महाराष्ट्र)</string>
+    <string name="identify_snake">साप ओळखा</string>
+    <string name="identify_snake_title">साप ओळखा</string>
+    <string name="rescuer_registration_title">सर्पमित्र नोंदणी करा</string>
+    <string name="snake_rescuers_title">अधिकृत सर्पमित्र</string>
+    <string name="emergency_call_title">आपत्कालीन मदत</string>
+    <string name="emergency_call_confirm_msg">आपणास तातडीची वैद्यकीय मदत हवी आहे (१०८/११२) की सर्पमित्रांशी संपर्क करायचा आहे?</string>
+    <string name="call_112">११२ वर कॉल करा (राष्ट्रीय आपत्कालीन सेवा)</string>
+    <string name="call_rescuer">सर्पमित्र शोधा</string>
+    <string name="about_us_title">शेतकरी मित्र बद्दल</string>
+    <string name="admin_panel_title">प्रशासक पॅनेल</string>
+    <string name="hospital_registration_title">रुग्णालय नोंदणी</string>
+    <string name="hospital_map_title">रुग्णालय नकाशे (OSM)</string>
+    <string name="emergency_contacts_title">माझे आपत्कालीन संपर्क</string>
+    <string name="add_emergency_contact">आपत्कालीन संपर्क जोडा</string>
+    <string name="edit_contact">संपर्क संपादित करा</string>
+    <string name="delete_contact">संपर्क हटवा</string>
+    <string name="delete_contact_confirm">तुम्ही नक्की %s हा संपर्क आपत्कालीन सूचीमधून हटवू इच्छिता?</string>
+    <string name="save">जतन करा</string>
+    <string name="update">अद्यतनित करा</string>
+    <string name="delete">हटवा</string>
+    <string name="cancel">रद्द करा</string>
+    <string name="ok">ठीक आहे</string>
+    <string name="logout">बाहेर पडा (Logout)</string>
+    <string name="logout_confirm_msg">तुम्ही या ॲपमधून बाहेर पडू इच्छिता का?</string>
+    <string name="share_via">शेतकरी मित्र शेअर करा</string>
+    <string name="share_app_description">शेतकरी मित्र - शेतकऱ्यांसाठी सर्पदंश प्रतिबंध, अधिकृत सर्पमित्र नेटवर्क व अँटी-व्हेनम रुग्णालय शोधक ॲप.\n\nसुरक्षित राहण्यासाठी आजच डाऊनलोड करा!</string>
+
+    <!-- Location & Status -->
+    <string name="fetching_location">सध्याचे स्थान शोधत आहे…</string>
+    <string name="location_permission_denied">जवळची रुग्णालये शोधण्यासाठी लोकेशन परवानगी आवश्यक आहे</string>
+    <string name="location_jalna_default">जालना जिल्हा, महाराष्ट्र</string>
+    <string name="phone_not_available">फोन नंबर उपलब्ध नाही</string>
+    <string name="cannot_send_sms">एसएमएस ॲप उघडता येत नाही</string>
+    <string name="camera_permission_required">सापाचा फोटो काढण्यासाठी कॅमेरा परवानगी आवश्यक आहे</string>
+    <string name="no_camera_app">कॅमेरा ॲप आढळले नाही</string>
+    <string name="select_image_first">कृपया आधी एक फोटो निवडा किंवा काढा</string>
+    <string name="send_to_expert">सर्प तज्ञांना फोटो पाठवा</string>
+
+    <!-- Form Validation & Messages -->
+    <string name="fill_all_fields">कृपया सर्व आवश्यक माहिती भरा</string>
+    <string name="error_enter_name">कृपया आपले नाव टाका</string>
+    <string name="error_valid_mobile">कृपया १० अंकी वैध मोबाईल नंबर टाका</string>
+    <string name="error_enter_address">कृपया पत्ता टाका</string>
+    <string name="registration_success_title">नोंदणी यशस्वी झाली!</string>
+    <string name="registration_success_message">धन्यवाद, %1$s! आपली सर्पमित्र नोंदणी %2$s साठी जतन करण्यात आली आहे.</string>
+    <string name="hospital_registered_success">रुग्णालय नोंदवले गेले!</string>
+    <string name="hospital_registered_message">%1$s (%2$s) ची नोंदणी यशस्वी झाली आहे.</string>
+
+    <!-- About Us & Developer Content -->
+    <string name="about_us_info_text">शेतकरी मित्र\n\nआवृत्ती २.० (आधुनिक आवृत्ती)\n\nशेतकरी सुरक्षा, सर्पदंश तातडीचे उपचार, अँटी-व्हेनम रुग्णालय नकाशा आणि वन्यजीव संवर्धनासाठी समर्पित.\n\nमहाराष्ट्रातील शेतकरी बांधवांसाठी आपुलकीने विकसित.</string>
+    <string name="developer_name">विशाल राजेश भुतेकर</string>
+    <string name="developer_title">मुख्य अँड्रॉइड डेव्हलपर व सॉफ्टवेअर इंजिनिअर</string>
+    <string name="developer_badge">इंडियास्किल राष्ट्रीय सुवर्णपदक विजेता</string>
+    <string name="developer_bio">शांत, उत्कृष्ट आणि वेगवान अँड्रॉइड ॲप्सची निर्मिती. शेतकरी सुरक्षा आणि ग्रामीण आपत्कालीन मदतीसाठी तंत्रज्ञानाचा वापर.</string>
+    <string name="developer_email">vishalbhutekar33772@gmail.com</string>
+    <string name="developer_website">https://vishalbhutekar.netlify.app</string>
+    <string name="developer_github">https://github.com/vishal-bhutekar21</string>
+    <string name="developer_linkedin">https://www.linkedin.com/in/vishal-bhutekar21/</string>
+    <string name="contact_us_emails">डेव्हलपर: विशाल भुतेकर\nईमेल: vishalbhutekar33772@gmail.com\nवेबसाईट: vishalbhutekar.netlify.app</string>
+
+    <!-- Privacy Policy -->
+    <string name="privacy_policy_title">गोपनीयता धोरण व डेटा सुरक्षा</string>
+    <string name="privacy_policy_content">शेतकरी मित्र आपल्या गोपनीयतेचा आदर करतो.\n\n१. लोकेशन डेटा: फक्त जवळची रुग्णालये शोधण्यासाठी व सर्पमित्रांना मार्गदर्शन करण्यासाठी स्थानिक पातळीवर वापरला जातो. डेटा कोठेही विकला जात नाही.\n\n२. आपत्कालीन संपर्क: आपल्या फोनमध्येच सुरक्षित राहतात.\n\n३. शून्य ट्रॅकिंग: हे ॲप पूर्णपणे विनामूल्य व समाजोपयोगी आहे.</string>
+    <string name="btn_agree">मला समजले</string>
 
     <!-- Navigation -->
     <string name="nav_home">मुख्यपृष्ठ</string>
@@ -12,28 +84,41 @@
 
     <!-- Onboarding -->
     <string name="onboarding_title_1">सर्पांपासून सुरक्षित राहा</string>
-    <string name="onboarding_subtitle_1">सावधगिरी व प्रतिबंध</string>
-    <string name="onboarding_desc_1">शेतात काम करताना बॅटरीचा वापर, गमबूट आणि सर्पांचा सामना टाळण्यासाठी मार्गदर्शक तत्त्वे.</string>
+    <string name="onboarding_subtitle_1">सावधगिरी व शेतातील दक्षता</string>
+    <string name="onboarding_desc_1">शेतात काम करताना बॅटरीचा वापर, गमबूट आणि सर्पांचा सामना टाळण्यासाठी मार्गदर्शक तत्त्वे जाणून घ्या.</string>
     <string name="onboarding_badge_1">प्रतिबंध</string>
 
     <string name="onboarding_title_2">आपत्कालीन कृती आराखडा</string>
     <string name="onboarding_subtitle_2">तातडीचे प्रथमोपचार</string>
-    <string name="onboarding_desc_2">सर्पदंश झाल्यास काय करावे आणि चुकीच्या अंधश्रद्धा कशा टाळाव्यात ते जाणून घ्या.</string>
+    <string name="onboarding_desc_2">सर्पदंश झाल्यास काय करावे आणि चुकीच्या घातक अंधश्रद्धा कशा टाळाव्यात ते समजून घ्या.</string>
     <string name="onboarding_badge_2">तात्काळ प्रतिसाद</string>
 
     <string name="onboarding_title_3">जवळचे रुग्णालय व सर्पमित्र</string>
-    <string name="onboarding_subtitle_3">तातडीची मदत</string>
+    <string name="onboarding_subtitle_3">तातडीची वैद्यकीय मदत</string>
     <string name="onboarding_desc_3">अँटी-व्हेनम उपलब्ध असणारी जवळची रुग्णालये व अधिकृत सर्पमित्रांशी थेट संपर्क करा.</string>
     <string name="onboarding_badge_3">मदत मिळवा</string>
 
     <string name="onboarding_title_4">आपली भाषा निवडा</string>
-    <string name="onboarding_subtitle_4">भाषा निवड</string>
+    <string name="onboarding_subtitle_4">ॲप्लिकेशन भाषा</string>
     <string name="onboarding_desc_4">आपली पसंतीची भाषा निवडा. आपण ही भाषा नंतरही बदलू शकता.</string>
     <string name="onboarding_badge_4">भाषा</string>
 
     <string name="next">पुढे</string>
     <string name="get_started">सुरू करा</string>
     <string name="skip">वगळा</string>
+
+    <!-- Permission Education -->
+    <string name="permission_location_title">स्थान (Location) परवानगी</string>
+    <string name="permission_location_reason">जवळचे अँटी-व्हेनम रुग्णालय आणि सर्पमित्र शोधण्यासाठी लोकेशन आवश्यक आहे.</string>
+    <string name="permission_location_privacy">आपले लोकेशन फक्त स्थानिक अंतर मोजण्यासाठी वापरले जाते.</string>
+    <string name="permission_camera_title">कॅमेरा परवानगी</string>
+    <string name="permission_camera_reason">सापाचा सुरक्षित अंतरावरून फोटो काढून प्रजाती ओळखण्यासाठी कॅमेरा आवश्यक आहे.</string>
+    <string name="permission_camera_privacy">फोटो सुरक्षित राहतात.</string>
+    <string name="permission_notification_title">सुरक्षा सूचना परवानगी</string>
+    <string name="permission_notification_reason">पावसाळ्यात व शेती हंगामात सर्प सतर्कतेच्या सूचना मिळवा.</string>
+    <string name="permission_notification_privacy">फक्त सुरक्षा सूचना पाठवल्या जातात.</string>
+    <string name="btn_allow_continue">पुढे जा</string>
+    <string name="btn_not_now">नंतर करू</string>
 
     <!-- Home Screen -->
     <string name="home_greeting_namaste">नमस्ते</string>
@@ -50,6 +135,38 @@
     <string name="home_safety_alert_monsoon">पावसाळी अलर्ट: शेतातील बांध, विहिरी व लाकडाच्या ढिगाऱ्यांजवळ सापांचा वावर वाढला आहे. गमबूट वापरा.</string>
     <string name="home_learn_prevent_title">शिका व सुरक्षित राहा</string>
     <string name="home_learn_prevent_desc">महाराष्ट्रातील सर्प माहिती, हानिकारक कीटक, शेती सुरक्षा व गैरसमज विरुद्ध वास्तव.</string>
+
+    <!-- Additional Home Dashboard & Services Strings (Marathi) -->
+    <string name="home_status_active">• सुरक्षा कवच सक्रिय</string>
+    <string name="home_status_hospitals_title">२५+ शासकीय व खाजगी रुग्णालये (जालना)</string>
+    <string name="home_status_hospitals_subtitle">अँटी-व्हेनम (ASV) साठा व सर्पमित्र उपलब्ध</string>
+    <string name="home_section_safety_services">सुरक्षा व बचाव सेवा</string>
+    <string name="home_grid_snake_guide_title">सर्प मार्गदर्शिका</string>
+    <string name="home_grid_snake_guide_sub">२० प्रजातींची संपूर्ण माहिती</string>
+    <string name="home_grid_first_aid_title">प्रथमोपचार व नियम</string>
+    <string name="home_grid_first_aid_sub">काय करावे व काय टाळावे</string>
+    <string name="home_grid_hospitals_title">२४/७ ASV रुग्णालये</string>
+    <string name="home_grid_hospitals_sub">जवळचा अँटी-व्हेनम साठा</string>
+    <string name="home_grid_helplines_title">आपत्कालीन हेल्पलाईन</string>
+    <string name="home_grid_helplines_sub">१०८, ११२ व स्पीड डायल</string>
+    <string name="home_grid_rescuers_title">अधिकृत सर्पमित्र</string>
+    <string name="home_grid_rescuers_sub">तालुकानिहाय संपर्क यादी</string>
+    <string name="home_grid_join_rescuer_title">सर्पमित्र म्हणून जोडा</string>
+    <string name="home_grid_join_rescuer_sub">मोफत नोंदणी करा</string>
+
+    <string name="home_section_schemes_knowledge">शासकीय योजना व माहिती</string>
+    <string name="home_scheme_card_title">शासकीय विमा व मदत योजना</string>
+    <string name="home_scheme_card_badge">₹२ लाख मदत</string>
+    <string name="home_scheme_card_desc">गोपीनाथ मुंडे शेतकरी सुरक्षा, वनविभाग मदत, पीएम-केएमवाय आणि नुकसान भरपाई अर्ज प्रक्रिया.</string>
+    <string name="home_myths_card_title">सर्प गैरसमज विरुद्ध सत्य</string>
+    <string name="home_myths_card_badge">वैज्ञानिक सत्य</string>
+    <string name="home_myths_card_desc">नागमणी, दूध पाजणे, मंत्र-तंत्र आणि धोकादायक अघोरी उपायांचे वैज्ञानिक वास्तव.</string>
+    <string name="home_insects_card_title">हानिकारक कीटक व विंचू</string>
+    <string name="home_insects_card_badge">शेती सुरक्षा</string>
+    <string name="home_insects_card_desc">विंचू, गांधीलमाशी, गोम दंशावरील तातडीचे प्रथमोपचार व शेतातील दक्षता.</string>
+    <string name="home_portals_card_title">शासकीय कृषी व मदत पोर्टल्स</string>
+    <string name="home_portals_card_badge">अधिकृत पोर्टल्स</string>
+    <string name="home_portals_card_desc">महाडीबीटी, आपले सरकार, पीएम-किसान आणि १०८ आपत्कालीन आरोग्य सेवेच्या थेट लिंक्स.</string>
 
     <!-- Emergency Mode -->
     <string name="emergency_mode_title">सर्पदंश झाला आहे का?</string>
@@ -82,4 +199,11 @@
     <string name="identify_action_what_to_do">आता काय करावे?</string>
     <string name="identify_action_find_rescuer">सर्पमित्र बोलवा</string>
     <string name="identify_action_learn_more">अधिक माहिती</string>
+
+    <!-- Authentication & Dialog Strings -->
+    <string name="guest_login_btn">अतिथी म्हणून सुरू करा (Guest Login)</string>
+    <string name="login_title">पुन्हा स्वागत आहे</string>
+    <string name="login_subtitle">आपत्कालीन संपर्क व सुविधांसाठी लॉगिन करा</string>
+    <string name="login_btn">लॉगिन करा</string>
+    <string name="signup_btn">नोंदणी करा (Sign Up)</string>
 </resources>
