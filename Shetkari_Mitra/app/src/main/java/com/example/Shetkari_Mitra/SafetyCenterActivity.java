@@ -48,6 +48,8 @@ public class SafetyCenterActivity extends AppCompatActivity {
         if (cbItem3 != null) cbItem3.setOnClickListener(checkListener);
         if (cbItem4 != null) cbItem4.setOnClickListener(checkListener);
         if (cbItem5 != null) cbItem5.setOnClickListener(checkListener);
+
+        BottomNavigationHelper.setupBottomNavigation(this, findViewById(R.id.bottom_navigation), R.id.bottom_nav_safety);
     }
 
     private void loadChecklistState() {

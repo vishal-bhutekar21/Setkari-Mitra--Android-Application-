@@ -61,6 +61,8 @@ public class nav_Emergency_Contacts extends AppCompatActivity implements Emergen
             fabAddContact.setOnClickListener(v -> showAddContactDialog());
         }
 
+        BottomNavigationHelper.setupBottomNavigation(this, findViewById(R.id.bottom_navigation), R.id.bottom_nav_profile);
+
         loadContactsFromDatabase();
     }
 
