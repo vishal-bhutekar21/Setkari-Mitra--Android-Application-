@@ -58,7 +58,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private View cardIdentifySnake, cardResRegistration, cardSnakeRescuers;
     private View cardEmergencyBtn, cardAboutUsBtn, cardMythsFacts, cardInsectsCreatures;
     private View btnStartEmergencyHelp;
-    private ImageButton btnMenuDrawer, btnQuickEmergency, btnVoiceAssistant;
+    private ImageButton btnMenuDrawer, btnVoiceAssistant;
 
     private final ActivityResultLauncher<Intent> speechRecognitionLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -135,7 +135,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         tvGreeting = findViewById(R.id.tvGreeting);
 
         btnMenuDrawer = findViewById(R.id.btnMenuDrawer);
-        btnQuickEmergency = findViewById(R.id.btnQuickEmergency);
         btnVoiceAssistant = findViewById(R.id.btnVoiceAssistant);
 
         cardEmergencyBtn = findViewById(R.id.emergency_btn);
@@ -154,10 +153,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         if (btnMenuDrawer != null) {
             btnMenuDrawer.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
-        }
-
-        if (btnQuickEmergency != null) {
-            btnQuickEmergency.setOnClickListener(v -> openEmergencyMode());
         }
 
         if (btnVoiceAssistant != null) {

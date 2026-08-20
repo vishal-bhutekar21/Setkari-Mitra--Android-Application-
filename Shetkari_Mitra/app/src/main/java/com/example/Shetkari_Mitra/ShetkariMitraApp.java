@@ -38,11 +38,11 @@ public class ShetkariMitraApp extends Application {
             Context ctx = getApplicationContext();
             Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
             
-            // Set compliant User-Agent adhering to OpenStreetMap Tile Usage Policy
-            String userAgent = "ShetkariMitra-Android-Safety/2.0 (com.example.Shetkari_Mitra; contact: support@shetkarimitra.app; Android " + android.os.Build.VERSION.RELEASE + ")";
+            // Set compliant, unique User-Agent adhering to OpenStreetMap Tile Usage Policy
+            String userAgent = getPackageName() + "/2.0 (Linux; Android " + android.os.Build.VERSION.RELEASE + "; +https://github.com/vishal-bhutekar21/Setkari-Mitra--Android-Application-)";
             Configuration.getInstance().setUserAgentValue(userAgent);
 
-            // Configure dedicated tile cache directories
+            // Configure dedicated tile cache directory
             File osmBase = new File(ctx.getCacheDir(), "osmdroid");
             if (!osmBase.exists()) {
                 osmBase.mkdirs();
@@ -53,7 +53,7 @@ public class ShetkariMitraApp extends Application {
             }
             Configuration.getInstance().setOsmdroidBasePath(osmBase);
             Configuration.getInstance().setOsmdroidTileCache(osmTileCache);
-            Configuration.getInstance().setTileFileSystemCacheMaxBytes(100L * 1024 * 1024); // 100 MB cache
+            Configuration.getInstance().setTileFileSystemCacheMaxBytes(100L * 1024 * 1024);
             Configuration.getInstance().setTileFileSystemCacheTrimBytes(80L * 1024 * 1024);
             Configuration.getInstance().setMapViewHardwareAccelerated(true);
 

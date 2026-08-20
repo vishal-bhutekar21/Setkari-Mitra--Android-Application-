@@ -27,6 +27,7 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.CustomZoomButtonsController;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.CopyrightOverlay;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
@@ -64,15 +65,19 @@ public class MapsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // OSMDroid configuration conforming to OpenStreetMap Tile Usage Policy
+        // OSMDroid configuration conforming strictly to OpenStreetMap Tile Usage Policy
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
-        Configuration.getInstance().setUserAgentValue("ShetkariMitra-FarmerSafety/2.0 (Android; Contact: support@shetkarimitra.app; com.example.Shetkari_Mitra)");
+        String userAgent = getPackageName() + "/2.0 (Linux; Android " + android.os.Build.VERSION.RELEASE + "; +https://github.com/vishal-bhutekar21/Setkari-Mitra--Android-Application-)";
+        Configuration.getInstance().setUserAgentValue(userAgent);
         
         java.io.File osmBase = new java.io.File(ctx.getCacheDir(), "osmdroid");
         if (!osmBase.exists()) osmBase.mkdirs();
+        java.io.File osmTiles = new java.io.File(osmBase, "tiles");
+        if (!osmTiles.exists()) osmTiles.mkdirs();
+
         Configuration.getInstance().setOsmdroidBasePath(osmBase);
-        Configuration.getInstance().setOsmdroidTileCache(new java.io.File(osmBase, "tiles"));
+        Configuration.getInstance().setOsmdroidTileCache(osmTiles);
         Configuration.getInstance().setMapViewHardwareAccelerated(true);
 
         setContentView(R.layout.activity_maps);
@@ -86,6 +91,13 @@ public class MapsActivity extends AppCompatActivity {
         mapView.setTileSource(TileSourceFactory.MAPNIK);
         mapView.getZoomController().setVisibility(CustomZoomButtonsController.Visibility.ALWAYS);
         mapView.setMultiTouchControls(true);
+
+        // Add OpenStreetMap Copyright & Attribution Overlay
+        CopyrightOverlay copyrightOverlay = new CopyrightOverlay(this);
+        copyrightOverlay.setTextSize(11);
+        copyrightOverlay.setAlignRight(true);
+        copyrightOverlay.setAlignBottom(true);
+        mapView.getOverlays().add(copyrightOverlay);
 
         mapView.getController().setZoom(12.5);
         mapView.getController().setCenter(JALNA_CENTER);
