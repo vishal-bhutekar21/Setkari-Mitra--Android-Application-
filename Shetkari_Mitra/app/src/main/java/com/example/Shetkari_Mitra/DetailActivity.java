@@ -127,25 +127,25 @@ public class DetailActivity extends AppCompatActivity {
             btnDetailLangToggle.setText(isMarathi ? "English" : "मराठी");
         }
 
-        // Section header labels according to active language
+        // Section header labels strictly according to active language
         if (isMarathi) {
-            if (tvHeaderVenomType != null) tvHeaderVenomType.setText("विष प्रकार व तीव्रता (Venom Classification)");
-            if (tvHeaderIdentification != null) tvHeaderIdentification.setText("शारीरिक वैशिष्ट्ये व ओळख (Identification)");
-            if (tvHeaderHabitat != null) tvHeaderHabitat.setText("आढळ व अधिवास (Habitat & Distribution)");
-            if (tvHeaderDiet != null) tvHeaderDiet.setText("अन्न व स्वभाव (Diet & Temperament)");
-            if (tvHeaderSafety != null) tvHeaderSafety.setText("शेतकऱ्यांसाठी सुरक्षितता व महत्त्व (Farmer Safety)");
-            if (tvHeaderFirstAid != null) tvHeaderFirstAid.setText("सर्पदंश प्रथमोपचार व ASV उपचार (Emergency Protocol)");
-            if (btnFindHospital != null) btnFindHospital.setText("जवळचे ASV रुग्णालय");
-            if (btnCallRescuer != null) btnCallRescuer.setText("सर्पमित्र संपर्क");
+            if (tvHeaderVenomType != null) tvHeaderVenomType.setText("विष प्रकार व तीव्रता");
+            if (tvHeaderIdentification != null) tvHeaderIdentification.setText("शारीरिक वैशिष्ट्ये व ओळख");
+            if (tvHeaderHabitat != null) tvHeaderHabitat.setText("आढळ व अधिवास");
+            if (tvHeaderDiet != null) tvHeaderDiet.setText("अन्न व स्वभाव");
+            if (tvHeaderSafety != null) tvHeaderSafety.setText("शेतकऱ्यांसाठी सुरक्षितता व महत्त्व");
+            if (tvHeaderFirstAid != null) tvHeaderFirstAid.setText("सर्पदंश प्रथमोपचार व वैद्यकीय उपचार");
+            if (btnFindHospital != null) btnFindHospital.setText("जवळचे रुग्णालय शोधा");
+            if (btnCallRescuer != null) btnCallRescuer.setText("सर्पमित्राशी संपर्क करा");
         } else {
             if (tvHeaderVenomType != null) tvHeaderVenomType.setText("Venom Classification & Toxicity");
-            if (tvHeaderIdentification != null) tvHeaderIdentification.setText("How to Identify (Physical Markers)");
-            if (tvHeaderHabitat != null) tvHeaderHabitat.setText("Where It Is Found & Regional Habitat");
-            if (tvHeaderDiet != null) tvHeaderDiet.setText("Diet & Natural Prey");
-            if (tvHeaderSafety != null) tvHeaderSafety.setText("Farmer Safety Precautions & Benefits");
-            if (tvHeaderFirstAid != null) tvHeaderFirstAid.setText("Bite Response & First Aid Protocol");
-            if (btnFindHospital != null) btnFindHospital.setText("Nearby ASV Hospital");
-            if (btnCallRescuer != null) btnCallRescuer.setText("Call Sarpmitra");
+            if (tvHeaderIdentification != null) tvHeaderIdentification.setText("Physical Characteristics & Identification");
+            if (tvHeaderHabitat != null) tvHeaderHabitat.setText("Habitat & Regional Distribution");
+            if (tvHeaderDiet != null) tvHeaderDiet.setText("Diet & Temperament");
+            if (tvHeaderSafety != null) tvHeaderSafety.setText("Farmer Safety & Ecological Importance");
+            if (tvHeaderFirstAid != null) tvHeaderFirstAid.setText("First Aid & Emergency Protocol");
+            if (btnFindHospital != null) btnFindHospital.setText("Find Nearby Hospital");
+            if (btnCallRescuer != null) btnCallRescuer.setText("Find Rescuer");
         }
 
         // Color badge styling

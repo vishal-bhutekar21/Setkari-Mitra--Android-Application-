@@ -35,8 +35,14 @@ public class GovtPortalAdapter extends RecyclerView.Adapter<GovtPortalAdapter.Po
     @Override
     public void onBindViewHolder(@NonNull PortalViewHolder holder, int position) {
         GovtPortalItem item = portalList.get(position);
-        holder.tvPortalTitle.setText(item.getTitle());
-        holder.tvPortalMarathiTitle.setText(item.getMarathiTitle());
+        String currentLang = LocaleHelper.getLanguage(context);
+        if (LocaleHelper.LANGUAGE_MARATHI.equals(currentLang)) {
+            holder.tvPortalTitle.setText(item.getMarathiTitle());
+            holder.tvPortalMarathiTitle.setVisibility(View.GONE);
+        } else {
+            holder.tvPortalTitle.setText(item.getTitle());
+            holder.tvPortalMarathiTitle.setVisibility(View.GONE);
+        }
         holder.tvDepartment.setText(item.getDepartment());
         holder.tvDescription.setText(item.getDescription());
 

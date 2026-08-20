@@ -14,288 +14,311 @@
 
         <!-- Title -->
         <TextView
-            style="@style/TextAppearance.ShetkariMitra.SectionTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
             android:text="24x7 Emergency Helplines"
-            android:textColor="@color/color_primary" />
+            android:textColor="@color/color_primary"
+            android:textSize="18sp" />
 
         <TextView
-            style="@style/TextAppearance.ShetkariMitra.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_2"
-            android:text="Tap any card to initiate direct emergency call" />
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Tap any helpline to call directly"
+            android:textColor="@color/color_text_secondary"
+            android:textSize="12sp" />
 
         <!-- Helpline 1: 108 Free Ambulance -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardCall108"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_12"
-            android:background="@drawable/bg_glass_emergency"
             android:clickable="true"
             android:focusable="true"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/space_16">
-
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:src="@drawable/emergency_call_logo"
-                app:tint="@color/color_on_emergency" />
+            app:cardBackgroundColor="@color/color_surface"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/color_emergency"
+            app:strokeWidth="1.5dp">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_12"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_16">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="108 - Free Emergency Ambulance"
+                        android:textColor="@color/color_emergency"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Government Free Ambulance Service (24x7)"
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/color_emergency"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="108 — Free Emergency Ambulance"
-                    android:textColor="@color/color_on_emergency"
-                    android:textSize="@dimen/text_body_large" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="महाराष्ट्र शासन मोफत रुग्णवाहिका सेवा (24x7)"
-                    android:textColor="@color/color_emergency_container"
-                    android:textSize="@dimen/text_caption" />
-
+                    android:text="CALL 108"
+                    android:textColor="@color/color_white"
+                    android:textSize="12sp"
+                    app:cornerRadius="8dp" />
             </LinearLayout>
-
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_glass_circle_btn"
-                android:contentDescription="Call"
-                android:src="@drawable/call_logo"
-                app:tint="@color/color_emergency" />
-
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- Helpline 2: 112 National Emergency SOS -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardCall112"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_12"
-            android:background="@drawable/bg_glass_card"
+            android:layout_marginTop="@dimen/space_10"
             android:clickable="true"
             android:focusable="true"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/space_16">
-
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:src="@drawable/call_logo"
-                app:tint="@color/color_primary" />
+            app:cardBackgroundColor="@color/color_surface"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/color_border"
+            app:strokeWidth="1dp">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_12"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_16">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="112 - National Emergency Response"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Police, Disaster and Rapid Response"
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/color_primary"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="112 — National Emergency All-in-One"
-                    android:textColor="@color/color_text_primary"
-                    android:textSize="@dimen/text_body_large" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Police, Disaster &amp; Rapid Medical Response"
-                    android:textColor="@color/color_text_secondary"
-                    android:textSize="@dimen/text_caption" />
-
+                    android:text="CALL 112"
+                    android:textColor="@color/color_white"
+                    android:textSize="12sp"
+                    app:cornerRadius="8dp" />
             </LinearLayout>
-
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_glass_circle_btn"
-                android:contentDescription="Call"
-                android:src="@drawable/call_logo"
-                app:tint="@color/color_primary" />
-
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- Helpline 3: 1926 Forest Dept Wildlife Rescue -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardCall1926"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_12"
-            android:background="@drawable/bg_glass_card"
+            android:layout_marginTop="@dimen/space_10"
             android:clickable="true"
             android:focusable="true"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/space_16">
-
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:src="@drawable/snake_rescure"
-                app:tint="@color/color_primary" />
+            app:cardBackgroundColor="@color/color_surface"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/color_border"
+            app:strokeWidth="1dp">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_12"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_16">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="1926 - Forest Department Wildlife Helpline"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Wildlife Rescue, Forest Control &amp; Sarpmitra"
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/color_primary"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="1926 — Maharashtra Forest Dept"
-                    android:textColor="@color/color_text_primary"
-                    android:textSize="@dimen/text_body_large" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="24x7 Wildlife Rescue &amp; Sarpa Mitra Coordination"
-                    android:textColor="@color/color_text_secondary"
-                    android:textSize="@dimen/text_caption" />
-
+                    android:text="CALL 1926"
+                    android:textColor="@color/color_white"
+                    android:textSize="12sp"
+                    app:cornerRadius="8dp" />
             </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_glass_circle_btn"
-                android:contentDescription="Call"
-                android:src="@drawable/call_logo"
-                app:tint="@color/color_primary" />
-
-        </LinearLayout>
-
-        <!-- Helpline 4: National Poison Information Centre -->
-        <LinearLayout
+        <!-- Helpline 4: National Poison Centre -->
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardCallPoison"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_12"
-            android:background="@drawable/bg_glass_card"
+            android:layout_marginTop="@dimen/space_10"
             android:clickable="true"
             android:focusable="true"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/space_16">
-
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:src="@drawable/first_aid_logo"
-                app:tint="@color/color_primary" />
+            app:cardBackgroundColor="@color/color_surface"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/color_border"
+            app:strokeWidth="1dp">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_12"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_16">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="1800-116-117 - Poison Info Centre"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="AIIMS National Poison Information (Toll Free)"
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/color_primary"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="1800-116-117 — Poison Control (AIIMS)"
-                    android:textColor="@color/color_text_primary"
-                    android:textSize="@dimen/text_body_large" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="National Toxicology &amp; Anti-Venom Guidance"
-                    android:textColor="@color/color_text_secondary"
-                    android:textSize="@dimen/text_caption" />
-
+                    android:text="CALL"
+                    android:textColor="@color/color_white"
+                    android:textSize="12sp"
+                    app:cornerRadius="8dp" />
             </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_glass_circle_btn"
-                android:contentDescription="Call"
-                android:src="@drawable/call_logo"
-                app:tint="@color/color_primary" />
-
-        </LinearLayout>
-
-        <!-- Helpline 5: Jalna District Civil Hospital Anti-Venom -->
-        <LinearLayout
+        <!-- Helpline 5: Jalna Civil Hospital -->
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardCallJalnaCivil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_12"
-            android:background="@drawable/bg_glass_card"
+            android:layout_marginTop="@dimen/space_10"
             android:clickable="true"
             android:focusable="true"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/space_16">
-
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:src="@drawable/hospital_location_logo"
-                app:tint="@color/color_primary" />
+            app:cardBackgroundColor="@color/color_surface"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/color_border"
+            app:strokeWidth="1dp">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_12"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_16">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="02482-225333 - Jalna Civil Hospital"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="District Anti-Venom Emergency Center"
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/color_primary"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="02482-225600 — Jalna District Hospital"
-                    android:textColor="@color/color_text_primary"
-                    android:textSize="@dimen/text_body_large" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Civil Hospital Jalna Anti-Venom Emergency Desk"
-                    android:textColor="@color/color_text_secondary"
-                    android:textSize="@dimen/text_caption" />
-
+                    android:text="CALL"
+                    android:textColor="@color/color_white"
+                    android:textSize="12sp"
+                    app:cornerRadius="8dp" />
             </LinearLayout>
-
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_glass_circle_btn"
-                android:contentDescription="Call"
-                android:src="@drawable/call_logo"
-                app:tint="@color/color_primary" />
-
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 

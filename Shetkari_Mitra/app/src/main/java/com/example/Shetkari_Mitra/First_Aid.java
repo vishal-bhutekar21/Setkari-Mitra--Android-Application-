@@ -14,13 +14,6 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 public class First_Aid extends AppCompatActivity {
 
-    private final String[] tabTitles = new String[]{
-            "Steps (पायऱ्या)",
-            "DOs & DON'Ts",
-            "Symptoms (लक्षणे)",
-            "Helplines (हेल्पलाईन)"
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,14 +24,24 @@ public class First_Aid extends AppCompatActivity {
             btnGlassBack.setOnClickListener(v -> finish());
         }
 
+        String currentLang = LocaleHelper.getLanguage(this);
+        String[] titles;
+        if (LocaleHelper.LANGUAGE_MARATHI.equals(currentLang)) {
+            titles = new String[]{"प्रथमोपचार पायऱ्या", "काय करावे / करू नये", "लक्षणे", "हेल्पलाईन"};
+        } else if (LocaleHelper.LANGUAGE_HINDI.equals(currentLang)) {
+            titles = new String[]{"प्राथमिक उपचार", "क्या करें / न करें", "लक्षण", "हेल्पलाइन"};
+        } else {
+            titles = new String[]{"First Aid Steps", "Dos & Don'ts", "Symptoms", "Helplines"};
+        }
+
         ViewPager2 viewPager = findViewById(R.id.viewpager);
         TabLayout tabLayout = findViewById(R.id.tablayout);
 
         viewPager.setAdapter(new FirstAidPagerAdapter(this));
 
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
-            if (position < tabTitles.length) {
-                tab.setText(tabTitles[position]);
+            if (position < titles.length) {
+                tab.setText(titles[position]);
             }
         }).attach();
     }

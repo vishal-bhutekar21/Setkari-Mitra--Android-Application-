@@ -73,12 +73,12 @@
     <string name="emergency_btn_share_location">मेरी लोकेशन भेजें (SOS)</string>
 
     <!-- Snake Identification -->
-    <string name="identify_safety_warning">⚠️ सुरक्षित दूरी बनाए रखें। फोटो खींचने के लिए सांप के करीब कभी न जाएं।</string>
+    <string name="identify_safety_warning">सुरक्षित दूरी बनाए रखें। फोटो खींचने के लिए सांप के करीब कभी न जाएं।</string>
     <string name="identify_take_photo">कैमरे से फोटो लें</string>
     <string name="identify_upload_photo">गैलरी से फोटो चुनें</string>
     <string name="identify_possible_match">संभावित प्रजाति</string>
     <string name="identify_confidence">सटीकता</string>
-    <string name="identify_uncertainty_disclaimer">⚠️ अस्वीकरण: फोटो द्वारा पहचान केवल संकेतात्मक है। यह चिकित्सीय निदान नहीं है। परिणाम के आधार पर सांप को कभी न छुएं।</string>
+    <string name="identify_uncertainty_disclaimer">अस्वीकरण: फोटो द्वारा पहचान केवल संकेतात्मक है। यह चिकित्सीय निदान नहीं है। परिणाम के आधार पर सांप को कभी न छुएं।</string>
     <string name="identify_action_what_to_do">अब क्या करें?</string>
     <string name="identify_action_find_rescuer">सर्पमित्र बुलाएं</string>
     <string name="identify_action_learn_more">अधिक जानें</string>

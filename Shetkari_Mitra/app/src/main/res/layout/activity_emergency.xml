@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="IMMEDIATE ACTIONS (काय करावे)"
+                android:text="Immediate First Aid Actions"
                 android:textColor="@color/color_text_primary"
                 android:textSize="14sp" />
 
@@ -360,7 +360,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_6"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="❌ 1. Do NOT cut or blade the wound"
+                        android:text="1. Do NOT cut or make incisions on the wound"
                         android:textColor="@color/color_emergency"
                         android:textSize="13sp" />
 
@@ -369,7 +369,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="❌ 2. Do NOT attempt to suck venom"
+                        android:text="2. Do NOT attempt to suck venom by mouth"
                         android:textColor="@color/color_emergency"
                         android:textSize="13sp" />
 
@@ -378,7 +378,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="❌ 3. Do NOT apply tight tourniquets or ropes"
+                        android:text="3. Do NOT apply tight tourniquets, wires or ropes"
                         android:textColor="@color/color_emergency"
                         android:textSize="13sp" />
 
@@ -387,7 +387,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="❌ 4. Do NOT use unverified home remedies or mantras"
+                        android:text="4. Do NOT delay medical care for rituals or herbal remedies"
                         android:textColor="@color/color_emergency"
                         android:textSize="13sp" />
 
@@ -396,7 +396,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="❌ 5. Do NOT delay hospital transport for anything"
+                        android:text="5. Do NOT delay hospital transport for anything"
                         android:textColor="@color/color_emergency"
                         android:textSize="13sp" />
                 </LinearLayout>

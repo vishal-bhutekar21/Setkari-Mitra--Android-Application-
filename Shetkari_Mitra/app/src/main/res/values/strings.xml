@@ -2,7 +2,7 @@
     <string name="app_name">Shetkari Mitra</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="marathi_text">शेतक-यांना समर्पित</string>
+    <string name="marathi_text">Dedicated to Farmers</string>
     <string-array name="maharashtra_districts_array">
         <item>Ahmednagar</item>
         <item>Akola</item>
@@ -552,7 +552,7 @@
     <string name="logout">Logout</string>
     <string name="logout_confirm_msg">Are you sure you want to logout from this device?</string>
     <string name="share_via">Share Shetkari Mitra via</string>
-    <string name="share_app_description">Shetkari Mitra (शेतकरी मित्र) - Snakebite Prevention, Rescuer Network &amp; Hospital Locator for Farmers in Maharashtra.\n\nDownload the app to stay safe!</string>
+    <string name="share_app_description">Shetkari Mitra - Snakebite Prevention, Rescuer Network &amp; Hospital Locator for Farmers.\n\nDownload the app to stay safe!</string>
 
     <!-- Location & Status -->
     <string name="fetching_location">Fetching current location…</string>
@@ -576,7 +576,7 @@
     <string name="hospital_registered_message">%1$s in %2$s has been registered and is now visible in the hospital directory.</string>
 
     <!-- About Us & Developer Content -->
-    <string name="about_us_info_text">Shetkari Mitra (शेतकरी मित्र)\n\nVersion 2.0 (Modernized Edition)\n\nDedicated to farmer safety, snakebite emergency response, anti-venom hospital mapping, and wildlife conservation across Maharashtra.\n\nCrafted with dedication for the agricultural community.</string>
+    <string name="about_us_info_text">Shetkari Mitra\n\nVersion 2.0 (Modernized Edition)\n\nDedicated to farmer safety, snakebite emergency response, anti-venom hospital mapping, and wildlife conservation across Maharashtra.\n\nCrafted with dedication for the agricultural community.</string>
     <string name="developer_name">Vishal Rajesh Bhutekar</string>
     <string name="developer_title">Lead Android Developer &amp; Software Engineer</string>
     <string name="developer_badge">IndiaSkills National Gold Medalist</string>
@@ -601,22 +601,22 @@
 
     <!-- Onboarding Strings -->
     <string name="onboarding_title_1">Stay Safe Around Snakes</string>
-    <string name="onboarding_subtitle_1">सर्पांपासून सुरक्षित राहा</string>
+    <string name="onboarding_subtitle_1">Prevention Guidelines in Fields</string>
     <string name="onboarding_desc_1">Learn proactive farm safety, torch practices, and snake encounter prevention in agricultural routines.</string>
     <string name="onboarding_badge_1">PREVENT</string>
 
     <string name="onboarding_title_2">Know What To Do in an Emergency</string>
-    <string name="onboarding_subtitle_2">आपत्कालीन कृती आराखडा</string>
+    <string name="onboarding_subtitle_2">Action Protocol</string>
     <string name="onboarding_desc_2">Follow verified 4-step emergency guidance and avoid life-threatening myths or traditional remedies.</string>
     <string name="onboarding_badge_2">RESPOND</string>
 
     <string name="onboarding_title_3">Find Hospitals &amp; Snake Rescuers</string>
-    <string name="onboarding_subtitle_3">जवळचे रुग्णालय व सर्पमित्र</string>
+    <string name="onboarding_subtitle_3">Medical Assistance</string>
     <string name="onboarding_desc_3">Instantly locate nearby anti-venom medical centers, call 108/112, or dispatch emergency location to rescuers.</string>
     <string name="onboarding_badge_3">GET HELP</string>
 
     <string name="onboarding_title_4">Choose Your Language</string>
-    <string name="onboarding_subtitle_4">भाषा निवडा • अपनी भाषा चुनें</string>
+    <string name="onboarding_subtitle_4">Select Application Language</string>
     <string name="onboarding_desc_4">Select your preferred language. You can change this anytime from app settings.</string>
     <string name="onboarding_badge_4">LOCALIZATION</string>
 
@@ -627,13 +627,13 @@
     <!-- Permission Education -->
     <string name="permission_location_title">Location Permission</string>
     <string name="permission_location_reason">Location is required to find the nearest anti-venom hospitals and snake rescuers in your area.</string>
-    <string name="permission_location_privacy">🔒 Your location is only used locally to calculate distances and is never shared without your permission.</string>
+    <string name="permission_location_privacy">Your location is only used locally to calculate distances and is never shared without your permission.</string>
     <string name="permission_camera_title">Camera Permission</string>
     <string name="permission_camera_reason">Camera is used to photograph snakes from a safe distance for species identification and rescuer assistance.</string>
-    <string name="permission_camera_privacy">🔒 Photos are processed on device and not shared without your choice.</string>
+    <string name="permission_camera_privacy">Photos are processed on device and not shared without your choice.</string>
     <string name="permission_notification_title">Safety Alerts Permission</string>
     <string name="permission_notification_reason">Receive urgent safety alerts regarding high snake activity during monsoon and farm seasons.</string>
-    <string name="permission_notification_privacy">🔒 Only safety notifications are delivered.</string>
+    <string name="permission_notification_privacy">Only safety notifications are delivered.</string>
     <string name="btn_allow_continue">Continue</string>
     <string name="btn_not_now">Not Now</string>
 
@@ -675,12 +675,12 @@
     <string name="emergency_btn_share_location">SHARE SOS LOCATION</string>
 
     <!-- Snake Identification Strings -->
-    <string name="identify_safety_warning">⚠️ Stay at a safe distance. Never approach a snake to take a photograph.</string>
+    <string name="identify_safety_warning">Stay at a safe distance. Never approach a snake to take a photograph.</string>
     <string name="identify_take_photo">Take Photo</string>
     <string name="identify_upload_photo">Upload Photo</string>
     <string name="identify_possible_match">Possible Match</string>
     <string name="identify_confidence">Confidence</string>
-    <string name="identify_uncertainty_disclaimer">⚠️ Disclaimer: Image identification can be uncertain and is not a medical diagnosis. Never handle or approach a snake based on identification result alone.</string>
+    <string name="identify_uncertainty_disclaimer">Disclaimer: Image identification can be uncertain and is not a medical diagnosis. Never handle or approach a snake based on identification result alone.</string>
     <string name="identify_action_what_to_do">WHAT SHOULD I DO?</string>
     <string name="identify_action_find_rescuer">FIND A RESCUER</string>
     <string name="identify_action_learn_more">LEARN MORE</string>
