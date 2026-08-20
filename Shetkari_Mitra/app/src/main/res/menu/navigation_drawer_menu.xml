@@ -26,4 +26,14 @@
         </menu>
     </item>
 
+    <!-- Section: Account & Session -->
+    <item android:title="Account &amp; Session">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_drawer_logout"
+                android:title="@string/logout" />
+        </menu>
+    </item>
+
 </menu>

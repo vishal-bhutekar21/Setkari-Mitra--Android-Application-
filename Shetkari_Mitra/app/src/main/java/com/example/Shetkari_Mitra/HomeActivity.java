@@ -344,10 +344,37 @@ public class HomeActivity extends AppCompatActivity
             shareApp();
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(this, Activity_About_Us.class));
+        } else if (id == R.id.nav_logout) {
+            showLogoutDialog();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showLogoutDialog() {
+        new com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.logout)
+                .setMessage(R.string.logout_confirm_msg)
+                .setPositiveButton(R.string.logout, (dialog, which) -> performLogout())
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+    }
+
+    private void performLogout() {
+        SharedPreferences prefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        prefs.edit()
+                .remove(KEY_SAVED_USERNAME)
+                .remove(KEY_SAVED_EMAIL)
+                .putBoolean("is_logged_in", false)
+                .apply();
+
+        Toast.makeText(this, R.string.logout, Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(HomeActivity.this, Start_Activity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
     private void showLanguageDialog() {
