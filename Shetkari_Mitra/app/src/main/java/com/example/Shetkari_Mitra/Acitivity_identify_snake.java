@@ -83,7 +83,7 @@ public class Acitivity_identify_snake extends AppCompatActivity {
         setContentView(R.layout.activity_acitivity_identify_snake);
 
         initViews();
-        BottomNavigationHelper.setupBottomNavigation(this, findViewById(R.id.bottom_navigation), R.id.bottom_nav_hospitals);
+        BottomNavigationHelper.setupBottomNavigation(this, findViewById(R.id.bottom_navigation), R.id.bottom_nav_safety);
     }
 
     private void initViews() {

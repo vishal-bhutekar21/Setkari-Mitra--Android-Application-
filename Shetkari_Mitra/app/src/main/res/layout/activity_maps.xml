@@ -11,23 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- Floating Top Header with Glass Back Button and Title -->
+    <!-- Top App Bar & Layer Filters Container -->
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginHorizontal="@dimen/space_16"
-        android:layout_marginTop="@dimen/space_16"
-        android:background="@drawable/bg_glass_card"
-        android:orientation="vertical"
-        android:padding="@dimen/space_8">
+        android:orientation="vertical">
 
+        <!-- Header Bar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/color_primary"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_16"
+            android:paddingVertical="@dimen/space_12">
 
             <!-- Frosted Glass Back Button -->
             <ImageButton
@@ -37,7 +37,7 @@
                 android:background="@drawable/bg_glass_circle_btn"
                 android:contentDescription="Back"
                 android:src="@drawable/ic_arrow_back_24"
-                app:tint="@color/color_primary" />
+                app:tint="@color/color_white" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -52,8 +52,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
                     android:text="Emergency Medical &amp; Rescuer Map"
-                    android:textColor="@color/color_text_primary"
-                    android:textSize="@dimen/text_body_large" />
+                    android:textColor="@color/color_on_primary"
+                    android:textSize="@dimen/text_title" />
 
                 <TextView
                     android:id="@+id/tvMapHeaderSub"
@@ -61,76 +61,88 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:text="Live ASV Hospitals &amp; Sarpmitra Network"
-                    android:textColor="@color/color_primary"
+                    android:textColor="@color/color_primary_container"
                     android:textSize="@dimen/text_caption" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <!-- Category Selector Chips (All, Hospitals, Rescuers) -->
-        <LinearLayout
+        <!-- Category Layer Selector Row (Horizontal Scroll with Clean Spacing) -->
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_8"
-            android:orientation="horizontal">
+            android:background="#E6FFFFFF"
+            android:clipToPadding="false"
+            android:elevation="4dp"
+            android:paddingHorizontal="@dimen/space_12"
+            android:paddingVertical="@dimen/space_8"
+            android:scrollbars="none">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/chipAllLayers"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_marginEnd="@dimen/space_4"
-                android:layout_weight="1"
-                android:backgroundTint="@color/color_primary"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="All (सर्व)"
-                android:textColor="@color/color_on_primary"
-                android:textSize="11sp"
-                app:cornerRadius="@dimen/radius_full" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/chipHospitals"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_marginEnd="@dimen/space_4"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="Hospitals"
-                android:textColor="@color/color_emergency"
-                android:textSize="11sp"
-                app:cornerRadius="@dimen/radius_full"
-                app:strokeColor="@color/color_emergency" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipAllLayers"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="@dimen/space_8"
+                    android:backgroundTint="@color/color_primary"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingHorizontal="@dimen/space_12"
+                    android:text="All Layers"
+                    android:textColor="@color/color_on_primary"
+                    android:textSize="12sp"
+                    app:cornerRadius="@dimen/radius_full" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/chipRescuers"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_marginEnd="@dimen/space_4"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="Rescuers"
-                android:textColor="@color/color_primary"
-                android:textSize="10sp"
-                app:cornerRadius="@dimen/radius_full"
-                app:strokeColor="@color/color_primary" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipHospitals"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="@dimen/space_8"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingHorizontal="@dimen/space_12"
+                    android:text="Hospitals (25+)"
+                    android:textColor="@color/color_primary"
+                    android:textSize="12sp"
+                    app:cornerRadius="@dimen/radius_full"
+                    app:strokeColor="@color/color_primary" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/chipSightings"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="Sightings"
-                android:textColor="@color/color_warning"
-                android:textSize="10sp"
-                app:cornerRadius="@dimen/radius_full"
-                app:strokeColor="@color/color_warning" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipRescuers"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="@dimen/space_8"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingHorizontal="@dimen/space_12"
+                    android:text="Snake Rescuers"
+                    android:textColor="@color/color_primary"
+                    android:textSize="12sp"
+                    app:cornerRadius="@dimen/radius_full"
+                    app:strokeColor="@color/color_primary" />
 
-        </LinearLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipSightings"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingHorizontal="@dimen/space_12"
+                    android:text="Sightings"
+                    android:textColor="@color/color_primary"
+                    android:textSize="12sp"
+                    app:cornerRadius="@dimen/radius_full"
+                    app:strokeColor="@color/color_primary" />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
 
     </LinearLayout>
 
@@ -141,60 +153,79 @@
         android:visibility="gone" />
 
     <!-- Floating Glass Radius Filters at the Bottom -->
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="@dimen/space_16"
-        android:layout_marginBottom="@dimen/space_24"
-        android:background="@drawable/bg_glass_card"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="@dimen/space_8">
+        android:layout_marginBottom="@dimen/space_20"
+        app:cardBackgroundColor="@color/color_surface"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:strokeColor="#E2E8F0"
+        app:strokeWidth="1dp">
 
-        <Button
-            android:id="@+id/button_2km"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="@dimen/space_4"
-            android:text="2 km"
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/text_caption" />
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_8">
 
-        <Button
-            android:id="@+id/button_5km"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="@dimen/space_4"
-            android:text="5 km"
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/text_caption" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_2km"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="@dimen/space_4"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="2 km"
+                android:textColor="@color/color_primary"
+                android:textSize="11sp"
+                app:cornerRadius="8dp" />
 
-        <Button
-            android:id="@+id/button_10km"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="@dimen/space_4"
-            android:text="10 km"
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/text_caption" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_5km"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="@dimen/space_4"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="5 km"
+                android:textColor="@color/color_primary"
+                android:textSize="11sp"
+                app:cornerRadius="8dp" />
 
-        <Button
-            android:id="@+id/button_all"
-            style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.2"
-            android:text="All Jalna"
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/text_caption" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_10km"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="@dimen/space_4"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="10 km"
+                android:textColor="@color/color_primary"
+                android:textSize="11sp"
+                app:cornerRadius="8dp" />
 
-    </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_all"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_weight="1.2"
+                android:backgroundTint="@color/color_primary"
+                android:fontFamily="@font/poppins_bold"
+                android:text="All Jalna"
+                android:textColor="@color/color_white"
+                android:textSize="11sp"
+                app:cornerRadius="8dp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>

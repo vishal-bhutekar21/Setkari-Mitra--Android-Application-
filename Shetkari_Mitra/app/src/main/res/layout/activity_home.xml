@@ -911,15 +911,20 @@
     <!-- Side Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/color_surface"
         app:headerLayout="@layout/navigation_drawer_header"
+        app:itemHorizontalPadding="@dimen/space_16"
+        app:itemIconPadding="@dimen/space_14"
         app:itemIconSize="22dp"
         app:itemIconTint="@color/color_primary"
+        app:itemShapeInsetEnd="@dimen/space_12"
+        app:itemShapeInsetStart="@dimen/space_12"
         app:itemTextAppearance="@style/TextAppearance.ShetkariMitra.DrawerItem"
         app:itemTextColor="@color/color_text_primary"
+        app:itemVerticalPadding="@dimen/space_8"
         app:menu="@menu/navigation_drawer_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

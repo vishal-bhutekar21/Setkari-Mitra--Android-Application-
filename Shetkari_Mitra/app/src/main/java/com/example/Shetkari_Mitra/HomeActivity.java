@@ -223,9 +223,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             int id = item.getItemId();
             if (id == R.id.bottom_nav_home) {
                 return true;
-            } else if (id == R.id.bottom_nav_hospitals) {
-                startActivity(new Intent(HomeActivity.this, Near_By_Hospitals.class));
-                return true;
             } else if (id == R.id.bottom_nav_emergency) {
                 openEmergencyMode();
                 return true;
