@@ -24,12 +24,9 @@ public class Activity_About_Us extends AppCompatActivity {
             btnGlassBack.setOnClickListener(v -> finish());
         }
 
-        ImageView appLogo = findViewById(R.id.app_logo);
         TextView appInfo = findViewById(R.id.app_info);
 
-        if (appLogo != null) {
-            appLogo.setImageResource(R.drawable.app_logo);
-        }
+
 
         if (appInfo != null) {
             appInfo.setText(R.string.about_us_info_text);

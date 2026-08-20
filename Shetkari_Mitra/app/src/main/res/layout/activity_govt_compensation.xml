@@ -23,7 +23,7 @@
             android:background="@drawable/bg_glass_circle_btn"
             android:contentDescription="Back"
             android:src="@drawable/baseline_clear_24"
-            app:tint="@color/color_primary" />
+            app:tint="@color/color_white" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
-                android:text="शासकीय विमा व अपघात सहाय्यता योजना"
+                android:text="शासकीय विमा, नुकसान भरपाई व सहाय्यता योजना"
                 android:textColor="@color/color_primary_container"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -101,7 +101,7 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:fontFamily="@font/poppins_regular"
                         android:lineSpacingMultiplier="1.25"
-                        android:text="• Coverage: ₹2,00,000 for accidental death or permanent disability (Snakebite, Electric Shock, Drowning, Road Accident, Farm Machinery, Lightning).\n• Beneficiary: Registered farmers and their family members (10 to 75 years).\n• Application Window: Submit claim within 30 days to Taluka Krishi Adhikari (TKA) or Tahsildar Office.\n• Mandatory Documents: FIR/Police Panchanama, Post-Mortem (PM) Report, Death Certificate, 7/12 &amp; 8A Extract, Legal Heir Certificate."
+                        android:text="• Coverage: ₹2,00,000 for accidental death or permanent total disability (loss of two eyes/limbs); ₹1,00,000 for loss of one eye/limb.\n• Causes Covered: Snakebite, Scorpion sting, Electric shock, Lightning strike, Well/Canal drowning, Road accident, Farm machinery (Tractor/Thresher) injury, Poisoning while spraying pesticides.\n• Beneficiary: Landholder farmers &amp; registered family members (10 to 75 years).\n• Application Window: Submit claim within 30 days to Taluka Krishi Adhikari (TKA) or Tahsildar Office.\n• Mandatory Documents: FIR / Police Panchanama, Post-Mortem (PM) Report, Death Certificate, 7/12 &amp; 8A Extract, Legal Heir Certificate (वारसदारांचा दाखला)."
                         android:textColor="@color/color_text_primary"
                         android:textSize="12sp" />
 
@@ -113,14 +113,14 @@
                         android:layout_marginTop="@dimen/space_12"
                         android:backgroundTint="@color/color_primary"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Apply Online on MahaDBT"
+                        android:text="Apply Online on MahaDBT Portal"
                         android:textColor="@color/color_white"
                         android:textSize="12sp"
                         app:cornerRadius="8dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- SCHEME 2: PMJJBY Life Insurance Scheme -->
+            <!-- SCHEME 2: Pradhan Mantri Fasal Bima Yojana (PMFBY) -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -140,7 +140,65 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="2. Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)"
+                        android:text="2. Pradhan Mantri Fasal Bima Yojana (₹1 Token Scheme)"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="प्रधानमंत्री पीक विमा योजना (सर्वसमावेशक पीक संरक्षण)"
+                        android:textColor="@color/color_primary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingMultiplier="1.25"
+                        android:text="• Premium in Maharashtra: Farmers pay only ₹1 token fee; remainder is subsidized by State &amp; Central Govt.\n• Losses Covered: Drought, flood, unseasonal rainfall (अवकाळी पाऊस), hailstorm (गारपीट), post-harvest cyclone damage, pest infestation.\n• Claim Intimation: Must report crop loss within 72 hours on Crop Insurance App or CSC Center.\n• Required: 7/12 extract, sowing declaration (पीक पेरा), bank passbook."
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnOpenPmfby"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Open PMFBY Official Portal (pmfby.gov.in)"
+                        android:textColor="@color/color_primary"
+                        android:textSize="12sp"
+                        app:cornerRadius="8dp"
+                        app:strokeColor="@color/color_primary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- SCHEME 3: PMJJBY Life Insurance Scheme -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12"
+                app:cardBackgroundColor="@color/color_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="3. Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)"
                         android:textColor="@color/color_text_primary"
                         android:textSize="14sp" />
 
@@ -159,13 +217,13 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:fontFamily="@font/poppins_regular"
                         android:lineSpacingMultiplier="1.25"
-                        android:text="• Life Cover: ₹2,00,000 payable to nominee upon death of subscriber due to any cause.\n• Premium: Only ₹436 per annum, auto-debited from bank/post office savings account.\n• Eligibility: Any citizen aged 18 to 50 years with a bank account."
+                        android:text="• Life Cover: ₹2,00,000 payable to nominee upon death of subscriber due to any cause (natural, illness, accidental).\n• Premium: ₹436 per annum, auto-debited from bank/post office savings account.\n• Eligibility: Any citizen aged 18 to 50 years with a bank account.\n• Enrollment: Available at any nationalized, rural (RRB), or district cooperative bank."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- SCHEME 3: PMSBY Accidental Insurance -->
+            <!-- SCHEME 4: PMSBY Accidental Insurance -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -185,7 +243,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="3. Pradhan Mantri Suraksha Bima Yojana (PMSBY)"
+                        android:text="4. Pradhan Mantri Suraksha Bima Yojana (PMSBY)"
                         android:textColor="@color/color_text_primary"
                         android:textSize="14sp" />
 
@@ -204,13 +262,13 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:fontFamily="@font/poppins_regular"
                         android:lineSpacingMultiplier="1.25"
-                        android:text="• Accidental Benefit: ₹2,00,000 for accidental death or total permanent disability; ₹1,00,000 for partial permanent disability.\n• Premium: ₹20 per annum.\n• Eligibility: Citizens aged 18 to 70 years."
+                        android:text="• Accidental Benefit: ₹2,00,000 for accidental death or total permanent disability; ₹1,00,000 for partial permanent disability.\n• Premium: Only ₹20 per annum (auto-debit from bank account).\n• Eligibility: Citizens aged 18 to 70 years."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- SCHEME 4: MJPJAY Free Health Scheme -->
+            <!-- SCHEME 5: MJPJAY Free Health Scheme -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -230,7 +288,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="4. Mahatma Jyotirao Phule Jan Arogya Yojana (MJPJAY)"
+                        android:text="5. Mahatma Jyotirao Phule Jan Arogya Yojana (MJPJAY)"
                         android:textColor="@color/color_text_primary"
                         android:textSize="14sp" />
 
@@ -249,13 +307,26 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:fontFamily="@font/poppins_regular"
                         android:lineSpacingMultiplier="1.25"
-                        android:text="• Hospitalization Benefit: Up to ₹5,00,000 cashless treatment per family per year in impaneled government and private hospitals across Maharashtra.\n• ICU, ICU ventilator support, dialysis, and emergency antivenom intensive care covered.\n• Eligibility: All ration card holders (Yellow, Orange, White) and farmer families in Maharashtra."
+                        android:text="• Cashless Treatment: Up to ₹5,00,000 free treatment per family per year in 1,000+ impaneled government and private hospitals across Maharashtra.\n• Emergency Intensive Care: Snakebite ICU care, antivenom administration, ventilator support, trauma surgery, burns, dialysis fully covered.\n• Eligibility: All ration card holders (Yellow, Orange, White) and farmer families in Maharashtra."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnOpenMjpjay"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Check Impaneled Hospitals (jeevandayee.gov.in)"
+                        android:textColor="@color/color_primary"
+                        android:textSize="12sp"
+                        app:cornerRadius="8dp"
+                        app:strokeColor="@color/color_primary" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- SCHEME 5: Forest Department Wildlife Compensation -->
+            <!-- SCHEME 6: Forest Department Wildlife Attack Compensation -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -275,7 +346,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="5. Maharashtra Forest Wildlife Attack Ex-Gratia Relief"
+                        android:text="6. Maharashtra Forest Wildlife Conflict Compensation"
                         android:textColor="@color/color_text_primary"
                         android:textSize="14sp" />
 
@@ -294,7 +365,123 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:fontFamily="@font/poppins_regular"
                         android:lineSpacingMultiplier="1.25"
-                        android:text="• Ex-Gratia Relief: ₹20 Lakh in case of human loss of life due to wild animal attacks; ₹5 Lakh for permanent disability; up to ₹1.25 Lakh for hospitalization.\n• Contact Nearest Range Forest Officer (RFO) or call Toll-Free Helpline: 1926."
+                        android:text="• Human Loss Ex-Gratia: ₹20 Lakh compensation for loss of human life due to attack by wild animals (Tiger, Leopard, Wild Boar, Bear, Snakebite in forest periphery); ₹5 Lakh for permanent disability; up to ₹1.25 Lakh for hospitalization.\n• Livestock Attack Compensation: ₹70,000 for loss of milch cattle (Cow/Buffalo); ₹15,000 for goat/sheep.\n• Process: Immediate Panchanama by Forest Guard &amp; Police Patil; submit claim to Range Forest Officer (RFO)."
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCallForestHelpline"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Call MahaForest Helpline (1926)"
+                        android:textColor="@color/color_primary"
+                        android:textSize="12sp"
+                        app:cornerRadius="8dp"
+                        app:strokeColor="@color/color_primary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- SCHEME 7: Livestock & Cattle Insurance Scheme -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12"
+                app:cardBackgroundColor="@color/color_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="7. State Livestock &amp; Cattle Insurance Scheme"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="पशुधन व दुभत्या जनावरांचा विमा योजना"
+                        android:textColor="@color/color_primary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingMultiplier="1.25"
+                        android:text="• Coverage: Financial protection against death of cows, buffaloes, bullocks, goats, and sheep due to diseases, natural disasters, lightning strikes, electrocution, or snakebite.\n• Subsidy: 70% to 85% premium subsidy provided by the government.\n• Contact: Nearest Zilla Parishad Veterinary Dispensary or call 1962."
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCallPashuHelpline"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Call Pashudhan Helpline (1962)"
+                        android:textColor="@color/color_primary"
+                        android:textSize="12sp"
+                        app:cornerRadius="8dp"
+                        app:strokeColor="@color/color_primary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- SCHEME 8: Natural Disaster Relief (SDRF / NDRF) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12"
+                app:cardBackgroundColor="@color/color_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="8. State Natural Disaster Relief (SDRF / NDRF)"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="नैसर्गिक आपत्ती नुकसान भरपाई व अनुदान"
+                        android:textColor="@color/color_primary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingMultiplier="1.25"
+                        android:text="• Aid: Input subsidy for crop loss exceeding 33% due to heavy rain, flood, cyclone, or unseasonal hail storms.\n• Direct Account Transfer: Compensation deposited directly into farmers' Aadhaar-linked bank accounts based on joint e-Panchanama.\n• Contact: Local Talathi, Gram Sevak, or Krishi Sahayak."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>

@@ -37,6 +37,40 @@ public class GovtCompensationActivity extends AppCompatActivity {
             });
         }
 
+        View btnOpenPmfby = findViewById(R.id.btnOpenPmfby);
+        if (btnOpenPmfby != null) {
+            btnOpenPmfby.setOnClickListener(v -> {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pmfby.gov.in"));
+                startActivity(browserIntent);
+            });
+        }
+
+        View btnOpenMjpjay = findViewById(R.id.btnOpenMjpjay);
+        if (btnOpenMjpjay != null) {
+            btnOpenMjpjay.setOnClickListener(v -> {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://jeevandayee.gov.in"));
+                startActivity(browserIntent);
+            });
+        }
+
+        View btnCallForestHelpline = findViewById(R.id.btnCallForestHelpline);
+        if (btnCallForestHelpline != null) {
+            btnCallForestHelpline.setOnClickListener(v -> {
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:1926"));
+                startActivity(callIntent);
+            });
+        }
+
+        View btnCallPashuHelpline = findViewById(R.id.btnCallPashuHelpline);
+        if (btnCallPashuHelpline != null) {
+            btnCallPashuHelpline.setOnClickListener(v -> {
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:1962"));
+                startActivity(callIntent);
+            });
+        }
+
         MaterialButton btnCallKisanCallCenter = findViewById(R.id.btnCallKisanCallCenter);
         if (btnCallKisanCallCenter != null) {
             btnCallKisanCallCenter.setOnClickListener(v -> {

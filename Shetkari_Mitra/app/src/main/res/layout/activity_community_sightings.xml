@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="🌾 Farm / Field / Crop Bund" />
+                    android:text=" Farm / Field / Crop Bund" />
 
                 <RadioButton
                     android:id="@+id/rbEnvHome"
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="🏠 Residential Area / House / Shed" />
+                    android:text=" Residential Area / House / Shed" />
 
                 <RadioButton
                     android:id="@+id/rbEnvRoad"
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="🛣️ Road / Path / Highway Crossing" />
+                    android:text=" Road / Path / Highway Crossing" />
 
                 <RadioButton
                     android:id="@+id/rbEnvSchool"
@@ -142,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="🏫 School / Public Ground" />
+                    android:text=" School / Public Ground" />
 
                 <RadioButton
                     android:id="@+id/rbEnvForest"
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="🌲 Forest / Hill / Natural Habitat" />
+                    android:text=" Forest / Hill / Natural Habitat" />
             </RadioGroup>
 
             <!-- Approximate Location & Details -->
@@ -325,7 +325,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="🏠 Cattle Shed • Partur Area • Yesterday"
+                        android:text=" Cattle Shed • Partur Area • Yesterday"
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
