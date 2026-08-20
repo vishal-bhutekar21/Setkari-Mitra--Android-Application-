@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <!-- Top Header App Bar (Clean & Minimal) -->
+            <!-- Top Header App Bar -->
             <LinearLayout
                 android:id="@+id/customTopBar"
                 android:layout_width="match_parent"
@@ -131,7 +131,7 @@
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/screen_margin_horizontal">
 
-                    <!-- Emergency Protocol Banner (Calm Rose Tint) -->
+                    <!-- Emergency Protocol Banner (Highlighted Rose) -->
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/emergency_btn"
                         android:layout_width="match_parent"
@@ -142,7 +142,8 @@
                         app:cardBackgroundColor="#FFF1F2"
                         app:cardCornerRadius="16dp"
                         app:cardElevation="0dp"
-                        app:strokeWidth="0dp">
+                        app:strokeColor="#FECDD3"
+                        app:strokeWidth="1dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -155,7 +156,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_bold"
                                 android:text="@string/home_emergency_card_title"
-                                android:textColor="@color/color_emergency"
+                                android:textColor="#BE123C"
                                 android:textSize="16sp" />
 
                             <TextView
@@ -164,7 +165,7 @@
                                 android:layout_marginTop="2dp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="@string/home_emergency_card_subtitle"
-                                android:textColor="@color/color_text_secondary"
+                                android:textColor="#9F1239"
                                 android:textSize="12sp" />
 
                             <com.google.android.material.button.MaterialButton
@@ -198,7 +199,7 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:orientation="horizontal">
 
-                        <!-- Item: Nearby ASV Hospitals (Calm Ice Blue Tint) -->
+                        <!-- Item: Nearby ASV Hospitals (Highlighted Sky Blue) -->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/nearhospital"
                             android:layout_width="0dp"
@@ -210,7 +211,8 @@
                             app:cardBackgroundColor="#F0F9FF"
                             app:cardCornerRadius="16dp"
                             app:cardElevation="0dp"
-                            app:strokeWidth="0dp">
+                            app:strokeColor="#BAE6FD"
+                            app:strokeWidth="1dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -225,22 +227,22 @@
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
                                     android:text="ASV Hospitals"
-                                    android:textColor="@color/color_text_primary"
+                                    android:textColor="#0369A1"
                                     android:textSize="13sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
-                                    android:fontFamily="@font/poppins_regular"
+                                    android:fontFamily="@font/poppins_semibold"
                                     android:gravity="center"
                                     android:text="24/7 Anti-Venom"
-                                    android:textColor="@color/color_primary"
+                                    android:textColor="#0284C7"
                                     android:textSize="11sp" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
 
-                        <!-- Item: Certified Rescuers (Calm Mint Tint) -->
+                        <!-- Item: Certified Rescuers (Highlighted Mint Green) -->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/snake_rescuer"
                             android:layout_width="0dp"
@@ -252,7 +254,8 @@
                             app:cardBackgroundColor="#F0FDF4"
                             app:cardCornerRadius="16dp"
                             app:cardElevation="0dp"
-                            app:strokeWidth="0dp">
+                            app:strokeColor="#BBF7D0"
+                            app:strokeWidth="1dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -267,24 +270,24 @@
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
                                     android:text="Rescuer Directory"
-                                    android:textColor="@color/color_text_primary"
+                                    android:textColor="#15803D"
                                     android:textSize="13sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
-                                    android:fontFamily="@font/poppins_regular"
+                                    android:fontFamily="@font/poppins_semibold"
                                     android:gravity="center"
                                     android:text="Certified Sarpmitra"
-                                    android:textColor="@color/color_primary"
+                                    android:textColor="#16A34A"
                                     android:textSize="11sp" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
 
                     </LinearLayout>
 
-                    <!-- Register as Rescuer Card (Calm Pale Amber Tint) -->
+                    <!-- Register as Rescuer Card (Highlighted Pale Amber) -->
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cardResRegistration"
                         android:layout_width="match_parent"
@@ -295,7 +298,8 @@
                         app:cardBackgroundColor="#FEFCE8"
                         app:cardCornerRadius="16dp"
                         app:cardElevation="0dp"
-                        app:strokeWidth="0dp">
+                        app:strokeColor="#FEF08A"
+                        app:strokeWidth="1dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -315,7 +319,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_bold"
                                     android:text="Register as Snake Rescuer"
-                                    android:textColor="@color/color_text_primary"
+                                    android:textColor="#A16207"
                                     android:textSize="13sp" />
 
                                 <TextView
@@ -323,7 +327,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
                                     android:text="Join Maharashtra's certified rescue network"
-                                    android:textColor="@color/color_text_secondary"
+                                    android:textColor="#713F12"
                                     android:textSize="11sp" />
                             </LinearLayout>
 
@@ -332,7 +336,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_bold"
                                 android:text="JOIN ›"
-                                android:textColor="@color/color_primary"
+                                android:textColor="#A16207"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
@@ -347,7 +351,7 @@
                         android:textColor="@color/color_text_primary"
                         android:textSize="13sp" />
 
-                    <!-- ₹2 Lakh Scheme Card (Calm Emerald Tint) -->
+                    <!-- ₹2 Lakh Scheme Card (Highlighted Emerald) -->
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cardGovtCompensation"
                         android:layout_width="match_parent"
@@ -358,7 +362,8 @@
                         app:cardBackgroundColor="#ECFDF5"
                         app:cardCornerRadius="16dp"
                         app:cardElevation="0dp"
-                        app:strokeWidth="0dp">
+                        app:strokeColor="#A7F3D0"
+                        app:strokeWidth="1dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -371,7 +376,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_bold"
                                 android:text="Life &amp; Accidental Insurance Schemes"
-                                android:textColor="@color/color_primary"
+                                android:textColor="#047857"
                                 android:textSize="14sp" />
 
                             <TextView
@@ -380,12 +385,12 @@
                                 android:layout_marginTop="3dp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Gopinath Munde (₹2L), PMJJBY (₹2L), PMSBY (₹2L), and MJPJAY (₹5L) health coverage."
-                                android:textColor="@color/color_text_secondary"
+                                android:textColor="#065F46"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- District Portals Card (Calm Slate Tint) -->
+                    <!-- District Portals Card (Highlighted Slate) -->
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cardGovtPortals"
                         android:layout_width="match_parent"
@@ -396,7 +401,8 @@
                         app:cardBackgroundColor="#F1F5F9"
                         app:cardCornerRadius="16dp"
                         app:cardElevation="0dp"
-                        app:strokeWidth="0dp">
+                        app:strokeColor="#CBD5E1"
+                        app:strokeWidth="1dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -409,7 +415,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_bold"
                                 android:text="Official Maharashtra State Portals"
-                                android:textColor="@color/color_text_primary"
+                                android:textColor="#334155"
                                 android:textSize="14sp" />
 
                             <TextView
@@ -418,7 +424,7 @@
                                 android:layout_marginTop="3dp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="MahaForest, Arogya Vibhag, MahaDBT, SDMA, and District Collectorate portals."
-                                android:textColor="@color/color_text_secondary"
+                                android:textColor="#475569"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
@@ -442,7 +448,7 @@
                         android:rowCount="2"
                         android:useDefaultMargins="true">
 
-                        <!-- Emergency Safety Helplines (Calm Lavender Tint) -->
+                        <!-- Emergency Safety Helplines (Highlighted Lavender) -->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardEmergencyContacts"
                             android:layout_width="0dp"
@@ -454,7 +460,8 @@
                             app:cardBackgroundColor="#FAF5FF"
                             app:cardCornerRadius="16dp"
                             app:cardElevation="0dp"
-                            app:strokeWidth="0dp">
+                            app:strokeColor="#E9D5FF"
+                            app:strokeWidth="1dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -469,7 +476,7 @@
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
                                     android:text="Safety Helplines"
-                                    android:textColor="@color/color_text_primary"
+                                    android:textColor="#7E22CE"
                                     android:textSize="13sp" />
 
                                 <TextView
@@ -479,12 +486,12 @@
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
                                     android:text="NDMA, Child, Ragging"
-                                    android:textColor="@color/color_text_secondary"
+                                    android:textColor="#6B21A8"
                                     android:textSize="11sp" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
 
-                        <!-- Snake Species Guide (Calm Soft Purple/Pink Tint) -->
+                        <!-- Snake Species Guide (Highlighted Fuchsia/Purple) -->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/snake_library"
                             android:layout_width="0dp"
@@ -496,7 +503,8 @@
                             app:cardBackgroundColor="#FDF4FF"
                             app:cardCornerRadius="16dp"
                             app:cardElevation="0dp"
-                            app:strokeWidth="0dp">
+                            app:strokeColor="#F5D0FE"
+                            app:strokeWidth="1dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -511,7 +519,7 @@
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
                                     android:text="Snake Guide"
-                                    android:textColor="@color/color_text_primary"
+                                    android:textColor="#A21CAF"
                                     android:textSize="13sp" />
 
                                 <TextView
@@ -521,12 +529,12 @@
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
                                     android:text="20 Local Species"
-                                    android:textColor="@color/color_text_secondary"
+                                    android:textColor="#86198F"
                                     android:textSize="11sp" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
 
-                        <!-- Insects & Scorpions (Calm Peach Tint) -->
+                        <!-- Insects & Scorpions (Highlighted Peach/Amber) -->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardHarmfulCreatures"
                             android:layout_width="0dp"
@@ -538,7 +546,8 @@
                             app:cardBackgroundColor="#FFF7ED"
                             app:cardCornerRadius="16dp"
                             app:cardElevation="0dp"
-                            app:strokeWidth="0dp">
+                            app:strokeColor="#FED7AA"
+                            app:strokeWidth="1dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -553,7 +562,7 @@
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
                                     android:text="Insects &amp; Scorpions"
-                                    android:textColor="@color/color_text_primary"
+                                    android:textColor="#C2410C"
                                     android:textSize="13sp" />
 
                                 <TextView
@@ -563,12 +572,12 @@
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
                                     android:text="8 Farm Hazards"
-                                    android:textColor="@color/color_text_secondary"
+                                    android:textColor="#9A3412"
                                     android:textSize="11sp" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
 
-                        <!-- Safety Video Academy (Calm Honeydew Tint) -->
+                        <!-- Safety Video Academy (Highlighted Teal) -->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardSafetyLearning"
                             android:layout_width="0dp"
@@ -580,7 +589,8 @@
                             app:cardBackgroundColor="#F0FDF4"
                             app:cardCornerRadius="16dp"
                             app:cardElevation="0dp"
-                            app:strokeWidth="0dp">
+                            app:strokeColor="#99F6E4"
+                            app:strokeWidth="1dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -595,7 +605,7 @@
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
                                     android:text="Safety Academy"
-                                    android:textColor="@color/color_text_primary"
+                                    android:textColor="#0F766E"
                                     android:textSize="13sp" />
 
                                 <TextView
@@ -605,14 +615,14 @@
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
                                     android:text="Videos &amp; Quiz"
-                                    android:textColor="@color/color_text_secondary"
+                                    android:textColor="#115E59"
                                     android:textSize="11sp" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
 
                     </GridLayout>
 
-                    <!-- Myths vs Facts Card (Calm Teal Tint) -->
+                    <!-- Myths vs Facts Card (Highlighted Cyan) -->
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/myths_fact"
                         android:layout_width="match_parent"
@@ -623,7 +633,8 @@
                         app:cardBackgroundColor="#F0FDFA"
                         app:cardCornerRadius="16dp"
                         app:cardElevation="0dp"
-                        app:strokeWidth="0dp">
+                        app:strokeColor="#A5F3FC"
+                        app:strokeWidth="1dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -636,7 +647,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_bold"
                                 android:text="Snake Myths vs Facts"
-                                android:textColor="@color/color_text_primary"
+                                android:textColor="#0E7490"
                                 android:textSize="14sp" />
 
                             <TextView
@@ -645,7 +656,7 @@
                                 android:layout_marginTop="3dp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Scientific facts dispelling traditional superstitions and myths about snakes."
-                                android:textColor="@color/color_text_secondary"
+                                android:textColor="#155E75"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
