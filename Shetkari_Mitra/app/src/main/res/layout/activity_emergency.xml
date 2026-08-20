@@ -1,139 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background">
+    android:background="@color/color_background"
+    android:orientation="vertical">
 
-    <!-- Top Emergency Header Bar -->
+    <!-- Top Emergency Header Bar (Clean & Compact) -->
     <LinearLayout
         android:id="@+id/emergencyHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:background="@color/color_emergency"
-        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingHorizontal="@dimen/space_16"
-        android:paddingTop="@dimen/space_32"
-        android:paddingBottom="@dimen/space_16">
+        android:paddingVertical="@dimen/space_12">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_glass_circle_btn"
+            android:backgroundTint="#33FFFFFF"
+            android:contentDescription="Back"
+            android:src="@drawable/baseline_clear_24"
+            app:tint="@color/color_white" />
 
-            <ImageButton
-                android:id="@+id/btnBack"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/bg_glass_circle_btn"
-                android:backgroundTint="#30FFFFFF"
-                android:contentDescription="Back"
-                android:src="@drawable/baseline_clear_24"
-                app:tint="@color/color_white" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tvEmergencyTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:fontFamily="@font/poppins_bold"
+                android:text="Emergency Snakebite Protocol"
+                android:textColor="@color/color_white"
+                android:textSize="16sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_bold"
-                    android:letterSpacing="0.04"
-                    android:text="EMERGENCY PROTOCOL"
-                    android:textColor="@color/color_white"
-                    android:textSize="13sp" />
+            <TextView
+                android:id="@+id/tvEmergencySubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Life-Saving First Aid &amp; Action Plan"
+                android:textColor="#E6FFFFFF"
+                android:textSize="11sp" />
 
-                <TextView
-                    android:id="@+id/tvEmergencySubtitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Life-Saving First Aid Steps"
-                    android:textColor="#F0FFFFFF"
-                    android:textSize="11sp" />
-            </LinearLayout>
-        </RelativeLayout>
+        </LinearLayout>
 
-        <!-- Large Title Banner -->
-        <TextView
-            android:id="@+id/tvEmergencyTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_12"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/emergency_mode_title"
-            android:textColor="@color/color_white"
-            android:textSize="22sp" />
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_phone_24"
+            app:tint="@color/color_white" />
 
-        <TextView
-            android:id="@+id/tvEmergencyDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="@string/emergency_mode_subtitle"
-            android:textColor="#F0FFFFFF"
-            android:textSize="13sp" />
     </LinearLayout>
 
     <!-- Scrollable Protocol Guidance -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/persistentEmergencyActions"
-        android:layout_below="@id/emergencyHeader"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
         android:fillViewport="true"
-        android:overScrollMode="never">
+        android:paddingBottom="@dimen/space_20">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/space_16">
+            android:paddingHorizontal="@dimen/space_16"
+            android:paddingTop="@dimen/space_16">
 
-            <!-- Section 1: 4 Immediate Action Steps -->
+            <!-- Golden Hour Banner -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/color_emergency_container"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/color_emergency"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_14">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Golden Hour Rule (First 60 Minutes)"
+                        android:textColor="@color/color_emergency"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingMultiplier="1.25"
+                        android:text="Anti-Snake Venom (ASV) is the only proven scientific cure. Keep victim calm and reach hospital immediately."
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Section 1: Immediate Action Steps -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Immediate First Aid Actions"
-                android:textColor="@color/color_text_primary"
-                android:textSize="14sp" />
+                android:text="Immediate First Aid Steps"
+                android:textColor="@color/color_primary"
+                android:textSize="15sp" />
 
-            <!-- Step 1 -->
+            <!-- Step 1 Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="1dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="@dimen/space_12">
 
                     <TextView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:background="@drawable/bg_feature_icon_circle"
+                        android:background="@drawable/bg_glass_circle_btn"
                         android:backgroundTint="@color/color_primary_container"
                         android:fontFamily="@font/poppins_bold"
                         android:gravity="center"
                         android:text="1"
-                        android:textColor="@color/color_on_primary_container"
-                        android:textSize="16sp" />
+                        android:textColor="@color/color_primary"
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -146,50 +164,49 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
-                            android:text="@string/emergency_step1_title"
+                            android:text="Stay Calm and Keep Patient Still"
                             android:textColor="@color/color_text_primary"
-                            android:textSize="14sp" />
+                            android:textSize="13sp" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="@string/emergency_step1_desc"
+                            android:text="Panic accelerates heart rate and venom circulation. Sit or lie down comfortably."
                             android:textColor="@color/color_text_secondary"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Step 2 -->
+            <!-- Step 2 Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="1dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="@dimen/space_12">
 
                     <TextView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:background="@drawable/bg_feature_icon_circle"
+                        android:background="@drawable/bg_glass_circle_btn"
                         android:backgroundTint="@color/color_primary_container"
                         android:fontFamily="@font/poppins_bold"
                         android:gravity="center"
                         android:text="2"
-                        android:textColor="@color/color_on_primary_container"
-                        android:textSize="16sp" />
+                        android:textColor="@color/color_primary"
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -202,50 +219,49 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
-                            android:text="@string/emergency_step2_title"
+                            android:text="Immobilize the Bitten Limb"
                             android:textColor="@color/color_text_primary"
-                            android:textSize="14sp" />
+                            android:textSize="13sp" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="@string/emergency_step2_desc"
+                            android:text="Use a splint or cloth to keep limb from moving. Keep bite level with or below heart."
                             android:textColor="@color/color_text_secondary"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Step 3 -->
+            <!-- Step 3 Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="1dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="@dimen/space_12">
 
                     <TextView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:background="@drawable/bg_feature_icon_circle"
+                        android:background="@drawable/bg_glass_circle_btn"
                         android:backgroundTint="@color/color_primary_container"
                         android:fontFamily="@font/poppins_bold"
                         android:gravity="center"
                         android:text="3"
-                        android:textColor="@color/color_on_primary_container"
-                        android:textSize="16sp" />
+                        android:textColor="@color/color_primary"
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -258,50 +274,49 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
-                            android:text="@string/emergency_step3_title"
+                            android:text="Remove Tight Rings and Jewelry"
                             android:textColor="@color/color_text_primary"
-                            android:textSize="14sp" />
+                            android:textSize="13sp" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="@string/emergency_step3_desc"
+                            android:text="Swelling may develop rapidly. Remove rings, watches, tight bangles, and boots immediately."
                             android:textColor="@color/color_text_secondary"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Step 4 -->
+            <!-- Step 4 Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="1dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="@dimen/space_12">
 
                     <TextView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:background="@drawable/bg_feature_icon_circle"
+                        android:background="@drawable/bg_glass_circle_btn"
                         android:backgroundTint="@color/color_primary_container"
                         android:fontFamily="@font/poppins_bold"
                         android:gravity="center"
                         android:text="4"
-                        android:textColor="@color/color_on_primary_container"
-                        android:textSize="16sp" />
+                        android:textColor="@color/color_primary"
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -314,29 +329,29 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
-                            android:text="@string/emergency_step4_title"
+                            android:text="Transport to Hospital with ASV"
                             android:textColor="@color/color_text_primary"
-                            android:textSize="14sp" />
+                            android:textSize="13sp" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="@string/emergency_step4_desc"
+                            android:text="Rush patient to Rural Hospital or Civil Hospital in vehicle with patient lying on side."
                             android:textColor="@color/color_text_secondary"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Section 2: DO NOT DO SECTION (Red Dominant Warning Card) -->
+            <!-- Section 2: Critical DO NOT Warnings -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_16"
-                app:cardBackgroundColor="@color/color_emergency_container"
-                app:cardCornerRadius="14dp"
+                app:cardBackgroundColor="@color/color_surface"
+                app:cardCornerRadius="12dp"
                 app:cardElevation="0dp"
                 app:strokeColor="@color/color_emergency"
                 app:strokeWidth="1.5dp">
@@ -351,60 +366,57 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="@string/emergency_do_not_title"
+                        android:text="Critical DO NOT Guidelines"
                         android:textColor="@color/color_emergency"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_6"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="1. Do NOT cut or make incisions on the wound"
-                        android:textColor="@color/color_emergency"
-                        android:textSize="13sp" />
+                        android:text="1. Do NOT make incisions or cuts on bite wound"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="12sp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="4dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="2. Do NOT attempt to suck venom by mouth"
-                        android:textColor="@color/color_emergency"
-                        android:textSize="13sp" />
+                        android:text="2. Do NOT attempt to suck venom by mouth or device"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="12sp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="4dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="3. Do NOT apply tight tourniquets, wires or ropes"
-                        android:textColor="@color/color_emergency"
-                        android:textSize="13sp" />
+                        android:text="3. Do NOT tie tight tourniquets or wires"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="12sp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="4dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="4. Do NOT delay medical care for rituals or herbal remedies"
-                        android:textColor="@color/color_emergency"
-                        android:textSize="13sp" />
+                        android:text="4. Do NOT apply chemicals, cow dung, or herbs"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="12sp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="4dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="5. Do NOT delay hospital transport for anything"
-                        android:textColor="@color/color_emergency"
-                        android:textSize="13sp" />
+                        android:text="5. Do NOT delay hospital transport for remedies"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/space_16" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -413,9 +425,8 @@
         android:id="@+id/persistentEmergencyActions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:background="@color/color_surface"
-        android:elevation="8dp"
+        android:elevation="4dp"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/space_16"
         android:paddingVertical="@dimen/space_12">
@@ -425,14 +436,14 @@
             android:id="@+id/btnCallAmbulance"
             style="@style/Widget.Material3.Button"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="48dp"
             android:backgroundTint="@color/color_emergency"
             android:fontFamily="@font/poppins_bold"
-            android:text="@string/emergency_btn_call_ambulance"
+            android:text="Call Ambulance (108 / 112)"
             android:textColor="@color/color_white"
-            android:textSize="15sp"
+            android:textSize="14sp"
             app:cornerRadius="10dp"
-            app:icon="@drawable/call_logo"
+            app:icon="@drawable/ic_phone_24"
             app:iconGravity="textStart"
             app:iconTint="@color/color_white" />
 
@@ -447,14 +458,14 @@
                 android:id="@+id/btnFindHospitals"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="44dp"
                 android:layout_marginEnd="@dimen/space_4"
                 android:layout_weight="1"
                 android:backgroundTint="@color/color_primary_container"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="@string/emergency_btn_find_help"
+                android:text="Nearby ASV Hospital"
                 android:textColor="@color/color_on_primary_container"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 app:cornerRadius="10dp"
                 app:icon="@drawable/hospital_location_logo"
                 app:iconGravity="textStart" />
@@ -464,13 +475,13 @@
                 android:id="@+id/btnShareSosLocation"
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="44dp"
                 android:layout_marginStart="@dimen/space_4"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="@string/emergency_btn_share_location"
+                android:text="Share GPS SOS"
                 android:textColor="@color/color_text_primary"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 app:cornerRadius="10dp"
                 app:icon="@drawable/share_icon"
                 app:iconGravity="textStart"
@@ -478,4 +489,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

@@ -6,22 +6,18 @@
         <menu>
             <item
                 android:id="@+id/nav_guide"
-                android:icon="@drawable/ic_nav_identify"
                 android:title="Snake Species Guide" />
 
             <item
                 android:id="@+id/nav_identify"
-                android:icon="@drawable/camera_logo"
                 android:title="Visual Snake Identifier" />
 
             <item
                 android:id="@+id/nav_creatures"
-                android:icon="@drawable/red_scorpion"
                 android:title="Insects &amp; Scorpions Guide" />
 
             <item
                 android:id="@+id/nav_safety_academy"
-                android:icon="@drawable/youtube_con"
                 android:title="Safety Video Academy" />
         </menu>
     </item>
@@ -31,22 +27,18 @@
         <menu>
             <item
                 android:id="@+id/nav_hos"
-                android:icon="@drawable/hospital_location_logo"
                 android:title="Nearby ASV Hospitals" />
 
             <item
                 android:id="@+id/nav_rescuers"
-                android:icon="@drawable/ic_feature_rescuers"
                 android:title="Certified Rescuer Directory" />
 
             <item
                 android:id="@+id/nav_govt_compensation"
-                android:icon="@drawable/ic_badge_gold"
                 android:title="₹2 Lakh Farmer Insurance Scheme" />
 
             <item
                 android:id="@+id/nav_govt_portals"
-                android:icon="@drawable/ic_link_globe"
                 android:title="Official District Portals" />
         </menu>
     </item>
@@ -56,17 +48,14 @@
         <menu>
             <item
                 android:id="@+id/nav_language"
-                android:icon="@drawable/theme_palete"
                 android:title="Language / भाषा" />
 
             <item
                 android:id="@+id/nav_about"
-                android:icon="@drawable/ic_drawer_about"
                 android:title="Developer Information" />
 
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_drawer_share"
                 android:title="Share with Farmers" />
         </menu>
     </item>
