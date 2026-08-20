@@ -102,28 +102,15 @@
 
                     <TextView
                         android:id="@+id/locationTextView"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/space_8"
-                        android:layout_weight="1"
                         android:ellipsize="end"
                         android:fontFamily="@font/poppins_semibold"
                         android:maxLines="1"
                         android:text="@string/location_jalna_default"
                         android:textColor="@color/color_text_primary"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/dot_active"
-                        android:backgroundTint="@color/color_success"
-                        android:fontFamily="@font/poppins_bold"
-                        android:paddingHorizontal="@dimen/space_8"
-                        android:paddingVertical="2dp"
-                        android:text="GPS LIVE"
-                        android:textColor="@color/color_white"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
