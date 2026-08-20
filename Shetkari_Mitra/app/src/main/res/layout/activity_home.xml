@@ -92,7 +92,7 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingHorizontal="@dimen/space_12"
-                    android:paddingVertical="@dimen/space_8">
+                    android:paddingVertical="@dimen/space_6">
 
                     <ImageView
                         android:layout_width="16dp"
@@ -102,15 +102,28 @@
 
                     <TextView
                         android:id="@+id/locationTextView"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/space_8"
+                        android:layout_weight="1"
                         android:ellipsize="end"
                         android:fontFamily="@font/poppins_semibold"
                         android:maxLines="1"
                         android:text="@string/location_jalna_default"
                         android:textColor="@color/color_white"
                         android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/dot_active"
+                        android:backgroundTint="#26FFFFFF"
+                        android:fontFamily="@font/poppins_bold"
+                        android:paddingHorizontal="@dimen/space_8"
+                        android:paddingVertical="2dp"
+                        android:text="GPS LIVE"
+                        android:textColor="@color/color_white"
+                        android:textSize="10sp" />
 
                 </LinearLayout>
 
@@ -131,165 +144,12 @@
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/screen_margin_horizontal">
 
-                    <!-- Emergency Protocol Banner -->
+                    <!-- Top Status Card (सुरक्षा कवच सक्रिय) -->
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/emergency_btn"
+                        android:id="@+id/cardStatusProtection"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_14"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardBackgroundColor="#FFF1F2"
-                        app:cardCornerRadius="16dp"
-                        app:cardElevation="0dp"
-                        app:strokeWidth="0dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="@dimen/space_16">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="@string/home_emergency_card_title"
-                                android:textColor="@color/color_emergency"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:fontFamily="@font/poppins_regular"
-                                android:text="@string/home_emergency_card_subtitle"
-                                android:textColor="@color/color_text_secondary"
-                                android:textSize="12sp" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btnStartEmergencyHelp"
-                                style="@style/Widget.Material3.Button"
-                                android:layout_width="match_parent"
-                                android:layout_height="46dp"
-                                android:layout_marginTop="@dimen/space_12"
-                                android:backgroundTint="@color/color_emergency"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="@string/home_emergency_card_cta"
-                                android:textColor="@color/color_white"
-                                android:textSize="14sp"
-                                app:cornerRadius="10dp" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <!-- SECTION 1: MEDICAL & RESCUE NETWORK -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_20"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="MEDICAL &amp; EMERGENCY RESCUE"
-                        android:textColor="@color/color_text_primary"
-                        android:textSize="13sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_8"
-                        android:orientation="horizontal">
-
-                        <!-- Item: Nearby ASV Hospitals -->
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/nearhospital"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="4dp"
-                            android:layout_weight="1"
-                            android:clickable="true"
-                            android:focusable="true"
-                            app:cardBackgroundColor="@color/color_surface"
-                            app:cardCornerRadius="16dp"
-                            app:cardElevation="0dp"
-                            app:strokeWidth="0dp">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:padding="@dimen/space_16">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:gravity="center"
-                                    android:text="ASV Hospitals"
-                                    android:textColor="@color/color_text_primary"
-                                    android:textSize="13sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="2dp"
-                                    android:fontFamily="@font/poppins_regular"
-                                    android:gravity="center"
-                                    android:text="24/7 Anti-Venom"
-                                    android:textColor="@color/color_primary"
-                                    android:textSize="11sp" />
-                            </LinearLayout>
-                        </com.google.android.material.card.MaterialCardView>
-
-                        <!-- Item: Certified Rescuers -->
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/snake_rescuer"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:layout_weight="1"
-                            android:clickable="true"
-                            android:focusable="true"
-                            app:cardBackgroundColor="@color/color_surface"
-                            app:cardCornerRadius="16dp"
-                            app:cardElevation="0dp"
-                            app:strokeWidth="0dp">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:padding="@dimen/space_16">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:gravity="center"
-                                    android:text="Rescuer Directory"
-                                    android:textColor="@color/color_text_primary"
-                                    android:textSize="13sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="2dp"
-                                    android:fontFamily="@font/poppins_regular"
-                                    android:gravity="center"
-                                    android:text="Certified Sarpmitra"
-                                    android:textColor="@color/color_primary"
-                                    android:textSize="11sp" />
-                            </LinearLayout>
-                        </com.google.android.material.card.MaterialCardView>
-
-                    </LinearLayout>
-
-                    <!-- Register as Rescuer Card -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardResRegistration"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_8"
+                        android:layout_marginTop="@dimen/space_12"
                         android:clickable="true"
                         android:focusable="true"
                         app:cardBackgroundColor="@color/color_surface"
@@ -304,9 +164,24 @@
                             android:orientation="horizontal"
                             android:padding="@dimen/space_14">
 
+                            <!-- Shield Icon Container -->
+                            <FrameLayout
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                android:background="@drawable/bg_feature_icon_circle">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_splash_shield"
+                                    app:tint="@color/color_primary" />
+                            </FrameLayout>
+
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_12"
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 
@@ -314,48 +189,39 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_bold"
-                                    android:text="Register as Snake Rescuer"
+                                    android:text="• सुरक्षा कवच सक्रिय (Active)"
+                                    android:textColor="@color/color_primary"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="25+ Hospitals in Jalna District"
                                     android:textColor="@color/color_text_primary"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
-                                    android:text="Join Maharashtra's certified rescue network"
+                                    android:text="Anti-venom serum stock &amp; rescuers available"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="JOIN ›"
-                                android:textColor="@color/color_primary"
-                                android:textSize="12sp" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- SECTION 2: GOVERNMENT PORTALS & SCHEMES -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_20"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="GOVERNMENT SCHEMES &amp; PORTALS"
-                        android:textColor="@color/color_text_primary"
-                        android:textSize="13sp" />
-
-                    <!-- ₹2 Lakh Scheme Card -->
+                    <!-- Emergency SOS Banner (Red Card) -->
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardGovtCompensation"
+                        android:id="@+id/emergency_btn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_8"
+                        android:layout_marginTop="@dimen/space_10"
                         android:clickable="true"
                         android:focusable="true"
-                        app:cardBackgroundColor="@color/color_surface"
+                        app:cardBackgroundColor="@color/color_emergency"
                         app:cardCornerRadius="16dp"
                         app:cardElevation="0dp"
                         app:strokeWidth="0dp">
@@ -363,75 +229,67 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="@dimen/space_16">
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="@dimen/space_16"
+                            android:paddingVertical="@dimen/space_14">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="Life &amp; Accidental Insurance Schemes"
-                                android:textColor="@color/color_primary"
-                                android:textSize="14sp" />
+                            <!-- Call Icon Circle -->
+                            <FrameLayout
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:background="@drawable/bg_glass_circle_btn">
 
-                            <TextView
-                                android:layout_width="match_parent"
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_phone_24"
+                                    app:tint="@color/color_white" />
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="3dp"
-                                android:fontFamily="@font/poppins_regular"
-                                android:text="Gopinath Munde (₹2L), PMJJBY (₹2L), PMSBY (₹2L), and MJPJAY (₹5L) health coverage."
-                                android:textColor="@color/color_text_secondary"
-                                android:textSize="12sp" />
+                                android:layout_marginStart="@dimen/space_12"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="EMERGENCY SOS: CALL 112"
+                                    android:textColor="@color/color_white"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:text="Tap for immediate ambulance &amp; rescuer dispatch"
+                                    android:textColor="#FEE2E2"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:src="@drawable/ic_phone_24"
+                                app:tint="@color/color_white" />
+
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- District Portals Card -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardGovtPortals"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_8"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardBackgroundColor="@color/color_surface"
-                        app:cardCornerRadius="16dp"
-                        app:cardElevation="0dp"
-                        app:strokeWidth="0dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="@dimen/space_16">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="Official Maharashtra State Portals"
-                                android:textColor="@color/color_text_primary"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="3dp"
-                                android:fontFamily="@font/poppins_regular"
-                                android:text="MahaForest, Arogya Vibhag, MahaDBT, SDMA, and District Collectorate portals."
-                                android:textColor="@color/color_text_secondary"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <!-- SECTION 3: WILDLIFE & SAFETY EDUCATION -->
+                    <!-- SECTION: Safety & Rescue Services (2-Column Grid) -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_20"
+                        android:layout_marginTop="@dimen/space_16"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="WILDLIFE &amp; SAFETY KNOWLEDGE"
+                        android:text="Safety &amp; Rescue Services"
                         android:textColor="@color/color_text_primary"
-                        android:textSize="13sp" />
+                        android:textSize="14sp" />
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -439,52 +297,10 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:alignmentMode="alignMargins"
                         android:columnCount="2"
-                        android:rowCount="2"
+                        android:rowCount="3"
                         android:useDefaultMargins="true">
 
-                        <!-- Emergency Safety Helplines -->
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/cardEmergencyContacts"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_margin="4dp"
-                            android:clickable="true"
-                            android:focusable="true"
-                            app:cardBackgroundColor="@color/color_surface"
-                            app:cardCornerRadius="16dp"
-                            app:cardElevation="0dp"
-                            app:strokeWidth="0dp">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:padding="@dimen/space_16">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:gravity="center"
-                                    android:text="Safety Helplines"
-                                    android:textColor="@color/color_text_primary"
-                                    android:textSize="13sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="2dp"
-                                    android:fontFamily="@font/poppins_regular"
-                                    android:gravity="center"
-                                    android:text="NDMA, Child, Ragging"
-                                    android:textColor="@color/color_text_secondary"
-                                    android:textSize="11sp" />
-                            </LinearLayout>
-                        </com.google.android.material.card.MaterialCardView>
-
-                        <!-- Snake Species Guide -->
+                        <!-- 1. Snake Guide -->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/snake_library"
                             android:layout_width="0dp"
@@ -503,11 +319,25 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:padding="@dimen/space_16">
+                                android:padding="@dimen/space_14">
+
+                                <FrameLayout
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/bg_feature_icon_circle">
+
+                                    <ImageView
+                                        android:layout_width="22dp"
+                                        android:layout_height="22dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_feature_snakes"
+                                        app:tint="@color/color_primary" />
+                                </FrameLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/space_8"
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
                                     android:text="Snake Guide"
@@ -520,55 +350,13 @@
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="20 Local Species"
+                                    android:text="20 Species Catalog"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
 
-                        <!-- Insects & Scorpions -->
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/cardHarmfulCreatures"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_margin="4dp"
-                            android:clickable="true"
-                            android:focusable="true"
-                            app:cardBackgroundColor="@color/color_surface"
-                            app:cardCornerRadius="16dp"
-                            app:cardElevation="0dp"
-                            app:strokeWidth="0dp">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:padding="@dimen/space_16">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:gravity="center"
-                                    android:text="Insects &amp; Scorpions"
-                                    android:textColor="@color/color_text_primary"
-                                    android:textSize="13sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="2dp"
-                                    android:fontFamily="@font/poppins_regular"
-                                    android:gravity="center"
-                                    android:text="8 Farm Hazards"
-                                    android:textColor="@color/color_text_secondary"
-                                    android:textSize="11sp" />
-                            </LinearLayout>
-                        </com.google.android.material.card.MaterialCardView>
-
-                        <!-- Safety Video Academy -->
+                        <!-- 2. First Aid & Protocols -->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardSafetyLearning"
                             android:layout_width="0dp"
@@ -587,14 +375,28 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:padding="@dimen/space_16">
+                                android:padding="@dimen/space_14">
+
+                                <FrameLayout
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/bg_feature_icon_circle">
+
+                                    <ImageView
+                                        android:layout_width="22dp"
+                                        android:layout_height="22dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_feature_first_aid"
+                                        app:tint="@color/color_primary" />
+                                </FrameLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/space_8"
                                     android:fontFamily="@font/poppins_bold"
                                     android:gravity="center"
-                                    android:text="Safety Academy"
+                                    android:text="First Aid"
                                     android:textColor="@color/color_text_primary"
                                     android:textSize="13sp" />
 
@@ -604,7 +406,231 @@
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="Videos &amp; Quiz"
+                                    android:text="Do's, Don'ts &amp; Care"
+                                    android:textColor="@color/color_text_secondary"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- 3. Hospitals -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/nearhospital"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="4dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:cardBackgroundColor="@color/color_surface"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/space_14">
+
+                                <FrameLayout
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/bg_feature_icon_circle">
+
+                                    <ImageView
+                                        android:layout_width="22dp"
+                                        android:layout_height="22dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_feature_hospitals"
+                                        app:tint="@color/color_primary" />
+                                </FrameLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/space_8"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:gravity="center"
+                                    android:text="Hospitals"
+                                    android:textColor="@color/color_text_primary"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:gravity="center"
+                                    android:text="Jalna &amp; Map Search"
+                                    android:textColor="@color/color_text_secondary"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- 4. Emergency Helplines -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cardEmergencyContacts"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="4dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:cardBackgroundColor="@color/color_surface"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/space_14">
+
+                                <FrameLayout
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/bg_feature_icon_circle">
+
+                                    <ImageView
+                                        android:layout_width="22dp"
+                                        android:layout_height="22dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_phone_24"
+                                        app:tint="@color/color_primary" />
+                                </FrameLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/space_8"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:gravity="center"
+                                    android:text="Helplines"
+                                    android:textColor="@color/color_text_primary"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:gravity="center"
+                                    android:text="24/7 NDMA &amp; Safety"
+                                    android:textColor="@color/color_text_secondary"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- 5. Snake Rescuers -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/snake_rescuer"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="4dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:cardBackgroundColor="@color/color_surface"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/space_14">
+
+                                <FrameLayout
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/bg_feature_icon_circle">
+
+                                    <ImageView
+                                        android:layout_width="22dp"
+                                        android:layout_height="22dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_feature_rescuers"
+                                        app:tint="@color/color_primary" />
+                                </FrameLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/space_8"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:gravity="center"
+                                    android:text="Snake Rescuers"
+                                    android:textColor="@color/color_text_primary"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:gravity="center"
+                                    android:text="Sarpa Mitra Directory"
+                                    android:textColor="@color/color_text_secondary"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- 6. Join Rescuers -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cardResRegistration"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="4dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:cardBackgroundColor="@color/color_surface"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/space_14">
+
+                                <FrameLayout
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/bg_feature_icon_circle">
+
+                                    <ImageView
+                                        android:layout_width="22dp"
+                                        android:layout_height="22dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_feature_register"
+                                        app:tint="@color/color_primary" />
+                                </FrameLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/space_8"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:gravity="center"
+                                    android:text="Join Rescuers"
+                                    android:textColor="@color/color_text_primary"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:gravity="center"
+                                    android:text="Register as Sarpamitra"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -612,7 +638,111 @@
 
                     </GridLayout>
 
-                    <!-- Myths vs Facts Card -->
+                    <!-- Field Safety Tip Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12"
+                        app:cardBackgroundColor="@color/color_surface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/space_14">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Field Safety Tip for Farmers"
+                                android:textColor="@color/color_primary"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:lineSpacingMultiplier="1.2"
+                                android:text="Always use a stick to rustle grass before entering crops or sheds. At night, keep your flashlight on and wear gumboots."
+                                android:textColor="@color/color_text_secondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- SECTION: Important Knowledge & Schemes (Horizontal List) -->
+                    <!-- 1. Insurance Schemes Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardGovtCompensation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_10"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/color_surface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/space_14">
+
+                            <FrameLayout
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_feature_icon_circle">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_policy_24"
+                                    app:tint="@color/color_primary" />
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_12"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="₹2 Lakh Farmer Insurance Schemes"
+                                    android:textColor="@color/color_text_primary"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:text="Gopinath Munde, PMJJBY &amp; MJPJAY claims"
+                                    android:textColor="@color/color_text_secondary"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Apply ›"
+                                android:textColor="@color/color_primary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- 2. Myths vs Facts Card -->
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/myths_fact"
                         android:layout_width="match_parent"
@@ -628,31 +758,194 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="@dimen/space_16">
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/space_14">
+
+                            <FrameLayout
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_feature_icon_circle">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_feature_myths"
+                                    app:tint="@color/color_primary" />
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_12"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="Myths vs Facts (गैरसमज व वास्तव)"
+                                    android:textColor="@color/color_text_primary"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:text="Scientific snakebite facts &amp; awareness"
+                                    android:textColor="@color/color_text_secondary"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_bold"
-                                android:text="Snake Myths vs Facts"
-                                android:textColor="@color/color_text_primary"
-                                android:textSize="14sp" />
+                                android:text="Read ›"
+                                android:textColor="@color/color_primary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- 3. Insects & Scorpions Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardHarmfulCreatures"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/color_surface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/space_14">
+
+                            <FrameLayout
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_feature_icon_circle">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_feature_snakes"
+                                    app:tint="@color/color_primary" />
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_12"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="Insects &amp; Scorpions (विंचू व कीटक)"
+                                    android:textColor="@color/color_text_primary"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:text="Scorpion stings, blister beetles &amp; farm first aid"
+                                    android:textColor="@color/color_text_secondary"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
 
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="3dp"
-                                android:fontFamily="@font/poppins_regular"
-                                android:text="Scientific facts dispelling traditional superstitions and myths about snakes."
-                                android:textColor="@color/color_text_secondary"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Explore ›"
+                                android:textColor="@color/color_primary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- 4. Official Maharashtra State Portals Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardGovtPortals"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/color_surface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/space_14">
+
+                            <FrameLayout
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_feature_icon_circle">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_link_globe"
+                                    app:tint="@color/color_primary" />
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_12"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="Official Maharashtra State Portals"
+                                    android:textColor="@color/color_text_primary"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:text="MahaForest, Arogya Vibhag, MahaDBT &amp; SDMA"
+                                    android:textColor="@color/color_text_secondary"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Open ›"
+                                android:textColor="@color/color_primary"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/space_20" />
+                        android:layout_height="@dimen/space_24" />
 
                 </LinearLayout>
 

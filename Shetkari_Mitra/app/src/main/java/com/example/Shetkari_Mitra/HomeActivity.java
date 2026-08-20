@@ -138,7 +138,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         btnVoiceAssistant = findViewById(R.id.btnVoiceAssistant);
 
         cardEmergencyBtn = findViewById(R.id.emergency_btn);
-        btnStartEmergencyHelp = findViewById(R.id.btnStartEmergencyHelp);
         cardNearHospital = findViewById(R.id.nearhospital);
         cardSnakeRescuers = findViewById(R.id.snake_rescuer);
 
@@ -150,6 +149,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         View cardGovtPortals = findViewById(R.id.cardGovtPortals);
         View cardSafetyLearning = findViewById(R.id.cardSafetyLearning);
         View cardEmergencyContacts = findViewById(R.id.cardEmergencyContacts);
+        View cardStatusProtection = findViewById(R.id.cardStatusProtection);
 
         if (btnMenuDrawer != null) {
             btnMenuDrawer.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
@@ -165,6 +165,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         if (cardGovtPortals != null) cardGovtPortals.setOnClickListener(v -> startActivity(new Intent(this, GovtPortalsActivity.class)));
         if (cardSafetyLearning != null) cardSafetyLearning.setOnClickListener(v -> startActivity(new Intent(this, SafetyLearningActivity.class)));
         if (cardEmergencyContacts != null) cardEmergencyContacts.setOnClickListener(v -> startActivity(new Intent(this, nav_Emergency_Contacts.class)));
+        if (cardStatusProtection != null) cardStatusProtection.setOnClickListener(v -> startActivity(new Intent(this, Near_By_Hospitals.class)));
     }
 
     private void setupNavigationHeader() {
@@ -188,7 +189,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private void setupCardClickListeners() {
         if (cardEmergencyBtn != null) cardEmergencyBtn.setOnClickListener(v -> openEmergencyMode());
-        if (btnStartEmergencyHelp != null) btnStartEmergencyHelp.setOnClickListener(v -> openEmergencyMode());
 
         if (cardNearHospital != null) cardNearHospital.setOnClickListener(v -> startActivity(new Intent(this, Near_By_Hospitals.class)));
         if (cardSnakeRescuers != null) cardSnakeRescuers.setOnClickListener(v -> startActivity(new Intent(this, RescuerDatabaseActivity.class)));
