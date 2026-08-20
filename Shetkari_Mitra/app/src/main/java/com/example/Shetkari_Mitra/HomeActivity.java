@@ -320,34 +320,24 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(this, MainActivity.class));
         } else if (id == R.id.nav_identify) {
             startActivity(new Intent(this, Acitivity_identify_snake.class));
-        } else if (id == R.id.nav_first_aid) {
-            startActivity(new Intent(this, First_Aid.class));
         } else if (id == R.id.nav_creatures) {
             startActivity(new Intent(this, HarmfulCreaturesActivity.class));
-        } else if (id == R.id.nav_myths) {
-            startActivity(new Intent(this, Activity_Myths_Facts.class));
         } else if (id == R.id.nav_safety_academy) {
             startActivity(new Intent(this, SafetyLearningActivity.class));
-        } else if (id == R.id.nav_govt_portals) {
-            startActivity(new Intent(this, GovtPortalsActivity.class));
         } else if (id == R.id.nav_hos) {
             startActivity(new Intent(this, Near_By_Hospitals.class));
         } else if (id == R.id.nav_rescuers) {
             startActivity(new Intent(this, RescuerDatabaseActivity.class));
         } else if (id == R.id.nav_govt_compensation) {
             startActivity(new Intent(this, GovtCompensationActivity.class));
-        } else if (id == R.id.nav_contacts) {
-            startActivity(new Intent(this, nav_Emergency_Contacts.class));
-        } else if (id == R.id.nav_register_sarpmitra) {
-            startActivity(new Intent(this, Registration_example.class));
+        } else if (id == R.id.nav_govt_portals) {
+            startActivity(new Intent(this, GovtPortalsActivity.class));
         } else if (id == R.id.nav_language) {
             showLanguageDialog();
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(this, Activity_About_Us.class));
         } else if (id == R.id.nav_share) {
             shareApp();
-        } else if (id == R.id.nav_logout) {
-            showLogoutDialog();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

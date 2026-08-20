@@ -1,103 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Section 1: Farmer Safety & Wildlife Knowledge -->
-    <item android:title="🌾 शेतकरी सुरक्षा व ज्ञान (Safety &amp; Knowledge)">
+    <!-- Section 1: Wildlife & Field Knowledge -->
+    <item android:title="Safety &amp; Wildlife">
         <menu>
             <item
                 android:id="@+id/nav_guide"
                 android:icon="@drawable/ic_nav_identify"
-                android:title="Snake Species Guide (सर्प माहिती)" />
+                android:title="Snake Species Guide" />
 
             <item
                 android:id="@+id/nav_identify"
                 android:icon="@drawable/camera_logo"
-                android:title="Visual Snake Identification (सर्प ओळख)" />
-
-            <item
-                android:id="@+id/nav_first_aid"
-                android:icon="@drawable/ic_feature_first_aid"
-                android:title="First Aid Protocol (प्रथमोपचार नियम)" />
+                android:title="Visual Snake Identifier" />
 
             <item
                 android:id="@+id/nav_creatures"
                 android:icon="@drawable/red_scorpion"
-                android:title="Insects &amp; Scorpions (विंचू व कीटक)" />
-
-            <item
-                android:id="@+id/nav_myths"
-                android:icon="@drawable/ic_drawer_myths"
-                android:title="Myths vs Medical Facts (तथ्ये व गैरसमज)" />
-        </menu>
-    </item>
-
-    <!-- Section 2: Medical Emergency & Govt Welfare -->
-    <item android:title="🚨 तातडीची मदत व शासकीय योजना (Emergency &amp; Schemes)">
-        <menu>
-            <item
-                android:id="@+id/nav_contacts"
-                android:icon="@drawable/ic_nav_emergency_alert"
-                android:title="Emergency SOS (तातडीची हेल्पलाईन १०८ / ११२)" />
-
-            <item
-                android:id="@+id/nav_hos"
-                android:icon="@drawable/hospital_location_logo"
-                android:title="Nearby ASV Hospitals (जवळचे रुग्णालय)" />
-
-            <item
-                android:id="@+id/nav_rescuers"
-                android:icon="@drawable/ic_feature_rescuers"
-                android:title="Certified Sarpmitra (सर्पमित्र डिरेक्टरी)" />
-
-            <item
-                android:id="@+id/nav_govt_compensation"
-                android:icon="@drawable/ic_badge_gold"
-                android:title="₹२ लाख शेतकरी विमा (Govt Compensation Scheme)" />
-
-            <item
-                android:id="@+id/nav_govt_portals"
-                android:icon="@drawable/ic_link_globe"
-                android:title="Govt &amp; District Portals (शासकीय दालन)" />
+                android:title="Insects &amp; Scorpions Guide" />
 
             <item
                 android:id="@+id/nav_safety_academy"
                 android:icon="@drawable/youtube_con"
-                android:title="Safety Video Academy &amp; Quiz (व्हिडिओ प्रशिक्षण)" />
+                android:title="Safety Video Academy" />
         </menu>
     </item>
 
-    <!-- Section 3: Community & Settings -->
-    <item android:title="⚙️ समुदाय व सेटिंग्ज (Community &amp; Settings)">
+    <!-- Section 2: Emergency & Schemes -->
+    <item android:title="Medical &amp; Government">
         <menu>
             <item
-                android:id="@+id/nav_register_sarpmitra"
-                android:icon="@drawable/ic_feature_register"
-                android:title="Register as Sarpmitra (सर्पमित्र नोंदणी)" />
+                android:id="@+id/nav_hos"
+                android:icon="@drawable/hospital_location_logo"
+                android:title="Nearby ASV Hospitals" />
 
+            <item
+                android:id="@+id/nav_rescuers"
+                android:icon="@drawable/ic_feature_rescuers"
+                android:title="Certified Rescuer Directory" />
+
+            <item
+                android:id="@+id/nav_govt_compensation"
+                android:icon="@drawable/ic_badge_gold"
+                android:title="₹2 Lakh Farmer Insurance Scheme" />
+
+            <item
+                android:id="@+id/nav_govt_portals"
+                android:icon="@drawable/ic_link_globe"
+                android:title="Official District Portals" />
+        </menu>
+    </item>
+
+    <!-- Section 3: App & Support -->
+    <item android:title="Preferences">
+        <menu>
             <item
                 android:id="@+id/nav_language"
                 android:icon="@drawable/theme_palete"
-                android:title="Change Language (भाषा बदला)" />
+                android:title="Language / भाषा" />
 
             <item
                 android:id="@+id/nav_about"
                 android:icon="@drawable/ic_drawer_about"
-                android:title="Developer Profile (Vishal Bhutekar)" />
-
-            <item
-                android:id="@+id/nav_privacy_policy"
-                android:icon="@drawable/ic_drawer_privacy"
-                android:title="Privacy &amp; Safety Policy" />
+                android:title="Developer Information" />
 
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_drawer_share"
-                android:title="Share App with Farmers" />
-
-            <item
-                android:id="@+id/nav_logout"
-                android:icon="@drawable/ic_drawer_logout"
-                android:title="Logout" />
+                android:title="Share with Farmers" />
         </menu>
     </item>
 

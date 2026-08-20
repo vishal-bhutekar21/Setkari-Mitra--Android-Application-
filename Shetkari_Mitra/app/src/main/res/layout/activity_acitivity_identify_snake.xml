@@ -96,38 +96,66 @@
             <!-- Image Viewport Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="220dp"
                 android:layout_marginTop="@dimen/space_12"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="1dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
-                app:strokeWidth="1dp">
+                app:strokeWidth="1.5dp">
 
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <!-- Captured Photo (Hidden until selected) -->
                     <ImageView
                         android:id="@+id/imageView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/camera_logo" />
+                        android:visibility="gone" />
 
-                    <TextView
-                        android:id="@+id/tvTapToCaptureHint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/dot_active"
-                        android:backgroundTint="#80000000"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:paddingHorizontal="@dimen/space_12"
-                        android:paddingVertical="@dimen/space_4"
-                        android:text="Tap Camera or Gallery below"
-                        android:textColor="@color/color_white"
-                        android:textSize="12sp" />
+                    <!-- Clean Empty State View -->
+                    <LinearLayout
+                        android:id="@+id/layoutEmptyPlaceholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_16">
+
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_feature_icon_circle"
+                            android:backgroundTint="@color/color_surface_variant"
+                            android:padding="12dp"
+                            android:src="@drawable/camera_logo"
+                            app:tint="@color/color_primary" />
+
+                        <TextView
+                            android:id="@+id/tvTapToCaptureHint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_10"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Safe Distance Photography"
+                            android:textColor="@color/color_text_primary"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
+                            android:text="Stand at least 3 meters away from the snake\nTap below to capture or pick from gallery"
+                            android:textColor="@color/color_text_secondary"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
                 </FrameLayout>
             </com.google.android.material.card.MaterialCardView>
 

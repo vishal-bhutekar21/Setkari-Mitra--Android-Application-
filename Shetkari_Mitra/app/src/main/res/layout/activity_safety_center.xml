@@ -188,7 +188,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="🏠 Home Safety"
+                        android:text="Home Environment Safety"
                         android:textColor="@color/color_primary"
                         android:textSize="14sp" />
 
@@ -197,7 +197,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="Never sleep on the bare ground during monsoon; use elevated beds or mosquito nets."
+                        android:text="Never sleep on the bare ground during monsoon; use elevated cots or mosquito nets."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -210,7 +210,7 @@
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="1dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
                 app:strokeWidth="1dp">
 
@@ -224,7 +224,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="🌾 Farm Safety"
+                        android:text="Agricultural &amp; Field Safety"
                         android:textColor="@color/color_primary"
                         android:textSize="14sp" />
 
@@ -246,7 +246,7 @@
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="1dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
                 app:strokeWidth="1dp">
 
@@ -260,7 +260,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="🌧️ Monsoon Safety"
+                        android:text="Monsoon &amp; Flood Season Precautions"
                         android:textColor="@color/color_primary"
                         android:textSize="14sp" />
 
@@ -282,7 +282,7 @@
                 android:layout_marginTop="@dimen/space_8"
                 app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="1dp"
+                app:cardElevation="0dp"
                 app:strokeColor="@color/color_border"
                 app:strokeWidth="1dp">
 
@@ -296,7 +296,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="👶 Children Safety"
+                        android:text="Child Safety &amp; Awareness"
                         android:textColor="@color/color_primary"
                         android:textSize="14sp" />
 

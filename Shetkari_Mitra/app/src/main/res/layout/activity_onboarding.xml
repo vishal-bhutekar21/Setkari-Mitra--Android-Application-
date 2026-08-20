@@ -31,17 +31,16 @@
             android:textColor="@color/color_primary"
             android:textSize="@dimen/text_title" />
 
-        <!-- Glass Skip Button -->
-        <Button
+        <!-- Clean Skip Button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSkip"
-            style="@style/Widget.Material3.Button.TonalButton"
+            style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:background="@drawable/bg_glass_circle_btn"
+            android:layout_height="40dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Skip"
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/text_caption" />
+            android:textColor="@color/color_text_secondary"
+            android:textSize="13sp" />
 
     </LinearLayout>
 

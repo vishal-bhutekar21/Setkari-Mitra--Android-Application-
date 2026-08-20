@@ -27,7 +27,7 @@ public class Acitivity_identify_snake extends AppCompatActivity {
 
     private ImageView imageView;
     private Uri imageUri;
-    private View cardIdentificationResult, tvTapToCaptureHint;
+    private View cardIdentificationResult, tvTapToCaptureHint, layoutEmptyPlaceholder;
     private TextView tvMatchHeader, tvConfidenceScore, tvResultCommonName, tvResultScientificName, tvResultTraits;
     private View btnWhatShouldIDo, btnFindRescuerActionResult, btnLearnMoreActionResult;
 
@@ -47,7 +47,11 @@ public class Acitivity_identify_snake extends AppCompatActivity {
                     if (extras != null) {
                         Bitmap imageBitmap = (Bitmap) extras.get("data");
                         if (imageBitmap != null) {
-                            imageView.setImageBitmap(imageBitmap);
+                            if (imageView != null) {
+                                imageView.setVisibility(View.VISIBLE);
+                                imageView.setImageBitmap(imageBitmap);
+                            }
+                            if (layoutEmptyPlaceholder != null) layoutEmptyPlaceholder.setVisibility(View.GONE);
                             saveBitmapToCacheAndSetUri(imageBitmap);
                             showSimulatedIdentificationResult();
                         }
@@ -59,7 +63,11 @@ public class Acitivity_identify_snake extends AppCompatActivity {
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
                 if (uri != null) {
                     imageUri = uri;
-                    imageView.setImageURI(uri);
+                    if (imageView != null) {
+                        imageView.setVisibility(View.VISIBLE);
+                        imageView.setImageURI(uri);
+                    }
+                    if (layoutEmptyPlaceholder != null) layoutEmptyPlaceholder.setVisibility(View.GONE);
                     showSimulatedIdentificationResult();
                 }
             });
@@ -85,6 +93,7 @@ public class Acitivity_identify_snake extends AppCompatActivity {
         }
 
         imageView = findViewById(R.id.imageView);
+        layoutEmptyPlaceholder = findViewById(R.id.layoutEmptyPlaceholder);
         tvTapToCaptureHint = findViewById(R.id.tvTapToCaptureHint);
         cardIdentificationResult = findViewById(R.id.cardIdentificationResult);
 
