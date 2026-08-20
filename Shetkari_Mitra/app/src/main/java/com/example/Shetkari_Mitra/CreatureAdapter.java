@@ -1,16 +1,19 @@
 package com.example.Shetkari_Mitra;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -22,6 +25,7 @@ public class CreatureAdapter extends RecyclerView.Adapter<CreatureAdapter.Creatu
     private final List<HarmfulCreature> fullList;
     private List<HarmfulCreature> filteredList;
     private boolean isMarathiMode = true;
+    private int lastAnimatedPosition = -1;
 
     public CreatureAdapter(Context context, List<HarmfulCreature> list) {
         this.context = context;
@@ -68,7 +72,7 @@ public class CreatureAdapter extends RecyclerView.Adapter<CreatureAdapter.Creatu
             holder.tvIdentification.setText(c.getIdentificationMr());
             holder.tvHabitat.setText(c.getHabitatMr());
             holder.tvFirstAid.setText(c.getFirstAidMr());
-            holder.tvPrevention.setText("🛡️ दक्षता: " + c.getPreventionMr());
+            holder.tvPrevention.setText("दक्षता: " + c.getPreventionMr());
         } else {
             holder.tvPrimaryName.setText(c.getNameEn());
             holder.tvSecondaryName.setText(c.getNameMr());
@@ -76,7 +80,33 @@ public class CreatureAdapter extends RecyclerView.Adapter<CreatureAdapter.Creatu
             holder.tvIdentification.setText(c.getIdentificationEn());
             holder.tvHabitat.setText(c.getHabitatEn());
             holder.tvFirstAid.setText(c.getFirstAidEn());
-            holder.tvPrevention.setText("🛡️ Prevention: " + c.getPreventionEn());
+            holder.tvPrevention.setText("Prevention: " + c.getPreventionEn());
+        }
+
+        // Tactile Spring Bounce on tap
+        holder.itemView.setOnClickListener(v -> {
+            PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.96f, 1.02f, 1.0f);
+            PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.96f, 1.02f, 1.0f);
+            ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(v, scaleX, scaleY);
+            animator.setDuration(280);
+            animator.setInterpolator(new OvershootInterpolator(1.8f));
+            animator.start();
+        });
+
+        // Cascading smooth entrance animation
+        if (position > lastAnimatedPosition) {
+            holder.itemView.setAlpha(0f);
+            holder.itemView.setTranslationY(40f);
+
+            holder.itemView.animate()
+                    .alpha(1f)
+                    .translationY(0f)
+                    .setDuration(400)
+                    .setStartDelay(position * 60L)
+                    .setInterpolator(new DecelerateInterpolator(1.3f))
+                    .start();
+
+            lastAnimatedPosition = position;
         }
     }
 
@@ -115,6 +145,7 @@ public class CreatureAdapter extends RecyclerView.Adapter<CreatureAdapter.Creatu
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
                 filteredList = (List<HarmfulCreature>) results.values;
+                lastAnimatedPosition = -1;
                 notifyDataSetChanged();
             }
         };

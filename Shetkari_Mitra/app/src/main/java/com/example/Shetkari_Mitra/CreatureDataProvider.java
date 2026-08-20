@@ -45,7 +45,7 @@ public class CreatureDataProvider {
                 "शेतातील पालापाचोळा व जुनी लाकडे काढताना जाड हातमोजे वापरा.",
                 "Wash sting site with soap and water. Apply cold ice pack to relieve burning pain. Seek medical analgesics if pain persists.",
                 "डंखाची जागा साबण व थंड पाण्याने स्वच्छ धुवा. बर्फाचा शेक द्या जेणेकरून जळजळ कमी होईल. डॉक्टरांचा सल्ला घ्या.",
-                R.drawable.red_scorpion
+                R.drawable.black_scorpion
         ));
 
         // 3. Giant Centipede
@@ -105,7 +105,7 @@ public class CreatureDataProvider {
                 "झाडांची छाटणी किंवा फळतोडणी करताना फांद्यांवर पोळे आहे का ते तपासा.",
                 "Scrape out visible stingers. Apply cold ice pack. If patient experiences breathlessness or dizziness, rush to hospital.",
                 "डंख दिसल्यास काढा. बर्फ लावा. जर रुग्णाला चक्कर किंवा धाप लागणे असा त्रास झाला तर तात्काळ रुग्णालयात दाखल करा.",
-                R.drawable.blister_beetle
+                R.drawable.wasp_hornet
         ));
 
         // 6. Hairy Caterpillar
@@ -125,7 +125,7 @@ public class CreatureDataProvider {
                 "खुरपणी करताना व शेंगा तोडताना हातमोजे वापरा.",
                 "Do not rub skin. Use adhesive tape to gently remove embedded hairs, then wash with cold water and apply soothing lotion.",
                 "त्वचा चोळू नका. चिकटपट्टी लावून त्वचेतील बारीक केस अलगद काढा, नंतर थंड पाण्याने धुवून खोबरेल तेल लावा.",
-                R.drawable.giant_centipede
+                R.drawable.hairy_caterpillar
         ));
 
         // 7. Wild Honey Bee Swarm
@@ -145,7 +145,7 @@ public class CreatureDataProvider {
                 "पोळ्यावर दगड मारू नका. हल्ला झाल्यास तोंडावर जाड कापड घेऊन सुरक्षित खोलीत किंवा वाहनात आश्रय घ्या.",
                 "Quickly scrape stingers with a card without squeezing. Apply ice water. If stung multiple times, rush to hospital.",
                 "डंख कार्डने खरवडून काढा. बर्फाचे पाणी लावा. जास्त डंख असल्यास रुग्णाला तात्काळ शासकीय रुग्णालयात दाखल करा.",
-                R.drawable.blister_beetle
+                R.drawable.honey_bee
         ));
 
         // 8. Large Indian Spider
@@ -165,7 +165,7 @@ public class CreatureDataProvider {
                 "कांदा चाळीत व धान्य पोती उचलताना हातमोजे वापरा.",
                 "Wash bite site thoroughly with antiseptic and warm water. Apply cold compress and consult a local doctor.",
                 "चावलेली जागा कोमट पाणी व अँटीसेप्टिकने धुवा. बर्फ लावा. डॉक्टरांच्या सल्ल्याने उपचार घ्या.",
-                R.drawable.giant_centipede
+                R.drawable.spider_huntsman
         ));
 
         return list;
