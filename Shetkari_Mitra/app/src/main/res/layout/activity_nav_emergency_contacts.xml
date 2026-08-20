@@ -20,7 +20,6 @@
             android:paddingHorizontal="@dimen/space_16"
             android:paddingVertical="@dimen/space_12">
 
-            <!-- Frosted Glass Back Button -->
             <ImageButton
                 android:id="@+id/btnGlassBack"
                 android:layout_width="40dp"
@@ -41,55 +40,132 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="@string/emergency_contacts_title"
+                    android:text="National, State &amp; Personal Helplines"
                     android:textColor="@color/color_on_primary"
-                    android:textSize="@dimen/text_title" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="Offline Contacts Stored on Device"
+                    android:text="२४/७ राष्ट्रीय, राज्य व वैयक्तिक आपत्कालीन संपर्क"
                     android:textColor="@color/color_primary_container"
-                    android:textSize="@dimen/text_caption" />
+                    android:textSize="11sp" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:visibility="gone" />
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:paddingBottom="100dp">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewEmergencyContacts"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:paddingTop="@dimen/space_8"
-                android:paddingBottom="@dimen/space_80" />
-
-            <!-- Empty State -->
-            <TextView
-                android:id="@+id/emptyTextView"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/poppins_regular"
-                android:gravity="center"
-                android:padding="@dimen/space_24"
-                android:text="No emergency contacts added yet.\nTap the + button below to add trusted family or doctor contacts."
-                android:textColor="@color/color_text_secondary"
-                android:textSize="@dimen/text_body"
-                android:visibility="gone" />
+                android:orientation="vertical"
+                android:padding="@dimen/space_16">
 
-        </FrameLayout>
+                <!-- SECTION 1: NATIONAL & STATE SAFETY HELPLINES -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="24/7 OFFICIAL SAFETY HELPLINES"
+                    android:textColor="@color/color_text_primary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Tap any helpline below to directly dial the official service"
+                    android:textColor="@color/color_text_secondary"
+                    android:textSize="11sp" />
+
+                <!-- Helplines Container (Inflated / Structured Dynamically) -->
+                <LinearLayout
+                    android:id="@+id/layoutOfficialHelplines"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:orientation="vertical" />
+
+                <!-- SECTION 2: PERSONAL FAMILY & DOCTOR CONTACTS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_24"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="MY PERSONAL EMERGENCY CONTACTS"
+                            android:textColor="@color/color_text_primary"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Family, local doctors &amp; emergency neighbors"
+                            android:textColor="@color/color_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddPersonalContact"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:backgroundTint="@color/color_primary_container"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="+ Add"
+                        android:textColor="@color/color_on_primary_container"
+                        android:textSize="12sp"
+                        app:cornerRadius="8dp" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewEmergencyContacts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:nestedScrollingEnabled="false" />
+
+                <!-- Empty State -->
+                <TextView
+                    android:id="@+id/emptyTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:background="@drawable/bg_glass_card"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:padding="@dimen/space_16"
+                    android:text="No personal contacts added yet. Tap '+ Add' above to save family and doctor numbers for instant offline access."
+                    android:textColor="@color/color_text_secondary"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 
@@ -102,6 +178,7 @@
         android:layout_marginBottom="80dp"
         android:contentDescription="@string/add_emergency_contact"
         android:src="@drawable/plus_icon"
+        android:visibility="gone"
         app:backgroundTint="@color/color_primary"
         app:tint="@color/color_on_primary" />
 

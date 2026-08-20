@@ -26,24 +26,46 @@ public class LocalRescuerData {
         rescuerList.add(new Rescuer("Anil Asaram Shirse", "anil.shirse@gmail.com", "Chhatrapati Sambhajinagar", "Aurangabad", "9422701122", "Waluj MIDC, Chhatrapati Sambhajinagar"));
         rescuerList.add(new Rescuer("Pooja Kulkarni", "pooja.rescue@gmail.com", "Chhatrapati Sambhajinagar", "Paithan", "9823112233", "Near Nath Mandir, Paithan"));
         rescuerList.add(new Rescuer("Kailash Patil", "kailash.patil@gmail.com", "Chhatrapati Sambhajinagar", "Kannad", "9860123456", "Kannad Town, Chhatrapati Sambhajinagar"));
+        rescuerList.add(new Rescuer("Nilesh Sonawane", "nilesh.sonawane@gmail.com", "Chhatrapati Sambhajinagar", "Vaijapur", "9822554411", "Vaijapur Highway, Sambhajinagar"));
+        rescuerList.add(new Rescuer("Sanjay Salve", "sanjay.salve@gmail.com", "Chhatrapati Sambhajinagar", "Sillod", "9766442211", "Sillod Central, Sambhajinagar"));
 
         // ========== BEED DISTRICT ==========
         rescuerList.add(new Rescuer("Balasaheb Shinde", "balasaheb.beed@gmail.com", "Beed", "Beed", "9422119988", "Nagar Road, Beed"));
         rescuerList.add(new Rescuer("Sunil Gavhane", "sunil.gavhane@gmail.com", "Beed", "Ambajogai", "9822443322", "Morewadi, Ambajogai, Beed"));
         rescuerList.add(new Rescuer("Ganesh Jagtap", "ganesh.jagtap@gmail.com", "Beed", "Georai", "9765443322", "National Highway 52, Georai, Beed"));
+        rescuerList.add(new Rescuer("Rameshwar Ghodke", "rameshwar.g@gmail.com", "Beed", "Majalgaon", "9890223344", "Majalgaon Dam Road, Beed"));
+        rescuerList.add(new Rescuer("Pradip Karande", "pradip.k@gmail.com", "Beed", "Parli", "9423117788", "Parli Vaijnath, Beed"));
 
-        // ========== PARBHANI & NANDED ==========
+        // ========== PARBHANI, HINGOLI & NANDED ==========
         rescuerList.add(new Rescuer("Shrikant Joshi", "shrikant.joshi@gmail.com", "Parbhani", "Parbhani", "9822556677", "Subhash Road, Parbhani"));
         rescuerList.add(new Rescuer("Dr. Nitin Kulkarni", "nitin.kulkarni.nanded@gmail.com", "Nanded", "Nanded", "9422176655", "VIP Road, Nanded"));
         rescuerList.add(new Rescuer("Maroti Maske", "maroti.maske@gmail.com", "Nanded", "Loha", "9860445566", "Loha Bypass, Nanded"));
+        rescuerList.add(new Rescuer("Vikas Ingale", "vikas.ingale@gmail.com", "Hingoli", "Hingoli", "9422883344", "Akola Road, Hingoli"));
+        rescuerList.add(new Rescuer("Dipak Kadam", "dipak.kadam@gmail.com", "Parbhani", "Gangakhed", "9850334455", "Godavari Colony, Gangakhed"));
 
-        // ========== PUNE, NASHIK & WESTERN MAHARASHTRA ==========
-        rescuerList.add(new Rescuer("RESQ Wildlife Helpline Pune", "info@resqct.org", "Pune", "Haveli", "9822055110", "Bavdhan, Pune, Maharashtra 411021"));
+        // ========== AHMEDNAGAR, PUNE & NASHIK ==========
+        rescuerList.add(new Rescuer("RESQ Wildlife Helpline Pune", "info@resqct.org", "Pune", "Haveli", "9822055110", "Bavdhan, Pune 411021"));
         rescuerList.add(new Rescuer("Aftab Kalindar Shaikh", "aftab.snakes@gmail.com", "Pune", "Haveli", "9822334455", "Katraj Snake Park Road, Pune"));
-        rescuerList.add(new Rescuer("Vishal Bafna", "vishal.bafna@nashikwild.org", "Nashik", "Nashik", "9850667788", "Panchavati, Nashik, Maharashtra 422003"));
+        rescuerList.add(new Rescuer("Vishal Bafna", "vishal.bafna@nashikwild.org", "Nashik", "Nashik", "9850667788", "Panchavati, Nashik 422003"));
         rescuerList.add(new Rescuer("Ankit Chafekar", "ankit.snakes@gmail.com", "Nashik", "Nashik", "9890123450", "Gangapur Road, Nashik"));
-        rescuerList.add(new Rescuer("Suhas Waingankar", "suhas.kolhapur@gmail.com", "Kolhapur", "Karveer", "9422045566", "Rajarampuri, Kolhapur"));
+        rescuerList.add(new Rescuer("Adv. Amit Gandhile", "amit.snakes@gmail.com", "Ahmednagar", "Nagar", "9822088776", "Savedi, Ahmednagar 414003"));
+        rescuerList.add(new Rescuer("Gorakh Tilekar", "gorakh.tilekar@gmail.com", "Ahmednagar", "Sangamner", "9850776655", "Sangamner City, Ahmednagar"));
+        rescuerList.add(new Rescuer("Akash Dhumal", "akash.dhumal@gmail.com", "Ahmednagar", "Shrirampur", "9766883322", "Station Road, Shrirampur"));
+
+        // ========== BULDHANA, JALGAON & AMRAVATI ==========
+        rescuerList.add(new Rescuer("Gajanan Tale", "gajanan.tale@gmail.com", "Buldhana", "Khamgaon", "9822441188", "Khamgaon MIDC, Buldhana"));
+        rescuerList.add(new Rescuer("Prashant Patil", "prashant.patil@gmail.com", "Jalgaon", "Jalgaon", "9422288990", "Near Mehrun Lake, Jalgaon"));
+        rescuerList.add(new Rescuer("Dr. Kishor Chaware", "kishor.chaware@gmail.com", "Amravati", "Amravati", "9823055443", "Camp Area, Amravati"));
+        rescuerList.add(new Rescuer("Yogesh Deshmukh", "yogesh.snakes@gmail.com", "Akola", "Akola", "9850117766", "Gorakshan Road, Akola"));
+        rescuerList.add(new Rescuer("Sandip Gite", "sandip.gite@gmail.com", "Nagpur", "Nagpur", "9822448833", "Seminary Hills, Nagpur"));
+
+        // ========== LATUR, DHARASHIV, SOLAPUR & KOLHAPUR ==========
+        rescuerList.add(new Rescuer("Sachin Birajdar", "sachin.birajdar@gmail.com", "Latur", "Latur", "9422661122", "Ausa Road, Latur"));
+        rescuerList.add(new Rescuer("Amol Mane", "amol.mane@gmail.com", "Dharashiv", "Osmanabad", "9823114499", "Tuljapur Naka, Dharashiv"));
         rescuerList.add(new Rescuer("Amol Jadhav", "amol.jadhav@gmail.com", "Solapur", "Solapur", "9822119900", "Saat Rasta, Solapur"));
+        rescuerList.add(new Rescuer("Suhas Waingankar", "suhas.kolhapur@gmail.com", "Kolhapur", "Karveer", "9422045566", "Rajarampuri, Kolhapur"));
+        rescuerList.add(new Rescuer("Swapnil Pawar", "swapnil.pawar@gmail.com", "Satara", "Satara", "9822774433", "Powai Naka, Satara"));
+        rescuerList.add(new Rescuer("Umesh Patil", "umesh.patil@gmail.com", "Sangli", "Miraj", "9850221144", "Miraj Railway Junction, Sangli"));
     }
 
     public static synchronized List<Rescuer> getRescuers() {

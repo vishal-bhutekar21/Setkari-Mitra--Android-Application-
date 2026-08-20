@@ -29,6 +29,14 @@ public class GovtCompensationActivity extends AppCompatActivity {
             btnGlassBack.setOnClickListener(v -> finish());
         }
 
+        View btnOpenMahaDbtScheme = findViewById(R.id.btnOpenMahaDbtScheme);
+        if (btnOpenMahaDbtScheme != null) {
+            btnOpenMahaDbtScheme.setOnClickListener(v -> {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mahadbt.maharashtra.gov.in"));
+                startActivity(browserIntent);
+            });
+        }
+
         MaterialButton btnCallKisanCallCenter = findViewById(R.id.btnCallKisanCallCenter);
         if (btnCallKisanCallCenter != null) {
             btnCallKisanCallCenter.setOnClickListener(v -> {
@@ -38,6 +46,6 @@ public class GovtCompensationActivity extends AppCompatActivity {
             });
         }
 
-        BottomNavigationHelper.setupBottomNavigation(this, findViewById(R.id.bottom_navigation), R.id.bottom_nav_home);
+        BottomNavigationHelper.setupBottomNavigation(this, findViewById(R.id.bottom_navigation), R.id.bottom_nav_schemes);
     }
 }

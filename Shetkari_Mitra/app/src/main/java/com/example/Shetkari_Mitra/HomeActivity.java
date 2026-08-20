@@ -139,7 +139,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         cardEmergencyBtn = findViewById(R.id.emergency_btn);
         btnStartEmergencyHelp = findViewById(R.id.btnStartEmergencyHelp);
-        cardIdentifySnake = findViewById(R.id.Snake_identify);
         cardNearHospital = findViewById(R.id.nearhospital);
         cardSnakeRescuers = findViewById(R.id.snake_rescuer);
 
@@ -150,6 +149,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         View cardGovtCompensation = findViewById(R.id.cardGovtCompensation);
         View cardGovtPortals = findViewById(R.id.cardGovtPortals);
         View cardSafetyLearning = findViewById(R.id.cardSafetyLearning);
+        View cardEmergencyContacts = findViewById(R.id.cardEmergencyContacts);
 
         if (btnMenuDrawer != null) {
             btnMenuDrawer.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
@@ -164,6 +164,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         if (cardGovtCompensation != null) cardGovtCompensation.setOnClickListener(v -> startActivity(new Intent(this, GovtCompensationActivity.class)));
         if (cardGovtPortals != null) cardGovtPortals.setOnClickListener(v -> startActivity(new Intent(this, GovtPortalsActivity.class)));
         if (cardSafetyLearning != null) cardSafetyLearning.setOnClickListener(v -> startActivity(new Intent(this, SafetyLearningActivity.class)));
+        if (cardEmergencyContacts != null) cardEmergencyContacts.setOnClickListener(v -> startActivity(new Intent(this, nav_Emergency_Contacts.class)));
     }
 
     private void setupNavigationHeader() {
@@ -189,7 +190,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         if (cardEmergencyBtn != null) cardEmergencyBtn.setOnClickListener(v -> openEmergencyMode());
         if (btnStartEmergencyHelp != null) btnStartEmergencyHelp.setOnClickListener(v -> openEmergencyMode());
 
-        if (cardIdentifySnake != null) cardIdentifySnake.setOnClickListener(v -> startActivity(new Intent(this, Acitivity_identify_snake.class)));
         if (cardNearHospital != null) cardNearHospital.setOnClickListener(v -> startActivity(new Intent(this, Near_By_Hospitals.class)));
         if (cardSnakeRescuers != null) cardSnakeRescuers.setOnClickListener(v -> startActivity(new Intent(this, RescuerDatabaseActivity.class)));
 
@@ -208,7 +208,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         Intent voiceIntent = new Intent(android.speech.RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         voiceIntent.putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE_MODEL, android.speech.RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         voiceIntent.putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        voiceIntent.putExtra(android.speech.RecognizerIntent.EXTRA_PROMPT, "Speak command (e.g., 'Hospital', 'Identify snake', 'Emergency')");
+        voiceIntent.putExtra(android.speech.RecognizerIntent.EXTRA_PROMPT, "Speak command (e.g., 'Hospital', 'Schemes', 'Emergency')");
         try {
             speechRecognitionLauncher.launch(voiceIntent);
         } catch (Exception e) {
@@ -224,8 +224,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             int id = item.getItemId();
             if (id == R.id.bottom_nav_home) {
                 return true;
-            } else if (id == R.id.bottom_nav_identify) {
-                startActivity(new Intent(HomeActivity.this, Acitivity_identify_snake.class));
+            } else if (id == R.id.bottom_nav_schemes) {
+                startActivity(new Intent(HomeActivity.this, GovtCompensationActivity.class));
                 return true;
             } else if (id == R.id.bottom_nav_emergency) {
                 openEmergencyMode();

@@ -5,26 +5,26 @@
     <item
         android:id="@+id/bottom_nav_home"
         android:icon="@drawable/ic_nav_home"
-        android:title="@string/nav_home" />
+        android:title="Home" />
 
     <item
-        android:id="@+id/bottom_nav_identify"
-        android:icon="@drawable/ic_nav_identify"
-        android:title="@string/nav_identify" />
+        android:id="@+id/bottom_nav_schemes"
+        android:icon="@drawable/ic_policy_24"
+        android:title="Schemes" />
 
     <item
         android:id="@+id/bottom_nav_emergency"
         android:icon="@drawable/ic_nav_emergency_alert"
-        android:title="@string/nav_emergency" />
+        android:title="Emergency" />
 
     <item
         android:id="@+id/bottom_nav_safety"
         android:icon="@drawable/ic_nav_safety_shield"
-        android:title="@string/nav_safety" />
+        android:title="Safety" />
 
     <item
         android:id="@+id/bottom_nav_profile"
-        android:icon="@drawable/ic_nav_profile"
-        android:title="@string/nav_profile" />
+        android:icon="@drawable/ic_phone_24"
+        android:title="Helplines" />
 
 </menu>

@@ -35,9 +35,9 @@ public class BottomNavigationHelper {
                     }
                 }
                 return true;
-            } else if (id == R.id.bottom_nav_identify) {
-                if (!(activity instanceof Acitivity_identify_snake)) {
-                    Intent intent = new Intent(activity, Acitivity_identify_snake.class);
+            } else if (id == R.id.bottom_nav_schemes) {
+                if (!(activity instanceof GovtCompensationActivity)) {
+                    Intent intent = new Intent(activity, GovtCompensationActivity.class);
                     activity.startActivity(intent);
                     activity.overridePendingTransition(0, 0);
                     if (!(activity instanceof HomeActivity)) {

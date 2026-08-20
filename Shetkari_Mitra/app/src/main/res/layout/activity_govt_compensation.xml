@@ -36,17 +36,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="शेतकरी अपघात विमा योजना"
+                android:text="Government Insurance &amp; Relief Schemes"
                 android:textColor="@color/color_on_primary"
-                android:textSize="@dimen/text_title" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
-                android:text="₹२ लाख शासकीय नुकसान भरपाई प्रक्रिया"
+                android:text="शासकीय विमा व अपघात सहाय्यता योजना"
                 android:textColor="@color/color_primary_container"
-                android:textSize="@dimen/text_caption" />
+                android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -63,14 +63,14 @@
             android:padding="@dimen/space_16"
             android:paddingBottom="@dimen/space_40">
 
-            <!-- Scheme Banner Card -->
+            <!-- SCHEME 1: Gopinath Munde Shetkari Apghat Yojana -->
             <com.google.android.material.card.MaterialCardView
-                style="@style/Widget.ShetkariMitra.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/color_primary"
+                app:cardBackgroundColor="@color/color_surface"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="3dp">
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -81,201 +81,238 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/dot_active"
-                        android:backgroundTint="#FFD700"
                         android:fontFamily="@font/poppins_bold"
-                        android:paddingHorizontal="@dimen/space_8"
-                        android:paddingVertical="@dimen/space_2"
-                        android:text="महाराष्ट्र शासन अधिकृत योजना"
-                        android:textColor="@color/color_text_primary"
-                        android:textSize="11sp" />
+                        android:text="1. Gopinath Munde Shetkari Apghat Vima Yojana"
+                        android:textColor="@color/color_primary"
+                        android:textSize="15sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="गोपीनाथ मुंडे शेतकरी अपघात सुरक्षा सानुग्रह अनुदान (₹2,00,000)"
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_8"
+                        android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingMultiplier="1.25"
+                        android:text="• Coverage: ₹2,00,000 for accidental death or permanent disability (Snakebite, Electric Shock, Drowning, Road Accident, Farm Machinery, Lightning).\n• Beneficiary: Registered farmers and their family members (10 to 75 years).\n• Application Window: Submit claim within 30 days to Taluka Krishi Adhikari (TKA) or Tahsildar Office.\n• Mandatory Documents: FIR/Police Panchanama, Post-Mortem (PM) Report, Death Certificate, 7/12 &amp; 8A Extract, Legal Heir Certificate."
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnOpenMahaDbtScheme"
+                        style="@style/Widget.Material3.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:backgroundTint="@color/color_primary"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="गोपीनाथ मुंडे शेतकरी अपघात सुरक्षा सानुग्रह अनुदान योजना"
+                        android:text="Apply Online on MahaDBT"
                         android:textColor="@color/color_white"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_4"
-                        android:fontFamily="@font/poppins_regular"
-                        android:lineSpacingMultiplier="1.2"
-                        android:text="सर्पदंश, विंचूदंश किंवा इतर शेतातील अपघातामुळे शेतकऱ्याचा मृत्यू झाल्यास किंवा कायमचे अपंगत्व आल्यास शासनाकडून ₹२,००,०००/- पर्यंत आर्थिक साहाय्य मिळते."
-                        android:textColor="@color/color_primary_container"
-                        android:textSize="12sp" />
-
+                        android:textSize="12sp"
+                        app:cornerRadius="8dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Step-by-Step Claim Process -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_20"
-                android:fontFamily="@font/poppins_bold"
-                android:text="📋 दावा दाखल करण्याची ४-टप्प्यांची प्रक्रिया (Claim Steps)"
-                android:textColor="@color/color_text_primary"
-                android:textSize="14sp" />
-
-            <!-- Step 1 -->
+            <!-- SCHEME 2: PMJJBY Life Insurance Scheme -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginTop="@dimen/space_12"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
-                app:strokeColor="@color/color_border"
-                app:strokeWidth="1dp">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/space_12">
+                    android:padding="@dimen/space_16">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="१. तात्काळ पोलीस व वैद्यकीय नोंद (FIR &amp; Medico-Legal)"
-                        android:textColor="@color/color_primary"
-                        android:textSize="13sp" />
+                        android:text="2. Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="घटनेनंतर तात्काळ स्थानिक पोलीस ठाण्यात खबर (FIR / आकस्मिक मृत्यू नोंद) द्यावी आणि शासकीय रुग्णालयात वैद्यकीय तपासणी / शवविच्छेदन (Post-Mortem) करून घ्यावे."
+                        android:text="प्रधानमंत्री जीवन ज्योती विमा योजना (₹2,00,000 जीवन सुरक्षा)"
+                        android:textColor="@color/color_primary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingMultiplier="1.25"
+                        android:text="• Life Cover: ₹2,00,000 payable to nominee upon death of subscriber due to any cause.\n• Premium: Only ₹436 per annum, auto-debited from bank/post office savings account.\n• Eligibility: Any citizen aged 18 to 50 years with a bank account."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Step 2 -->
+            <!-- SCHEME 3: PMSBY Accidental Insurance -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_8"
+                android:layout_marginTop="@dimen/space_12"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
-                app:strokeColor="@color/color_border"
-                app:strokeWidth="1dp">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/space_12">
+                    android:padding="@dimen/space_16">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="२. तलाठी व पोलीस पंचनामा (Spot Panchnama)"
-                        android:textColor="@color/color_primary"
-                        android:textSize="13sp" />
+                        android:text="3. Pradhan Mantri Suraksha Bima Yojana (PMSBY)"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="घटनास्थळाचा तलाठी किंवा पोलीस पंचनामा करून घ्यावा ज्यामध्ये सर्पदंश शेतात काम करताना झाला असल्याचा स्पष्ट उल्लेख असावा."
+                        android:text="प्रधानमंत्री सुरक्षा विमा योजना (₹2,00,000 अपघात विमा)"
+                        android:textColor="@color/color_primary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingMultiplier="1.25"
+                        android:text="• Accidental Benefit: ₹2,00,000 for accidental death or total permanent disability; ₹1,00,000 for partial permanent disability.\n• Premium: ₹20 per annum.\n• Eligibility: Citizens aged 18 to 70 years."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Step 3 -->
+            <!-- SCHEME 4: MJPJAY Free Health Scheme -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_8"
+                android:layout_marginTop="@dimen/space_12"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
-                app:strokeColor="@color/color_border"
-                app:strokeWidth="1dp">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/space_12">
+                    android:padding="@dimen/space_16">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="३. कागदपत्रे संकलन (Essential Documents Checklist)"
-                        android:textColor="@color/color_primary"
-                        android:textSize="13sp" />
+                        android:text="4. Mahatma Jyotirao Phule Jan Arogya Yojana (MJPJAY)"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:lineSpacingMultiplier="1.2"
-                        android:text="• ७/१२ व ८-अ उतारा (जमिनीची नोंद)\n• एफ.आय.आर. (FIR) प्रत व घटनास्थळ पंचनामा\n• शवविच्छेदन अहवाल (Post Mortem Report) किंवा ASV डिस्चार्ज कार्ड\n• मृत्यू दाखला (Death Certificate)\n• वारसाचा आधार कार्ड व बँक पासबुक झेरॉक्स"
+                        android:text="महात्मा जोतीराव फुले जन आरोग्य योजना (₹5,00,000 मोफत उपचार)"
+                        android:textColor="@color/color_primary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingMultiplier="1.25"
+                        android:text="• Hospitalization Benefit: Up to ₹5,00,000 cashless treatment per family per year in impaneled government and private hospitals across Maharashtra.\n• ICU, ICU ventilator support, dialysis, and emergency antivenom intensive care covered.\n• Eligibility: All ration card holders (Yellow, Orange, White) and farmer families in Maharashtra."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Step 4 -->
+            <!-- SCHEME 5: Forest Department Wildlife Compensation -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_8"
+                android:layout_marginTop="@dimen/space_12"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
-                app:strokeColor="@color/color_border"
-                app:strokeWidth="1dp">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/space_12">
+                    android:padding="@dimen/space_16">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="४. तालुका कृषी अधिकारी / तहसील कार्यालयात अर्ज सादर करणे"
-                        android:textColor="@color/color_primary"
-                        android:textSize="13sp" />
+                        android:text="5. Maharashtra Forest Wildlife Attack Ex-Gratia Relief"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="घटनेच्या ३० दिवसांच्या आत सर्व कागदपत्रांसह अर्ज तालुका कृषी अधिकारी (TAO) किंवा तहसीलदार कार्यालयात दाखल करावा."
+                        android:text="वन विभाग वन्यजीव हल्ला सानुग्रह मदत (₹20,00,000 पर्यंत)"
+                        android:textColor="@color/color_primary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:fontFamily="@font/poppins_regular"
+                        android:lineSpacingMultiplier="1.25"
+                        android:text="• Ex-Gratia Relief: ₹20 Lakh in case of human loss of life due to wild animal attacks; ₹5 Lakh for permanent disability; up to ₹1.25 Lakh for hospitalization.\n• Contact Nearest Range Forest Officer (RFO) or call Toll-Free Helpline: 1926."
                         android:textColor="@color/color_text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Farmer Assistance Helpline Button -->
+            <!-- Direct Kisan Call Center Action -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCallKisanCallCenter"
                 style="@style/Widget.Material3.Button"
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_marginTop="@dimen/space_20"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/space_16"
                 android:backgroundTint="@color/color_primary"
                 android:fontFamily="@font/poppins_bold"
-                android:text="📞 शेतकरी मदत केंद्र (1800-180-1551)"
+                android:text="Call Kisan Call Center (1800-180-1551)"
                 android:textColor="@color/color_white"
-                android:textSize="14sp"
-                app:cornerRadius="12dp" />
+                android:textSize="13sp"
+                app:cornerRadius="10dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
