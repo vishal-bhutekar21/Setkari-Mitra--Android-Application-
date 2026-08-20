@@ -69,13 +69,16 @@
     </LinearLayout>
 
     <!-- Search View Bar -->
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
         android:layout_marginTop="@dimen/space_10"
-        android:background="@drawable/bg_glass_card"
-        android:padding="@dimen/space_4">
+        app:cardBackgroundColor="@color/color_surface"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="0dp"
+        app:strokeColor="#E2E8F0"
+        app:strokeWidth="1dp">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchViewCreatures"
@@ -84,7 +87,7 @@
             app:iconifiedByDefault="false"
             app:queryHint="Search scorpion, beetle, caterpillar, विंचू, कीटक..." />
 
-    </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <!-- Content List -->
     <FrameLayout

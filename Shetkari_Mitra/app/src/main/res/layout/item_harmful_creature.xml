@@ -16,65 +16,23 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Photographic Header Container -->
-        <FrameLayout
+        <!-- Full-Width Wildlife Photo -->
+        <ImageView
+            android:id="@+id/ivCreaturePhoto"
             android:layout_width="match_parent"
-            android:layout_height="170dp">
+            android:layout_height="180dp"
+            android:contentDescription="Creature Photo"
+            android:scaleType="centerCrop"
+            android:src="@drawable/red_scorpion" />
 
-            <ImageView
-                android:id="@+id/ivCreaturePhoto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="Creature Photo"
-                android:scaleType="centerCrop"
-                android:src="@drawable/red_scorpion" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_gravity="bottom"
-                android:background="@drawable/bg_gradient_scrim" />
-
-            <!-- Danger Badge Top Right -->
-            <TextView
-                android:id="@+id/tvDangerBadge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|end"
-                android:layout_margin="@dimen/space_10"
-                android:background="@drawable/bg_venom_badge_venomous"
-                android:fontFamily="@font/poppins_bold"
-                android:paddingHorizontal="@dimen/space_10"
-                android:paddingVertical="@dimen/space_4"
-                android:text="High Danger"
-                android:textColor="@color/color_white"
-                android:textSize="@dimen/text_caption" />
-
-            <!-- Category Tag Top Left -->
-            <TextView
-                android:id="@+id/tvCategoryTag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_margin="@dimen/space_10"
-                android:background="@drawable/bg_glass_circle_btn"
-                android:fontFamily="@font/poppins_semibold"
-                android:paddingHorizontal="@dimen/space_10"
-                android:paddingVertical="@dimen/space_4"
-                android:text="Scorpion"
-                android:textColor="@color/color_white"
-                android:textSize="@dimen/text_caption" />
-
-        </FrameLayout>
-
-        <!-- Content Details Body -->
+        <!-- Content Body -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/space_16">
 
-            <!-- Names -->
+            <!-- Title & Secondary Name -->
             <TextView
                 android:id="@+id/tvPrimaryName"
                 android:layout_width="wrap_content"
@@ -82,16 +40,16 @@
                 android:fontFamily="@font/poppins_bold"
                 android:text="Indian Red Scorpion"
                 android:textColor="@color/color_text_primary"
-                android:textSize="@dimen/text_title" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tvSecondaryName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="@font/poppins_regular"
                 android:text="तांबडा विंचू"
-                android:textColor="@color/color_primary"
-                android:textSize="@dimen/text_body" />
+                android:textColor="@color/color_text_secondary"
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/tvScientificName"
@@ -99,121 +57,125 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Mesobuthus tamulus"
-                android:textColor="@color/color_text_secondary"
-                android:textSize="@dimen/text_caption"
+                android:text="Mesobuthus tamulus • Scorpion"
+                android:textColor="@color/color_primary"
+                android:textSize="12sp"
                 android:textStyle="italic" />
 
-            <!-- Toxicity Chip Box -->
-            <LinearLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_10"
-                android:background="@drawable/bg_glass_card"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="@dimen/space_8">
+                android:layout_height="1dp"
+                android:layout_marginVertical="@dimen/space_10"
+                android:background="#F1F5F9" />
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_feature_first_aid"
-                    app:tint="@color/color_emergency" />
-
-                <TextView
-                    android:id="@+id/tvToxicityInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/space_8"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="Neurotoxic &amp; Cardiovascular Venom"
-                    android:textColor="@color/color_text_primary"
-                    android:textSize="@dimen/text_caption" />
-
-            </LinearLayout>
-
-            <!-- Identification Section -->
+            <!-- Toxicity & Danger -->
             <TextView
+                android:id="@+id/tvToxicityLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_12"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Physical Markers (ओळख खुणा)"
+                android:text="Venom / Toxicity"
                 android:textColor="@color/color_text_primary"
-                android:textSize="@dimen/text_body_small" />
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvToxicityInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/poppins_regular"
+                android:lineSpacingMultiplier="1.2"
+                android:text="Neurotoxic and cardiovascular venom causing severe pain."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="12sp" />
+
+            <!-- Physical Markers -->
+            <TextView
+                android:id="@+id/tvIdentificationLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Physical Markers"
+                android:textColor="@color/color_text_primary"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tvIdentification"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_4"
+                android:layout_marginTop="2dp"
                 android:fontFamily="@font/poppins_regular"
                 android:lineSpacingMultiplier="1.2"
                 android:text="Orange-red to dark red-brown body, thick tail with sharp sting."
                 android:textColor="@color/color_text_secondary"
-                android:textSize="@dimen/text_caption" />
+                android:textSize="12sp" />
 
-            <!-- Habitat Section -->
+            <!-- Farm Risk Areas -->
             <TextView
+                android:id="@+id/tvHabitatLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_10"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Farm Risk Areas (अधिवास व धोका)"
+                android:text="Farm Risk Areas"
                 android:textColor="@color/color_text_primary"
-                android:textSize="@dimen/text_body_small" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tvHabitat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_4"
+                android:layout_marginTop="2dp"
                 android:fontFamily="@font/poppins_regular"
                 android:lineSpacingMultiplier="1.2"
                 android:text="Dry farm bunds, under stones, sugarcane husk, gum boots."
                 android:textColor="@color/color_text_secondary"
-                android:textSize="@dimen/text_caption" />
+                android:textSize="12sp" />
 
-            <!-- First Aid Protocol Box -->
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- First Aid Protocol -->
+            <TextView
+                android:id="@+id/tvFirstAidLabel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_12"
-                android:background="@drawable/bg_feature_card_red"
-                android:orientation="vertical"
-                android:padding="@dimen/space_10">
+                android:layout_marginTop="@dimen/space_10"
+                android:fontFamily="@font/poppins_bold"
+                android:text="First Aid Protocol"
+                android:textColor="@color/color_text_primary"
+                android:textSize="12sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="Emergency First Aid (प्रथमोपचार)"
-                    android:textColor="@color/color_emergency"
-                    android:textSize="@dimen/text_body_small" />
+            <TextView
+                android:id="@+id/tvFirstAid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/poppins_regular"
+                android:lineSpacingMultiplier="1.2"
+                android:text="Keep calm. Rush to hospital immediately for evaluation."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/tvFirstAid"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_4"
-                    android:fontFamily="@font/poppins_regular"
-                    android:lineSpacingMultiplier="1.2"
-                    android:text="Rush to hospital immediately. Prazosin medication is specific therapy."
-                    android:textColor="@color/color_text_primary"
-                    android:textSize="@dimen/text_caption" />
+            <!-- Prevention Tip -->
+            <TextView
+                android:id="@+id/tvPreventionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Prevention Guide"
+                android:textColor="@color/color_text_primary"
+                android:textSize="12sp" />
 
-            </LinearLayout>
-
-            <!-- Farmer Prevention Tip -->
             <TextView
                 android:id="@+id/tvPrevention"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginTop="2dp"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Prevention: Always shake shoes and clothes before farm work."
-                android:textColor="@color/color_primary"
-                android:textSize="@dimen/text_caption" />
+                android:lineSpacingMultiplier="1.2"
+                android:text="Always shake shoes and clothes before farm work. Use flashlight at night."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="12sp" />
 
         </LinearLayout>
 

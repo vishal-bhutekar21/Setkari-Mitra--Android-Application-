@@ -54,55 +54,67 @@ public class CreatureAdapter extends RecyclerView.Adapter<CreatureAdapter.Creatu
         HarmfulCreature c = filteredList.get(position);
 
         holder.ivCreaturePhoto.setImageResource(c.getImageResId());
-        holder.tvCategoryTag.setText(c.getCategory());
-        holder.tvDangerBadge.setText(c.getDangerLevel());
-
-        if (c.getDangerLevel().contains("High") || c.getDangerLevel().contains("खतरनाक")) {
-            holder.tvDangerBadge.setBackgroundResource(R.drawable.bg_venom_badge_venomous);
-        } else {
-            holder.tvDangerBadge.setBackgroundResource(R.drawable.bg_venom_badge_non_venomous);
-        }
-
-        holder.tvScientificName.setText(c.getScientificName());
 
         if (isMarathiMode) {
             holder.tvPrimaryName.setText(c.getNameMr());
             holder.tvSecondaryName.setText(c.getNameEn());
+            holder.tvScientificName.setText(c.getScientificName() + " • " + c.getCategory() + " (" + c.getDangerLevel() + ")");
+            
+            holder.tvToxicityLabel.setText("विषारी स्वरूप व तीव्रता");
             holder.tvToxicityInfo.setText(c.getToxicityTypeMr());
+
+            holder.tvIdentificationLabel.setText("शारीरिक ओळख खुणा");
             holder.tvIdentification.setText(c.getIdentificationMr());
+
+            holder.tvHabitatLabel.setText("शेतातील संभाव्य ठिकाणे व धोका");
             holder.tvHabitat.setText(c.getHabitatMr());
+
+            holder.tvFirstAidLabel.setText("प्रथमोपचार व तातडीचे उपाय");
             holder.tvFirstAid.setText(c.getFirstAidMr());
-            holder.tvPrevention.setText("दक्षता: " + c.getPreventionMr());
+
+            holder.tvPreventionLabel.setText("शेतकरी दक्षता व खबरदारी");
+            holder.tvPrevention.setText(c.getPreventionMr());
         } else {
             holder.tvPrimaryName.setText(c.getNameEn());
             holder.tvSecondaryName.setText(c.getNameMr());
+            holder.tvScientificName.setText(c.getScientificName() + " • " + c.getCategory() + " (" + c.getDangerLevel() + ")");
+
+            holder.tvToxicityLabel.setText("Venom & Toxicity");
             holder.tvToxicityInfo.setText(c.getToxicityTypeEn());
+
+            holder.tvIdentificationLabel.setText("Physical Markers");
             holder.tvIdentification.setText(c.getIdentificationEn());
+
+            holder.tvHabitatLabel.setText("Farm Habitats & Risk Areas");
             holder.tvHabitat.setText(c.getHabitatEn());
+
+            holder.tvFirstAidLabel.setText("First Aid Protocol");
             holder.tvFirstAid.setText(c.getFirstAidEn());
-            holder.tvPrevention.setText("Prevention: " + c.getPreventionEn());
+
+            holder.tvPreventionLabel.setText("Prevention Guide");
+            holder.tvPrevention.setText(c.getPreventionEn());
         }
 
         // Tactile Spring Bounce on tap
         holder.itemView.setOnClickListener(v -> {
-            PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.96f, 1.02f, 1.0f);
-            PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.96f, 1.02f, 1.0f);
+            PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.97f, 1.01f, 1.0f);
+            PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.97f, 1.01f, 1.0f);
             ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(v, scaleX, scaleY);
-            animator.setDuration(280);
-            animator.setInterpolator(new OvershootInterpolator(1.8f));
+            animator.setDuration(260);
+            animator.setInterpolator(new OvershootInterpolator(1.6f));
             animator.start();
         });
 
         // Cascading smooth entrance animation
         if (position > lastAnimatedPosition) {
             holder.itemView.setAlpha(0f);
-            holder.itemView.setTranslationY(40f);
+            holder.itemView.setTranslationY(30f);
 
             holder.itemView.animate()
                     .alpha(1f)
                     .translationY(0f)
-                    .setDuration(400)
-                    .setStartDelay(position * 60L)
+                    .setDuration(350)
+                    .setStartDelay(position * 50L)
                     .setInterpolator(new DecelerateInterpolator(1.3f))
                     .start();
 
@@ -153,21 +165,28 @@ public class CreatureAdapter extends RecyclerView.Adapter<CreatureAdapter.Creatu
 
     public static class CreatureViewHolder extends RecyclerView.ViewHolder {
         ImageView ivCreaturePhoto;
-        TextView tvCategoryTag, tvDangerBadge, tvPrimaryName, tvSecondaryName, tvScientificName;
-        TextView tvToxicityInfo, tvIdentification, tvHabitat, tvFirstAid, tvPrevention;
+        TextView tvPrimaryName, tvSecondaryName, tvScientificName;
+        TextView tvToxicityLabel, tvToxicityInfo;
+        TextView tvIdentificationLabel, tvIdentification;
+        TextView tvHabitatLabel, tvHabitat;
+        TextView tvFirstAidLabel, tvFirstAid;
+        TextView tvPreventionLabel, tvPrevention;
 
         public CreatureViewHolder(@NonNull View itemView) {
             super(itemView);
             ivCreaturePhoto = itemView.findViewById(R.id.ivCreaturePhoto);
-            tvCategoryTag = itemView.findViewById(R.id.tvCategoryTag);
-            tvDangerBadge = itemView.findViewById(R.id.tvDangerBadge);
             tvPrimaryName = itemView.findViewById(R.id.tvPrimaryName);
             tvSecondaryName = itemView.findViewById(R.id.tvSecondaryName);
             tvScientificName = itemView.findViewById(R.id.tvScientificName);
+            tvToxicityLabel = itemView.findViewById(R.id.tvToxicityLabel);
             tvToxicityInfo = itemView.findViewById(R.id.tvToxicityInfo);
+            tvIdentificationLabel = itemView.findViewById(R.id.tvIdentificationLabel);
             tvIdentification = itemView.findViewById(R.id.tvIdentification);
+            tvHabitatLabel = itemView.findViewById(R.id.tvHabitatLabel);
             tvHabitat = itemView.findViewById(R.id.tvHabitat);
+            tvFirstAidLabel = itemView.findViewById(R.id.tvFirstAidLabel);
             tvFirstAid = itemView.findViewById(R.id.tvFirstAid);
+            tvPreventionLabel = itemView.findViewById(R.id.tvPreventionLabel);
             tvPrevention = itemView.findViewById(R.id.tvPrevention);
         }
     }
