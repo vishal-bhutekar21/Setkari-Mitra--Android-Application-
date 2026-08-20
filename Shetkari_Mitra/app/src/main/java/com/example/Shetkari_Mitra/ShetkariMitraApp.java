@@ -2,7 +2,6 @@ package com.example.Shetkari_Mitra;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -38,12 +37,12 @@ public class ShetkariMitraApp extends Application {
             Context ctx = getApplicationContext();
             Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
             
-            // Set compliant, unique User-Agent adhering to OpenStreetMap Tile Usage Policy
-            String userAgent = getPackageName() + "/2.0 (Linux; Android " + android.os.Build.VERSION.RELEASE + "; +https://github.com/vishal-bhutekar21/Setkari-Mitra--Android-Application-)";
+            // Set distinct legitimate User-Agent conforming strictly to OpenStreetMap Tile Usage Policy
+            String userAgent = "ShetkariMitraSafetyApp/3.0.0 (Android; Maharashtra Farmer Rescue Network; vishal.bhutekar21@gmail.com)";
             Configuration.getInstance().setUserAgentValue(userAgent);
 
-            // Configure dedicated tile cache directory
-            File osmBase = new File(ctx.getCacheDir(), "osmdroid");
+            // Configure dedicated tile cache directory and clear any stale 403 error files
+            File osmBase = new File(ctx.getCacheDir(), "osmdroid_v2");
             if (!osmBase.exists()) {
                 osmBase.mkdirs();
             }

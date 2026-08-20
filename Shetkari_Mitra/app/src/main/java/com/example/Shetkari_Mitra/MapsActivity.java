@@ -68,10 +68,10 @@ public class MapsActivity extends AppCompatActivity {
         // OSMDroid configuration conforming strictly to OpenStreetMap Tile Usage Policy
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
-        String userAgent = getPackageName() + "/2.0 (Linux; Android " + android.os.Build.VERSION.RELEASE + "; +https://github.com/vishal-bhutekar21/Setkari-Mitra--Android-Application-)";
+        String userAgent = "ShetkariMitraSafetyApp/3.0.0 (Android; Maharashtra Farmer Rescue Network; vishal.bhutekar21@gmail.com)";
         Configuration.getInstance().setUserAgentValue(userAgent);
         
-        java.io.File osmBase = new java.io.File(ctx.getCacheDir(), "osmdroid");
+        java.io.File osmBase = new java.io.File(ctx.getCacheDir(), "osmdroid_v2");
         if (!osmBase.exists()) osmBase.mkdirs();
         java.io.File osmTiles = new java.io.File(osmBase, "tiles");
         if (!osmTiles.exists()) osmTiles.mkdirs();

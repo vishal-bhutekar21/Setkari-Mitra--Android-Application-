@@ -1,114 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/Widget.ShetkariMitra.Card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
-    android:layout_marginVertical="@dimen/space_8"
+    android:layout_marginVertical="@dimen/space_6"
     app:cardBackgroundColor="@color/color_surface"
-    app:strokeColor="@color/color_border"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:strokeColor="#E2E8F0"
     app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/space_16">
 
+        <!-- Header: Rescuer Name & Verified Tag -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/snake_rescure"
-                android:contentDescription="Rescuer" />
-
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/textViewRescuerName"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_12"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/color_text_primary"
+                android:textSize="15sp" />
 
-                <TextView
-                    android:id="@+id/textViewRescuerName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textColor="@color/color_text_primary"
-                    android:textSize="@dimen/text_body_large" />
-
-                <TextView
-                    android:id="@+id/talukaanddistrict"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/color_primary"
-                    android:textSize="@dimen/text_caption" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/talukaanddistrict"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/dot_active"
+                android:backgroundTint="@color/color_primary_container"
+                android:fontFamily="@font/poppins_semibold"
+                android:paddingHorizontal="@dimen/space_8"
+                android:paddingVertical="@dimen/space_2"
+                android:textColor="@color/color_primary"
+                android:textSize="10.5sp" />
 
         </LinearLayout>
 
+        <!-- Address & Area -->
         <TextView
             android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_8"
+            android:layout_marginTop="@dimen/space_6"
             android:fontFamily="@font/poppins_regular"
             android:textColor="@color/color_text_secondary"
-            android:textSize="@dimen/text_caption" />
+            android:textSize="11.5sp" />
 
+        <!-- Phone Number -->
         <TextView
             android:id="@+id/testviewformobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_4"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/poppins_bold"
             android:textColor="@color/color_text_primary"
-            android:textSize="@dimen/text_body" />
+            android:textSize="13sp" />
 
+        <!-- Action Buttons Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_12"
             android:orientation="horizontal">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCallRescuer"
-                style="@style/Widget.ShetkariMitra.Button.Primary"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="42dp"
                 android:layout_marginEnd="@dimen/space_4"
-                android:text="Call"
-                android:textSize="@dimen/text_caption" />
-
-            <Button
-                android:id="@+id/btnRequestRescue"
-                style="@style/Widget.ShetkariMitra.Button.Primary"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.2"
-                android:layout_marginHorizontal="@dimen/space_4"
-                android:backgroundTint="@color/color_emergency"
-                android:text="Request Help"
-                android:textColor="@color/color_white"
-                android:textSize="@dimen/text_caption" />
-
-            <Button
-                android:id="@+id/btnSms"
-                style="@style/Widget.ShetkariMitra.Button.Outlined"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/color_primary"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Call"
+                android:textColor="@color/color_white"
+                android:textSize="12sp"
+                app:cornerRadius="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRequestRescue"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginHorizontal="@dimen/space_4"
+                android:layout_weight="1.2"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Request Help"
+                android:textColor="@color/color_primary"
+                android:textSize="12sp"
+                app:cornerRadius="8dp"
+                app:strokeColor="@color/color_primary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSms"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
                 android:layout_marginStart="@dimen/space_4"
+                android:layout_weight="0.8"
+                android:fontFamily="@font/poppins_bold"
                 android:text="SMS"
-                android:textSize="@dimen/text_caption" />
+                android:textColor="@color/color_primary"
+                android:textSize="12sp"
+                app:cornerRadius="8dp"
+                app:strokeColor="@color/color_primary" />
 
         </LinearLayout>
 
