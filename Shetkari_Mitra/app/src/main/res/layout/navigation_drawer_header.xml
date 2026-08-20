@@ -70,17 +70,4 @@
         android:textColor="@color/color_primary_container"
         android:textSize="12sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_8"
-        android:background="@drawable/dot_active"
-        android:backgroundTint="#26FFFFFF"
-        android:fontFamily="@font/poppins_bold"
-        android:paddingHorizontal="@dimen/space_8"
-        android:paddingVertical="2dp"
-        android:text="VERIFIED SHEKARI ACCOUNT"
-        android:textColor="@color/color_white"
-        android:textSize="9.5sp" />
-
 </LinearLayout>

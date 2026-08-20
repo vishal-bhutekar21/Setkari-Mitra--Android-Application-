@@ -98,6 +98,20 @@
                 android:textSize="14sp"
                 app:cornerRadius="12dp" />
 
+            <!-- Continue as Guest Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGuestLogin"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="@dimen/space_12"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Continue as Guest (अतिथी प्रवेश)"
+                android:textColor="@color/color_primary"
+                android:textSize="13sp"
+                app:cornerRadius="12dp"
+                app:strokeColor="@color/color_primary" />
+
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>

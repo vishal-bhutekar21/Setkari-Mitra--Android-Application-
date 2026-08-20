@@ -24,7 +24,7 @@
             android:background="@drawable/bg_glass_circle_btn"
             android:backgroundTint="#33FFFFFF"
             android:contentDescription="Back"
-            android:src="@drawable/baseline_clear_24"
+            android:src="@drawable/ic_arrow_back_24"
             app:tint="@color/color_white" />
 
         <LinearLayout
@@ -74,10 +74,11 @@
 
             <!-- Golden Hour Banner -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardGoldenHour"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/color_emergency_container"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
                 app:strokeColor="@color/color_emergency"
                 app:strokeWidth="1dp">
@@ -111,23 +112,27 @@
 
             <!-- Section 1: Immediate Action Steps -->
             <TextView
+                android:id="@+id/tvSectionSteps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_16"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Immediate First Aid Steps"
                 android:textColor="@color/color_primary"
-                android:textSize="15sp" />
+                android:textSize="14sp" />
 
             <!-- Step 1 Card -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardStep1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
+                android:clickable="true"
+                android:focusable="true"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/color_border"
+                app:strokeColor="#E2E8F0"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -176,13 +181,16 @@
 
             <!-- Step 2 Card -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardStep2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
+                android:clickable="true"
+                android:focusable="true"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/color_border"
+                app:strokeColor="#E2E8F0"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -231,13 +239,16 @@
 
             <!-- Step 3 Card -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardStep3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
+                android:clickable="true"
+                android:focusable="true"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/color_border"
+                app:strokeColor="#E2E8F0"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -286,13 +297,16 @@
 
             <!-- Step 4 Card -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardStep4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
+                android:clickable="true"
+                android:focusable="true"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/color_border"
+                app:strokeColor="#E2E8F0"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -341,11 +355,12 @@
 
             <!-- Section 2: Critical DO NOT Warnings -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDoNot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_16"
                 app:cardBackgroundColor="@color/color_surface"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
                 app:strokeColor="@color/color_emergency"
                 app:strokeWidth="1.5dp">
@@ -420,7 +435,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/color_surface"
-        android:elevation="4dp"
+        android:elevation="8dp"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/space_16"
         android:paddingVertical="@dimen/space_12">

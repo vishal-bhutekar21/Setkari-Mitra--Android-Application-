@@ -45,8 +45,21 @@ public class LoginPage_Fragment extends Fragment {
         emailEditText = view.findViewById(R.id.TextEmailView);
         passwordEditText = view.findViewById(R.id.passwordEditText);
         signInButton = view.findViewById(R.id.signInButton);
+        View btnGuestLogin = view.findViewById(R.id.btnGuestLogin);
 
         signInButton.setOnClickListener(v -> attemptLogin());
+        if (btnGuestLogin != null) {
+            btnGuestLogin.setOnClickListener(v -> {
+                SharedPreferences prefs = requireContext().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+                prefs.edit()
+                        .putBoolean(KEY_LOGGED_IN, true)
+                        .putString("saved_username", "Guest Farmer (शेतकरी)")
+                        .putString("saved_email", "guest@shetkarimitra.app")
+                        .apply();
+                Toast.makeText(getContext(), "Logged in as Guest", Toast.LENGTH_SHORT).show();
+                navigateToHome();
+            });
+        }
 
         return view;
     }
