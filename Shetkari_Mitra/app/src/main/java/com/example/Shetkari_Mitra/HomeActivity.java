@@ -334,6 +334,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(this, Near_By_Hospitals.class));
         } else if (id == R.id.nav_rescuers) {
             startActivity(new Intent(this, RescuerDatabaseActivity.class));
+        } else if (id == R.id.nav_govt_compensation) {
+            startActivity(new Intent(this, GovtCompensationActivity.class));
         } else if (id == R.id.nav_contacts) {
             startActivity(new Intent(this, nav_Emergency_Contacts.class));
         } else if (id == R.id.nav_register_sarpmitra) {

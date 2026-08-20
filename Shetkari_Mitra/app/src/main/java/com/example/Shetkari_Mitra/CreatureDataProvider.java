@@ -128,6 +128,46 @@ public class CreatureDataProvider {
                 R.drawable.giant_centipede
         ));
 
+        // 7. Wild Honey Bee Swarm
+        list.add(new HarmfulCreature(
+                "Giant Rock Honey Bee (Swarm Attack)",
+                "आग्या मधमाशी (सामूहिक हल्ला)",
+                "Apis dorsata",
+                "Bee/Swarm",
+                "High (सामूहिक विषबाधा व शॉक)",
+                "Melittin & Histamine Multi-Sting Shock (अतिविषबाधा व अॅलर्जिक शॉक)",
+                "सामूहिक डंखांमुळे शरीरात विष भरणे व श्वास कोंडणे",
+                "Large aggressive wild honeybees that build massive exposed hives on tall trees, rocks, and water tanks.",
+                "मोठ्या आकाराची रागीट मधमाशी जी विहिरीच्या काठावर, उंच वृक्षांवर व शेतातील झाडांवर मोठी पोळी बनवते.",
+                "Forest borders, tamarind/banyan trees, sugarcane fields, farm wells, and overhead water towers.",
+                "चिंच, वड, लिंबाची झाडे, विहिरींच्या आतल्या भिंती आणि पाणी साठवण टाक्यांखाली.",
+                "Do NOT throw stones or create smoke under hives during sunny hours. If attacked, cover face with thick blanket/cloth and run in zigzag pattern to enclosed shelter.",
+                "पोळ्यावर दगड मारू नका किंवा खाली अचानक धूर करू नका. हल्ला झाल्यास तोंडावर जाड घोंगडी/कापड घेऊन सुरक्षित खोलीत किंवा वाहनात आश्रय घ्या.",
+                "Quickly scrape stingers with a hard card (do NOT squeeze with fingers). Apply cold ice water. If stung by >20 bees or victim has dizziness, rush to ICU/Hospital immediately.",
+                "डंख कार्डने खरवडून काढा (बोटाने दाबू नका). बर्फाचे पाणी लावा. २० पेक्षा जास्त डंख असल्यास रुग्णाला तात्काळ आयसीयू/शासकीय रुग्णालयात दाखल करा.",
+                R.drawable.blister_beetle
+        ));
+
+        // 8. Large Indian Spider
+        list.add(new HarmfulCreature(
+                "Indian Ornamental / Huntsman Spider",
+                "विषाक्त कोळी (मोठा शेतकरी कोळी)",
+                "Poecilotheria / Heteropoda venatoria",
+                "Spider",
+                "Moderate (स्थानिक सूज व जळजळ)",
+                "Necrotic & Neurotoxic (स्थानिक ऊती दाह व तीव्र कळा)",
+                "स्थानिक त्वचेची जळजळ, लालसर सूज व स्नायूंमध्ये कळा",
+                "Large hairy brown or grey patterned spider with long striped legs, fast-moving night hunter.",
+                "मोठा, राखाडी-तपकिरी रंगाचा, लांब पट्टेदार पाय असलेला वेगाने पळणारा रात्रीचा कोळी.",
+                "Under tree barks, old farm pump houses, dry onion/garlic storage lofts, beneath wooden racks.",
+                "झाडांची साल, शेतातील मोटार पंप हाऊस, कांदा चाळ आणि जुन्या लाकडी फळ्यांच्या मागे.",
+                "Wear protective gloves when sorting onions, garlic, or stored grain sacks.",
+                "कांदा चाळीत व धान्य पोती उचलताना हातमोजे वापरा.",
+                "Wash bite site thoroughly with antiseptic and warm water. Apply cold compress. Take pain medication and consult a local doctor.",
+                "चावलेली जागा कोमट पाणी व अँटीसेप्टिकने धुवा. बर्फ लावा. डॉक्टरांच्या सल्ल्याने वेदनाशामक औषध घ्या.",
+                R.drawable.giant_centipede
+        ));
+
         return list;
     }
 }
