@@ -15,10 +15,10 @@ import com.google.android.material.tabs.TabLayoutMediator;
 public class First_Aid extends AppCompatActivity {
 
     private final String[] tabTitles = new String[]{
-            "🚨 Steps (पायऱ्या)",
-            "⚠️ DOs & DON'Ts",
-            "🔍 Symptoms (लक्षणे)",
-            "📞 Helplines (हेल्पलाईन)"
+            "Steps (पायऱ्या)",
+            "DOs & DON'Ts",
+            "Symptoms (लक्षणे)",
+            "Helplines (हेल्पलाईन)"
     };
 
     @Override

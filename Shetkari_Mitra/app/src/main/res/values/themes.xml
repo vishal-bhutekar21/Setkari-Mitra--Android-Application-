@@ -55,6 +55,9 @@
     <style name="Shape.ShetkariMitra.Large" parent="ShapeAppearance.Material3.LargeComponent">
         <item name="cornerSize">16dp</item>
     </style>
+    <style name="Shape.ShetkariMitra.Full" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerSize">50%</item>
+    </style>
 
     <!-- Splash theme (no action bar, status bar transparent) -->
     <style name="Theme.ShetkariMitra.Splash" parent="Theme.ShetkariMitra">

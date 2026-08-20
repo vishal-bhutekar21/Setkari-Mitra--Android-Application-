@@ -2,71 +2,72 @@
 <resources>
 
     <!-- ===== BACKGROUNDS ===== -->
-    <color name="color_background">#F5F7F5</color>
+    <color name="color_background">#F6F8F6</color>
     <color name="color_surface">#FFFFFF</color>
-    <color name="color_surface_variant">#EEF3EF</color>
+    <color name="color_surface_variant">#EDF3EE</color>
     <color name="color_surface_elevated">#FFFFFF</color>
+    <color name="color_white">#FFFFFF</color>
 
-    <!-- ===== PRIMARY — Deep Forest Green (calm, safety, nature) ===== -->
-    <color name="color_primary">#1B5E3B</color>
-    <color name="color_primary_dark">#0D3B24</color>
-    <color name="color_primary_light">#2E7D50</color>
-    <color name="color_primary_container">#C8E6C9</color>
+    <!-- ===== PRIMARY — Refined Slate-Emerald (calm, balanced, natural, non-saturated) ===== -->
+    <color name="color_primary">#1E5B43</color>
+    <color name="color_primary_dark">#144230</color>
+    <color name="color_primary_light">#387B60</color>
+    <color name="color_primary_container">#DDEEE3</color>
     <color name="color_on_primary">#FFFFFF</color>
-    <color name="color_on_primary_container">#0A2E1C</color>
+    <color name="color_on_primary_container">#0F3526</color>
 
-    <!-- ===== SECONDARY — Warm Earth Tone ===== -->
-    <color name="color_secondary">#795548</color>
-    <color name="color_secondary_container">#EFEBE9</color>
+    <!-- ===== SECONDARY — Muted Eucalyptus Slate ===== -->
+    <color name="color_secondary">#53675D</color>
+    <color name="color_secondary_container">#DFE8E2</color>
     <color name="color_on_secondary">#FFFFFF</color>
 
     <!-- ===== TEXT ===== -->
-    <color name="color_text_primary">#1A1A1A</color>
-    <color name="color_text_secondary">#5C5C5C</color>
-    <color name="color_text_hint">#9E9E9E</color>
+    <color name="color_text_primary">#1B241F</color>
+    <color name="color_text_secondary">#55685E</color>
+    <color name="color_text_hint">#84968C</color>
     <color name="color_text_on_primary">#FFFFFF</color>
-    <color name="color_text_disabled">#BDBDBD</color>
+    <color name="color_text_disabled">#B8C5BD</color>
 
     <!-- ===== BORDERS / DIVIDERS ===== -->
-    <color name="color_border">#E0E0E0</color>
-    <color name="color_divider">#F0F0F0</color>
-    <color name="color_outline">#BDBDBD</color>
+    <color name="color_border">#DEE6E0</color>
+    <color name="color_divider">#EBF1ED</color>
+    <color name="color_outline">#BAC7BE</color>
 
     <!-- ===== SEMANTIC STATES ===== -->
-    <color name="color_success">#2E7D32</color>
-    <color name="color_success_container">#E8F5E9</color>
+    <color name="color_success">#287A4F</color>
+    <color name="color_success_container">#E0F4E8</color>
     <color name="color_on_success">#FFFFFF</color>
 
-    <color name="color_warning">#E65100</color>
-    <color name="color_warning_container">#FFF3E0</color>
+    <color name="color_warning">#C97A16</color>
+    <color name="color_warning_container">#FEF3C7</color>
     <color name="color_on_warning">#FFFFFF</color>
 
-    <color name="color_error">#C62828</color>
-    <color name="color_error_container">#FFEBEE</color>
+    <color name="color_error">#BA3333</color>
+    <color name="color_error_container">#FCE8E8</color>
     <color name="color_on_error">#FFFFFF</color>
 
-    <!-- ===== EMERGENCY — Reserved exclusively for genuine emergency UI ===== -->
-    <color name="color_emergency">#B71C1C</color>
-    <color name="color_emergency_container">#FFCDD2</color>
+    <!-- ===== EMERGENCY ===== -->
+    <color name="color_emergency">#B92D2D</color>
+    <color name="color_emergency_container">#FCE8E8</color>
     <color name="color_on_emergency">#FFFFFF</color>
 
     <!-- ===== SNAKE CLASSIFICATION ===== -->
-    <color name="color_venomous">#D32F2F</color>
-    <color name="color_venomous_container">#FFCDD2</color>
-    <color name="color_non_venomous">#388E3C</color>
-    <color name="color_non_venomous_container">#C8E6C9</color>
+    <color name="color_venomous">#B92D2D</color>
+    <color name="color_venomous_container">#FCE8E8</color>
+    <color name="color_non_venomous">#287A4F</color>
+    <color name="color_non_venomous_container">#E0F4E8</color>
 
     <!-- ===== STATUS BAR / NAVIGATION BAR ===== -->
-    <color name="color_status_bar">#0D3B24</color>
+    <color name="color_status_bar">#144230</color>
 
-    <!-- Legacy names kept for compatibility with any legacy drawables/layouts -->
+    <!-- Compatibility aliases -->
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
-    <color name="red">#C62828</color>
-    <color name="simple_red">#C62828</color>
-    <color name="back_for_card">#1B5E3B</color>
-    <color name="tabTextColor">#1B5E3B</color>
-    <color name="purple_200">#81C784</color>
-    <color name="lavender">#C8E6C9</color>
+    <color name="red">#BA3333</color>
+    <color name="simple_red">#BA3333</color>
+    <color name="back_for_card">#1E5B43</color>
+    <color name="tabTextColor">#1E5B43</color>
+    <color name="purple_200">#78C9A2</color>
+    <color name="lavender">#DDEEE3</color>
 
 </resources>

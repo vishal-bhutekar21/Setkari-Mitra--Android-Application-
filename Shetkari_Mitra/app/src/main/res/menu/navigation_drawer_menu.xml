@@ -1,48 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="none">
-        <item
-            android:id="@+id/nav_contacts"
-            android:title="Emergency Contacts"
-            android:icon="@drawable/phone_call_icon" />
-
-        <item
-            android:id="@+id/nav_hos"
-            android:title="Nearby Hospitals on Map"
-            android:icon="@drawable/location_icon" />
-
-        <item
-            android:id="@+id/nav_myths"
-            android:title="Myths vs Facts (गैरसमज व वास्तव)"
-            android:icon="@drawable/p2" />
-
-        <item
-            android:id="@+id/nav_about"
-            android:title="About Shetkari Mitra"
-            android:icon="@drawable/about_us_logo" />
-    </group>
-
-    <item android:title="Administration">
+    <!-- Section 1: Farmer Safety & Wildlife Knowledge -->
+    <item android:title="शेतकरी सुरक्षा व ज्ञान (Safety &amp; Knowledge)">
         <menu>
             <item
-                android:id="@+id/nav_Admin"
-                android:title="Hospital Registration (Admin)"
-                android:icon="@drawable/admin_logo" />
+                android:id="@+id/nav_guide"
+                android:title="Snake Species Guide (सर्प माहिती)"
+                android:icon="@drawable/ic_feature_snakes" />
+
+            <item
+                android:id="@+id/nav_identify"
+                android:title="Visual Snake Identification (सर्प ओळख)"
+                android:icon="@drawable/ic_feature_identify" />
+
+            <item
+                android:id="@+id/nav_first_aid"
+                android:title="First Aid &amp; Do's/Don'ts (प्रथमोपचार)"
+                android:icon="@drawable/ic_feature_first_aid" />
+
+            <item
+                android:id="@+id/nav_creatures"
+                android:title="Insects &amp; Scorpions (विंचू व विषारी कीटक)"
+                android:icon="@drawable/ic_feature_identify" />
+
+            <item
+                android:id="@+id/nav_myths"
+                android:title="Myths vs Facts (गैरसमज व तथ्ये)"
+                android:icon="@drawable/ic_drawer_myths" />
         </menu>
     </item>
 
-    <item android:title="Application">
+    <!-- Section 2: Emergency & Nearby Assistance -->
+    <item android:title="तातडीची मदत व वैद्यकीय सेवा (Emergency Assistance)">
         <menu>
+            <item
+                android:id="@+id/nav_hos"
+                android:title="Nearby ASV Hospitals (जवळचे रुग्णालय)"
+                android:icon="@drawable/ic_drawer_hospitals" />
+
+            <item
+                android:id="@+id/nav_rescuers"
+                android:title="Certified Sarpmitra (सर्पमित्र डिरेक्टरी)"
+                android:icon="@drawable/ic_feature_rescuers" />
+
+            <item
+                android:id="@+id/nav_contacts"
+                android:title="Emergency SOS (तातडीची हेल्पलाईन १०८ / ११२)"
+                android:icon="@drawable/ic_drawer_emergency" />
+        </menu>
+    </item>
+
+    <!-- Section 3: Community & Registration -->
+    <item android:title="समुदाय व सहभाग (Community)">
+        <menu>
+            <item
+                android:id="@+id/nav_register_sarpmitra"
+                android:title="Register as Sarpmitra (सर्पमित्र नोंदणी)"
+                android:icon="@drawable/ic_feature_register" />
+        </menu>
+    </item>
+
+    <!-- Section 4: Application & Developer -->
+    <item android:title="ॲप व विकासक (App &amp; Developer)">
+        <menu>
+            <item
+                android:id="@+id/nav_about"
+                android:title="Developer Profile (Vishal Bhutekar)"
+                android:icon="@drawable/ic_drawer_about" />
+
+            <item
+                android:id="@+id/nav_privacy_policy"
+                android:title="Privacy &amp; Safety Policy"
+                android:icon="@drawable/ic_drawer_privacy" />
+
             <item
                 android:id="@+id/nav_share"
                 android:title="Share App with Farmers"
-                android:icon="@drawable/share_icon" />
+                android:icon="@drawable/ic_drawer_share" />
 
             <item
                 android:id="@+id/nav_logout"
                 android:title="Logout"
-                android:icon="@drawable/logout_icon" />
+                android:icon="@drawable/ic_drawer_logout" />
         </menu>
     </item>
 

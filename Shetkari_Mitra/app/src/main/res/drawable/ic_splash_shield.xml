@@ -1,0 +1,23 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    <!-- Outer Shield Glow -->
+    <path
+        android:fillColor="#30DDEEE3"
+        android:pathData="M60,10 L100,25 C100,70 60,105 60,105 C60,105 20,70 20,25 Z" />
+    <!-- Solid Shield -->
+    <path
+        android:fillColor="#1E5B43"
+        android:strokeColor="#78C9A2"
+        android:strokeWidth="3"
+        android:pathData="M60,16 L92,28 C92,66 60,98 60,98 C60,98 28,66 28,28 Z" />
+    <!-- Farmer Leaf / Plant sprout (peaceful agriculture) -->
+    <path
+        android:fillColor="#78C9A2"
+        android:pathData="M60,35 C60,35 75,45 75,60 C75,70 65,72 60,72 C55,72 45,70 45,60 C45,45 60,35 60,35 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M60,42 C60,42 68,50 68,60 C68,66 62,67 60,67 C58,67 52,66 52,60 C52,50 60,42 60,42 Z" />
+</vector>

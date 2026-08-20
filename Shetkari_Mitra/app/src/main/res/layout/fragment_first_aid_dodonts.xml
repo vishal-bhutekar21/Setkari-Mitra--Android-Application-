@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="✔️ Keep Limb Below Heart Level"
+                android:text="DO: Keep Limb Below Heart Level"
                 android:textColor="@color/color_text_primary"
                 android:textSize="@dimen/text_body" />
 
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="✔️ Wash Gently with Soap &amp; Water"
+                android:text="DO: Wash Gently with Soap &amp; Water"
                 android:textColor="@color/color_text_primary"
                 android:textSize="@dimen/text_body" />
 
@@ -89,7 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="✔️ Note Snake Appearance from Safe Distance"
+                android:text="DO: Note Snake Appearance from Safe Distance"
                 android:textColor="@color/color_text_primary"
                 android:textSize="@dimen/text_body" />
 
@@ -110,7 +110,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_20"
-            android:text="❌ WHAT NOT TO DO (काय करू नये — धोकादायक)"
+            android:text="WHAT NOT TO DO (काय करू नये — धोकादायक)"
             android:textColor="@color/color_emergency" />
 
         <!-- DONT 1 -->
@@ -126,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="❌ NO Tourniquets or Tight Tying (दोरीने बांधू नका)"
+                android:text="NO Tourniquets or Tight Tying (दोरीने बांधू नका)"
                 android:textColor="@color/color_emergency"
                 android:textSize="@dimen/text_body" />
 
@@ -154,7 +154,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="❌ NO Blade Cuts or Bleeding (ब्लेडने कापू नका)"
+                android:text="NO Blade Cuts or Bleeding (ब्लेडने कापू नका)"
                 android:textColor="@color/color_emergency"
                 android:textSize="@dimen/text_body" />
 
@@ -182,7 +182,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="❌ NO Sucking Venom by Mouth (तोंडातून विष चोखू नका)"
+                android:text="NO Sucking Venom by Mouth (तोंडातून विष चोखू नका)"
                 android:textColor="@color/color_emergency"
                 android:textSize="@dimen/text_body" />
 
@@ -210,7 +210,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="❌ NO Tantriks, Ojhas or Herbs (मांत्रिकांकडे नेऊ नका)"
+                android:text="NO Tantriks, Ojhas or Herbs (मांत्रिकांकडे नेऊ नका)"
                 android:textColor="@color/color_emergency"
                 android:textSize="@dimen/text_body" />
 

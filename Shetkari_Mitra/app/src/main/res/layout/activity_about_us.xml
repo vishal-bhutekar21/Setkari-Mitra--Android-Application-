@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="@string/about_us_title"
+                android:text="About &amp; Developer"
                 android:textColor="@color/color_on_primary"
                 android:textSize="@dimen/text_title" />
 
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Dedicated to Farmer Safety"
+                android:text="Farmer Safety &amp; Engineering"
                 android:textColor="@color/color_primary_container"
                 android:textSize="@dimen/text_caption" />
 
@@ -53,47 +53,58 @@
 
     </LinearLayout>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:visibility="gone" />
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/space_32">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="@dimen/space_24"
-            android:paddingBottom="@dimen/space_40">
+            android:paddingHorizontal="@dimen/screen_margin_horizontal">
 
-            <!-- App Logo -->
-            <ImageView
-                android:id="@+id/app_logo"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="@dimen/space_16"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/app_logo" />
-
-            <!-- App Info Card -->
+            <!-- App Mission Card -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_24"
+                android:layout_marginTop="@dimen/space_16"
                 android:background="@drawable/bg_glass_card"
+                android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:padding="@dimen/space_16">
+                android:padding="@dimen/space_20">
+
+                <ImageView
+                    android:id="@+id/app_logo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/app_logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Shetkari Mitra"
+                    android:textColor="@color/color_text_primary"
+                    android:textSize="@dimen/text_title_large" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Version 2.0 • Maharashtra Farmer Safety Hub"
+                    android:textColor="@color/color_text_secondary"
+                    android:textSize="@dimen/text_caption" />
 
                 <TextView
                     android:id="@+id/app_info"
                     style="@style/TextAppearance.ShetkariMitra.Body"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
                     android:lineSpacingMultiplier="1.4"
                     android:text="@string/about_us_info_text"
                     android:textAlignment="center"
@@ -102,34 +113,310 @@
 
             </LinearLayout>
 
-            <!-- Contact Card -->
+            <!-- Lead Developer Profile Card -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_16"
                 android:background="@drawable/bg_glass_card"
-                android:gravity="center"
                 android:orientation="vertical"
-                android:padding="@dimen/space_16">
+                android:padding="@dimen/space_20">
 
-                <TextView
-                    style="@style/TextAppearance.ShetkariMitra.SectionTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Developers &amp; Contact"
-                    android:textColor="@color/color_primary" />
-
-                <TextView
-                    android:id="@+id/contact_us"
-                    style="@style/TextAppearance.ShetkariMitra.Body"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_8"
-                    android:lineSpacingMultiplier="1.4"
-                    android:text="@string/contact_us_emails"
-                    android:textAlignment="center"
-                    android:textColor="@color/color_primary"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- Avatar Container -->
+                    <ImageView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_feature_icon_circle"
+                        android:backgroundTint="@color/color_primary_container"
+                        android:padding="12dp"
+                        android:src="@drawable/user_circle"
+                        app:tint="@color/color_primary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_12"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="@string/developer_name"
+                            android:textColor="@color/color_text_primary"
+                            android:textSize="@dimen/text_title" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="@string/developer_title"
+                            android:textColor="@color/color_primary"
+                            android:textSize="@dimen/text_caption" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- IndiaSkills Gold Medalist Badge -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:background="@drawable/bg_glass_button"
+                    android:backgroundTint="@color/color_warning_container"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/space_12"
+                    android:paddingVertical="@dimen/space_8">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_badge_gold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_8"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="@string/developer_badge"
+                        android:textColor="@color/color_warning"
+                        android:textSize="@dimen/text_caption" />
+
+                </LinearLayout>
+
+                <!-- Bio -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:fontFamily="@font/poppins_regular"
+                    android:lineSpacingMultiplier="1.35"
+                    android:text="@string/developer_bio"
+                    android:textColor="@color/color_text_secondary"
                     android:textSize="@dimen/text_body" />
+
+                <!-- Action Links -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:orientation="vertical">
+
+                    <!-- Portfolio Link Button -->
+                    <LinearLayout
+                        android:id="@+id/btnDevPortfolio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_glass_card"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/space_14"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_link_globe"
+                            app:tint="@color/color_primary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_10"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Portfolio Website"
+                            android:textColor="@color/color_text_primary"
+                            android:textSize="@dimen/text_caption" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="vishalbhutekar.netlify.app"
+                            android:textColor="@color/color_primary"
+                            android:textSize="@dimen/text_caption" />
+
+                    </LinearLayout>
+
+                    <!-- GitHub Link Button -->
+                    <LinearLayout
+                        android:id="@+id/btnDevGithub"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:background="@drawable/bg_glass_card"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/space_14"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_drawer_about"
+                            app:tint="@color/color_primary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_10"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="GitHub Repository"
+                            android:textColor="@color/color_text_primary"
+                            android:textSize="@dimen/text_caption" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="vishal-bhutekar21"
+                            android:textColor="@color/color_primary"
+                            android:textSize="@dimen/text_caption" />
+
+                    </LinearLayout>
+
+                    <!-- LinkedIn Link Button -->
+                    <LinearLayout
+                        android:id="@+id/btnDevLinkedin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:background="@drawable/bg_glass_card"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/space_14"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_feature_identify"
+                            app:tint="@color/color_primary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_10"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="LinkedIn Profile"
+                            android:textColor="@color/color_text_primary"
+                            android:textSize="@dimen/text_caption" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Connect"
+                            android:textColor="@color/color_primary"
+                            android:textSize="@dimen/text_caption" />
+
+                    </LinearLayout>
+
+                    <!-- Email Contact Button -->
+                    <LinearLayout
+                        android:id="@+id/btnDevEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:background="@drawable/bg_glass_card"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/space_14"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_drawer_emergency"
+                            app:tint="@color/color_primary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_10"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Developer Email"
+                            android:textColor="@color/color_text_primary"
+                            android:textSize="@dimen/text_caption" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="vishalbhutekar33772@gmail.com"
+                            android:textColor="@color/color_primary"
+                            android:textSize="@dimen/text_caption" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Privacy Policy Access Card -->
+            <LinearLayout
+                android:id="@+id/btnViewPrivacyPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:background="@drawable/bg_glass_card"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_16">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_drawer_privacy"
+                    app:tint="@color/color_primary" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_12"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Privacy Policy &amp; Data Safety"
+                        android:textColor="@color/color_text_primary"
+                        android:textSize="@dimen/text_body" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Read our strict farmer privacy commitment"
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="@dimen/text_caption" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

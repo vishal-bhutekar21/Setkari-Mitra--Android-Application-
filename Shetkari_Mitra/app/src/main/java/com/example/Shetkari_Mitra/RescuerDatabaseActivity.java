@@ -31,6 +31,18 @@ public class RescuerDatabaseActivity extends AppCompatActivity {
             btnGlassBack.setOnClickListener(v -> finish());
         }
 
+        View cardOpenRescuerMap = findViewById(R.id.cardOpenRescuerMap);
+        View btnOpenMapBanner = findViewById(R.id.btnOpenMapBanner);
+
+        View.OnClickListener mapLaunchListener = v -> {
+            android.content.Intent intent = new android.content.Intent(RescuerDatabaseActivity.this, MapsActivity.class);
+            intent.putExtra("SHOW_RESCUERS", true);
+            startActivity(intent);
+        };
+
+        if (cardOpenRescuerMap != null) cardOpenRescuerMap.setOnClickListener(mapLaunchListener);
+        if (btnOpenMapBanner != null) btnOpenMapBanner.setOnClickListener(mapLaunchListener);
+
         recyclerViewRescuers = findViewById(R.id.recyclerViewRescuers);
         searchView = findViewById(R.id.searchView);
         emptyTextView = findViewById(R.id.emptyTextView);

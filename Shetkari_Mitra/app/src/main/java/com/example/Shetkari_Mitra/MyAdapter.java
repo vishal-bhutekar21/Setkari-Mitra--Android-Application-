@@ -12,21 +12,32 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     private Context context;
     private List<DataClass> dataList;
+    private boolean isMarathi = false;
 
-    public void setSearchList(List<DataClass> dataSearchList){
+    public MyAdapter(Context context, List<DataClass> dataList) {
+        this.context = context;
+        this.dataList = dataList;
+    }
+
+    public void setSearchList(List<DataClass> dataSearchList) {
         this.dataList = dataSearchList;
         notifyDataSetChanged();
     }
 
-    public MyAdapter(Context context, List<DataClass> dataList){
-        this.context = context;
-        this.dataList = dataList;
+    public void setLanguage(boolean isMarathi) {
+        this.isMarathi = isMarathi;
+        notifyDataSetChanged();
+    }
+
+    public boolean isMarathi() {
+        return isMarathi;
     }
 
     @NonNull
@@ -38,48 +49,60 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        DataClass item = dataList.get(position);
 
-        holder.recImage.setImageResource(dataList.get(position).getDataImage());
-        holder.recTitle.setText(dataList.get(position).getDataTitle());
-        holder.recDesc.setText(dataList.get(position).getDataDesc());
-        holder.recLang.setText(dataList.get(position).getDataLang());
-        holder.recLocation.setText(dataList.get(position).getDataLocation());
+        holder.recImage.setImageResource(item.getImageRes());
+        holder.recTitle.setText(item.getName(isMarathi));
+        holder.recScientific.setText(item.getScientificName());
+        holder.recDesc.setText(item.getDesc(isMarathi));
+        holder.recLocation.setText(item.getHabitat(isMarathi));
+        holder.recLang.setText(item.getVenomStatus(isMarathi));
 
-        holder.recCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        // Set venom badge background color based on danger level
+        if (item.getVenomLevel() == 1) {
+            holder.recLang.setBackgroundTintList(ContextCompat.getColorStateList(context, R.color.color_emergency));
+            holder.recLang.setTextColor(ContextCompat.getColor(context, R.color.color_on_emergency));
+        } else if (item.getVenomLevel() == 2) {
+            holder.recLang.setBackgroundTintList(ContextCompat.getColorStateList(context, R.color.color_warning));
+            holder.recLang.setTextColor(ContextCompat.getColor(context, R.color.color_white));
+        } else {
+            holder.recLang.setBackgroundTintList(ContextCompat.getColorStateList(context, R.color.color_primary));
+            holder.recLang.setTextColor(ContextCompat.getColor(context, R.color.color_on_primary));
+        }
+
+        holder.recCard.setOnClickListener(v -> {
+            int currentPos = holder.getAdapterPosition();
+            if (currentPos != RecyclerView.NO_POSITION && currentPos < dataList.size()) {
+                DataClass selectedSnake = dataList.get(currentPos);
                 Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("Image", dataList.get(holder.getAdapterPosition()).getDataImage());
-                intent.putExtra("Title", dataList.get(holder.getAdapterPosition()).getDataTitle());
-                intent.putExtra("Desc", dataList.get(holder.getAdapterPosition()).getDataDesc());
-                intent.putExtra("Location",dataList.get(holder.getAdapterPosition()).getDataLocation());
-
+                intent.putExtra("snake_item", selectedSnake);
+                intent.putExtra("is_marathi", isMarathi);
                 context.startActivity(intent);
             }
         });
-
     }
 
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return dataList != null ? dataList.size() : 0;
     }
 }
 
-class MyViewHolder extends RecyclerView.ViewHolder{
+class MyViewHolder extends RecyclerView.ViewHolder {
 
     ImageView recImage;
-    TextView recTitle, recDesc, recLang, recLocation;
-    CardView recCard;
+    TextView recTitle, recScientific, recDesc, recLang, recLocation;
+    View recCard;
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
 
         recImage = itemView.findViewById(R.id.recImage);
         recTitle = itemView.findViewById(R.id.recTitle);
+        recScientific = itemView.findViewById(R.id.recScientific);
         recDesc = itemView.findViewById(R.id.recDesc);
         recLang = itemView.findViewById(R.id.recLang);
         recCard = itemView.findViewById(R.id.recCard);
-        recLocation =itemView.findViewById(R.id.recLocation);
+        recLocation = itemView.findViewById(R.id.recLocation);
     }
 }

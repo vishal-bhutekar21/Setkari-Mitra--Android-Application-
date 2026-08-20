@@ -1,0 +1,29 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    <!-- Snake S-curve body -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#78C9A2"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M20,95 C45,95 30,65 60,60 C90,55 75,25 100,25" />
+    <!-- Snake head -->
+    <path
+        android:fillColor="#78C9A2"
+        android:pathData="M100,25 C105,20 114,24 112,30 C110,34 103,32 100,25 Z" />
+    <!-- Eye dot -->
+    <path
+        android:fillColor="#091F15"
+        android:pathData="M106,26 A1.5,1.5 0 1,0 106,29 A1.5,1.5 0 1,0 106,26 Z" />
+    <!-- Forked Tongue (peaceful flick) -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#F87171"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M112,28 L118,25 M112,28 L118,31" />
+</vector>

@@ -8,7 +8,7 @@
     android:background="@color/color_background"
     tools:context=".MainActivity">
 
-    <!-- Top Bar with Glass Back Button -->
+    <!-- Top Bar with Glass Back Button & Language Switch Button -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,6 +36,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvHeaderTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
@@ -44,14 +45,30 @@
                 android:textSize="@dimen/text_title" />
 
             <TextView
+                android:id="@+id/tvHeaderSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
-                android:text="16 Species in Maharashtra"
+                android:text="20 Species in Maharashtra"
                 android:textColor="@color/color_primary_container"
                 android:textSize="@dimen/text_caption" />
 
         </LinearLayout>
+
+        <!-- Language Switcher Pill Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLangToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:backgroundTint="@color/color_primary_container"
+            android:fontFamily="@font/poppins_bold"
+            android:paddingHorizontal="@dimen/space_12"
+            android:text="मराठी"
+            android:textColor="@color/color_primary"
+            android:textSize="@dimen/text_caption"
+            app:cornerRadius="@dimen/radius_full"
+            app:strokeColor="@color/color_on_primary"
+            app:strokeWidth="1dp" />
 
     </LinearLayout>
 
@@ -67,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
-        android:layout_marginVertical="@dimen/space_12"
+        android:layout_marginTop="@dimen/space_12"
         android:background="@drawable/bg_glass_card"
         android:padding="@dimen/space_4">
 
@@ -78,10 +95,65 @@
             android:focusable="false"
             app:closeIcon="@drawable/baseline_clear_24"
             app:iconifiedByDefault="false"
-            app:queryHint="Search species by Marathi/English name…"
+            app:queryHint="Search by English, Marathi or Scientific name…"
             app:searchIcon="@drawable/baseline_search_24" />
 
     </LinearLayout>
+
+    <!-- Category Filter Horizontal Scroll -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
+        android:layout_marginVertical="@dimen/space_8"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/filterAll"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="@dimen/space_8"
+                android:backgroundTint="@color/color_primary"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="All (सर्व)"
+                android:textColor="@color/color_on_primary"
+                android:textSize="@dimen/text_caption"
+                app:cornerRadius="@dimen/radius_full" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/filterVenomous"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="@dimen/space_8"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Venomous (विषारी)"
+                android:textColor="@color/color_emergency"
+                android:textSize="@dimen/text_caption"
+                app:cornerRadius="@dimen/radius_full"
+                app:strokeColor="@color/color_emergency" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/filterNonVenomous"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Non-Venomous (बिनविषारी)"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_caption"
+                app:cornerRadius="@dimen/radius_full"
+                app:strokeColor="@color/color_primary" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
     <FrameLayout
         android:layout_width="match_parent"

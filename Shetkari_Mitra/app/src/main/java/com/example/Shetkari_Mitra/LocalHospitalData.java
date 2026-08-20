@@ -3,22 +3,15 @@ package com.example.Shetkari_Mitra;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Local repository of hospitals in Jalna district, Maharashtra.
- * This replaces the previous Firebase-backed hospital database.
- * To add a real backend later, implement a HospitalRepository interface
- * and swap this data source.
- */
 public class LocalHospitalData {
 
     public static List<Hospital_Info> getJalnaHospitals() {
         List<Hospital_Info> hospitals = new ArrayList<>();
 
-        // ========== GOVERNMENT / PUBLIC HOSPITALS ==========
-
+        // ========== JALNA DISTRICT ==========
         hospitals.add(new Hospital_Info(
                 "Government Medical College & Hospital (GMCH) Jalna",
-                "Medical Superintendent",
+                "Civil Surgeon / 24x7 ASV Available",
                 "02482-222000",
                 "Jalna",
                 "Jalna",
@@ -27,7 +20,7 @@ public class LocalHospitalData {
 
         hospitals.add(new Hospital_Info(
                 "District Civil Hospital Jalna",
-                "Civil Surgeon",
+                "24x7 Emergency Snakebite Ward",
                 "02482-222100",
                 "Jalna",
                 "Jalna",
@@ -36,7 +29,7 @@ public class LocalHospitalData {
 
         hospitals.add(new Hospital_Info(
                 "Sub District Hospital Ambad",
-                "Medical Officer",
+                "Medical Superintendent (ASV Stock Available)",
                 "02484-222200",
                 "Ambad",
                 "Jalna",
@@ -45,7 +38,7 @@ public class LocalHospitalData {
 
         hospitals.add(new Hospital_Info(
                 "Sub District Hospital Badnapur",
-                "Medical Officer",
+                "Medical Officer (ASV Ready)",
                 "02481-234500",
                 "Badnapur",
                 "Jalna",
@@ -54,7 +47,7 @@ public class LocalHospitalData {
 
         hospitals.add(new Hospital_Info(
                 "Sub District Hospital Partur",
-                "Medical Officer",
+                "Medical Officer (ASV Ready)",
                 "02485-222300",
                 "Partur",
                 "Jalna",
@@ -63,16 +56,16 @@ public class LocalHospitalData {
 
         hospitals.add(new Hospital_Info(
                 "Sub District Hospital Bhokardan",
-                "Medical Officer",
+                "Medical Officer (24x7 Emergency)",
                 "02486-222100",
                 "Bhokardan",
                 "Jalna",
-                "Near Bus Stand, Bhokardan, Jalna District, Maharashtra 431114"
+                "Bus Stand Road, Bhokardan, Jalna District, Maharashtra 431114"
         ));
 
         hospitals.add(new Hospital_Info(
                 "Rural Hospital Jafrabad",
-                "Medical Officer In-Charge",
+                "Medical Officer (ASV Center)",
                 "02483-222400",
                 "Jafrabad",
                 "Jalna",
@@ -81,182 +74,158 @@ public class LocalHospitalData {
 
         hospitals.add(new Hospital_Info(
                 "Rural Hospital Mantha",
-                "Medical Officer In-Charge",
+                "Medical Officer (ASV Center)",
                 "02487-222100",
                 "Mantha",
                 "Jalna",
-                "Mantha, Jalna District, Maharashtra 431505"
+                "Near Mantha Bus Stand, Jalna District, Maharashtra 431504"
         ));
 
         hospitals.add(new Hospital_Info(
                 "Rural Hospital Ghansavangi",
-                "Medical Officer In-Charge",
+                "Medical Officer (ASV Center)",
                 "02482-265000",
                 "Ghansavangi",
                 "Jalna",
-                "Ghansavangi, Jalna District, Maharashtra 431209"
+                "Ghansavangi Market, Jalna District, Maharashtra 431209"
         ));
 
         hospitals.add(new Hospital_Info(
-                "Primary Health Centre Tirthpuri",
-                "Medical Officer",
-                "02482-260100",
+                "Mission Hospital Jalna",
+                "Emergency ICU & Anti-Venom Care",
+                "02482-230500",
                 "Jalna",
                 "Jalna",
-                "Tirthpuri Village, Jalna Taluka, Maharashtra 431203"
+                "Mission Compound, Jalna, Maharashtra 431203"
         ));
 
         hospitals.add(new Hospital_Info(
-                "Primary Health Centre Shirad",
-                "Medical Officer",
-                "02482-260200",
-                "Jalna",
-                "Jalna",
-                "Shirad Village, Jalna Taluka, Maharashtra 431203"
-        ));
-
-        hospitals.add(new Hospital_Info(
-                "Primary Health Centre Palshi",
-                "Medical Officer",
-                "02484-260300",
-                "Ambad",
-                "Jalna",
-                "Palshi Village, Ambad Taluka, Jalna District, Maharashtra"
-        ));
-
-        hospitals.add(new Hospital_Info(
-                "Rajmata Jijau Hospital Jalna",
-                "Administrator",
-                "02482-223000",
-                "Jalna",
-                "Jalna",
-                "Near Railway Station, Jalna, Maharashtra 431203"
-        ));
-
-        // ========== PRIVATE HOSPITALS ==========
-
-        hospitals.add(new Hospital_Info(
-                "Sai Hospital Jalna",
-                "Dr. Contact",
+                "Sai Multi-Speciality Hospital Jalna",
+                "Emergency Department",
                 "02482-224000",
                 "Jalna",
                 "Jalna",
                 "Main Road, Jalna, Maharashtra 431203"
         ));
 
+        // ========== CHHATRAPATI SAMBHAJINAGAR (AURANGABAD) ==========
         hospitals.add(new Hospital_Info(
-                "Yashoda Hospital Jalna",
-                "Reception",
-                "02482-225000",
-                "Jalna",
-                "Jalna",
-                "Station Road, Jalna, Maharashtra 431203"
+                "Government Medical College & Hospital (Ghati) Sambhajinagar",
+                "Dean / State Nodal Snakebite Centre",
+                "0240-2402412",
+                "Aurangabad",
+                "Chhatrapati Sambhajinagar",
+                "Jubilee Park, Panchakki Road, Chhatrapati Sambhajinagar 431001"
         ));
 
         hospitals.add(new Hospital_Info(
-                "Ashirwad Hospital Jalna",
-                "Reception",
-                "02482-226000",
-                "Jalna",
-                "Jalna",
-                "College Road, Jalna, Maharashtra 431203"
+                "District Civil Hospital Chhatrapati Sambhajinagar",
+                "Civil Surgeon (ASV Available)",
+                "0240-2331102",
+                "Aurangabad",
+                "Chhatrapati Sambhajinagar",
+                "Chikalthana, Chhatrapati Sambhajinagar 431006"
         ));
 
         hospitals.add(new Hospital_Info(
-                "Kranti Hospital Jalna",
-                "Reception",
-                "02482-227000",
-                "Jalna",
-                "Jalna",
-                "Aurangabad Road, Jalna, Maharashtra 431203"
+                "Sub District Hospital Paithan",
+                "Medical Superintendent",
+                "02431-223040",
+                "Paithan",
+                "Chhatrapati Sambhajinagar",
+                "Near Nath Mandir, Paithan 431107"
+        ));
+
+        // ========== BEED DISTRICT ==========
+        hospitals.add(new Hospital_Info(
+                "District Civil Hospital Beed",
+                "Civil Surgeon (24x7 ASV Center)",
+                "02442-222301",
+                "Beed",
+                "Beed",
+                "Subhash Road, Beed, Maharashtra 431122"
         ));
 
         hospitals.add(new Hospital_Info(
-                "Narayani Hospital Jalna",
-                "Reception",
-                "02482-228000",
-                "Jalna",
-                "Jalna",
-                "Ambad Road, Jalna, Maharashtra 431203"
+                "Swami Ramanand Teerth Rural Medical College (SRTRGMC) Ambajogai",
+                "Medical Superintendent / ICU Emergency",
+                "02446-248438",
+                "Ambajogai",
+                "Beed",
+                "Ambajogai, Beed District, Maharashtra 431517"
+        ));
+
+        // ========== PARBHANI & NANDED ==========
+        hospitals.add(new Hospital_Info(
+                "Government Medical College & Hospital Parbhani",
+                "Emergency Department",
+                "02452-223400",
+                "Parbhani",
+                "Parbhani",
+                "Station Road, Parbhani 431401"
         ));
 
         hospitals.add(new Hospital_Info(
-                "Siddhi Vinayak Hospital Jalna",
-                "Reception",
-                "02482-229000",
-                "Jalna",
-                "Jalna",
-                "Osmanabad Road, Jalna, Maharashtra 431203"
+                "Dr. Shankarrao Chavan Government Medical College Nanded",
+                "24x7 Critical Snakebite & ASV Unit",
+                "02462-234020",
+                "Nanded",
+                "Nanded",
+                "Vishnupuri, Nanded, Maharashtra 431606"
+        ));
+
+        // ========== PUNE & WESTERN MAHARASHTRA ==========
+        hospitals.add(new Hospital_Info(
+                "Sassoon General Hospital & B.J. Medical College Pune",
+                "State Center of Excellence for Toxicology",
+                "020-26128000",
+                "Haveli",
+                "Pune",
+                "Near Pune Railway Station, Pune, Maharashtra 411001"
         ));
 
         hospitals.add(new Hospital_Info(
-                "Shri Sai Baba Hospital Jalna",
-                "Reception",
-                "02482-230000",
-                "Jalna",
-                "Jalna",
-                "Nanded Road, Jalna, Maharashtra 431203"
+                "District Civil Hospital Nashik",
+                "24x7 Snakebite Emergency Ward",
+                "0253-2572351",
+                "Nashik",
+                "Nashik",
+                "Trimbak Road, Nashik, Maharashtra 422002"
         ));
 
         hospitals.add(new Hospital_Info(
-                "People's Hospital Jalna",
-                "Administration",
-                "02482-231000",
-                "Jalna",
-                "Jalna",
-                "Near Water Tank, Jalna, Maharashtra 431203"
+                "Chhatrapati Pramila Raje (CPR) General Hospital Kolhapur",
+                "Civil Surgeon / ASV Storage Unit",
+                "0231-2641011",
+                "Karveer",
+                "Kolhapur",
+                "Bhausinghji Road, Kolhapur, Maharashtra 416002"
         ));
 
         hospitals.add(new Hospital_Info(
-                "Shivshakti Hospital Jalna",
-                "Reception",
-                "02482-232000",
-                "Jalna",
-                "Jalna",
-                "Shivaji Nagar, Jalna, Maharashtra 431203"
+                "Shri Chhatrapati Shivaji Maharaj General Hospital Solapur",
+                "Government Medical College & Hospital",
+                "0217-2749400",
+                "Solapur",
+                "Solapur",
+                "Near Old Pune Naka, Solapur, Maharashtra 413003"
         ));
 
-        hospitals.add(new Hospital_Info(
-                "Matoshri Hospital Ambad",
-                "Reception",
-                "02484-222500",
-                "Ambad",
-                "Jalna",
-                "Main Road, Ambad, Jalna District, Maharashtra 431204"
-        ));
-
-        hospitals.add(new Hospital_Info(
-                "Dnyaneshwar Hospital Bhokardan",
-                "Reception",
-                "02486-222200",
-                "Bhokardan",
-                "Jalna",
-                "Near Bus Stand, Bhokardan, Jalna District, Maharashtra 431114"
-        ));
-
-        hospitals.add(new Hospital_Info(
-                "Seva Hospital Partur",
-                "Reception",
-                "02485-222400",
-                "Partur",
-                "Jalna",
-                "Main Road, Partur, Jalna District, Maharashtra 431501"
-        ));
-
+        hospitals.addAll(dynamicHospitals);
         return hospitals;
     }
 
-    // In-memory store for admin-submitted hospitals (runtime only)
-    private static final List<Hospital_Info> adminAddedHospitals = new ArrayList<>();
+    private static final List<Hospital_Info> dynamicHospitals = new ArrayList<>();
 
-    public static void addAdminHospital(Hospital_Info hospital) {
-        adminAddedHospitals.add(hospital);
+    public static synchronized void addHospital(Hospital_Info hospital) {
+        dynamicHospitals.add(0, hospital);
+    }
+
+    public static synchronized void addAdminHospital(Hospital_Info hospital) {
+        addHospital(hospital);
     }
 
     public static List<Hospital_Info> getAllHospitals() {
-        List<Hospital_Info> all = new ArrayList<>();
-        all.addAll(getJalnaHospitals());
-        all.addAll(adminAddedHospitals);
-        return all;
+        return getJalnaHospitals();
     }
 }

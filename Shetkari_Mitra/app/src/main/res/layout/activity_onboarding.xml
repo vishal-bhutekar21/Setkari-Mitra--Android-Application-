@@ -81,7 +81,7 @@
             android:fontFamily="@font/poppins_bold"
             android:minWidth="140dp"
             android:paddingHorizontal="@dimen/space_24"
-            android:text="Next →"
+            android:text="Next"
             android:textColor="@color/color_on_primary"
             android:textSize="@dimen/text_body_large" />
 

@@ -78,7 +78,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="❌ गैरसमज: सर्वच साप विषारी आणि प्राणघातक असतात."
+                    android:text="गैरसमज (Myth): सर्वच साप विषारी आणि प्राणघातक असतात."
                     android:textColor="@color/color_emergency"
                     android:textSize="@dimen/text_body_large" />
 
@@ -88,7 +88,7 @@
                     android:layout_marginTop="@dimen/space_6"
                     android:fontFamily="@font/poppins_semibold"
                     android:lineSpacingMultiplier="1.3"
-                    android:text="✅ वास्तव: महाराष्ट्रातील 80% पेक्षा जास्त साप बिनविषारी असतात. फक्त 4 प्रमुख जाती (नाग, मण्यार, घोणस, फुरसे) मानवासाठी धोकादायक आहेत."
+                    android:text="वास्तव (Fact): महाराष्ट्रातील 80% पेक्षा जास्त साप बिनविषारी असतात. फक्त 4 प्रमुख जाती (नाग, मण्यार, घोणस, फुरसे) मानवासाठी धोकादायक आहेत."
                     android:textColor="@color/color_success"
                     android:textSize="@dimen/text_body" />
 
@@ -107,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="❌ गैरसमज: सर्पदंश झाल्यावर दोरीने घट्ट बांधल्यास जीव वाचतो."
+                    android:text="गैरसमज (Myth): सर्पदंश झाल्यावर दोरीने घट्ट बांधल्यास जीव वाचतो."
                     android:textColor="@color/color_emergency"
                     android:textSize="@dimen/text_body_large" />
 
@@ -117,7 +117,7 @@
                     android:layout_marginTop="@dimen/space_6"
                     android:fontFamily="@font/poppins_semibold"
                     android:lineSpacingMultiplier="1.3"
-                    android:text="✅ वास्तव: घट्ट बांधल्याने रक्तपुरवठा बंद होऊन अवयव कुजतो (गँगरीन) व हात-पाय कापावा लागतो. काठी बांधून अवयव स्थिर ठेवावा, घट्ट बांधू नये."
+                    android:text="वास्तव (Fact): घट्ट बांधल्याने रक्तपुरवठा बंद होऊन अवयव कुजतो (गँगरीन) व हात-पाय कापावा लागतो. काठी बांधून अवयव स्थिर ठेवावा, घट्ट बांधू नये."
                     android:textColor="@color/color_success"
                     android:textSize="@dimen/text_body" />
 
@@ -136,7 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="❌ गैरसमज: मांत्रिकाच्या झाडफुंक किंवा जडीबुटीने विष उतरते."
+                    android:text="गैरसमज (Myth): मांत्रिकाच्या झाडफुंक किंवा जडीबुटीने विष उतरते."
                     android:textColor="@color/color_emergency"
                     android:textSize="@dimen/text_body_large" />
 
@@ -146,7 +146,7 @@
                     android:layout_marginTop="@dimen/space_6"
                     android:fontFamily="@font/poppins_semibold"
                     android:lineSpacingMultiplier="1.3"
-                    android:text="✅ वास्तव: मांत्रिकांकडे जाणारे रुग्ण बिनविषारी सापाचे असतात. विषारी सापावर केवळ Anti-Snake Venom (ASV) हेच एकमेव जीवनरक्षक औषध आहे."
+                    android:text="वास्तव (Fact): मांत्रिकांकडे जाणारे रुग्ण बिनविषारी सापाचे असतात. विषारी सापावर केवळ Anti-Snake Venom (ASV) हेच एकमेव जीवनरक्षक औषध आहे."
                     android:textColor="@color/color_success"
                     android:textSize="@dimen/text_body" />
 
@@ -165,7 +165,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="❌ गैरसमज: जखमेवर ब्लेडने कापून किंवा तोंडाने विष चोखून काढता येते."
+                    android:text="गैरसमज (Myth): जखमेवर ब्लेडने कापून किंवा तोंडाने विष चोखून काढता येते."
                     android:textColor="@color/color_emergency"
                     android:textSize="@dimen/text_body_large" />
 
@@ -175,7 +175,7 @@
                     android:layout_marginTop="@dimen/space_6"
                     android:fontFamily="@font/poppins_semibold"
                     android:lineSpacingMultiplier="1.3"
-                    android:text="✅ वास्तव: विष तात्काळ रक्तवाहिन्यांत व लसिकेत पसरते. कापल्याने रक्तवाहिन्या खराब होतात व जंतूसंसर्ग होतो. तोंडाने चोखल्यास मदत करणाऱ्याचाही जीव धोक्यात येतो."
+                    android:text="वास्तव (Fact): विष तात्काळ रक्तवाहिन्यांत व लसिकेत पसरते. कापल्याने रक्तवाहिन्या खराब होतात व जंतूसंसर्ग होतो. तोंडाने चोखल्यास मदत करणाऱ्याचाही जीव धोक्यात येतो."
                     android:textColor="@color/color_success"
                     android:textSize="@dimen/text_body" />
 
@@ -194,7 +194,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="❌ गैरसमज: साप दूध पितो आणि बदला घेतो."
+                    android:text="गैरसमज (Myth): साप दूध पितो आणि बदला घेतो."
                     android:textColor="@color/color_emergency"
                     android:textSize="@dimen/text_body_large" />
 
@@ -204,7 +204,7 @@
                     android:layout_marginTop="@dimen/space_6"
                     android:fontFamily="@font/poppins_semibold"
                     android:lineSpacingMultiplier="1.3"
-                    android:text="✅ वास्तव: साप मांसाहारी सरपटणारा प्राणी आहे, दूध पचवण्याची क्षमता त्यात नसते. सापाची स्मरणशक्ती सीमित असते, तो कधीही बदला घेत नाही."
+                    android:text="वास्तव (Fact): साप मांसाहारी सरपटणारा प्राणी आहे, दूध पचवण्याची क्षमता त्यात नसते. सापाची स्मरणशक्ती सीमित असते, तो कधीही बदला घेत नाही."
                     android:textColor="@color/color_success"
                     android:textSize="@dimen/text_body" />
 

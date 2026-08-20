@@ -109,6 +109,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         cardEmergencyBtn = findViewById(R.id.emergency_btn);
         cardAboutUsBtn = findViewById(R.id.about_btn);
         cardMythsFacts = findViewById(R.id.cardMythsFacts);
+        cardInsectsCreatures = findViewById(R.id.cardInsectsCreatures);
 
         if (btnMenuDrawer != null) {
             btnMenuDrawer.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
@@ -121,6 +122,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    private View cardInsectsCreatures;
+
     private void setupNavigationHeader() {
         View headerView = navigationView.getHeaderView(0);
         userNameTextView = headerView.findViewById(R.id.user_name);
@@ -132,7 +135,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         if (userNameTextView != null) userNameTextView.setText(username);
         if (userEmailTextView != null) userEmailTextView.setText(email);
-        if (tvGreeting != null) tvGreeting.setText("Namaste, " + username + " 🙏");
+        if (tvGreeting != null) tvGreeting.setText("Namaste, " + username);
     }
 
     private void setupCardClickListeners() {
@@ -144,6 +147,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         if (cardSnakeRescuers != null) cardSnakeRescuers.setOnClickListener(v -> startActivity(new Intent(this, RescuerDatabaseActivity.class)));
         if (cardAboutUsBtn != null) cardAboutUsBtn.setOnClickListener(v -> startActivity(new Intent(this, Activity_About_Us.class)));
         if (cardMythsFacts != null) cardMythsFacts.setOnClickListener(v -> startActivity(new Intent(this, Activity_Myths_Facts.class)));
+        if (cardInsectsCreatures != null) cardInsectsCreatures.setOnClickListener(v -> startActivity(new Intent(this, HarmfulCreaturesActivity.class)));
         if (cardEmergencyBtn != null) cardEmergencyBtn.setOnClickListener(v -> showEmergencyCallDialog());
     }
 
@@ -163,9 +167,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 return true;
             } else if (id == R.id.bottom_nav_rescuers) {
                 startActivity(new Intent(HomeActivity.this, RescuerDatabaseActivity.class));
-                return true;
-            } else if (id == R.id.bottom_nav_sos) {
-                showEmergencyCallDialog();
                 return true;
             }
             return false;
@@ -262,23 +263,44 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.nav_contacts) {
-            startActivity(new Intent(this, nav_Emergency_Contacts.class));
-        } else if (id == R.id.nav_hos) {
-            startActivity(new Intent(this, MapsActivity.class));
+        if (id == R.id.nav_guide) {
+            startActivity(new Intent(this, MainActivity.class));
+        } else if (id == R.id.nav_identify) {
+            startActivity(new Intent(this, Acitivity_identify_snake.class));
+        } else if (id == R.id.nav_first_aid) {
+            startActivity(new Intent(this, First_Aid.class));
+        } else if (id == R.id.nav_creatures) {
+            startActivity(new Intent(this, HarmfulCreaturesActivity.class));
         } else if (id == R.id.nav_myths) {
             startActivity(new Intent(this, Activity_Myths_Facts.class));
-        } else if (id == R.id.nav_Admin) {
-            startActivity(new Intent(this, Admin_Activity.class));
-        } else if (id == R.id.nav_share) {
-            shareApp();
+        } else if (id == R.id.nav_hos) {
+            startActivity(new Intent(this, MapsActivity.class));
+        } else if (id == R.id.nav_rescuers) {
+            startActivity(new Intent(this, RescuerDatabaseActivity.class));
+        } else if (id == R.id.nav_contacts) {
+            startActivity(new Intent(this, nav_Emergency_Contacts.class));
+        } else if (id == R.id.nav_register_sarpmitra) {
+            startActivity(new Intent(this, Registration_example.class));
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(this, Activity_About_Us.class));
+        } else if (id == R.id.nav_privacy_policy) {
+            showPrivacyPolicyDialog();
+        } else if (id == R.id.nav_share) {
+            shareApp();
         } else if (id == R.id.nav_logout) {
             performLogout();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showPrivacyPolicyDialog() {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.privacy_policy_title)
+                .setMessage(R.string.privacy_policy_content)
+                .setIcon(R.drawable.ic_drawer_privacy)
+                .setPositiveButton(R.string.btn_agree, null)
+                .show();
     }
 
     private void shareApp() {

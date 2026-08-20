@@ -59,12 +59,71 @@
         android:layout_height="0dp"
         android:visibility="gone" />
 
+    <!-- Interactive Map Banner Card -->
+    <LinearLayout
+        android:id="@+id/cardOpenRescuerMap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
+        android:layout_marginTop="@dimen/space_12"
+        android:background="@drawable/bg_glass_card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/space_12">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_feature_icon_circle"
+            android:padding="@dimen/space_8"
+            android:src="@drawable/ic_drawer_hospitals"
+            app:tint="@color/color_primary" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="View Rescuers on Live Map"
+                android:textColor="@color/color_text_primary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Locate certified Sarpmitra in your taluka"
+                android:textColor="@color/color_text_secondary"
+                android:textSize="@dimen/text_caption" />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnOpenMapBanner"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:backgroundTint="@color/color_primary"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Open Map"
+            android:textColor="@color/color_on_primary"
+            android:textSize="@dimen/text_caption"
+            app:cornerRadius="@dimen/radius_full" />
+
+    </LinearLayout>
+
     <!-- Search View Card -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
-        android:layout_marginVertical="@dimen/space_12"
+        android:layout_marginVertical="@dimen/space_10"
         android:background="@drawable/bg_glass_card"
         android:padding="@dimen/space_4">
 

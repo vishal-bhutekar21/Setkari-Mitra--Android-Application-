@@ -135,11 +135,10 @@
             android:name=".Activity_Myths_Facts"
             android:exported="false" />
 
-        <!-- Admin Panel -->
+        <!-- Harmful Insects & Scorpions Module -->
         <activity
-            android:name=".Admin_Activity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:name=".HarmfulCreaturesActivity"
+            android:exported="false" />
 
         <!-- FileProvider for camera and image sharing -->
         <provider

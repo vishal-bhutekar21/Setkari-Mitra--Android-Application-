@@ -49,9 +49,9 @@ public class OnboardingActivity extends AppCompatActivity {
                 super.onPageSelected(position);
                 setCurrentIndicator(position);
                 if (position == onboardingItems.size() - 1) {
-                    btnNext.setText("Get Started 🚀");
+                    btnNext.setText("Get Started");
                 } else {
-                    btnNext.setText("Next →");
+                    btnNext.setText("Next");
                 }
             }
         });

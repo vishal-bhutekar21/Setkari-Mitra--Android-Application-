@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="🚨 GOLDEN HOUR PROTOCOL"
+                android:text="GOLDEN HOUR PROTOCOL"
                 android:textColor="@color/color_on_emergency"
                 android:textSize="@dimen/text_title" />
 

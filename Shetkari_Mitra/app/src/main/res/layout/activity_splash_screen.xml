@@ -1,42 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/lay"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_primary"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="@dimen/space_24">
+    android:background="@color/color_primary">
 
-    <!-- App Logo -->
-    <ImageView
-        android:id="@+id/applogo"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/app_logo" />
+    <!-- Ambient Gradient Circles for Glassy Depth -->
+    <View
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_feature_icon_circle"
+        android:backgroundTint="#15FFFFFF" />
 
-    <!-- App Name -->
-    <TextView
-        android:id="@+id/appName"
-        android:layout_width="wrap_content"
+    <!-- Animation Stage Container -->
+    <FrameLayout
+        android:id="@+id/stageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true">
+
+        <!-- Flashlight / Identification Beam -->
+        <View
+            android:id="@+id/viewTorchBeam"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center"
+            android:alpha="0"
+            android:background="@drawable/bg_feature_icon_circle"
+            android:backgroundTint="#40DDEEE3" />
+
+        <!-- Animated Snake Element -->
+        <ImageView
+            android:id="@+id/ivSplashSnake"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:contentDescription="Snake"
+            android:src="@drawable/ic_splash_snake" />
+
+        <!-- Farmer Safety Shield Element -->
+        <ImageView
+            android:id="@+id/ivSplashShield"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center"
+            android:alpha="0"
+            android:contentDescription="Safety Shield"
+            android:src="@drawable/ic_splash_shield" />
+
+    </FrameLayout>
+
+    <!-- Brand Identity Container (Fades in dynamically) -->
+    <LinearLayout
+        android:id="@+id/brandContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_20"
-        android:fontFamily="@font/poppins_bold"
-        android:text="@string/app_name"
-        android:textColor="@color/color_on_primary"
-        android:textSize="@dimen/text_display" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/space_40"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/space_24">
 
-    <!-- Marathi Tagline -->
-    <TextView
-        android:id="@+id/marathiText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_8"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="@string/marathi_text"
-        android:textColor="@color/color_primary_container"
-        android:textSize="@dimen/text_body_large" />
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/app_name"
+            android:textColor="@color/color_on_primary"
+            android:textSize="@dimen/text_display" />
 
-</LinearLayout>
+        <!-- Dynamic Animated Narrative Subtitle -->
+        <TextView
+            android:id="@+id/tvStorySubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text="साप ओळखा • सुरक्षित राहा • जीवन वाचवा"
+            android:textColor="@color/color_primary_container"
+            android:textSize="@dimen/text_body_large" />
+
+        <TextView
+            android:id="@+id/tvSecondaryTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            android:fontFamily="@font/poppins_regular"
+            android:text="महाराष्ट्र शेतकरी व वन्यजीव सुरक्षा कवच"
+            android:textColor="#B0FFFFFF"
+            android:textSize="@dimen/text_caption" />
+
+    </LinearLayout>
+
+</RelativeLayout>

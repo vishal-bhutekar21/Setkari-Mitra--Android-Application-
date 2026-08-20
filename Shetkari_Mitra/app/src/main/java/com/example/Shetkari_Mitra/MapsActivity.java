@@ -59,10 +59,16 @@ public class MapsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // OSMDroid configuration
+        // OSMDroid configuration conforming to OpenStreetMap Tile Usage Policy
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
-        Configuration.getInstance().setUserAgentValue(getPackageName());
+        Configuration.getInstance().setUserAgentValue("ShetkariMitra-FarmerSafety/2.0 (Android; Contact: support@shetkarimitra.app; com.example.Shetkari_Mitra)");
+        
+        java.io.File osmBase = new java.io.File(ctx.getCacheDir(), "osmdroid");
+        if (!osmBase.exists()) osmBase.mkdirs();
+        Configuration.getInstance().setOsmdroidBasePath(osmBase);
+        Configuration.getInstance().setOsmdroidTileCache(new java.io.File(osmBase, "tiles"));
+        Configuration.getInstance().setMapViewHardwareAccelerated(true);
 
         setContentView(R.layout.activity_maps);
 
@@ -81,9 +87,75 @@ public class MapsActivity extends AppCompatActivity {
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+        chipAllLayers = findViewById(R.id.chipAllLayers);
+        chipHospitals = findViewById(R.id.chipHospitals);
+        chipRescuers = findViewById(R.id.chipRescuers);
+
         setupRadiusButtons();
-        addJalnaHospitalMarkers();
+        setupCategoryChips();
+        loadAllMarkers();
         checkLocationPermissions();
+
+        boolean showRescuersFirst = getIntent().getBooleanExtra("SHOW_RESCUERS", false);
+        if (showRescuersFirst && chipRescuers != null) {
+            chipRescuers.performClick();
+        }
+    }
+
+    private com.google.android.material.button.MaterialButton chipAllLayers, chipHospitals, chipRescuers;
+    private final List<Marker> hospitalMarkers = new ArrayList<>();
+    private final List<Marker> rescuerMarkers = new ArrayList<>();
+
+    private void setupCategoryChips() {
+        if (chipAllLayers == null || chipHospitals == null || chipRescuers == null) return;
+
+        chipAllLayers.setOnClickListener(v -> {
+            setCategoryChipStyles(chipAllLayers, chipHospitals, chipRescuers);
+            showMarkers(true, true);
+        });
+
+        chipHospitals.setOnClickListener(v -> {
+            setCategoryChipStyles(chipHospitals, chipAllLayers, chipRescuers);
+            showMarkers(true, false);
+        });
+
+        chipRescuers.setOnClickListener(v -> {
+            setCategoryChipStyles(chipRescuers, chipAllLayers, chipHospitals);
+            showMarkers(false, true);
+        });
+    }
+
+    private void setCategoryChipStyles(com.google.android.material.button.MaterialButton active,
+                                        com.google.android.material.button.MaterialButton in1,
+                                        com.google.android.material.button.MaterialButton in2) {
+        active.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.color_primary));
+        active.setTextColor(ContextCompat.getColor(this, R.color.color_on_primary));
+
+        in1.setBackgroundTintList(ContextCompat.getColorStateList(this, android.R.color.transparent));
+        in1.setTextColor(ContextCompat.getColor(this, R.color.color_text_primary));
+
+        in2.setBackgroundTintList(ContextCompat.getColorStateList(this, android.R.color.transparent));
+        in2.setTextColor(ContextCompat.getColor(this, R.color.color_text_primary));
+    }
+
+    private void showMarkers(boolean showHospitals, boolean showRescuers) {
+        for (Marker m : hospitalMarkers) {
+            if (showHospitals) {
+                if (!mapView.getOverlays().contains(m)) mapView.getOverlays().add(m);
+            } else {
+                mapView.getOverlays().remove(m);
+            }
+        }
+
+        for (Marker m : rescuerMarkers) {
+            if (showRescuers) {
+                if (!mapView.getOverlays().contains(m)) mapView.getOverlays().add(m);
+            } else {
+                mapView.getOverlays().remove(m);
+            }
+        }
+
+        mapView.invalidate();
     }
 
     private void setupRadiusButtons() {
@@ -134,7 +206,6 @@ public class MapsActivity extends AppCompatActivity {
             return;
         }
 
-        // Live location overlay with OSMDroid
         locationOverlay = new MyLocationNewOverlay(new GpsMyLocationProvider(this), mapView);
         locationOverlay.enableMyLocation();
         locationOverlay.enableFollowLocation();
@@ -150,51 +221,83 @@ public class MapsActivity extends AppCompatActivity {
                 });
     }
 
-    private void addJalnaHospitalMarkers() {
-        // Known coordinate mapping for hospitals across Jalna district
-        List<HospitalLocation> locations = new ArrayList<>();
+    private void loadAllMarkers() {
+        // Hospitals
+        List<HospitalLocation> hospitals = new ArrayList<>();
+        hospitals.add(new HospitalLocation("GMCH & Hospital Jalna", "02482-222000", 19.8465, 75.8755, "Jalna-Aurangabad Road"));
+        hospitals.add(new HospitalLocation("District Civil Hospital Jalna", "02482-222100", 19.8398, 75.8821, "Collector Office Road, Jalna"));
+        hospitals.add(new HospitalLocation("Sub District Hospital Ambad", "02484-222200", 19.6105, 75.7901, "Main Road, Ambad"));
+        hospitals.add(new HospitalLocation("Sub District Hospital Badnapur", "02481-234500", 19.8690, 75.7230, "Hospital Road, Badnapur"));
+        hospitals.add(new HospitalLocation("Sub District Hospital Partur", "02485-222300", 19.5932, 76.2135, "Civil Lines, Partur"));
+        hospitals.add(new HospitalLocation("Sub District Hospital Bhokardan", "02486-222100", 20.2562, 75.7681, "Bus Stand Road, Bhokardan"));
+        hospitals.add(new HospitalLocation("Rural Hospital Jafrabad", "02483-222400", 20.2185, 75.9890, "Hospital Colony, Jafrabad"));
+        hospitals.add(new HospitalLocation("Rural Hospital Mantha", "02487-222100", 19.6740, 76.3980, "Mantha, Jalna"));
+        hospitals.add(new HospitalLocation("Rural Hospital Ghansavangi", "02482-265000", 19.5280, 75.9920, "Ghansavangi Market, Jalna"));
+        hospitals.add(new HospitalLocation("Sai Hospital Jalna", "02482-224000", 19.8350, 75.8900, "Main Road, Jalna"));
+        hospitals.add(new HospitalLocation("Yashoda Hospital Jalna", "02482-225000", 19.8412, 75.8840, "Station Road, Jalna"));
+        hospitals.add(new HospitalLocation("Ashirwad Hospital Jalna", "02482-226000", 19.8450, 75.8800, "College Road, Jalna"));
+        hospitals.add(new HospitalLocation("Kranti Hospital Jalna", "02482-227000", 19.8510, 75.8710, "Aurangabad Road, Jalna"));
 
-        locations.add(new HospitalLocation("GMCH & Hospital Jalna", "02482-222000", 19.8465, 75.8755, "Jalna-Aurangabad Road"));
-        locations.add(new HospitalLocation("District Civil Hospital Jalna", "02482-222100", 19.8398, 75.8821, "Collector Office Road, Jalna"));
-        locations.add(new HospitalLocation("Sub District Hospital Ambad", "02484-222200", 19.6105, 75.7901, "Main Road, Ambad"));
-        locations.add(new HospitalLocation("Sub District Hospital Badnapur", "02481-234500", 19.8690, 75.7230, "Hospital Road, Badnapur"));
-        locations.add(new HospitalLocation("Sub District Hospital Partur", "02485-222300", 19.5932, 76.2135, "Civil Lines, Partur"));
-        locations.add(new HospitalLocation("Sub District Hospital Bhokardan", "02486-222100", 20.2562, 75.7681, "Bus Stand Road, Bhokardan"));
-        locations.add(new HospitalLocation("Rural Hospital Jafrabad", "02483-222400", 20.2185, 75.9890, "Hospital Colony, Jafrabad"));
-        locations.add(new HospitalLocation("Rural Hospital Mantha", "02487-222100", 19.6740, 76.3980, "Mantha, Jalna"));
-        locations.add(new HospitalLocation("Rural Hospital Ghansavangi", "02482-265000", 19.5280, 75.9920, "Ghansavangi Market, Jalna"));
-        locations.add(new HospitalLocation("Sai Hospital Jalna", "02482-224000", 19.8350, 75.8900, "Main Road, Jalna"));
-        locations.add(new HospitalLocation("Yashoda Hospital Jalna", "02482-225000", 19.8412, 75.8840, "Station Road, Jalna"));
-        locations.add(new HospitalLocation("Ashirwad Hospital Jalna", "02482-226000", 19.8450, 75.8800, "College Road, Jalna"));
-        locations.add(new HospitalLocation("Kranti Hospital Jalna", "02482-227000", 19.8510, 75.8710, "Aurangabad Road, Jalna"));
-        locations.add(new HospitalLocation("Narayani Hospital Jalna", "02482-228000", 19.8290, 75.8950, "Ambad Road, Jalna"));
-        locations.add(new HospitalLocation("Siddhi Vinayak Hospital Jalna", "02482-229000", 19.8320, 75.8810, "Osmanabad Road, Jalna"));
-        locations.add(new HospitalLocation("Shri Sai Baba Hospital Jalna", "02482-230000", 19.8370, 75.9010, "Nanded Road, Jalna"));
-
-        for (HospitalLocation hl : locations) {
-            Marker marker = new Marker(mapView);
-            marker.setPosition(new GeoPoint(hl.lat, hl.lng));
-            marker.setTitle(hl.name);
-            marker.setSnippet("📞 " + hl.phone + "\n📍 " + hl.address);
-            marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-
-            marker.setOnMarkerClickListener((m, mv) -> {
-                m.showInfoWindow();
+        for (HospitalLocation hl : hospitals) {
+            Marker m = new Marker(mapView);
+            m.setPosition(new GeoPoint(hl.lat, hl.lng));
+            m.setTitle("🏥 " + hl.name);
+            m.setSnippet("ASV Available | Phone: " + hl.phone + "\n" + hl.address + "\nTap to Call");
+            m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+            m.setOnMarkerClickListener((marker, mv) -> {
+                marker.showInfoWindow();
+                showContactPrompt(hl.name, hl.phone);
                 return true;
             });
+            hospitalMarkers.add(m);
+            mapView.getOverlays().add(m);
+        }
 
-            mapView.getOverlays().add(marker);
+        // Rescuers
+        List<RescuerLocation> rescuers = new ArrayList<>();
+        rescuers.add(new RescuerLocation("Rahul Shinde (Sarpa Mitra)", "9822114455", 19.8390, 75.8810, "Old Jalna"));
+        rescuers.add(new RescuerLocation("Vikas Rathod (Sarpa Mitra)", "9422336677", 19.6105, 75.7876, "Ambad City"));
+        rescuers.add(new RescuerLocation("Anil Jadhav (Sarpa Mitra)", "9977884411", 19.8690, 75.7250, "Badnapur"));
+        rescuers.add(new RescuerLocation("Gajanan Kale (Sarpa Mitra)", "9850123456", 20.2580, 75.7680, "Bhokardan"));
+        rescuers.add(new RescuerLocation("Sachin Pawar (Sarpa Mitra)", "9766554433", 19.5960, 76.2160, "Partur"));
+        rescuers.add(new RescuerLocation("Dnyaneshwar Gaikwad", "9890112233", 20.2180, 75.9870, "Jafrabad"));
+        rescuers.add(new RescuerLocation("Mahesh Deshmukh", "9404556677", 19.7020, 76.3810, "Mantha"));
+        rescuers.add(new RescuerLocation("Santosh Chavan", "9823445566", 19.5280, 75.9920, "Ghansavangi"));
+        rescuers.add(new RescuerLocation("Akash More (Wildlife NGO)", "9822001122", 19.8762, 75.3433, "Chh. Sambhajinagar"));
+
+        for (RescuerLocation rl : rescuers) {
+            Marker m = new Marker(mapView);
+            m.setPosition(new GeoPoint(rl.lat, rl.lng));
+            m.setTitle("🐍 " + rl.name);
+            m.setSnippet("Certified Sarpmitra | Phone: " + rl.phone + "\n" + rl.area + "\nTap to Call");
+            m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+            m.setOnMarkerClickListener((marker, mv) -> {
+                marker.showInfoWindow();
+                showContactPrompt(rl.name, rl.phone);
+                return true;
+            });
+            rescuerMarkers.add(m);
+            mapView.getOverlays().add(m);
         }
 
         mapView.invalidate();
     }
 
+    private void showContactPrompt(String title, String phone) {
+        new com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
+                .setTitle(title)
+                .setMessage("Contact: " + phone)
+                .setPositiveButton("Call Now", (d, w) -> {
+                    Intent dial = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
+                    startActivity(dial);
+                })
+                .setNegativeButton("Close", null)
+                .show();
+    }
+
     private static class HospitalLocation {
-        String name;
-        String phone;
-        double lat;
-        double lng;
-        String address;
+        String name, phone, address;
+        double lat, lng;
 
         HospitalLocation(String name, String phone, double lat, double lng, String address) {
             this.name = name;
@@ -202,6 +305,19 @@ public class MapsActivity extends AppCompatActivity {
             this.lat = lat;
             this.lng = lng;
             this.address = address;
+        }
+    }
+
+    private static class RescuerLocation {
+        String name, phone, area;
+        double lat, lng;
+
+        RescuerLocation(String name, String phone, double lat, double lng, String area) {
+            this.name = name;
+            this.phone = phone;
+            this.lat = lat;
+            this.lng = lng;
+            this.area = area;
         }
     }
 

@@ -2,30 +2,32 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
-    android:background="@drawable/gradient_background_list_detais"
+    android:padding="8dp"
     android:orientation="horizontal">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#F6BBBB"
+        app:cardBackgroundColor="@color/color_surface"
+        app:cardCornerRadius="@dimen/radius_medium"
+        app:cardElevation="2dp"
         android:clickable="false">
     <ImageView
         android:id="@+id/childImageView"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:scaleType="centerCrop"
-        android:background="@drawable/gradient_background_list_detais"
         android:src="@drawable/blurred_vision" />
 
     <TextView
         android:id="@+id/childDescriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:layout_marginStart="116dp"
+        android:layout_marginEnd="12dp"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/color_text_primary"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="14sp" />
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>

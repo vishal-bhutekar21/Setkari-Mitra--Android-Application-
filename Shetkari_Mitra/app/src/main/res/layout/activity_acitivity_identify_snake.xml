@@ -132,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="@dimen/space_8"
-                    android:text="📷 Take Photo" />
+                    android:text="Take Photo" />
 
                 <Button
                     android:id="@+id/galleryBtn"
@@ -140,7 +140,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="🖼️ Gallery" />
+                    android:text="Choose from Gallery" />
 
             </LinearLayout>
 
@@ -152,7 +152,7 @@
                 android:layout_marginTop="@dimen/space_16"
                 android:background="@drawable/bg_glass_button"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Send to Expert via WhatsApp 💬"
+                android:text="Send to Expert via WhatsApp"
                 android:textColor="@color/color_on_primary"
                 android:textSize="@dimen/text_body_large" />
 

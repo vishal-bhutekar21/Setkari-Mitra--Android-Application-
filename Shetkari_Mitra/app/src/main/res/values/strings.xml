@@ -575,7 +575,20 @@
     <string name="hospital_registered_success">Hospital Added!</string>
     <string name="hospital_registered_message">%1$s in %2$s has been registered and is now visible in the hospital directory.</string>
 
-    <!-- About Us Content -->
-    <string name="about_us_info_text">Shetkari Mitra (शेतकरी मित्र)\n\nVersion 2.0 (Modernized)\n\nDedicated to farmer safety, snakebite prevention, emergency response, and wildlife conservation across Maharashtra.\n\nDeveloped with ❤️ for farmers.</string>
-    <string name="contact_us_emails">Contact &amp; Feedback:\nvishalbhutekar1@gmail.com\nsapkalgaurav98@gmail.com</string>
+    <!-- About Us & Developer Content -->
+    <string name="about_us_info_text">Shetkari Mitra (शेतकरी मित्र)\n\nVersion 2.0 (Modernized Edition)\n\nDedicated to farmer safety, snakebite emergency response, anti-venom hospital mapping, and wildlife conservation across Maharashtra.\n\nCrafted with dedication for the agricultural community.</string>
+    <string name="developer_name">Vishal Rajesh Bhutekar</string>
+    <string name="developer_title">Lead Android Developer &amp; Software Engineer</string>
+    <string name="developer_badge">IndiaSkills National Gold Medalist</string>
+    <string name="developer_bio">Crafting calm, premium, and high-performance Android experiences. Passionate about leveraging mobile technology for farmer safety, rural emergency response, and community empowerment.</string>
+    <string name="developer_email">vishalbhutekar33772@gmail.com</string>
+    <string name="developer_website">https://vishalbhutekar.netlify.app</string>
+    <string name="developer_github">https://github.com/vishal-bhutekar21</string>
+    <string name="developer_linkedin">https://www.linkedin.com/in/vishal-bhutekar21/</string>
+    <string name="contact_us_emails">Lead Developer: Vishal Bhutekar\nEmail: vishalbhutekar33772@gmail.com\nPortfolio: vishalbhutekar.netlify.app</string>
+
+    <!-- Privacy Policy -->
+    <string name="privacy_policy_title">Privacy Policy &amp; Data Safety</string>
+    <string name="privacy_policy_content">Shetkari Mitra respects and protects your privacy.\n\n1. Location Data: Used solely to show nearby hospitals, navigate to medical care, and assist emergency rescuers in your vicinity. Your location is processed locally and not stored or shared for advertising.\n\n2. Emergency Contacts: Stored securely on your device SQLite database for fast emergency SMS/call dispatch. No contact information is sold or transmitted to third parties.\n\n3. Camera &amp; Photos: Used only when you choose to identify a snake species or share details with verified rescuers.\n\n4. Zero Tracking: Shetkari Mitra is non-profit and contains no third-party trackers or ads.</string>
+    <string name="btn_agree">I Understand</string>
 </resources>

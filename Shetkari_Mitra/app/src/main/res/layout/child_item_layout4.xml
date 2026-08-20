@@ -2,30 +2,28 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
-    android:background="@drawable/gradient_background_list_detais"
+    android:padding="8dp"
     android:orientation="horizontal">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#F6BBBB"
-        android:background="#D69E9A">
-
+        app:cardBackgroundColor="@color/color_surface"
+        app:cardCornerRadius="@dimen/radius_medium"
+        app:cardElevation="2dp">
 
         <TextView
             android:id="@+id/childDescriptionTextView4"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:padding="12dp"
+            android:textColor="@color/color_text_primary"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="14sp" />
         <TextView
             android:id="@+id/childLinksTextView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
-
-            />
+            android:visibility="gone" />
 
     </androidx.cardview.widget.CardView>
 

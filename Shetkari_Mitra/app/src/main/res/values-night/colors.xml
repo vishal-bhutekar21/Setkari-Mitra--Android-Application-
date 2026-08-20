@@ -2,71 +2,72 @@
 <resources>
 
     <!-- ===== DARK MODE BACKGROUNDS ===== -->
-    <color name="color_background">#0F1A14</color>
-    <color name="color_surface">#182B1F</color>
-    <color name="color_surface_variant">#1E3528</color>
-    <color name="color_surface_elevated">#1E3528</color>
+    <color name="color_background">#121715</color>
+    <color name="color_surface">#19201C</color>
+    <color name="color_surface_variant">#212B26</color>
+    <color name="color_surface_elevated">#27332D</color>
+    <color name="color_white">#FFFFFF</color>
 
-    <!-- ===== PRIMARY — Lighter green for dark mode legibility ===== -->
-    <color name="color_primary">#66BB6A</color>
-    <color name="color_primary_dark">#4CAF50</color>
-    <color name="color_primary_light">#81C784</color>
-    <color name="color_primary_container">#1B5E3B</color>
-    <color name="color_on_primary">#0F1A14</color>
-    <color name="color_on_primary_container">#C8E6C9</color>
+    <!-- ===== PRIMARY — Soft Sage Emerald (calm, legible, non-neon) ===== -->
+    <color name="color_primary">#78C9A2</color>
+    <color name="color_primary_dark">#55AC83</color>
+    <color name="color_primary_light">#9FE0C0</color>
+    <color name="color_primary_container">#1B3F30</color>
+    <color name="color_on_primary">#091F15</color>
+    <color name="color_on_primary_container">#CDEEDC</color>
 
     <!-- ===== SECONDARY ===== -->
-    <color name="color_secondary">#A1887F</color>
-    <color name="color_secondary_container">#4E342E</color>
-    <color name="color_on_secondary">#0F1A14</color>
+    <color name="color_secondary">#92A79E</color>
+    <color name="color_secondary_container">#33433C</color>
+    <color name="color_on_secondary">#091F15</color>
 
     <!-- ===== TEXT ===== -->
-    <color name="color_text_primary">#F1F8F3</color>
-    <color name="color_text_secondary">#A8C5B0</color>
-    <color name="color_text_hint">#6B9278</color>
-    <color name="color_text_on_primary">#0F1A14</color>
-    <color name="color_text_disabled">#4A6B54</color>
+    <color name="color_text_primary">#EBF2EE</color>
+    <color name="color_text_secondary">#A1B3A9</color>
+    <color name="color_text_hint">#6E8076</color>
+    <color name="color_text_on_primary">#091F15</color>
+    <color name="color_text_disabled">#46574E</color>
 
     <!-- ===== BORDERS / DIVIDERS ===== -->
-    <color name="color_border">#2A4535</color>
-    <color name="color_divider">#1E3528</color>
-    <color name="color_outline">#3D6B4F</color>
+    <color name="color_border">#2B3831</color>
+    <color name="color_divider">#202B25</color>
+    <color name="color_outline">#405249</color>
 
     <!-- ===== SEMANTIC STATES ===== -->
-    <color name="color_success">#66BB6A</color>
-    <color name="color_success_container">#1B5E3B</color>
-    <color name="color_on_success">#0F1A14</color>
+    <color name="color_success">#78C9A2</color>
+    <color name="color_success_container">#1B3F30</color>
+    <color name="color_on_success">#091F15</color>
 
-    <color name="color_warning">#FFA726</color>
-    <color name="color_warning_container">#4A2800</color>
-    <color name="color_on_warning">#0F1A14</color>
+    <color name="color_warning">#FBBF24</color>
+    <color name="color_warning_container">#4B3200</color>
+    <color name="color_on_warning">#091F15</color>
 
-    <color name="color_error">#EF5350</color>
-    <color name="color_error_container">#7F0000</color>
+    <color name="color_error">#F87171</color>
+    <color name="color_error_container">#5E1717</color>
     <color name="color_on_error">#FFFFFF</color>
 
     <!-- ===== EMERGENCY ===== -->
-    <color name="color_emergency">#EF5350</color>
-    <color name="color_emergency_container">#7F0000</color>
+    <color name="color_emergency">#F87171</color>
+    <color name="color_emergency_container">#5E1717</color>
     <color name="color_on_emergency">#FFFFFF</color>
 
     <!-- ===== SNAKE CLASSIFICATION ===== -->
-    <color name="color_venomous">#EF5350</color>
-    <color name="color_venomous_container">#7F0000</color>
-    <color name="color_non_venomous">#66BB6A</color>
-    <color name="color_non_venomous_container">#1B5E3B</color>
+    <color name="color_venomous">#F87171</color>
+    <color name="color_venomous_container">#5E1717</color>
+    <color name="color_non_venomous">#78C9A2</color>
+    <color name="color_non_venomous_container">#1B3F30</color>
 
     <!-- ===== STATUS BAR ===== -->
-    <color name="color_status_bar">#0A1209</color>
+    <color name="color_status_bar">#0C100E</color>
 
-    <!-- Legacy names kept for compatibility with any legacy drawables/layouts -->
+    <!-- Compatibility aliases -->
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
-    <color name="red">#EF5350</color>
-    <color name="simple_red">#EF5350</color>
-    <color name="back_for_card">#66BB6A</color>
-    <color name="tabTextColor">#66BB6A</color>
-    <color name="purple_200">#81C784</color>
-    <color name="lavender">#1B5E3B</color>
+    <color name="red">#F87171</color>
+    <color name="simple_red">#F87171</color>
+    <color name="back_for_card">#78C9A2</color>
+    <color name="tabTextColor">#78C9A2</color>
+    <color name="purple_200">#9FE0C0</color>
+    <color name="lavender">#1B3F30</color>
 
 </resources>

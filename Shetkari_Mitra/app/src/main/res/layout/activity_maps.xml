@@ -20,42 +20,101 @@
         android:layout_marginHorizontal="@dimen/space_16"
         android:layout_marginTop="@dimen/space_16"
         android:background="@drawable/bg_glass_card"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="@dimen/space_8">
 
-        <!-- Frosted Glass Back Button -->
-        <ImageButton
-            android:id="@+id/btnGlassBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_glass_circle_btn"
-            android:contentDescription="Back"
-            android:src="@drawable/baseline_clear_24"
-            app:tint="@color/color_primary" />
-
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_12"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Hospital Map (Jalna)"
-                android:textColor="@color/color_text_primary"
-                android:textSize="@dimen/text_body_large" />
+            <!-- Frosted Glass Back Button -->
+            <ImageButton
+                android:id="@+id/btnGlassBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_glass_circle_btn"
+                android:contentDescription="Back"
+                android:src="@drawable/baseline_clear_24"
+                app:tint="@color/color_primary" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:text="OpenStreetMap Live Navigation"
+                android:layout_marginStart="@dimen/space_12"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvMapHeaderTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Emergency Medical &amp; Rescuer Map"
+                    android:textColor="@color/color_text_primary"
+                    android:textSize="@dimen/text_body_large" />
+
+                <TextView
+                    android:id="@+id/tvMapHeaderSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Live ASV Hospitals &amp; Sarpmitra Network"
+                    android:textColor="@color/color_primary"
+                    android:textSize="@dimen/text_caption" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Category Selector Chips (All, Hospitals, Rescuers) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipAllLayers"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_marginEnd="@dimen/space_4"
+                android:layout_weight="1"
+                android:backgroundTint="@color/color_primary"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="All (सर्व)"
+                android:textColor="@color/color_on_primary"
+                android:textSize="11sp"
+                app:cornerRadius="@dimen/radius_full" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipHospitals"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_marginEnd="@dimen/space_4"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Hospitals"
+                android:textColor="@color/color_emergency"
+                android:textSize="11sp"
+                app:cornerRadius="@dimen/radius_full"
+                app:strokeColor="@color/color_emergency" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipRescuers"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Rescuers"
                 android:textColor="@color/color_primary"
-                android:textSize="@dimen/text_caption" />
+                android:textSize="11sp"
+                app:cornerRadius="@dimen/radius_full"
+                app:strokeColor="@color/color_primary" />
 
         </LinearLayout>
 
