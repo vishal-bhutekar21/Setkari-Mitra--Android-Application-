@@ -81,19 +81,96 @@ public class nav_Emergency_Contacts extends AppCompatActivity implements Emergen
         if (layoutOfficialHelplines == null) return;
         layoutOfficialHelplines.removeAllViews();
 
-        addOfficialHelplineCard("NDMA National Disaster Management", "राष्ट्रीय आपत्ती व्यवस्थापन प्राधिकरण", "1078", "Flood, severe storm, earthquake & national disaster relief");
-        addOfficialHelplineCard("Childline National Safety Helpline", "बाल सहाय्यता व बाल सुरक्षा हेल्पलाईन", "1098", "24/7 emergency response for children in need of care & protection");
-        addOfficialHelplineCard("National Anti-Ragging Helpline", "राष्ट्रीय रॅगिंग विरोधी हेल्पलाईन", "18001805522", "Toll-free student safety, harassment prevention & grievance redressal");
-        addOfficialHelplineCard("Women Safety & Distress Helpline", "महिला सुरक्षा व सहाय्यता हेल्पलाईन", "1091", "24/7 emergency police support for women in distress (also call 181)");
-        addOfficialHelplineCard("Senior Citizen National Helpline (Elderline)", "ज्येष्ठ नागरिक राष्ट्रीय हेल्पलाईन", "14567", "Elder care, elder abuse rescue & emergency legal/emotional support");
-        addOfficialHelplineCard("Tele-MANAS Mental Health & Farmer Stress", "टेलि-मानस मानसिक आरोग्य व समुपदेशन हेल्पलाईन", "14416", "24/7 free mental health counseling, stress relief & farmer support");
-        addOfficialHelplineCard("National Cyber Crime Reporting Helpline", "राष्ट्रीय सायबर गुन्हे नोंदणी हेल्पलाईन", "1930", "Immediate reporting of financial cyber fraud, online scams & harassment");
-        addOfficialHelplineCard("Kisan Call Center (Agriculture Advisory)", "किसान कॉल सेंटर - शेतकरी सल्ला व मार्गदर्शन", "18001801551", "Free agricultural expert advice, crop disease solutions & government schemes");
-        addOfficialHelplineCard("MahaForest Wildlife & Snake Rescue", "महाराष्ट्र वन विभाग वन्यजीव व सर्प बचाव", "1926", "Official state wildlife conflict, snakebite rescue & rescue teams");
-        addOfficialHelplineCard("National Emergency Response System (ERSS)", "अखिल भारतीय आपत्कालीन प्रतिसाद सेवा", "112", "Unified all-in-one emergency response for Police, Fire, and Ambulance");
-        addOfficialHelplineCard("Maharashtra Ambulance Service", "महाराष्ट्र रुग्णवाहिका सेवा", "108", "24/7 free GPS-tracked medical ambulance for snakebite and trauma victims");
-        addOfficialHelplineCard("Maharashtra Health Advice & Medical Helpline", "आरोग्य सल्ला व मार्गदर्शन हेल्पलाईन", "104", "Medical expert advisory, hospital anti-venom availability info & SOPs");
-        addOfficialHelplineCard("Jalna / District Emergency Control Room", "जिल्हा आपत्ती नियंत्रण कक्ष, जालना", "02482224400", "Official district disaster control room and civil hospital emergency desk");
+        addOfficialHelplineCard(
+                "National Emergency Response (ERSS 112)",
+                "अखिल भारतीय आपत्कालीन प्रतिसाद सेवा (पोलीस / अग्निशामक / रुग्णवाहिका)",
+                "112",
+                "Unified single emergency helpline for instant police, fire, and ambulance dispatch across India."
+        );
+
+        addOfficialHelplineCard(
+                "Maharashtra Ambulance Service (MEMS 108)",
+                "महाराष्ट्र मोफत रुग्णवाहिका सेवा",
+                "108",
+                "24/7 free GPS-tracked medical ambulance network for rapid transport of snakebite & trauma patients."
+        );
+
+        addOfficialHelplineCard(
+                "NDMA National Disaster Helpline",
+                "राष्ट्रीय आपत्ती व्यवस्थापन प्राधिकरण",
+                "1078",
+                "National emergency control center for flood, thunderstorm, cyclone, and disaster emergencies."
+        );
+
+        addOfficialHelplineCard(
+                "Childline National Safety Helpline",
+                "बाल सहाय्यता व बाल सुरक्षा हेल्पलाईन",
+                "1098",
+                "24/7 toll-free emergency response and protection helpline for children in distress."
+        );
+
+        addOfficialHelplineCard(
+                "National Anti-Ragging Helpline",
+                "राष्ट्रीय रॅगिंग विरोधी हेल्पलाईन",
+                "18001805522",
+                "UGC toll-free confidential helpline for college student safety, ragging prevention & support."
+        );
+
+        addOfficialHelplineCard(
+                "Women Safety & Distress Helpline",
+                "महिला सुरक्षा व सहाय्यता हेल्पलाईन (1091 / 181)",
+                "1091",
+                "24/7 rapid police assistance and legal/medical support for women in distress."
+        );
+
+        addOfficialHelplineCard(
+                "MahaForest Wildlife & Snake Rescue",
+                "महाराष्ट्र वन विभाग वन्यजीव व सर्प बचाव हेल्पलाईन",
+                "1926",
+                "Official 24/7 state helpline for wild animal conflict, snake rescue coordination, and forest protection."
+        );
+
+        addOfficialHelplineCard(
+                "Tele-MANAS Mental Health & Farmer Stress",
+                "टेलि-मानस मानसिक आरोग्य व समुपदेशन हेल्पलाईन",
+                "14416",
+                "Government of India 24/7 free psychological counseling, mental wellness, and farmer stress relief."
+        );
+
+        addOfficialHelplineCard(
+                "Senior Citizen Helpline (Elderline)",
+                "ज्येष्ठ नागरिक राष्ट्रीय हेल्पलाईन",
+                "14567",
+                "National toll-free elder care, abuse rescue, healthcare advisories, and emotional support."
+        );
+
+        addOfficialHelplineCard(
+                "National Cyber Crime Helpline",
+                "राष्ट्रीय सायबर गुन्हे नोंदणी हेल्पलाईन",
+                "1930",
+                "Immediate citizen financial cyber fraud reporting and online scam grievance cell."
+        );
+
+        addOfficialHelplineCard(
+                "Kisan Call Center (Farmer Advisory)",
+                "किसान कॉल सेंटर - कृषी सल्ला व मार्गदर्शन",
+                "18001801551",
+                "Toll-free agricultural scientist advisory for crops, fertilizer, and government subsidy schemes."
+        );
+
+        addOfficialHelplineCard(
+                "Maharashtra Health Advice (Arogya Vibhag)",
+                "आरोग्य सल्ला व मार्गदर्शन हेल्पलाईन",
+                "104",
+                "State public health advice, district hospital anti-venom (ASV) stocks, and epidemic guidance."
+        );
+
+        addOfficialHelplineCard(
+                "District Disaster Control Room (Jalna / Sambhajinagar)",
+                "जिल्हा आपत्ती नियंत्रण कक्ष, जालना",
+                "02482224400",
+                "District administration emergency control room, civil hospital disaster cell, and river flood desk."
+        );
     }
 
     private void addOfficialHelplineCard(String title, String marathiTitle, String phone, String description) {
@@ -112,7 +189,7 @@ public class nav_Emergency_Contacts extends AppCompatActivity implements Emergen
 
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(dpToPx(14), dpToPx(12), dpToPx(14), dpToPx(12));
+        root.setPadding(dpToPx(16), dpToPx(14), dpToPx(16), dpToPx(14));
 
         LinearLayout topRow = new LinearLayout(this);
         topRow.setOrientation(LinearLayout.HORIZONTAL);
@@ -121,6 +198,7 @@ public class nav_Emergency_Contacts extends AppCompatActivity implements Emergen
         LinearLayout textCol = new LinearLayout(this);
         textCol.setOrientation(LinearLayout.VERTICAL);
         LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+        textParams.setMargins(0, 0, dpToPx(8), 0);
         textCol.setLayoutParams(textParams);
 
         TextView tvTitle = new TextView(this);
@@ -142,7 +220,9 @@ public class nav_Emergency_Contacts extends AppCompatActivity implements Emergen
         btnCall.setText(phone);
         btnCall.setTextSize(12);
         btnCall.setTextColor(getResources().getColor(R.color.color_primary));
+        btnCall.setStrokeColorResource(R.color.color_primary);
         btnCall.setCornerRadius(dpToPx(8));
+        btnCall.setTypeface(null, android.graphics.Typeface.BOLD);
         btnCall.setOnClickListener(v -> {
             Intent callIntent = new Intent(Intent.ACTION_DIAL);
             callIntent.setData(Uri.parse("tel:" + phone));
@@ -157,7 +237,7 @@ public class nav_Emergency_Contacts extends AppCompatActivity implements Emergen
         tvDesc.setTextSize(11);
         tvDesc.setTextColor(getResources().getColor(R.color.color_text_secondary));
         LinearLayout.LayoutParams descParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        descParams.setMargins(0, dpToPx(4), 0, 0);
+        descParams.setMargins(0, dpToPx(6), 0, 0);
         tvDesc.setLayoutParams(descParams);
         root.addView(tvDesc);
 
