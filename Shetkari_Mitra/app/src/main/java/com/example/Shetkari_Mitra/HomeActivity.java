@@ -170,6 +170,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         View headerView = navigationView.getHeaderView(0);
         userNameTextView = headerView.findViewById(R.id.user_name);
         userEmailTextView = headerView.findViewById(R.id.user_email);
+        View btnDrawerClose = headerView.findViewById(R.id.btnDrawerClose);
+
+        if (btnDrawerClose != null) {
+            btnDrawerClose.setOnClickListener(v -> drawerLayout.closeDrawer(GravityCompat.START));
+        }
 
         SharedPreferences prefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
         String username = prefs.getString(KEY_SAVED_USERNAME, "Shetkari Mitra");
@@ -249,13 +254,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             fetchCurrentLocation();
         } else {
-            // Show educational dialog before launching system prompt
-            PermissionEducationDialog.newInstance(PermissionEducationDialog.PermissionType.LOCATION, () -> {
-                locationPermissionLauncher.launch(new String[]{
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                });
-            }).show(getSupportFragmentManager(), "perm_location");
+            locationPermissionLauncher.launch(new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+            });
         }
     }
 
@@ -318,6 +320,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_language) {
             showLanguageDialog();
+        } else if (id == R.id.nav_theme) {
+            showThemeDialog();
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(this, Activity_About_Us.class));
         } else if (id == R.id.nav_share) {
@@ -342,7 +346,44 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     if (which == 1) selectedLang = LocaleHelper.LANGUAGE_MARATHI;
                     else if (which == 2) selectedLang = LocaleHelper.LANGUAGE_HINDI;
 
-                    LocaleHelper.setLocale(HomeActivity.this, selectedLang);
+                    dialog.dismiss();
+
+                    // Show smooth loading dialog
+                    android.app.ProgressDialog progressDialog = new android.app.ProgressDialog(HomeActivity.this);
+                    progressDialog.setMessage("Applying language / भाषा लागू करत आहे...");
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
+
+                    final String finalLang = selectedLang;
+                    new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
+                        LocaleHelper.setLocale(HomeActivity.this, finalLang);
+                        try {
+                            if (progressDialog.isShowing()) {
+                                progressDialog.dismiss();
+                            }
+                        } catch (Exception ignored) {}
+                        recreate();
+                    }, 400);
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+    }
+
+    private void showThemeDialog() {
+        String[] themes = {"Light Mode (प्रकाश मोड)", "Dark Mode (गडद मोड)", "System Default (सिस्टम डीफॉल्ट)"};
+        int currentTheme = ThemeHelper.getSavedThemeMode(this);
+        int checkedItem = 0;
+        if (currentTheme == ThemeHelper.THEME_DARK) checkedItem = 1;
+        else if (currentTheme == ThemeHelper.THEME_SYSTEM) checkedItem = 2;
+
+        new MaterialAlertDialogBuilder(this)
+                .setTitle("Theme / थीम")
+                .setSingleChoiceItems(themes, checkedItem, (dialog, which) -> {
+                    int selectedTheme = ThemeHelper.THEME_LIGHT;
+                    if (which == 1) selectedTheme = ThemeHelper.THEME_DARK;
+                    else if (which == 2) selectedTheme = ThemeHelper.THEME_SYSTEM;
+
+                    ThemeHelper.setThemeMode(HomeActivity.this, selectedTheme);
                     dialog.dismiss();
                     recreate();
                 })
@@ -354,7 +395,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-        shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_app_description));
+        String shareMsg = "Shetkari Mitra (शेतकरी मित्र) — Maharashtra's Rural Snake Safety, Emergency First Aid & Rescuer Network App.\n\n" +
+                "Emergency Helplines: 108 / 112\n" +
+                "Download & Guide: https://github.com/vishal-bhutekar21/Setkari-Mitra--Android-Application-";
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMsg);
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share_via)));
     }
 

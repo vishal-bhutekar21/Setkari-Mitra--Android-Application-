@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Section: App & Preferences -->
-    <item android:title="Preferences &amp; Support">
+    <!-- Section: Preferences & Utilities -->
+    <item android:title="Settings &amp; Appearance">
         <menu>
             <item
                 android:id="@+id/nav_language"
                 android:title="Language / भाषा" />
 
             <item
-                android:id="@+id/nav_about"
-                android:title="Developer Information" />
+                android:id="@+id/nav_theme"
+                android:title="Theme (Light / Dark)" />
 
             <item
                 android:id="@+id/nav_share"
-                android:title="Share with Farmers" />
+                android:title="Share App &amp; Safety Info" />
+
+            <item
+                android:id="@+id/nav_about"
+                android:title="Developer Information" />
         </menu>
     </item>
 

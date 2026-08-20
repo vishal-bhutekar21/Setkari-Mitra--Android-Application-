@@ -28,7 +28,7 @@
                 android:paddingTop="@dimen/space_16"
                 android:paddingBottom="@dimen/space_14">
 
-                <!-- Row 1: Drawer Toggle, Greeting, Direct SOS -->
+                <!-- Row 1: Drawer Toggle, Greeting, Voice Assistant -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/screen_margin_horizontal">
 
-                    <!-- Emergency Protocol Banner (Red) -->
+                    <!-- Emergency Protocol Banner -->
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/emergency_btn"
                         android:layout_width="match_parent"
@@ -153,53 +153,32 @@
                         android:clickable="true"
                         android:focusable="true"
                         app:cardBackgroundColor="@color/color_emergency_container"
-                        app:cardCornerRadius="14dp"
+                        app:cardCornerRadius="16dp"
                         app:cardElevation="0dp"
-                        app:strokeColor="@color/color_emergency"
-                        app:strokeWidth="1.5dp">
+                        app:strokeWidth="0dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:padding="@dimen/space_14">
+                            android:padding="@dimen/space_16">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:gravity="center_vertical"
-                                android:orientation="horizontal">
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="@string/home_emergency_card_title"
+                                android:textColor="@color/color_emergency"
+                                android:textSize="16sp" />
 
-                                <ImageView
-                                    android:layout_width="32dp"
-                                    android:layout_height="32dp"
-                                    android:src="@drawable/ic_phone_24"
-                                    app:tint="@color/color_emergency" />
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="@dimen/space_12"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:fontFamily="@font/poppins_bold"
-                                        android:text="@string/home_emergency_card_title"
-                                        android:textColor="@color/color_emergency"
-                                        android:textSize="16sp" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:fontFamily="@font/poppins_regular"
-                                        android:text="@string/home_emergency_card_subtitle"
-                                        android:textColor="@color/color_text_secondary"
-                                        android:textSize="12sp" />
-                                </LinearLayout>
-                            </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="@string/home_emergency_card_subtitle"
+                                android:textColor="@color/color_text_secondary"
+                                android:textSize="12sp" />
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/btnStartEmergencyHelp"
@@ -212,10 +191,7 @@
                                 android:text="@string/home_emergency_card_cta"
                                 android:textColor="@color/color_white"
                                 android:textSize="14sp"
-                                app:cornerRadius="10dp"
-                                app:icon="@drawable/ic_phone_24"
-                                app:iconGravity="textStart"
-                                app:iconTint="@color/color_white" />
+                                app:cornerRadius="10dp" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
@@ -245,17 +221,16 @@
                             android:clickable="true"
                             android:focusable="true"
                             app:cardBackgroundColor="@color/color_surface"
-                            app:cardCornerRadius="14dp"
+                            app:cardCornerRadius="16dp"
                             app:cardElevation="0dp"
-                            app:strokeColor="@color/color_border"
-                            app:strokeWidth="1dp">
+                            app:strokeWidth="0dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:padding="@dimen/space_14">
+                                android:padding="@dimen/space_16">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -288,17 +263,16 @@
                             android:clickable="true"
                             android:focusable="true"
                             app:cardBackgroundColor="@color/color_surface"
-                            app:cardCornerRadius="14dp"
+                            app:cardCornerRadius="16dp"
                             app:cardElevation="0dp"
-                            app:strokeColor="@color/color_border"
-                            app:strokeWidth="1dp">
+                            app:strokeWidth="0dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:padding="@dimen/space_14">
+                                android:padding="@dimen/space_16">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -332,17 +306,16 @@
                         android:clickable="true"
                         android:focusable="true"
                         app:cardBackgroundColor="@color/color_surface"
-                        app:cardCornerRadius="14dp"
+                        app:cardCornerRadius="16dp"
                         app:cardElevation="0dp"
-                        app:strokeColor="@color/color_border"
-                        app:strokeWidth="1dp">
+                        app:strokeWidth="0dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:padding="@dimen/space_12">
+                            android:padding="@dimen/space_14">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -396,16 +369,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         app:cardBackgroundColor="@color/color_surface"
-                        app:cardCornerRadius="14dp"
+                        app:cardCornerRadius="16dp"
                         app:cardElevation="0dp"
-                        app:strokeColor="@color/color_border"
-                        app:strokeWidth="1dp">
+                        app:strokeWidth="0dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:padding="@dimen/space_14">
+                            android:padding="@dimen/space_16">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -418,7 +390,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
+                                android:layout_marginTop="3dp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Gopinath Munde Shetkari Apghat Vima Yojana - Complete guidelines, GR &amp; claim process."
                                 android:textColor="@color/color_text_secondary"
@@ -435,16 +407,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         app:cardBackgroundColor="@color/color_surface"
-                        app:cardCornerRadius="14dp"
+                        app:cardCornerRadius="16dp"
                         app:cardElevation="0dp"
-                        app:strokeColor="@color/color_border"
-                        app:strokeWidth="1dp">
+                        app:strokeWidth="0dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:padding="@dimen/space_14">
+                            android:padding="@dimen/space_16">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -457,7 +428,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
+                                android:layout_marginTop="3dp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Direct access to Jalna Collectorate, MahaForest, and Arogya Vibhag helplines."
                                 android:textColor="@color/color_text_secondary"
@@ -494,17 +465,16 @@
                             android:clickable="true"
                             android:focusable="true"
                             app:cardBackgroundColor="@color/color_surface"
-                            app:cardCornerRadius="14dp"
+                            app:cardCornerRadius="16dp"
                             app:cardElevation="0dp"
-                            app:strokeColor="@color/color_border"
-                            app:strokeWidth="1dp">
+                            app:strokeWidth="0dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:padding="@dimen/space_14">
+                                android:padding="@dimen/space_16">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -521,7 +491,7 @@
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="Photo Assistance"
+                                    android:text="Photo Aid"
                                     android:textColor="@color/color_text_secondary"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -537,17 +507,16 @@
                             android:clickable="true"
                             android:focusable="true"
                             app:cardBackgroundColor="@color/color_surface"
-                            app:cardCornerRadius="14dp"
+                            app:cardCornerRadius="16dp"
                             app:cardElevation="0dp"
-                            app:strokeColor="@color/color_border"
-                            app:strokeWidth="1dp">
+                            app:strokeWidth="0dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:padding="@dimen/space_14">
+                                android:padding="@dimen/space_16">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -580,17 +549,16 @@
                             android:clickable="true"
                             android:focusable="true"
                             app:cardBackgroundColor="@color/color_surface"
-                            app:cardCornerRadius="14dp"
+                            app:cardCornerRadius="16dp"
                             app:cardElevation="0dp"
-                            app:strokeColor="@color/color_border"
-                            app:strokeWidth="1dp">
+                            app:strokeWidth="0dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:padding="@dimen/space_14">
+                                android:padding="@dimen/space_16">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -623,17 +591,16 @@
                             android:clickable="true"
                             android:focusable="true"
                             app:cardBackgroundColor="@color/color_surface"
-                            app:cardCornerRadius="14dp"
+                            app:cardCornerRadius="16dp"
                             app:cardElevation="0dp"
-                            app:strokeColor="@color/color_border"
-                            app:strokeWidth="1dp">
+                            app:strokeWidth="0dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:padding="@dimen/space_14">
+                                android:padding="@dimen/space_16">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -667,16 +634,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         app:cardBackgroundColor="@color/color_surface"
-                        app:cardCornerRadius="14dp"
+                        app:cardCornerRadius="16dp"
                         app:cardElevation="0dp"
-                        app:strokeColor="@color/color_border"
-                        app:strokeWidth="1dp">
+                        app:strokeWidth="0dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:padding="@dimen/space_14">
+                            android:padding="@dimen/space_16">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -689,7 +655,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
+                                android:layout_marginTop="3dp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Scientific facts dispelling traditional superstitions and myths about snakes."
                                 android:textColor="@color/color_text_secondary"
