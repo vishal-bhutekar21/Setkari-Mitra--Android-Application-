@@ -1,6 +1,8 @@
 package com.example.Shetkari_Mitra;
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,12 +10,13 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,9 +31,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.Priority;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.IOException;
@@ -39,10 +40,10 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String PREF_NAME = "shetkari_prefs";
-    private static final String KEY_LOGGED_IN = "is_logged_in";
     private static final String KEY_SAVED_USERNAME = "saved_username";
     private static final String KEY_SAVED_EMAIL = "saved_email";
 
@@ -54,10 +55,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private TextView userEmailTextView;
     private TextView tvGreeting;
 
-    private View cardSnakeLib, cardFirstAid, cardNearHospital;
-    private View cardIdentifySnake, cardResRegistration, cardSnakeRescuers;
-    private View cardEmergencyBtn, cardAboutUsBtn, cardMythsFacts, cardInsectsCreatures;
-    private View btnStartEmergencyHelp;
+    private View cardSnakeLib, cardNearHospital;
+    private View cardResRegistration, cardSnakeRescuers;
+    private View cardMythsFacts, cardInsectsCreatures;
+    private View cardGovtCompensation, cardGovtPortals, cardSafetyLearning, cardEmergencyContacts, cardStatusProtection;
     private ImageButton btnMenuDrawer, btnVoiceAssistant;
 
     private final ActivityResultLauncher<Intent> speechRecognitionLauncher =
@@ -102,28 +103,43 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setupNavigationHeader();
         setupCardClickListeners();
         setupBottomNavigation();
-        playDashboardAnimations();
+        playDashboardCascadingAnimations();
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         checkAndRequestLocation();
     }
 
-    private void playDashboardAnimations() {
-        android.view.animation.Animation slideAnim = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.slide_up_fade_in);
-        if (cardEmergencyBtn != null) {
-            cardEmergencyBtn.startAnimation(slideAnim);
-        }
-        if (cardIdentifySnake != null) {
-            cardIdentifySnake.startAnimation(slideAnim);
-        }
-        if (cardNearHospital != null) {
-            cardNearHospital.startAnimation(slideAnim);
-        }
-        if (cardSnakeRescuers != null) {
-            cardSnakeRescuers.startAnimation(slideAnim);
-        }
-        if (cardFirstAid != null) {
-            cardFirstAid.startAnimation(slideAnim);
+    private void playDashboardCascadingAnimations() {
+        View[] dashboardViews = {
+                cardStatusProtection,
+                cardSnakeLib,
+                cardSafetyLearning,
+                cardNearHospital,
+                cardEmergencyContacts,
+                cardSnakeRescuers,
+                cardResRegistration,
+                cardGovtCompensation,
+                cardMythsFacts,
+                cardInsectsCreatures,
+                cardGovtPortals
+        };
+
+        long delay = 40;
+        for (View view : dashboardViews) {
+            if (view != null) {
+                view.setAlpha(0f);
+                view.setTranslationY(35f);
+
+                view.animate()
+                        .alpha(1f)
+                        .translationY(0f)
+                        .setDuration(400)
+                        .setStartDelay(delay)
+                        .setInterpolator(new DecelerateInterpolator(1.3f))
+                        .start();
+
+                delay += 45;
+            }
         }
     }
 
@@ -144,11 +160,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         cardMythsFacts = findViewById(R.id.myths_fact);
         cardInsectsCreatures = findViewById(R.id.cardHarmfulCreatures);
         cardResRegistration = findViewById(R.id.cardResRegistration);
-        View cardGovtCompensation = findViewById(R.id.cardGovtCompensation);
-        View cardGovtPortals = findViewById(R.id.cardGovtPortals);
-        View cardSafetyLearning = findViewById(R.id.cardSafetyLearning);
-        View cardEmergencyContacts = findViewById(R.id.cardEmergencyContacts);
-        View cardStatusProtection = findViewById(R.id.cardStatusProtection);
+        cardGovtCompensation = findViewById(R.id.cardGovtCompensation);
+        cardGovtPortals = findViewById(R.id.cardGovtPortals);
+        cardSafetyLearning = findViewById(R.id.cardSafetyLearning);
+        cardEmergencyContacts = findViewById(R.id.cardEmergencyContacts);
+        cardStatusProtection = findViewById(R.id.cardStatusProtection);
 
         if (btnMenuDrawer != null) {
             btnMenuDrawer.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
@@ -159,12 +175,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
 
         navigationView.setNavigationItemSelectedListener(this);
-
-        if (cardGovtCompensation != null) cardGovtCompensation.setOnClickListener(v -> startActivity(new Intent(this, GovtCompensationActivity.class)));
-        if (cardGovtPortals != null) cardGovtPortals.setOnClickListener(v -> startActivity(new Intent(this, GovtPortalsActivity.class)));
-        if (cardSafetyLearning != null) cardSafetyLearning.setOnClickListener(v -> startActivity(new Intent(this, SafetyLearningActivity.class)));
-        if (cardEmergencyContacts != null) cardEmergencyContacts.setOnClickListener(v -> startActivity(new Intent(this, nav_Emergency_Contacts.class)));
-        if (cardStatusProtection != null) cardStatusProtection.setOnClickListener(v -> startActivity(new Intent(this, Near_By_Hospitals.class)));
     }
 
     private void setupNavigationHeader() {
@@ -187,15 +197,34 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void setupCardClickListeners() {
-        if (cardEmergencyBtn != null) cardEmergencyBtn.setOnClickListener(v -> openEmergencyMode());
+        if (cardNearHospital != null) cardNearHospital.setOnClickListener(v -> animateAndLaunch(v, Near_By_Hospitals.class));
+        if (cardSnakeRescuers != null) cardSnakeRescuers.setOnClickListener(v -> animateAndLaunch(v, RescuerDatabaseActivity.class));
+        if (cardSnakeLib != null) cardSnakeLib.setOnClickListener(v -> animateAndLaunch(v, MainActivity.class));
+        if (cardMythsFacts != null) cardMythsFacts.setOnClickListener(v -> animateAndLaunch(v, Activity_Myths_Facts.class));
+        if (cardInsectsCreatures != null) cardInsectsCreatures.setOnClickListener(v -> animateAndLaunch(v, HarmfulCreaturesActivity.class));
+        if (cardResRegistration != null) cardResRegistration.setOnClickListener(v -> animateAndLaunch(v, Registration_example.class));
 
-        if (cardNearHospital != null) cardNearHospital.setOnClickListener(v -> startActivity(new Intent(this, Near_By_Hospitals.class)));
-        if (cardSnakeRescuers != null) cardSnakeRescuers.setOnClickListener(v -> startActivity(new Intent(this, RescuerDatabaseActivity.class)));
+        if (cardGovtCompensation != null) cardGovtCompensation.setOnClickListener(v -> animateAndLaunch(v, GovtCompensationActivity.class));
+        if (cardGovtPortals != null) cardGovtPortals.setOnClickListener(v -> animateAndLaunch(v, GovtPortalsActivity.class));
+        if (cardSafetyLearning != null) cardSafetyLearning.setOnClickListener(v -> animateAndLaunch(v, SafetyLearningActivity.class));
+        if (cardEmergencyContacts != null) cardEmergencyContacts.setOnClickListener(v -> animateAndLaunch(v, nav_Emergency_Contacts.class));
+        if (cardStatusProtection != null) cardStatusProtection.setOnClickListener(v -> animateAndLaunch(v, Near_By_Hospitals.class));
+    }
 
-        if (cardSnakeLib != null) cardSnakeLib.setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
-        if (cardMythsFacts != null) cardMythsFacts.setOnClickListener(v -> startActivity(new Intent(this, Activity_Myths_Facts.class)));
-        if (cardInsectsCreatures != null) cardInsectsCreatures.setOnClickListener(v -> startActivity(new Intent(this, HarmfulCreaturesActivity.class)));
-        if (cardResRegistration != null) cardResRegistration.setOnClickListener(v -> startActivity(new Intent(this, Registration_example.class)));
+    private void animateAndLaunch(View view, Class<?> targetActivity) {
+        if (view == null) {
+            startActivity(new Intent(this, targetActivity));
+            return;
+        }
+
+        PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.96f, 1.02f, 1.0f);
+        PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.96f, 1.02f, 1.0f);
+        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(view, scaleX, scaleY);
+        animator.setDuration(280);
+        animator.setInterpolator(new OvershootInterpolator(1.8f));
+        animator.start();
+
+        view.postDelayed(() -> startActivity(new Intent(this, targetActivity)), 120);
     }
 
     private void openEmergencyMode() {
@@ -216,7 +245,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void setupBottomNavigation() {
-        if (bottomNavigationView == null) return;
         bottomNavigationView.setSelectedItemId(R.id.bottom_nav_home);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -263,50 +291,44 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             return;
         }
 
-        locationTextView.setText(R.string.fetching_location);
-
-        fusedLocationClient.getCurrentLocation(Priority.PRIORITY_BALANCED_POWER_ACCURACY, null)
-                .addOnSuccessListener(this, location -> {
-                    if (location != null) {
-                        reverseGeocode(location);
-                    } else {
-                        fusedLocationClient.getLastLocation().addOnSuccessListener(this, lastLoc -> {
-                            if (lastLoc != null) {
-                                reverseGeocode(lastLoc);
-                            } else {
-                                locationTextView.setText(R.string.location_jalna_default);
-                            }
-                        });
-                    }
-                })
-                .addOnFailureListener(e -> locationTextView.setText(R.string.location_jalna_default));
+        fusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
+            if (location != null) {
+                resolveAddressFromLocation(location);
+            } else {
+                locationTextView.setText(R.string.location_jalna_default);
+            }
+        }).addOnFailureListener(e -> locationTextView.setText(R.string.location_jalna_default));
     }
 
-    private void reverseGeocode(Location location) {
+    private void resolveAddressFromLocation(Location location) {
         executorService.execute(() -> {
-            Geocoder geocoder = new Geocoder(HomeActivity.this, Locale.getDefault());
-            String addressText = String.format(Locale.getDefault(), "Lat: %.4f, Long: %.4f", location.getLatitude(), location.getLongitude());
+            String addressText = getString(R.string.location_jalna_default);
             try {
+                Geocoder geocoder = new Geocoder(HomeActivity.this, Locale.getDefault());
                 List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
                 if (addresses != null && !addresses.isEmpty()) {
                     Address addr = addresses.get(0);
                     StringBuilder sb = new StringBuilder();
-                    if (addr.getLocality() != null) sb.append(addr.getLocality()).append(", ");
-                    if (addr.getSubAdminArea() != null) sb.append(addr.getSubAdminArea()).append(", ");
-                    if (addr.getAdminArea() != null) sb.append(addr.getAdminArea());
+                    if (addr.getLocality() != null) {
+                        sb.append(addr.getLocality());
+                    } else if (addr.getSubAdminArea() != null) {
+                        sb.append(addr.getSubAdminArea());
+                    }
+                    if (addr.getAdminArea() != null) {
+                        if (sb.length() > 0) sb.append(", ");
+                        sb.append(addr.getAdminArea());
+                    }
                     if (sb.length() > 0) {
                         addressText = sb.toString();
                     }
                 }
-            } catch (IOException ignored) {
+            } catch (IOException e) {
+                // Fallback to coordinates
+                addressText = String.format(Locale.US, "Lat: %.3f, Lng: %.3f", location.getLatitude(), location.getLongitude());
             }
 
-            final String result = addressText;
-            mainHandler.post(() -> {
-                if (!isFinishing() && locationTextView != null) {
-                    locationTextView.setText(result);
-                }
-            });
+            final String finalText = addressText;
+            mainHandler.post(() -> locationTextView.setText(finalText));
         });
     }
 
@@ -318,10 +340,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             showLanguageDialog();
         } else if (id == R.id.nav_theme) {
             showThemeDialog();
-        } else if (id == R.id.nav_about) {
-            startActivity(new Intent(this, Activity_About_Us.class));
         } else if (id == R.id.nav_share) {
             shareApp();
+        } else if (id == R.id.nav_about) {
+            startActivity(new Intent(this, Activity_About_Us.class));
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -330,60 +352,31 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private void showLanguageDialog() {
         String[] languages = {"English", "मराठी (Marathi)", "हिंदी (Hindi)"};
-        String currentLang = LocaleHelper.getLanguage(this);
-        int checkedItem = 0;
-        if (LocaleHelper.LANGUAGE_MARATHI.equals(currentLang)) checkedItem = 1;
-        else if (LocaleHelper.LANGUAGE_HINDI.equals(currentLang)) checkedItem = 2;
+        String[] langCodes = {LocaleHelper.LANGUAGE_ENGLISH, LocaleHelper.LANGUAGE_MARATHI, LocaleHelper.LANGUAGE_HINDI};
 
-        new MaterialAlertDialogBuilder(this)
+        new com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
                 .setTitle("Select Language / भाषा निवडा")
-                .setSingleChoiceItems(languages, checkedItem, (dialog, which) -> {
-                    String selectedLang = LocaleHelper.LANGUAGE_ENGLISH;
-                    if (which == 1) selectedLang = LocaleHelper.LANGUAGE_MARATHI;
-                    else if (which == 2) selectedLang = LocaleHelper.LANGUAGE_HINDI;
-
-                    dialog.dismiss();
-
-                    // Show smooth loading dialog
-                    android.app.ProgressDialog progressDialog = new android.app.ProgressDialog(HomeActivity.this);
-                    progressDialog.setMessage("Applying language / भाषा लागू करत आहे...");
-                    progressDialog.setCancelable(false);
-                    progressDialog.show();
-
-                    final String finalLang = selectedLang;
-                    new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
-                        LocaleHelper.setLocale(HomeActivity.this, finalLang);
-                        try {
-                            if (progressDialog.isShowing()) {
-                                progressDialog.dismiss();
-                            }
-                        } catch (Exception ignored) {}
-                        recreate();
-                    }, 400);
+                .setItems(languages, (dialog, which) -> {
+                    String selectedLang = langCodes[which];
+                    LocaleHelper.setLocale(this, selectedLang);
+                    recreate();
                 })
-                .setNegativeButton(R.string.cancel, null)
                 .show();
     }
 
     private void showThemeDialog() {
-        String[] themes = {"Light Mode (प्रकाश मोड)", "Dark Mode (गडद मोड)", "System Default (सिस्टम डीफॉल्ट)"};
-        int currentTheme = ThemeHelper.getSavedThemeMode(this);
-        int checkedItem = 0;
-        if (currentTheme == ThemeHelper.THEME_DARK) checkedItem = 1;
-        else if (currentTheme == ThemeHelper.THEME_SYSTEM) checkedItem = 2;
-
-        new MaterialAlertDialogBuilder(this)
-                .setTitle("Theme / थीम")
-                .setSingleChoiceItems(themes, checkedItem, (dialog, which) -> {
-                    int selectedTheme = ThemeHelper.THEME_LIGHT;
-                    if (which == 1) selectedTheme = ThemeHelper.THEME_DARK;
-                    else if (which == 2) selectedTheme = ThemeHelper.THEME_SYSTEM;
-
-                    ThemeHelper.setThemeMode(HomeActivity.this, selectedTheme);
-                    dialog.dismiss();
-                    recreate();
+        String[] themes = {"Light Mode", "Dark Mode", "System Default"};
+        new com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
+                .setTitle("Select Theme")
+                .setItems(themes, (dialog, which) -> {
+                    if (which == 0) {
+                        androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO);
+                    } else if (which == 1) {
+                        androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES);
+                    } else {
+                        androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                    }
                 })
-                .setNegativeButton(R.string.cancel, null)
                 .show();
     }
 
@@ -391,27 +384,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-        String shareMsg = "Shetkari Mitra (शेतकरी मित्र) — Maharashtra's Rural Snake Safety, Emergency First Aid & Rescuer Network App.\n\n" +
-                "Emergency Helplines: 108 / 112\n" +
-                "Download & Guide: https://github.com/vishal-bhutekar21/Setkari-Mitra--Android-Application-";
-        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMsg);
-        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_via)));
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "Download Shetkari Mitra - Farmer Companion and Snakebite Safety App: https://github.com/vishal-bhutekar21/Setkari-Mitra--Android-Application-");
+        startActivity(Intent.createChooser(shareIntent, "Share via"));
     }
 
-    private void showLogoutDialog() {
-        new MaterialAlertDialogBuilder(this)
-                .setTitle(R.string.logout)
-                .setMessage(R.string.logout_confirm_msg)
-                .setPositiveButton(R.string.logout, (dialog, which) -> {
-                    SharedPreferences prefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
-                    prefs.edit().putBoolean(KEY_LOGGED_IN, false).apply();
-
-                    Intent intent = new Intent(HomeActivity.this, Start_Activity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                })
-                .setNegativeButton(R.string.cancel, null)
-                .show();
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        executorService.shutdown();
     }
 }

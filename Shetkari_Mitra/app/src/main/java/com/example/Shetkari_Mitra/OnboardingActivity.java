@@ -92,7 +92,7 @@ public class OnboardingActivity extends AppCompatActivity {
                 getString(R.string.onboarding_subtitle_1),
                 getString(R.string.onboarding_desc_1),
                 getString(R.string.onboarding_badge_1),
-                R.drawable.p2
+                R.drawable.ic_feature_snakes
         ));
 
         // Screen 2: Know What To Do in an Emergency
@@ -101,7 +101,7 @@ public class OnboardingActivity extends AppCompatActivity {
                 getString(R.string.onboarding_subtitle_2),
                 getString(R.string.onboarding_desc_2),
                 getString(R.string.onboarding_badge_2),
-                R.drawable.first_aid_logo
+                R.drawable.ic_feature_first_aid
         ));
 
         // Screen 3: Find Hospitals and Snake Rescuers Near You
@@ -110,7 +110,7 @@ public class OnboardingActivity extends AppCompatActivity {
                 getString(R.string.onboarding_subtitle_3),
                 getString(R.string.onboarding_desc_3),
                 getString(R.string.onboarding_badge_3),
-                R.drawable.hospital_location_logo
+                R.drawable.ic_hospital_shield_24
         ));
 
         // Screen 4: Choose Language
@@ -119,7 +119,7 @@ public class OnboardingActivity extends AppCompatActivity {
                 getString(R.string.onboarding_subtitle_4),
                 getString(R.string.onboarding_desc_4),
                 getString(R.string.onboarding_badge_4),
-                R.drawable.theme_palete,
+                R.drawable.ic_language_24,
                 true
         ));
     }

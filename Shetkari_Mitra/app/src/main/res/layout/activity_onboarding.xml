@@ -14,22 +14,17 @@
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/space_20"
         android:paddingTop="@dimen/space_16"
+        android:paddingBottom="@dimen/space_8"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/app_logo" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_8"
             android:layout_weight="1"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/app_name"
             android:textColor="@color/color_primary"
-            android:textSize="@dimen/text_title" />
+            android:textSize="20sp" />
 
         <!-- Clean Skip Button -->
         <com.google.android.material.button.MaterialButton
@@ -49,17 +44,20 @@
         android:id="@+id/viewPagerOnboarding"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:clipToPadding="false"
         app:layout_constraintBottom_toTopOf="@id/bottomBar"
         app:layout_constraintTop_toBottomOf="@id/topBar" />
 
-    <!-- Bottom Controls -->
+    <!-- Bottom Controls (Elevated above system gesture bar) -->
     <LinearLayout
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="@dimen/space_24"
+        android:paddingHorizontal="@dimen/space_20"
+        android:paddingTop="@dimen/space_12"
+        android:paddingBottom="28dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <!-- Dots Indicator -->
@@ -71,18 +69,20 @@
             android:gravity="center_vertical"
             android:orientation="horizontal" />
 
-        <!-- Next / Get Started Glass Button -->
-        <Button
+        <!-- Next / Get Started Material Button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnNext"
+            style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
-            android:layout_height="52dp"
-            android:background="@drawable/bg_glass_button"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/color_primary"
             android:fontFamily="@font/poppins_bold"
             android:minWidth="140dp"
             android:paddingHorizontal="@dimen/space_24"
             android:text="Next"
             android:textColor="@color/color_on_primary"
-            android:textSize="@dimen/text_body_large" />
+            android:textSize="14sp"
+            app:cornerRadius="12dp" />
 
     </LinearLayout>
 

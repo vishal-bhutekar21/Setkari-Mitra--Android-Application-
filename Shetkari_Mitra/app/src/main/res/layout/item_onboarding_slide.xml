@@ -5,129 +5,142 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="@dimen/space_24">
+    android:padding="@dimen/space_20">
 
-    <!-- Top Illustration Stage -->
-    <LinearLayout
+    <!-- Top Vector Infographic Stage -->
+    <FrameLayout
         android:id="@+id/containerIllustration"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:background="@drawable/bg_glass_circle_btn"
-        android:gravity="center"
-        android:padding="@dimen/space_20">
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/bg_feature_icon_circle">
 
         <ImageView
             android:id="@+id/ivSlideIllustration"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/app_logo" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:contentDescription="Infographic"
+            android:src="@drawable/ic_hospital_shield_24"
+            app:tint="@color/color_primary" />
 
-    </LinearLayout>
+    </FrameLayout>
 
     <!-- Glass Content Card -->
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_24"
-        android:background="@drawable/bg_glass_card"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:padding="@dimen/space_20">
+        android:layout_marginTop="@dimen/space_20"
+        app:cardBackgroundColor="@color/color_surface"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:strokeColor="#E2E8F0"
+        app:strokeWidth="1dp">
 
-        <!-- Category Badge -->
-        <TextView
-            android:id="@+id/tvSlideBadge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/dot_active"
-            android:backgroundTint="@color/color_primary_container"
-            android:fontFamily="@font/poppins_semibold"
-            android:paddingHorizontal="@dimen/space_12"
-            android:paddingVertical="@dimen/space_4"
-            android:text="PROTECT &amp; PREVENT"
-            android:textColor="@color/color_on_primary_container"
-            android:textSize="@dimen/text_caption" />
-
-        <!-- Title -->
-        <TextView
-            android:id="@+id/tvSlideTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_12"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Stay Safe Around Snakes"
-            android:textAlignment="center"
-            android:textColor="@color/color_text_primary"
-            android:textSize="20sp" />
-
-        <!-- Subtitle / Local Title -->
-        <TextView
-            android:id="@+id/tvSlideMarathi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_4"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="सर्पांपासून सुरक्षित राहा"
-            android:textAlignment="center"
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/text_body" />
-
-        <!-- Description -->
-        <TextView
-            android:id="@+id/tvSlideDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_12"
-            android:fontFamily="@font/poppins_regular"
-            android:lineSpacingMultiplier="1.3"
-            android:text="Understand snake behaviors, prevention tips for farmlands, and how to maintain safety in daily routines."
-            android:textAlignment="center"
-            android:textColor="@color/color_text_secondary"
-            android:textSize="@dimen/text_body" />
-
-        <!-- Language Selector Section (Only shown on Screen 4) -->
         <LinearLayout
-            android:id="@+id/layoutLanguagePicker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_16"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:padding="@dimen/space_20">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLangEnglish"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="match_parent"
+            <!-- Category Badge -->
+            <TextView
+                android:id="@+id/tvSlideBadge"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="English"
-                android:textColor="@color/color_text_primary"
-                app:strokeColor="@color/color_primary" />
+                android:background="@drawable/dot_active"
+                android:backgroundTint="@color/color_primary_container"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingHorizontal="@dimen/space_12"
+                android:paddingVertical="@dimen/space_4"
+                android:text="PROTECT &amp; PREVENT"
+                android:textColor="@color/color_primary"
+                android:textSize="11sp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLangMarathi"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvSlideTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="Stay Safe Around Snakes"
+                android:textColor="@color/color_text_primary"
+                android:textSize="18sp" />
+
+            <!-- Subtitle / Local Title -->
+            <TextView
+                android:id="@+id/tvSlideMarathi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="सर्पांपासून सुरक्षित राहा"
+                android:textColor="@color/color_primary"
+                android:textSize="13sp" />
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/tvSlideDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_8"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="मराठी (Marathi)"
-                android:textColor="@color/color_text_primary"
-                app:strokeColor="@color/color_primary" />
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.2"
+                android:text="Understand snake behaviors, prevention tips for farmlands, and how to maintain safety in daily routines."
+                android:textColor="@color/color_text_secondary"
+                android:textSize="12sp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLangHindi"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+            <!-- Language Selector Section (Only shown on Screen 4) -->
+            <LinearLayout
+                android:id="@+id/layoutLanguagePicker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_8"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="हिंदी (Hindi)"
-                android:textColor="@color/color_text_primary"
-                app:strokeColor="@color/color_primary" />
+                android:layout_marginTop="@dimen/space_14"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLangEnglish"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="English"
+                    android:textColor="@color/color_text_primary"
+                    app:cornerRadius="8dp"
+                    app:strokeColor="@color/color_primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLangMarathi"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="मराठी (Marathi)"
+                    android:textColor="@color/color_text_primary"
+                    app:cornerRadius="8dp"
+                    app:strokeColor="@color/color_primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLangHindi"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="हिंदी (Hindi)"
+                    android:textColor="@color/color_text_primary"
+                    app:cornerRadius="8dp"
+                    app:strokeColor="@color/color_primary" />
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

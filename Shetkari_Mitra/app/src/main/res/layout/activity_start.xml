@@ -4,41 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/color_background"
+    android:orientation="vertical"
     tools:context=".Start_Activity">
 
-    <!-- Brand Header -->
+    <!-- Brand Header (Clean typography without bitmap logo) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/color_primary"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingVertical="@dimen/space_24">
-
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@drawable/app_logo"
-            android:contentDescription="@string/app_name" />
+        android:paddingVertical="@dimen/space_20">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_8"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/app_name"
             android:textColor="@color/color_on_primary"
-            android:textSize="@dimen/text_headline" />
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/poppins_regular"
             android:text="Farmer Safety &amp; Rescuer Network"
             android:textColor="@color/color_primary_container"
-            android:textSize="@dimen/text_caption" />
+            android:textSize="12sp" />
 
     </LinearLayout>
 
@@ -49,9 +43,9 @@
         android:layout_height="wrap_content"
         android:background="@color/color_surface"
         app:tabIndicatorColor="@color/color_primary"
+        app:tabMode="fixed"
         app:tabSelectedTextColor="@color/color_primary"
-        app:tabTextColor="@color/color_text_secondary"
-        app:tabMode="fixed" />
+        app:tabTextColor="@color/color_text_secondary" />
 
     <!-- ViewPager2 for Login / Sign Up -->
     <androidx.viewpager2.widget.ViewPager2
