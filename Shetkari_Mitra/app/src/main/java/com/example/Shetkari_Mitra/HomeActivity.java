@@ -137,7 +137,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         btnMenuDrawer = findViewById(R.id.btnMenuDrawer);
         btnVoiceAssistant = findViewById(R.id.btnVoiceAssistant);
 
-        cardEmergencyBtn = findViewById(R.id.emergency_btn);
         cardNearHospital = findViewById(R.id.nearhospital);
         cardSnakeRescuers = findViewById(R.id.snake_rescuer);
 

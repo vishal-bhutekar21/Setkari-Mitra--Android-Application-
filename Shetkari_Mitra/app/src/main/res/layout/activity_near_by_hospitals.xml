@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/color_background">
+    android:background="@color/color_background"
+    android:orientation="vertical">
 
     <!-- Top Bar with Glass Back Button -->
     <LinearLayout
@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Hospitals in Jalna"
+                android:text="ASV Hospitals in Jalna"
                 android:textColor="@color/color_on_primary"
                 android:textSize="@dimen/text_title" />
 
@@ -53,18 +53,54 @@
 
     </LinearLayout>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <!-- View Switcher (List vs Map Toggle) -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:visibility="gone" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
+        android:layout_marginTop="@dimen/space_10"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleGroupView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:checkedButton="@+id/btnToggleList"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToggleList"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_bold"
+                android:text="📋 List View (यादी)"
+                android:textSize="12sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToggleMap"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_bold"
+                android:text="🗺️ Map View (नकाशा)"
+                android:textSize="12sp" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    </LinearLayout>
 
     <!-- Search View Card -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
-        android:layout_marginVertical="@dimen/space_12"
+        android:layout_marginTop="@dimen/space_8"
+        android:layout_marginBottom="@dimen/space_8"
         android:background="@drawable/bg_glass_card"
         android:padding="@dimen/space_4">
 
