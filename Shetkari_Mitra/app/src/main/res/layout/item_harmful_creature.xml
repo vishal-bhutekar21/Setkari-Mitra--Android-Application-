@@ -6,9 +6,9 @@
     android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
     android:layout_marginVertical="@dimen/space_8"
     app:cardBackgroundColor="@color/color_surface"
-    app:cardCornerRadius="@dimen/radius_large"
-    app:cardElevation="3dp"
-    app:strokeColor="@color/color_border"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:strokeColor="#E2E8F0"
     app:strokeWidth="1dp">
 
     <LinearLayout
@@ -62,7 +62,7 @@
                 android:paddingHorizontal="@dimen/space_10"
                 android:paddingVertical="@dimen/space_4"
                 android:text="Scorpion"
-                android:textColor="@color/color_primary"
+                android:textColor="@color/color_white"
                 android:textSize="@dimen/text_caption" />
 
         </FrameLayout>
@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_12"
                 android:fontFamily="@font/poppins_bold"
-                android:text="🔍 Physical Markers (ओळख खुणा)"
+                android:text="Physical Markers (ओळख खुणा)"
                 android:textColor="@color/color_text_primary"
                 android:textSize="@dimen/text_body_small" />
 
@@ -159,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_10"
                 android:fontFamily="@font/poppins_bold"
-                android:text="🌾 Farm Risk Areas (अधिवास व धोका)"
+                android:text="Farm Risk Areas (अधिवास व धोका)"
                 android:textColor="@color/color_text_primary"
                 android:textSize="@dimen/text_body_small" />
 
@@ -187,7 +187,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="🚨 Emergency First Aid (प्रथमोपचार)"
+                    android:text="Emergency First Aid (प्रथमोपचार)"
                     android:textColor="@color/color_emergency"
                     android:textSize="@dimen/text_body_small" />
 
@@ -211,7 +211,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_10"
                 android:fontFamily="@font/poppins_regular"
-                android:text="🛡️ Prevention: Always shake shoes and clothes before farm work."
+                android:text="Prevention: Always shake shoes and clothes before farm work."
                 android:textColor="@color/color_primary"
                 android:textSize="@dimen/text_caption" />
 

@@ -5,26 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/color_primary">
 
-    <!-- Decorative Soft Glow Circles -->
-    <View
-        android:id="@+id/viewGlowOuter"
-        android:layout_width="340dp"
-        android:layout_height="340dp"
-        android:layout_centerInParent="true"
-        android:alpha="0.2"
-        android:background="@drawable/bg_feature_icon_circle"
-        android:backgroundTint="#40DDEEE3" />
-
-    <View
-        android:id="@+id/viewGlowInner"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:layout_centerInParent="true"
-        android:alpha="0.3"
-        android:background="@drawable/bg_feature_icon_circle"
-        android:backgroundTint="#6078C9A2" />
-
-    <!-- Center Brand & Infographic Showcase -->
+    <!-- Center Minimal Brand Container -->
     <LinearLayout
         android:id="@+id/centerStage"
         android:layout_width="match_parent"
@@ -34,27 +15,21 @@
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/space_24">
 
-        <!-- Logo Container with Elevation Effect -->
+        <!-- Minimal Vector Emblem Container -->
         <FrameLayout
             android:id="@+id/logoWrapper"
-            android:layout_width="120dp"
-            android:layout_height="120dp">
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_glass_circle_btn">
 
             <ImageView
                 android:id="@+id/ivShieldLogo"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
                 android:layout_gravity="center"
-                android:contentDescription="Shetkari Mitra Shield"
-                android:src="@drawable/ic_splash_shield" />
-
-            <ImageView
-                android:id="@+id/ivAppIconOverlay"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_gravity="center"
-                android:contentDescription="App Icon"
-                android:src="@mipmap/app_logo_main" />
+                android:contentDescription="Shetkari Mitra Emblem"
+                android:src="@drawable/ic_hospital_shield_24"
+                app:tint="@color/color_white" />
         </FrameLayout>
 
         <!-- App Name -->
@@ -62,78 +37,37 @@
             android:id="@+id/tvAppName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_20"
+            android:layout_marginTop="@dimen/space_16"
             android:fontFamily="@font/poppins_bold"
-            android:letterSpacing="0.03"
+            android:letterSpacing="0.02"
             android:text="Shetkari Mitra"
-            android:textColor="@color/color_on_primary"
-            android:textSize="30sp" />
+            android:textColor="@color/color_white"
+            android:textSize="26sp" />
 
-        <!-- App Marathi Name -->
+        <!-- Marathi Subtitle -->
         <TextView
             android:id="@+id/tvAppMarathiName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="शेतकरी मित्र • सर्प सुरक्षा"
-            android:textColor="@color/color_primary_container"
-            android:textSize="14sp" />
-
-        <!-- Tagline -->
-        <TextView
-            android:id="@+id/tvTagline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_12"
-            android:fontFamily="@font/poppins_semibold"
-            android:gravity="center"
-            android:letterSpacing="0.02"
-            android:text="Snake Safety. Faster Help. Safer Communities."
-            android:textColor="#F0FFFFFF"
-            android:textSize="15sp" />
-
-        <!-- Infographic Pillars: PREVENT - RESPOND - GET HELP -->
-        <ImageView
-            android:id="@+id/ivInfographics"
-            android:layout_width="200dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="@dimen/space_20"
-            android:contentDescription="Infographics: Identify, Respond, Hospital"
-            android:src="@drawable/ic_splash_infographic_trio" />
-
-        <!-- Dynamic Mission Status -->
-        <TextView
-            android:id="@+id/tvInfographicLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_8"
             android:fontFamily="@font/poppins_regular"
-            android:text="PREVENT • IDENTIFY • RESPOND • GET HELP"
-            android:textColor="#C0DDEEE3"
-            android:textSize="12sp" />
+            android:text="शेतकरी सुरक्षा आणि सर्पदंश निवारण"
+            android:textColor="@color/color_primary_container"
+            android:textSize="13sp" />
 
     </LinearLayout>
 
-    <!-- Bottom Institutional Trust Badge -->
-    <LinearLayout
-        android:id="@+id/bottomBadgeContainer"
-        android:layout_width="match_parent"
+    <!-- Bottom Minimal Footer -->
+    <TextView
+        android:id="@+id/tvTrustBadge"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/space_24"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvTrustBadge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Maharashtra Farmer &amp; Wildlife Emergency Network"
-            android:textColor="#80FFFFFF"
-            android:textSize="11sp" />
-
-    </LinearLayout>
+        android:fontFamily="@font/poppins_regular"
+        android:text="Maharashtra Farmer Safety Initiative"
+        android:textColor="#90FFFFFF"
+        android:textSize="11sp" />
 
 </RelativeLayout>
